@@ -1,0 +1,27 @@
+{
+  "type": "origins:modify_break_speed",
+  "block_condition": {
+    "type": "origins:any_of",
+    "conditions": [
+      {
+        "type": "origins:in_tag",
+        "tag": "davwyndragon:davwyn_digable_dirt"
+      },
+      {
+        "type": "origins:in_tag",
+        "tag": "minecraft:mineable/shovel"
+      },
+      {
+        "type": "origins:in_tag",
+        "tag": "minecraft:sand"
+      }
+    ]	
+  },
+  "modifier": {
+    "name": "Dragon digging claws dirt",
+    "operation": "add_base_late",
+    "amount": 0.2,
+    "value": 0.2
+  },
+  "hidden": true
+}

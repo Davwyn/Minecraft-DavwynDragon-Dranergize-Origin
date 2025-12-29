@@ -1,0 +1,1 @@
+execute at @s run power grant @s davwyndragon:entity_heal_1

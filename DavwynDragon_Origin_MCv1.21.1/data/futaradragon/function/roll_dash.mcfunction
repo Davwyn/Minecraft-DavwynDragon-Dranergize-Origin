@@ -1,2 +1,0 @@
-execute at @s positioned ^ ^1 ^1 as @e[distance=..10.0,nbt={cardinal_components:{"apoli:powers":{"Powers":[{Type:"futaradragon:shake_effect_resource"}]}}}] if entity @s run resource set @s futaradragon:shake_effect_resource 2
-execute at @s positioned ^ ^1 ^1 as @e[distance=..10.0,nbt={ForgeCaps:{"apoli:powers":{"Powers":[{Type:"futaradragon:shake_effect_resource"}]}}}] if entity @s run resource set @s futaradragon:shake_effect_resource 2

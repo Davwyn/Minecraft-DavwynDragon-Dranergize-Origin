@@ -1,0 +1,1 @@
+execute run title @s actionbar {"text":"Upgrade Select Starwisp Ability", "color":"aqua"}

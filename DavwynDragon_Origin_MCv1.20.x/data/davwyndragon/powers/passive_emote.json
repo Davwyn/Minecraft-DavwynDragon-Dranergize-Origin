@@ -1,0 +1,486 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"toggle_emote_mode":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:if_else_list",
+				"actions": [
+					{
+						"condition":{
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:emote_mode_resource",
+									"comparison": "==",
+									"compare_to": 0
+								},
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:emote_mode_key_stay_delay",
+									"comparison": ">",
+									"compare_to": 0
+								}
+							]
+						},
+						"action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:emote_mode_action",
+									"operation":"set",
+									"change": 1
+								},
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:emote_mode_resource",
+									"operation":"set",
+									"change": 1
+								}
+							]
+						}
+					},
+					{
+						"condition":{
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:emote_mode_key_count",
+									"comparison": "<",
+									"compare_to": 2
+								}
+							]
+						},
+						"action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:emote_mode_key_count",
+									"operation":"add",
+									"change": 1
+								},
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:emote_mode_key_delay",
+									"operation":"set",
+									"change": 10
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition":{
+												"type": "origins:and",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:emote_mode_key_count",
+														"comparison": "==",
+														"compare_to": 2
+													}
+												]
+											},
+											"action": {
+												"type": "origins:and",
+												"actions": [
+													{
+														"type": "origins:change_resource",
+														"resource": "davwyndragon:emote_mode_key_stay_delay",
+														"operation":"set",
+														"change": 10
+													}
+												]
+											}
+										}
+									]
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.sneak",
+			"continuous": false
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:on_block"
+				}
+			]
+		}
+	},
+	"toggle_emote_mode_wiggle":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:change_resource",
+						"resource": "davwyndragon:emote_mode_action",
+						"operation":"set",
+						"change": 2
+					},
+					{
+						"type": "origins:change_resource",
+						"resource": "davwyndragon:emote_mode_resource",
+						"operation":"set",
+						"change": 1
+					}
+				]
+			}
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.forward",
+			"continuous": false
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:on_block"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:emote_mode_resource",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:emote_mode_key_stay_delay",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"toggle_emote_mode_silly_dance":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:change_resource",
+						"resource": "davwyndragon:emote_mode_action",
+						"operation":"set",
+						"change": 3
+					},
+					{
+						"type": "origins:change_resource",
+						"resource": "davwyndragon:emote_mode_resource",
+						"operation":"set",
+						"change": 1
+					}
+				]
+			}
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.left",
+			"continuous": false
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:on_block"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:emote_mode_resource",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:emote_mode_key_stay_delay",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"toggle_emote_mode_stickbug":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:change_resource",
+						"resource": "davwyndragon:emote_mode_action",
+						"operation":"set",
+						"change": 4
+					},
+					{
+						"type": "origins:change_resource",
+						"resource": "davwyndragon:emote_mode_resource",
+						"operation":"set",
+						"change": 1
+					}
+				]
+			}
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.right",
+			"continuous": false
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:on_block"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:emote_mode_resource",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:emote_mode_key_stay_delay",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"toggle_emote_mode_hug":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:change_resource",
+						"resource": "davwyndragon:emote_mode_action",
+						"operation":"set",
+						"change": 5
+					},
+					{
+						"type": "origins:change_resource",
+						"resource": "davwyndragon:emote_mode_resource",
+						"operation":"set",
+						"change": 1
+					}
+				]
+			}
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.back",
+			"continuous": false
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:on_block"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:emote_mode_resource",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:emote_mode_key_stay_delay",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"passive_emote_system":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:if_else_list",
+						"actions": [
+							{
+								"condition":{
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "davwyndragon:emote_mode_key_stay_delay",
+											"comparison": ">",
+											"compare_to": 0
+										}
+									]
+								},
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:change_resource",
+											"resource": "davwyndragon:emote_mode_key_stay_delay",
+											"operation":"add",
+											"change": -1
+										}
+									]
+								}
+							},
+							{
+								"condition":{
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "davwyndragon:emote_mode_key_stay_delay",
+											"comparison": "==",
+											"compare_to": 0
+										},
+										{
+											"type": "origins:moving"
+										}
+									]
+								},
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:change_resource",
+											"resource": "davwyndragon:emote_mode_resource",
+											"operation":"set",
+											"change": 0
+										},
+										{
+											"type": "origins:change_resource",
+											"resource": "davwyndragon:emote_mode_action",
+											"operation":"set",
+											"change": 0
+										}
+									]
+								}
+							}
+						]
+					},
+					{
+						"type": "origins:if_else_list",
+						"actions": [
+							{
+								"condition":{
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "davwyndragon:emote_mode_key_delay",
+											"comparison": "==",
+											"compare_to": 0
+										},
+										{
+											"type": "origins:resource",
+											"resource": "davwyndragon:emote_mode_key_count",
+											"comparison": ">",
+											"compare_to": 0
+										}
+									]
+								},
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:change_resource",
+											"resource": "davwyndragon:emote_mode_key_count",
+											"operation":"set",
+											"change": 0
+										}
+									]
+								}
+							},
+							{
+								"condition":{
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "davwyndragon:emote_mode_key_delay",
+											"comparison": ">",
+											"compare_to": 0
+										}
+									]
+								},
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:change_resource",
+											"resource": "davwyndragon:emote_mode_key_delay",
+											"operation":"add",
+											"change": -1
+										}
+									]
+								}
+							}
+						]
+					}
+				]
+			}
+		},
+		"interval": 1
+	},
+	"optimize_emote_selection_time":{
+		"type": "origins:modify_velocity",
+		"modifier": {
+			"value": 0.0,
+			"operation": "set_total"
+		},
+		"axes": [
+			"x",
+			"z"
+		],
+		"condition": {
+			"type": "origins:resource",
+			"resource": "davwyndragon:emote_mode_key_stay_delay",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	}
+}

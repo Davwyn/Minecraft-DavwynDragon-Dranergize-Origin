@@ -1,0 +1,47 @@
+{
+	"hidden": true,
+	"type": "origins:action_on_being_used",
+	"item_condition": {
+		"type": "origins:ingredient",
+		"ingredient": {
+			"item": "minecraft:glass_bottle"
+		}
+	},
+	"hands": ["main_hand"],
+	"held_item_action": {
+		"type": "origins:side",
+		"side": "server",
+		"action": {
+			"type": "origins:consume",
+			"amount": 1
+		}
+	},
+	"bientity_condition": {
+		"type": "origins:actor_condition",
+		"condition": {
+			"type": "origins:sneaking"
+		}
+	},
+	"bientity_action": {
+		"type": "origins:side",
+		"side": "server",
+		"action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:actor_action",
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "function davwyndragon:davwyn_potion",
+								"permission_level": 4
+							}
+						]
+					}
+				}
+			]
+		}
+	}
+}

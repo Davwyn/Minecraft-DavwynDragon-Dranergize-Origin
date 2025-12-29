@@ -1,1 +1,0 @@
-execute as @e[distance=..5,type=!minecraft:armor_stand,type=!minecraft:marker,tag=!FutaraDragonLight,tag=!FutaraDragonLightEven,tag=!FutaraDragonLightEvenOdd,nbt={DeathTime:0s}] if entity @s at @s run particle minecraft:scrape ^ ^1 ^ 0.5 0.5 0.5 1.0 1 force

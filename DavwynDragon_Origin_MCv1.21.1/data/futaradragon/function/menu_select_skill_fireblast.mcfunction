@@ -1,1 +1,0 @@
-execute run title @s actionbar {"text":"Select Fire Blast Ability", "color":"aqua"}

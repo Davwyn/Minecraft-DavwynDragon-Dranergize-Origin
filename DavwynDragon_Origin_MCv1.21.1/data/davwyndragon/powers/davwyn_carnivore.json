@@ -1,0 +1,39 @@
+{
+    "hidden": true,
+    "name": "Carnivore",
+    "description": "You can only eat meat. Raw or cooked.",
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:all_of",
+        "conditions": [
+            {
+                "type": "origins:any_of",
+                "conditions": [
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "davwyndragon:meat"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "davwyndragon:raw_meat"
+                        }
+                    }
+                ],
+                "inverted": true
+            },
+            {
+                "type": "origins:food"
+            },
+            {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "origins:ignore_diet"
+                },
+                "inverted": true
+            }
+        ]
+    }
+}

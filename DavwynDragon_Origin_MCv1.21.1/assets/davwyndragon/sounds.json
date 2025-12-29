@@ -1,0 +1,583 @@
+{
+    "entity.davwyndragon.ui_menu": {
+        "sounds": [
+            "davwyndragon:ui_menu"
+        ]
+    },
+    "entity.davwyndragon.ui_menu_switch": {
+        "sounds": [
+            "davwyndragon:ui_menu_switch"
+        ]
+    },
+    "entity.davwyndragon.ui_press": {
+        "sounds": [
+            "davwyndragon:ui_press"
+        ]
+    },
+    "entity.davwyndragon.ui_error": {
+        "sounds": [
+            "davwyndragon:ui_error"
+        ]
+    },
+    "entity.davwyndragon.ui_levelup": {
+        "sounds": [
+            "davwyndragon:ui_levelup"
+        ]
+    },
+    "entity.davwyndragon.ui_skill_unlock": {
+        "sounds": [
+            "davwyndragon:ui_skill_unlock"
+        ]
+    },
+    "entity.davwyndragon.ui_skill_upgrade": {
+        "sounds": [
+            "davwyndragon:ui_skill_upgrade"
+        ]
+    },
+    "entity.davwyndragon.status_ultimate_explosion": {
+        "sounds": [
+            "davwyndragon:status_ultimate_explosion"
+        ]
+    },
+    "entity.davwyndragon.status_ultimate_spark_loop": {
+        "sounds": [
+            "davwyndragon:status_ultimate_spark_loop"
+        ]
+    },
+	"entity.davwyndragon.distance_large_impact": {
+        "sounds": [
+            "davwyndragon:distance_large_impact_1",
+            "davwyndragon:distance_large_impact_2",
+            "davwyndragon:distance_large_impact_3",
+            "davwyndragon:distance_large_impact_4"
+        ]
+    },
+	"entity.davwyndragon.distance_large_energy_impact": {
+        "sounds": [
+            "davwyndragon:distance_large_energy_impact_1",
+            "davwyndragon:distance_large_energy_impact_2",
+            "davwyndragon:distance_large_energy_impact_3"
+        ]
+    },
+	"entity.davwyndragon.vocal_ah": {
+        "sounds": [
+            "davwyndragon:davwyn_vocal_murrp_1",
+			"davwyndragon:davwyn_vocal_murrp_2",
+			"davwyndragon:davwyn_vocal_murrp_3",
+			"davwyndragon:davwyn_vocal_murrp_4"
+        ]
+    },
+	"entity.davwyndragon.vocal_happy": {
+        "sounds": [
+            "davwyndragon:davwyn_vocal_murrp_1"
+        ]
+    },
+	"entity.davwyndragon.vocal_pant": {
+        "sounds": [
+            "davwyndragon:vocal_pant"
+        ]
+    },
+	"entity.davwyndragon.vocal_roar_burst": {
+        "sounds": [
+            "davwyndragon:vocal_roar_burst"
+        ]
+    },
+	"entity.davwyndragon.vocal_roar_fade": {
+        "sounds": [
+            "davwyndragon:vocal_roar_fade"
+        ]
+    },
+	"entity.davwyndragon.vocal_roar_long": {
+        "sounds": [
+            "davwyndragon:vocal_roar_long"
+        ]
+    },
+	"entity.davwyndragon.vocal_roar_short": {
+        "sounds": [
+            "davwyndragon:vocal_roar_short"
+        ]
+    },
+	"entity.davwyndragon.vocal_hurt": {
+        "sounds": [
+            "davwyndragon:davwyn_vocal_hurt_1",
+            "davwyndragon:davwyn_vocal_hurt_2",
+            "davwyndragon:davwyn_vocal_hurt_3",
+            "davwyndragon:davwyn_vocal_hurt_4",
+            "davwyndragon:davwyn_vocal_hurt_5",
+            "davwyndragon:davwyn_vocal_hurt_6"
+        ]
+    },
+	"entity.davwyndragon.melee": {
+        "sounds": [
+            "davwyndragon:melee"
+        ]
+    },
+	"entity.davwyndragon.foot_step": {
+        "sounds": [
+            "davwyndragon:foot_step"
+        ]
+    },
+	"entity.davwyndragon.movement_dash": {
+        "sounds": [
+            "davwyndragon:movement_dash"
+        ]
+    },
+	"entity.davwyndragon.flight_wind_loop": {
+        "sounds": [
+            "davwyndragon:flight_wind_loop"
+        ]
+    },
+	"entity.davwyndragon.flight_wing_flap": {
+        "sounds": [
+            "davwyndragon:flight_wing_flap_1",
+            "davwyndragon:flight_wing_flap_2",
+            "davwyndragon:flight_wing_flap_3",
+            "davwyndragon:flight_wing_flap_4",
+            "davwyndragon:flight_wing_flap_5",
+            "davwyndragon:flight_wing_flap_6"
+        ]
+    },
+	"entity.davwyndragon.roll_dash_boost": {
+        "sounds": [
+            "davwyndragon:roll_dash_boost"
+        ]
+    },
+	"entity.davwyndragon.energy_shield_hit": {
+        "sounds": [
+            "davwyndragon:energy_shield_hit_1",
+            "davwyndragon:energy_shield_hit_2",
+            "davwyndragon:energy_shield_hit_3",
+            "davwyndragon:energy_shield_hit_4",
+            "davwyndragon:energy_shield_hit_5"
+        ]
+    },
+	"entity.davwyndragon.energy_shot_impact": {
+        "sounds": [
+            "davwyndragon:energy_shot_impact"
+        ]
+    },
+	"entity.davwyndragon.energy_shot_shoot": {
+        "sounds": [
+            "davwyndragon:energy_shot_shoot"
+        ]
+    },
+	"entity.davwyndragon.fire_blast_shot": {
+        "sounds": [
+            "davwyndragon:fire_blast_shot"
+        ]
+    },
+	"entity.davwyndragon.energy_blessing_aura_active": {
+        "sounds": [
+            "davwyndragon:energy_blessing_aura_active"
+        ]
+    },
+	"entity.davwyndragon.energy_blessing_aura_deactive": {
+        "sounds": [
+            "davwyndragon:energy_blessing_aura_deactive"
+        ]
+    },
+	"entity.davwyndragon.energy_blessing_aura_loop": {
+        "sounds": [
+            "davwyndragon:energy_blessing_aura_loop"
+        ]
+    },
+	"entity.davwyndragon.energy_blessing_aura_heal": {
+        "sounds": [
+            "davwyndragon:energy_blessing_aura_heal"
+        ]
+    },
+	"entity.davwyndragon.energy_orb_active": {
+        "sounds": [
+            "davwyndragon:energy_orb_active"
+        ]
+    },
+	"entity.davwyndragon.energy_orb_warp_in_out": {
+        "sounds": [
+            "davwyndragon:energy_orb_warp_in_out"
+        ]
+    },
+	"entity.davwyndragon.beam_saber_claw_loop": {
+        "sounds": [
+            "davwyndragon:beam_saber_claw_loop"
+        ]
+    },
+	"entity.davwyndragon.beam_saber_claw_impact": {
+        "sounds": [
+            "davwyndragon:beam_saber_claw_impact_1",
+            "davwyndragon:beam_saber_claw_impact_2",
+            "davwyndragon:beam_saber_claw_impact_3"
+        ]
+    },
+	"entity.davwyndragon.beam_saber_claw_mini_slash": {
+        "sounds": [
+            "davwyndragon:beam_saber_claw_mini_slash_1",
+            "davwyndragon:beam_saber_claw_mini_slash_2",
+            "davwyndragon:beam_saber_claw_mini_slash_3"
+        ]
+    },
+	"entity.davwyndragon.beam_saber_claw_slash": {
+        "sounds": [
+            "davwyndragon:beam_saber_claw_slash_1",
+            "davwyndragon:beam_saber_claw_slash_2",
+            "davwyndragon:beam_saber_claw_slash_3"
+        ]
+    },
+	"entity.davwyndragon.beam_saber_rush_active": {
+        "sounds": [
+            "davwyndragon:beam_saber_rush_active"
+        ]
+    },
+	"entity.davwyndragon.hyper_beam_begin": {
+        "sounds": [
+            "davwyndragon:hyper_beam_begin_1",
+            "davwyndragon:hyper_beam_begin_2",
+            "davwyndragon:hyper_beam_begin_3",
+            "davwyndragon:hyper_beam_begin_4",
+            "davwyndragon:hyper_beam_begin_5",
+            "davwyndragon:hyper_beam_begin_6"
+        ]
+    },
+	"entity.davwyndragon.hyper_beam_charge_loop": {
+        "sounds": [
+            "davwyndragon:hyper_beam_charge_loop"
+        ]
+    },
+	"entity.davwyndragon.hyper_beam_shoot_loop": {
+        "sounds": [
+            "davwyndragon:davwyn_hyper_beam_shoot_loop"
+        ]
+    },
+	"entity.davwyndragon.hyper_beam_impact_loop": {
+        "sounds": [
+            "davwyndragon:hyper_beam_impact_loop"
+        ]
+    },
+	"entity.davwyndragon.ultimate_depleted": {
+        "sounds": [
+            "davwyndragon:ultimate_depleted"
+        ]
+    },
+	"entity.davwyndragon.energy_regenerate_loop": {
+        "sounds": [
+            "davwyndragon:energy_regenerate_loop"
+        ]
+    },
+	"entity.davwyndragon.static_armor_beam_saber_blade_aim": {
+        "sounds": [
+            "davwyndragon:static_armor_beam_saber_blade_aim"
+        ]
+    },
+	"entity.davwyndragon.static_armor_beam_saber_blade_shot": {
+        "sounds": [
+            "davwyndragon:static_armor_beam_saber_blade_shot_1",
+            "davwyndragon:static_armor_beam_saber_blade_shot_2"
+        ]
+    },
+	"entity.davwyndragon.static_armor_beam_saber_blade_slash": {
+        "sounds": [
+            "davwyndragon:static_armor_beam_saber_blade_slash"
+        ]
+    },
+	"entity.davwyndragon.static_armor_beam_saber_blade_slash_extra_velocity": {
+        "sounds": [
+            "davwyndragon:static_armor_beam_saber_blade_slash_extra_velocity_1",
+            "davwyndragon:static_armor_beam_saber_blade_slash_extra_velocity_2",
+            "davwyndragon:static_armor_beam_saber_blade_slash_extra_velocity_3",
+            "davwyndragon:static_armor_beam_saber_blade_slash_extra_velocity_4"
+        ]
+    },
+	"entity.davwyndragon.static_armor_beam_saber_blade_slash_impact": {
+        "sounds": [
+            "davwyndragon:static_armor_beam_saber_blade_slash_impact_1",
+            "davwyndragon:static_armor_beam_saber_blade_slash_impact_2"
+        ]
+    },
+	"entity.davwyndragon.static_armor_beam_saber_blade_small_beam_loop": {
+        "sounds": [
+            "davwyndragon:static_armor_beam_saber_blade_small_beam_loop"
+        ]
+    },
+	"entity.davwyndragon.static_armor_booster_burst": {
+        "sounds": [
+            "davwyndragon:static_armor_booster_burst"
+        ]
+    },
+	"entity.davwyndragon.static_armor_booster_loop": {
+        "sounds": [
+            "davwyndragon:static_armor_booster_loop"
+        ]
+    },
+	"entity.davwyndragon.static_armor_cooling_down": {
+        "sounds": [
+            "davwyndragon:static_armor_cooling_down_1",
+            "davwyndragon:static_armor_cooling_down_2",
+            "davwyndragon:static_armor_cooling_down_3"
+        ]
+    },
+	"entity.davwyndragon.static_armor_drone_mini_booster_loop": {
+        "sounds": [
+            "davwyndragon:static_armor_drone_mini_booster_loop"
+        ]
+    },
+	"entity.davwyndragon.static_armor_drone_mini_shot": {
+        "sounds": [
+            "davwyndragon:static_armor_drone_mini_shot_1",
+            "davwyndragon:static_armor_drone_mini_shot_2"
+        ]
+    },
+	"entity.davwyndragon.static_armor_drone_shot": {
+        "sounds": [
+            "davwyndragon:static_armor_drone_shot"
+        ]
+    },
+	"entity.davwyndragon.static_armor_energy_smg_shot": {
+        "sounds": [
+            "davwyndragon:static_armor_energy_smg_shot"
+        ]
+    },
+	"entity.davwyndragon.static_armor_energy_barrier_impact": {
+        "sounds": [
+            "davwyndragon:static_armor_energy_barrier_impact"
+        ]
+    },
+	"entity.davwyndragon.static_armor_foot_step": {
+        "sounds": [
+            "davwyndragon:static_armor_foot_step"
+        ]
+    },
+	"entity.davwyndragon.static_armor_gatling_active_loop": {
+        "sounds": [
+            "davwyndragon:static_armor_gatling_active_loop"
+        ]
+    },
+	"entity.davwyndragon.static_armor_gatling_active_loop_end": {
+        "sounds": [
+            "davwyndragon:static_armor_gatling_active_loop_end"
+        ]
+    },
+	"entity.davwyndragon.static_armor_gatling_shot": {
+        "sounds": [
+            "davwyndragon:static_armor_gatling_shot"
+        ]
+    },
+	"entity.davwyndragon.static_armor_ground_wheel_loop": {
+        "sounds": [
+            "davwyndragon:static_armor_ground_wheel_loop"
+        ]
+    },
+	"entity.davwyndragon.static_armor_heat_energy_impact": {
+        "sounds": [
+            "davwyndragon:static_armor_heat_energy_impact"
+        ]
+    },
+	"entity.davwyndragon.static_armor_idle_loop": {
+        "sounds": [
+            "davwyndragon:static_armor_idle_loop"
+        ]
+    },
+	"entity.davwyndragon.static_armor_part_break": {
+        "sounds": [
+            "davwyndragon:static_armor_part_break_1",
+            "davwyndragon:static_armor_part_break_2",
+            "davwyndragon:static_armor_part_break_3",
+            "davwyndragon:static_armor_part_break_4"
+        ]
+    },
+	"entity.davwyndragon.static_armor_part_dock": {
+        "sounds": [
+            "davwyndragon:static_armor_part_dock_1",
+            "davwyndragon:static_armor_part_dock_2"
+        ]
+    },
+	"entity.davwyndragon.static_armor_part_undock": {
+        "sounds": [
+            "davwyndragon:static_armor_part_undock"
+        ]
+    },
+	"entity.davwyndragon.static_armor_physic_projectile_impact": {
+        "sounds": [
+            "davwyndragon:static_armor_physic_projectile_impact_1",
+            "davwyndragon:static_armor_physic_projectile_impact_2",
+            "davwyndragon:static_armor_physic_projectile_impact_3",
+            "davwyndragon:static_armor_physic_projectile_impact_4",
+            "davwyndragon:static_armor_physic_projectile_impact_5"
+        ]
+    },
+	"entity.davwyndragon.static_armor_super_high_energy_impact": {
+        "sounds": [
+            "davwyndragon:static_armor_super_high_energy_impact_1",
+            "davwyndragon:static_armor_super_high_energy_impact_2"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_angel_way_flight_loop": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_angel_way_flight_loop"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_angel_way_ultimate": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_angel_way_ultimate"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_bullet_hit": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_bullet_hit_1",
+            "davwyndragon:grand_cross_zana_heaven_bullet_hit_2",
+            "davwyndragon:grand_cross_zana_heaven_bullet_hit_3",
+            "davwyndragon:grand_cross_zana_heaven_bullet_hit_4",
+            "davwyndragon:grand_cross_zana_heaven_bullet_hit_5"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_bullet_homing_hit": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_bullet_homing_hit_1",
+            "davwyndragon:grand_cross_zana_heaven_bullet_homing_hit_2",
+            "davwyndragon:grand_cross_zana_heaven_bullet_homing_hit_3"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_bullet_homing_shot": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_bullet_homing_shot_1",
+            "davwyndragon:grand_cross_zana_heaven_bullet_homing_shot_2",
+            "davwyndragon:grand_cross_zana_heaven_bullet_homing_shot_3",
+            "davwyndragon:grand_cross_zana_heaven_bullet_homing_shot_4"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_bullet_shot": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_bullet_shot_1",
+            "davwyndragon:grand_cross_zana_heaven_bullet_shot_2",
+            "davwyndragon:grand_cross_zana_heaven_bullet_shot_3",
+            "davwyndragon:grand_cross_zana_heaven_bullet_shot_4",
+            "davwyndragon:grand_cross_zana_heaven_bullet_shot_5",
+            "davwyndragon:grand_cross_zana_heaven_bullet_shot_6"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_gatling_shot_loop": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_gatling_shot_loop"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_heaven_strike_ready": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_heaven_strike_ready"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_heaven_strike_ultimate": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_heaven_strike_ultimate"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_no_energy": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_no_energy"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_saber_active_loop": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_saber_active_loop"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_saber_slash": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_saber_slash_1",
+            "davwyndragon:grand_cross_zana_heaven_saber_slash_2",
+            "davwyndragon:grand_cross_zana_heaven_saber_slash_3",
+            "davwyndragon:grand_cross_zana_heaven_saber_slash_4",
+            "davwyndragon:grand_cross_zana_heaven_saber_slash_5",
+            "davwyndragon:grand_cross_zana_heaven_saber_slash_6"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_shield_impact": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_shield_impact_1",
+            "davwyndragon:grand_cross_zana_heaven_shield_impact_2",
+            "davwyndragon:grand_cross_zana_heaven_shield_impact_3"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_strike_charge": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_strike_charge"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_strike_hit": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_strike_hit_1"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_strike_pre_charge": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_strike_pre_charge"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_heaven_strike_shot": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_heaven_strike_shot_1",
+            "davwyndragon:grand_cross_zana_heaven_strike_shot_2",
+            "davwyndragon:grand_cross_zana_heaven_strike_shot_3",
+            "davwyndragon:grand_cross_zana_heaven_strike_shot_4",
+            "davwyndragon:grand_cross_zana_heaven_strike_shot_5",
+            "davwyndragon:grand_cross_zana_heaven_strike_shot_6"
+        ]
+    },
+	"entity.davwyndragon.grand_cross_zana_normal_bullet_hit": {
+        "sounds": [
+            "davwyndragon:grand_cross_zana_normal_bullet_hit"
+        ]
+    },
+    "entity.davwyndragon.davwyndragon_combat_music_1": {
+        "sounds": [
+            "davwyndragon:davwyndragon_combat_music_1"
+        ]
+    },
+    "entity.davwyndragon.davwyndragon_combat_music_2": {
+        "sounds": [
+            "davwyndragon:davwyndragon_combat_music_2"
+        ]
+    },
+    "entity.davwyndragon.davwyndragon_combat_music_3": {
+        "sounds": [
+            "davwyndragon:davwyndragon_combat_music_3"
+        ]
+    },
+    "entity.davwyndragon.davwyndragon_combat_music_4": {
+        "sounds": [
+            "davwyndragon:davwyndragon_combat_music_4"
+        ]
+    },
+    "entity.davwyndragon.davwyndragon_combat_music_5": {
+        "sounds": [
+            "davwyndragon:davwyndragon_combat_music_5"
+        ]
+    },
+    "entity.davwyndragon.davwyndragon_combat_intense_music_1": {
+        "sounds": [
+            "davwyndragon:davwyndragon_combat_intense_music_1"
+        ]
+    },
+    "entity.davwyndragon.davwyndragon_combat_intense_music_2": {
+        "sounds": [
+            "davwyndragon:davwyndragon_combat_intense_music_2"
+        ]
+    },
+    "entity.davwyndragon.davwyndragon_combat_intense_music_3": {
+        "sounds": [
+            "davwyndragon:davwyndragon_combat_intense_music_3"
+        ]
+    },
+    "entity.davwyndragon.davwyndragon_combat_intense_music_4": {
+        "sounds": [
+            "davwyndragon:davwyndragon_combat_intense_music_4"
+        ]
+    },
+    "entity.davwyndragon.davwyndragon_combat_intense_music_5": {
+        "sounds": [
+            "davwyndragon:davwyndragon_combat_intense_music_5"
+        ]
+    },
+    "entity.davwyndragon.music_ultimate_1": {
+        "sounds": [
+            "davwyndragon:davwyndragon_ultimate_music_1"
+        ]
+    }
+}

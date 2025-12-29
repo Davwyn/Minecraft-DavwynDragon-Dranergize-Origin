@@ -1,0 +1,1 @@
+execute run title @s actionbar {"text":"Select Plasma Beam Ability", "color":"aqua"}

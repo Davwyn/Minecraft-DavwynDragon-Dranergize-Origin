@@ -1,0 +1,244 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"revenge_rampage_charging":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:change_resource",
+					"resource": "davwyndragon:revengerampage_charging_toggle",
+					"operation":"set",
+					"change": 1
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "davwyndragon:revengerampage_charge_over_delay",
+					"operation":"set",
+					"change": 3
+				}
+			]
+		},
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.origins.primary_active",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:skill_cycle",
+					"comparison": "==",
+					"compare_to": 6
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:ability_level_revengerampage",
+					"comparison": ">",
+					"compare_to": 2
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:option_toggle",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:ultimate_resource",
+					"comparison": ">=",
+					"compare_to": 1000
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:sleep_mode_resource",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"revenge_rampage_charge_tracking":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:if_else_list",
+				"actions": [
+					{
+						"condition":{
+							"type": "origins:any_of",
+							"conditions": [
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:revengerampage_charging_toggle",
+									"comparison": "==",
+									"compare_to": 1
+								},
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:revengerampage_charge_over_delay",
+									"comparison": ">",
+									"compare_to": 0
+								}
+							]
+						},
+						"action": [
+							{
+								"type": "origins:change_resource",
+								"resource": "davwyndragon:revengerampage_charge",
+								"operation":"add",
+								"change": 10
+							},
+							{
+								"type": "origins:change_resource",
+								"resource": "davwyndragon:revengerampage_charge_over_delay",
+								"operation":"add",
+								"change": -1
+							},
+							{
+								"type": "origins:change_resource",
+								"resource": "davwyndragon:revengerampage_charging_toggle",
+								"operation":"set",
+								"change": 0
+							},
+							{
+								"type": "origins:if_else_list",
+								"actions": [
+									{
+										"condition":{
+											"type": "origins:all_of",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "davwyndragon:revengerampage_charge",
+													"comparison": "==",
+													"compare_to": 100
+												},
+												{
+													"type": "origins:resource",
+													"resource": "davwyndragon:state_resource",
+													"comparison": "==",
+													"compare_to": 0
+												},
+												{
+													"type": "origins:resource",
+													"resource": "davwyndragon:ultimate_resource",
+													"comparison": ">=",
+													"compare_to": 1000
+												}
+											]
+										},
+										"action": [
+											{
+												"type": "origins:change_resource",
+												"resource": "davwyndragon:state_resource",
+												"operation":"set",
+												"change": 1
+											},
+											{
+												"type": "origins:clear_effect"
+											},
+											{
+												"type": "origins:apply_effect",
+												"effects": [
+													{
+														"id": "minecraft:absorption",
+														"effect": "minecraft:absorption",
+														"amplifier": 2,
+														"duration": 1200,
+														"show_particles":false
+													},
+													{
+														"id": "minecraft:fire_resistance",
+														"effect": "minecraft:fire_resistance",
+														"amplifier": 255,
+														"duration": 100,
+														"show_particles":false
+													},
+													{
+														"id": "minecraft:haste",
+														"effect": "minecraft:haste",
+														"amplifier": 255,
+														"duration": 100,
+														"show_particles":false
+													},
+													{
+														"id": "minecraft:water_breathing",
+														"effect": "minecraft:water_breathing",
+														"amplifier": 255,
+														"duration": 100,
+														"show_particles":false
+													},
+													{
+														"id": "minecraft:weakness",
+														"effect": "minecraft:weakness",
+														"amplifier": 255,
+														"duration": 100,
+														"show_particles":false
+													}
+												]
+											},
+											{
+												"type": "origins:change_resource",
+												"resource": "davwyndragon:energyshield_resource",
+												"operation":"set",
+												"change": 14
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "function davwyndragon:revengestand_effect",
+												"permission_level": 4
+											}
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"condition":{
+							"type": "origins:all_of",
+							"conditions": [
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:revengerampage_charging_toggle",
+									"comparison": "==",
+									"compare_to": 0
+								},
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:revengerampage_charge",
+									"comparison": ">",
+									"compare_to": 0
+								}
+							]
+						},
+						"action": [
+							{
+								"type": "origins:change_resource",
+								"resource": "davwyndragon:revengerampage_charge",
+								"operation":"add",
+								"change": -10
+							},
+							{
+								"type": "origins:change_resource",
+								"resource": "davwyndragon:revengerampage_charge_over_delay",
+								"operation":"add",
+								"change": -1
+							}
+						]
+					}
+				]
+			}
+		},
+		"interval": 1
+	}
+}

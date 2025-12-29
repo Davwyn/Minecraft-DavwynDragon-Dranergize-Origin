@@ -1,1 +1,0 @@
-execute run title @s subtitle {"text":"Energy Shot Fast Charge x5 Ability Unlocked", "bold":false, "italic":false, "color":"light_purple"}

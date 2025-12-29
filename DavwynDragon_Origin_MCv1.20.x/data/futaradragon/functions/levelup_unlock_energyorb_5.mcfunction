@@ -1,1 +1,0 @@
-execute run title @s subtitle {"text":"Energy Orb Count +8 More Fire Rate x8 Focus Fire Ability Unlocked", "bold":false, "italic":false, "color":"light_purple"}

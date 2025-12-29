@@ -1,0 +1,24 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"sand_tooltip":{
+		"type": "origins:tooltip",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:sand"
+			}
+		},
+		"text": "I can turn this into glass by putting it on my back."
+	},
+	"bottle_tooltip":{
+		"type": "origins:tooltip",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:glass_bottle"
+			}
+		},
+		"text": "If I put this on my back I can scrape starwisp dust into it."
+	}
+}

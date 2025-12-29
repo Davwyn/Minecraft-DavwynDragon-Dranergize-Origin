@@ -13,6 +13,6 @@
         }
     },
 	"overrides": [
-		{"predicate": {"custom_model_data":3434200}, "model": "item/futaradragon_icon"}
+		{"predicate": {"custom_model_data":5252000}, "model": "item/davwyndragon_icon"}
 	]
 }

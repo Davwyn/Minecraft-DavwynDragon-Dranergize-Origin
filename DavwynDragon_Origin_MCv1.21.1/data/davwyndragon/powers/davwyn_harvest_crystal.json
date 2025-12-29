@@ -1,0 +1,69 @@
+{
+	"hidden": true,
+	"type": "origins:action_on_being_used",
+	"item_condition": {
+		"type": "origins:ingredient",
+		"ingredient": {
+			"tag": "minecraft:sand"
+		}
+	},
+	"hands": ["main_hand"],
+	"held_item_action": {
+		"type": "origins:side",
+		"side": "server",
+		"action": {
+			"type": "origins:consume",
+			"amount": 1
+		}
+	},
+	"bientity_condition": {
+		"type": "origins:actor_condition",
+		"condition": {
+			"type": "origins:sneaking"
+		}
+	},
+	"bientity_action": {
+		"type": "origins:side",
+		"side": "server",
+		"action": {
+			"type": "origins:actor_action",
+			"action": {
+				"type": "origins:choice",
+				"actions": [
+					{
+						"element": {
+							"type": "origins:execute_command",
+							"command": "function davwyndragon:davwyn_harvestcrystal_glass",
+							"permission_level": 4
+						},
+						"weight": 45
+					},
+					{
+						"element": {
+							"type": "origins:execute_command",
+							"command": "function davwyndragon:davwyn_harvestcrystal_tintedglass",
+							"permission_level": 4
+						},
+						"weight": 25
+					},
+					{
+						"element": {
+							"type": "origins:execute_command",
+							"command": "function davwyndragon:davwyn_harvestcrystal_amethyst",
+							"permission_level": 4
+						},
+						"weight": 20
+					},
+					{
+						"element": {
+							"type": "origins:execute_command",
+							"command": "function davwyndragon:davwyn_harvestcrystal_quartz",
+							"permission_level": 4
+						},
+						"weight": 10
+					}
+				]
+			}
+		}
+	}
+}

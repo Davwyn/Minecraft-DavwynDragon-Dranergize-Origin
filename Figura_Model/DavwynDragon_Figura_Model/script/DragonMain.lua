@@ -20,6 +20,8 @@ All of this code can be copy and use on your project but with credit refrence fo
 -- Special Thank 'Auria' For nice trick for add special list in Figura authors
 -- Special Thank 'bitslayn' For address the item light level issue on model when upgrade Figura to version 0.1.5
 
+-- Script modified by Davwyn Dragon for Starwisp effects.
+
 -- FD Init And System Runtime
 
 local FDGyroPhysic = {}
@@ -462,7 +464,7 @@ function FDCharacterNeckRotationTickUpdate(CharacterData,AnimationX,AnimationY,B
 		AnimationXObj.Rotation = math.lerp(AnimationXObj.PreRotation,CurrentDifferentRotation,FDAnimationNeckRotateFactor)
 	else
 		CurrentDifferentRotation = FDPlayerRot()
-		if (FDOriginGetData("futaradragon:sleep_mode_resource") ~= nil and FDOriginGetData("futaradragon:sleep_mode_resource") >= 1) then
+		if (FDOriginGetData("davwyndragon:sleep_mode_resource") ~= nil and FDOriginGetData("davwyndragon:sleep_mode_resource") >= 1) then
 			CurrentDifferentRotation = CharacterData.NeckRotation
 		else
 			CharacterData.NeckRotation = CurrentDifferentRotation
@@ -1061,9 +1063,9 @@ function FDFootStepSound(CharacterData,StepSound,Power,Pitch)
 			CharacterData.FootStepToggle = true
 		end
 		if CharacterData.OriginAbility.DracomechArmor.ActiveRender == true then
-			sounds:playSound("futaradragon:entity.futaradragon.static_armor_foot_step", CharacterData.Position, Power or 1.0, Pitch or 1.0, false):setAttenuation(FDBaseSoundDistance)
+			sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_foot_step", CharacterData.Position, Power or 1.0, Pitch or 1.0, false):setAttenuation(FDBaseSoundDistance)
 		else
-			sounds:playSound("futaradragon:entity.futaradragon.foot_step", CharacterData.Position, Power or 1.0, Pitch or 1.0, false):setAttenuation(FDBaseSoundDistance)
+			sounds:playSound("davwyndragon:entity.davwyndragon.foot_step", CharacterData.Position, Power or 1.0, Pitch or 1.0, false):setAttenuation(FDBaseSoundDistance)
 		end
 	end
 end
@@ -1126,15 +1128,15 @@ function FDCharacterItemSync(CharacterData)
 		CharacterData.ItemSecondaryObj:rot(FDMapperObj["HOLD_ITEM_Dragon_Back_Position"]:getRot())
 		CharacterData.ItemSecondaryObj:scale(FDMapperObj["HOLD_ITEM_Dragon_Back_Position"]:getScale())
 		CharacterData.ItemSecondaryObj:setDisplayMode("THIRD_PERSON_LEFT_HAND")
-		if FDOriginGetAbilityIdx("futaradragon:back_ability_crafttable") ~= nil and CharacterData.ItemSecondary.id == "minecraft:crafting_table" then
+		if FDOriginGetAbilityIdx("davwyndragon:back_ability_crafttable") ~= nil and CharacterData.ItemSecondary.id == "minecraft:crafting_table" then
 			CharacterData.ItemSecondaryObj:setItem("minecraft:air")
 			FDCharacterItemSyncActive("CraftingTable")
 			CharacterData.ItemSecondaryDisplay = true
-		elseif FDOriginGetAbilityIdx("futaradragon:back_ability_storage") ~= nil and (CharacterData.ItemSecondary.id == "minecraft:chest" or CharacterData.ItemSecondary.id == "minecraft:trapped_chest" or CharacterData.ItemSecondary.id == "minecraft:ender_chest") then
+		elseif FDOriginGetAbilityIdx("davwyndragon:back_ability_storage") ~= nil and (CharacterData.ItemSecondary.id == "minecraft:chest" or CharacterData.ItemSecondary.id == "minecraft:trapped_chest" or CharacterData.ItemSecondary.id == "minecraft:ender_chest") then
 			CharacterData.ItemSecondaryObj:setItem("minecraft:air")
 			FDCharacterItemSyncActive("Chest")
 			CharacterData.ItemSecondaryDisplay = true
-		elseif FDOriginGetAbilityIdx("futaradragon:passive_ride") ~= nil and CharacterData.ItemSecondary.id == "minecraft:saddle" then
+		elseif FDOriginGetAbilityIdx("davwyndragon:passive_ride") ~= nil and CharacterData.ItemSecondary.id == "minecraft:saddle" then
 			CharacterData.ItemSecondaryObj:setItem("minecraft:air")
 			FDCharacterItemSyncActive("Saddle")
 			CharacterData.ItemSecondaryDisplay = true
@@ -1504,11 +1506,11 @@ function FDEyesActionBlinkUpdate(CharacterData)
 end
 
 function FDShockWaveWindDistanceFar(Position,Power)
-	sounds:playSound("futaradragon:entity.futaradragon.distance_large_impact", Position, Power or 0.2, 1.0, false):setAttenuation(FDBaseSoundDistanceFar)
+	sounds:playSound("davwyndragon:entity.davwyndragon.distance_large_impact", Position, Power or 0.2, 1.0, false):setAttenuation(FDBaseSoundDistanceFar)
 end
 
 function FDShockWaveEnergyDistanceFar(Position,Power)
-	sounds:playSound("futaradragon:entity.futaradragon.distance_large_energy_impact", Position, Power or 0.2, 1.0, false):setAttenuation(FDBaseSoundDistanceFar)
+	sounds:playSound("davwyndragon:entity.davwyndragon.distance_large_energy_impact", Position, Power or 0.2, 1.0, false):setAttenuation(FDBaseSoundDistanceFar)
 end
 
 function FDParticleFlashSmokeEffect(Position,Power)
@@ -1578,7 +1580,7 @@ function FDParticleEnergyShieldHit(CharacterData)
 		Position = CurrentPosition * 16,
 		EnergyScale = 1.0
 	})
-	sounds:playSound("futaradragon:entity.futaradragon.energy_shield_hit", CharacterData.Position, 2.0, 1.0):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.energy_shield_hit", CharacterData.Position, 2.0, 1.0):setAttenuation(FDBaseSoundDistance)
 	FDParticleFlashSmokeEffect(CurrentPosition,1.0)
 end
 
@@ -1607,7 +1609,7 @@ function FDParticleEnergyMatrixShieldHit(CharacterData)
 			ScaleRandom = 0.3
 		})
 	end
-	sounds:playSound("futaradragon:entity.futaradragon.static_armor_energy_barrier_impact", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_energy_barrier_impact", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 	FDParticleFlashSmokeEffect(CurrentPosition,1.0)
 end
 
@@ -1636,7 +1638,7 @@ function FDParticleMagicHeatShieldHit(CharacterData)
 			ScaleRandom = 0.3
 		})
 	end
-	sounds:playSound("futaradragon:entity.futaradragon.grand_cross_zana_heaven_shield_impact", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_shield_impact", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 	FDParticleFlashSmokeEffect(CurrentPosition,1.0)
 end
 
@@ -1658,7 +1660,7 @@ function FDParticlePartDestroyEffect(CharacterData,Position)
 			ScaleRandom = 0.3
 		})
 	end
-	sounds:playSound("futaradragon:entity.futaradragon.static_armor_part_break", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_part_break", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
 	FDParticleFlashSmokeEffect(Position,2.0)
 end
 
@@ -1690,7 +1692,7 @@ function FDParticlePartRepairCompleteEffect(CharacterData,Position,EnergyScale)
 		Position = AdjustPosition,
 		EnergyScale = EnergyScale or 1.0
 	})
-	sounds:playSound("futaradragon:entity.futaradragon.energy_orb_warp_in_out", Position , 1.0):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.energy_orb_warp_in_out", Position , 1.0):setAttenuation(FDBaseSoundDistance)
 	FDParticleFlashSmokeEffect(Position,1.0)
 end
 
@@ -1739,7 +1741,7 @@ function FDParticleDockPart(CharacterData,AttachPart,EnergyScale)
 			ScaleRandom = EnergyScale * 0.2 or 0.2
 		})
 	end
-	sounds:playSound("futaradragon:entity.futaradragon.static_armor_part_dock", Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_part_dock", Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
 	FDParticleFlashSmokeEffect(Position,1.0)
 end
 
@@ -1770,8 +1772,8 @@ function FDParticleEnergyShotToTarget(CharacterData,PositionFrom,PositionTo)
 			Position = AdjustPositionTo
 		})
 	end
-	sounds:playSound("futaradragon:entity.futaradragon.energy_shot_shoot", PositionFrom, 1.0, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
-	sounds:playSound("futaradragon:entity.futaradragon.energy_shot_impact", PositionTo, 1.0, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.energy_shot_shoot", PositionFrom, 1.0, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.energy_shot_impact", PositionTo, 1.0, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
 	FDShockWaveWindDistanceFar(PositionFrom)
 	FDParticleFlashSmokeEffect(PositionTo,1)
 end
@@ -1800,8 +1802,8 @@ function FDParticlePhysicShotToTarget(CharacterData,PositionFrom,PositionTo)
 			ScaleRandom = 0.2
 		})
 	end
-	sounds:playSound("futaradragon:entity.futaradragon.static_armor_energy_smg_shot", PositionFrom, 0.3, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
-	sounds:playSound("futaradragon:entity.futaradragon.static_armor_physic_projectile_impact", PositionTo, 0.2, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_energy_smg_shot", PositionFrom, 0.3, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_physic_projectile_impact", PositionTo, 0.2, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
 	FDShockWaveWindDistanceFar(PositionFrom)
 	FDParticleFlashSmokeEffect(PositionTo,1)
 end
@@ -1829,8 +1831,8 @@ function FDParticleMiniPhysicShotToTarget(CharacterData,PositionFrom,PositionTo)
 			ScaleRandom = 0.2
 		})
 	end
-	sounds:playSound("futaradragon:entity.futaradragon.static_armor_gatling_shot", PositionFrom, 0.3, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
-	sounds:playSound("futaradragon:entity.futaradragon.static_armor_physic_projectile_impact", PositionTo, 0.2, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_gatling_shot", PositionFrom, 0.3, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_physic_projectile_impact", PositionTo, 0.2, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
 	FDShockWaveWindDistanceFar(PositionFrom)
 	FDParticleFlashSmokeEffect(PositionTo,1)
 end
@@ -1859,7 +1861,7 @@ function FDParticleMagicPhysicShotToTarget(CharacterData,PositionFrom,PositionTo
 			ScaleRandom = 0.1
 		})
 	end
-	sounds:playSound("futaradragon:entity.futaradragon.static_armor_physic_projectile_impact", PositionTo, 0.05, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_physic_projectile_impact", PositionTo, 0.05, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
 	FDShockWaveWindDistanceFar(PositionFrom,0.1)
 	FDParticleFlashSmokeEffect(PositionTo,0.2)
 end
@@ -1884,8 +1886,8 @@ function FDParticleHighEnergyShotToTarget(CharacterData,PositionFrom,PositionTo)
 		BurnScale = 0.5
 	})
 	
-	sounds:playSound("futaradragon:entity.futaradragon.static_armor_drone_mini_shot", PositionFrom, 0.25, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
-	sounds:playSound("futaradragon:entity.futaradragon.static_armor_high_energy_impact", PositionTo, 0.6, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_drone_mini_shot", PositionFrom, 0.25, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_high_energy_impact", PositionTo, 0.6, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
 	FDShockWaveEnergyDistanceFar(PositionFrom)
 	FDParticleFlashSmokeEffect(PositionTo,1)
 end
@@ -1914,8 +1916,8 @@ function FDParticleHeatEnergyShotToTarget(CharacterData,PositionFrom,PositionTo)
 		})
 	end
 	
-	sounds:playSound("futaradragon:entity.futaradragon.static_armor_drone_shot", PositionFrom, 0.3, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
-	sounds:playSound("futaradragon:entity.futaradragon.static_armor_heat_energy_impact", PositionTo, 0.6, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_drone_shot", PositionFrom, 0.3, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_heat_energy_impact", PositionTo, 0.6, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
 	FDShockWaveEnergyDistanceFar(PositionFrom)
 	FDParticleFlashSmokeEffect(PositionTo,1)
 end
@@ -1962,8 +1964,8 @@ function FDParticleSuperHighEnergyShotToTarget(CharacterData,PositionFrom,Positi
 		})
 	end
 	
-	sounds:playSound("futaradragon:entity.futaradragon.static_armor_beam_saber_blade_shot", PositionFrom, (EnergyScale or 1.0) * 0.5, 0.8 + (math.random() * 0.4)):setAttenuation(FDBaseSoundDistance)
-	sounds:playSound("futaradragon:entity.futaradragon.static_armor_super_high_energy_impact", PositionTo, (EnergyScale or 1.0) * 0.3, 0.6 + (math.random() * 0.4)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_beam_saber_blade_shot", PositionFrom, (EnergyScale or 1.0) * 0.5, 0.8 + (math.random() * 0.4)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_super_high_energy_impact", PositionTo, (EnergyScale or 1.0) * 0.3, 0.6 + (math.random() * 0.4)):setAttenuation(FDBaseSoundDistance)
 	FDShockWaveEnergyDistanceFar(PositionFrom)
 	FDParticleFlashSmokeEffect(PositionTo,2 * (EnergyScale or 1.0))
 end
@@ -2001,8 +2003,8 @@ function FDParticleMagicHeatShotToTarget(CharacterData,PositionFrom,PositionTo)
 		})
 	end
 	
-	sounds:playSound("futaradragon:entity.futaradragon.grand_cross_zana_heaven_bullet_shot", PositionFrom, 1.0, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
-	sounds:playSound("futaradragon:entity.futaradragon.grand_cross_zana_heaven_bullet_hit", PositionTo, 0.5, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_bullet_shot", PositionFrom, 1.0, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_bullet_hit", PositionTo, 0.5, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
 	FDShockWaveEnergyDistanceFar(PositionFrom)
 	FDParticleFlashSmokeEffect(PositionTo,1)
 	FDParticlePushSmoke(CharacterData,PositionFrom,FDRotateToTarget(PositionFrom,PositionTo),0.05,0.25)
@@ -2019,7 +2021,7 @@ function FDParticleMagicHomingPlasmaShotToTarget(CharacterData,PositionFrom,Posi
 		EnergyExplodeScale = EnergyScale or 1.0,
 		TimeDef = 2.0
 	})
-	sounds:playSound("futaradragon:entity.futaradragon.grand_cross_zana_heaven_bullet_homing_shot", PositionFrom, 1.0, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_bullet_homing_shot", PositionFrom, 1.0, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
 	FDShockWaveEnergyDistanceFar(PositionFrom)
 	FDParticlePushSmoke(CharacterData,PositionFrom,FDRotateToTarget(PositionFrom,PositionTo),0.1,0.5)
 end
@@ -2037,8 +2039,8 @@ function FDParticleMagicSuperPlasmaShotToTarget(CharacterData,PositionFrom,Posit
 		TimeDef = 0.3
 	})
 	
-	sounds:playSound("futaradragon:entity.futaradragon.grand_cross_zana_heaven_strike_shot", PositionFrom, 1.0, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
-	sounds:playSound("futaradragon:entity.futaradragon.grand_cross_zana_heaven_strike_hit", PositionTo, 1.0, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_strike_shot", PositionFrom, 1.0, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_strike_hit", PositionTo, 1.0, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
 	FDShockWaveEnergyDistanceFar(PositionFrom)
 	FDParticleFlashSmokeEffect(PositionTo,(EnergyScale or 1.0)/2)
 	FDParticlePushSmoke(CharacterData,PositionFrom,FDRotateToTarget(PositionFrom,PositionTo),(EnergyScale or 1.0)/10,(EnergyScale or 1.0)/4)
@@ -2064,15 +2066,66 @@ function FDParticleEnergySpawn(CharacterData,Position)
 		Position = AdjustPosition,
 		EnergyScale = 1.0
 	})
-	sounds:playSound("futaradragon:entity.futaradragon.energy_orb_warp_in_out", Position, 1.0):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.energy_orb_warp_in_out", Position, 1.0):setAttenuation(FDBaseSoundDistance)
 end
 
+EnergyOrbColorList = {
+    "Effect_Glow_Point_Red",
+    "Effect_Glow_Point_Default",
+    "Effect_Glow_Point_Violet",
+    "Effect_Glow_Point_Green",
+    "Effect_Glow_Point_Orange"
+}
+
 function FDParticleCallEnergyOrb(CharacterData,OrbId,Position)
-	local AdjustPosition = Position * 16
-	FDParticleDeploy(OrbId,CharacterData.Particle["EnergyOrb"],{
-		Position = AdjustPosition
-	})
-	FDParticleEnergySpawn(CharacterData,Position)
+    local AdjustPosition = Position * 16
+    local randomOrbEffect = EnergyOrbColorList[math.random(1,#EnergyOrbColorList)]
+    local randomOrbParticle = FDParticleSystemInit(FDMapperObj[randomOrbEffect],
+        {
+            FollowMode = true,
+            TargetPosition = vec(0,0,0),
+            Scale = vec(1,1,1),
+            EnergyScale = 0.3,
+            SpeedMin = 0.01,
+            SpeedMax = 0.09
+        },
+        function(ParticleObj)
+            ParticleObj.BasePart:setPrimaryRenderType("TRANSLUCENT")
+            ParticleObj.BasePart:setSecondaryRenderType("EYES")
+            ParticleObj.BasePart:setLight(15, 15)
+            ParticleObj.Config.Rotation = FDRandomRotation()
+            ParticleObj.Config.Scale = ParticleObj.Config.Scale * ParticleObj.Config.EnergyScale
+            local InitPosition = FDPartExactPosition(FDMapperObj["Dragon_Main"])
+            ParticleObj.Config.Position = InitPosition * 16
+            FDAIInit(ParticleObj.Config,{
+                Speed = ParticleObj.Config.SpeedMin + (math.random() * ParticleObj.Config.SpeedMax),
+                Rethink = true,
+                TargetPosition = InitPosition,
+                PositionT = InitPosition
+            })
+        end,
+        function(ParticleObj,Render,dt)
+            if Render == true then
+                ParticleObj.Config.RotationT = FDRandomRotation()
+                ParticleObj.Config.RotationF = ParticleObj.Config.RotationT
+            else
+                if ParticleObj.Config.FollowMode == true then
+                    ParticleObj.Config.AI.TargetPosition = FDPartExactPosition(FDMapperObj["Dragon_Main"])
+                else
+                    ParticleObj.Config.AI.TargetPosition = ParticleObj.Config.TargetPosition
+                end
+                FDAITickUpdate(ParticleObj.Config.AI)
+                ParticleObj.Config.PositionT = ParticleObj.Config.AI.PositionT * 16
+            end
+        end,
+        function(ParticleObj)
+            
+        end
+    )
+    FDParticleDeploy(OrbId,randomOrbParticle,{
+        Position = AdjustPosition
+    })
+    FDParticleEnergySpawn(CharacterData,Position)
 end
 
 function FDParticleRemoveEnergyOrb(CharacterData,OrbId)
@@ -2143,7 +2196,7 @@ end
 function FDParticleActiveBeamSaberClawLight(CharacterData,BeamSaberId,AttachPart,BeamScale)
 	local Position = FDPartExactPosition(FDMapperObj[AttachPart])
 	local AdjustPosition = Position * 16
-	sounds:playSound("futaradragon:entity.futaradragon.energy_orb_warp_in_out", Position , 1.0):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.energy_orb_warp_in_out", Position , 1.0):setAttenuation(FDBaseSoundDistance)
 	FDParticleDeploy(BeamSaberId,CharacterData.Particle["BeamSaberClaw_BaseLight"],{
 		Position = AdjustPosition,
 		FollowPart = AttachPart,
@@ -2222,7 +2275,7 @@ end
 function FDParticleActiveEnergyBeamSaberBladeLight(CharacterData,BeamSaberId,ParticleId,AttachPart,BeamScale)
 	local Position = FDPartExactPosition(FDMapperObj[AttachPart])
 	local AdjustPosition = Position * 16
-	sounds:playSound("futaradragon:entity.futaradragon.energy_orb_warp_in_out", Position , 1.0):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.energy_orb_warp_in_out", Position , 1.0):setAttenuation(FDBaseSoundDistance)
 	FDParticleDeploy(BeamSaberId,CharacterData.Particle[ParticleId],{
 		Position = AdjustPosition,
 		FollowPart = AttachPart,
@@ -2411,11 +2464,11 @@ function FDParticlePartPhysicSpark(CharacterData,AttachPart,Scale,ScaleRandom)
 end
 
 function FDStatTickUpdate(CharacterData)
-	local AbilityStatMana = FDOriginGetData("futaradragon:mana_resource")
-	local AbilityStatStamina = FDOriginGetData("futaradragon:stamina_resource")
-	local AbilityStatRage = FDOriginGetData("futaradragon:rage_resource")
-	local AbilityStatDashCooldown = FDOriginGetData("futaradragon:roll_dash_cooldown")
-	local AbilityStatUltimate = FDOriginGetData("futaradragon:ultimate_resource")
+	local AbilityStatMana = FDOriginGetData("davwyndragon:mana_resource")
+	local AbilityStatStamina = FDOriginGetData("davwyndragon:stamina_resource")
+	local AbilityStatRage = FDOriginGetData("davwyndragon:rage_resource")
+	local AbilityStatDashCooldown = FDOriginGetData("davwyndragon:roll_dash_cooldown")
+	local AbilityStatUltimate = FDOriginGetData("davwyndragon:ultimate_resource")
 	if AbilityStatMana ~= nil and AbilityStatStamina ~= nil and AbilityStatRage ~= nil and AbilityStatDashCooldown ~= nil and AbilityStatUltimate ~= nil then
 		CharacterData.OriginAbility.Mana = AbilityStatMana
 		CharacterData.OriginAbility.Stamina = AbilityStatStamina
@@ -2426,30 +2479,30 @@ function FDStatTickUpdate(CharacterData)
 end
 
 function FDMenuSwitchTickUpdate(CharacterData,GyroPhysic)
-	local AbilityMenuSwitch = FDOriginGetData("futaradragon:skill_cycle")
+	local AbilityMenuSwitch = FDOriginGetData("davwyndragon:skill_cycle")
 	if CharacterData.Host == true then
 		if AbilityMenuSwitch ~= nil then
 			if CharacterData.OriginAbility.MenuSwitch ~= AbilityMenuSwitch then
 				CharacterData.OriginAbility.MenuSwitch = AbilityMenuSwitch
-				sounds:playSound("futaradragon:entity.futaradragon.ui_menu_switch", CharacterData.Position, 0.5):setAttenuation(FDBaseSoundDistance)
+				sounds:playSound("davwyndragon:entity.davwyndragon.ui_menu_switch", CharacterData.Position, 0.5):setAttenuation(FDBaseSoundDistance)
 			end
 		else
 			CharacterData.OriginAbility.MenuSwitch = -1
 		end
-		local AbilityMenuSkillSwitch = FDOriginGetData("futaradragon:skill_upgrade_toggle_menu")
+		local AbilityMenuSkillSwitch = FDOriginGetData("davwyndragon:skill_upgrade_toggle_menu")
 		if AbilityMenuSkillSwitch ~= nil then
 			if CharacterData.OriginAbility.MenuSkillSwitch ~= AbilityMenuSkillSwitch then
 				CharacterData.OriginAbility.MenuSkillSwitch = AbilityMenuSkillSwitch
-				sounds:playSound("futaradragon:entity.futaradragon.ui_menu_switch", CharacterData.Position, 0.5):setAttenuation(FDBaseSoundDistance)
+				sounds:playSound("davwyndragon:entity.davwyndragon.ui_menu_switch", CharacterData.Position, 0.5):setAttenuation(FDBaseSoundDistance)
 			end
 		else
 			CharacterData.OriginAbility.MenuSkillSwitch = -1
 		end
-		local AbilityMenuOptionSwitch = FDOriginGetData("futaradragon:option_toggle_menu")
+		local AbilityMenuOptionSwitch = FDOriginGetData("davwyndragon:option_toggle_menu")
 		if AbilityMenuOptionSwitch ~= nil then
 			if CharacterData.OriginAbility.MenuOptionSwitch ~= AbilityMenuOptionSwitch then
 				CharacterData.OriginAbility.MenuOptionSwitch = AbilityMenuOptionSwitch
-				sounds:playSound("futaradragon:entity.futaradragon.ui_menu_switch", CharacterData.Position, 0.5):setAttenuation(FDBaseSoundDistance)
+				sounds:playSound("davwyndragon:entity.davwyndragon.ui_menu_switch", CharacterData.Position, 0.5):setAttenuation(FDBaseSoundDistance)
 			end
 		else
 			CharacterData.OriginAbility.MenuOptionSwitch = -1
@@ -2477,18 +2530,18 @@ end
 pings.LevelUp = function()
 	if not player:isLoaded() then return end
 	FDParticleLightCircle(FDCharacterData,"Dragon_Main")
-	sounds:playSound("futaradragon:entity.futaradragon.ui_levelup", FDCharacterData.Position, 0.5, 1.0):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.ui_levelup", FDCharacterData.Position, 0.5, 1.0):setAttenuation(FDBaseSoundDistance)
 end
 
 pings.LevelUse = function()
 	if not player:isLoaded() then return end
 	FDParticleLightCircle(FDCharacterData,"Dragon_Main")
-	sounds:playSound("futaradragon:entity.futaradragon.ui_skill_upgrade", FDCharacterData.Position, 0.5, 1.0):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.ui_skill_upgrade", FDCharacterData.Position, 0.5, 1.0):setAttenuation(FDBaseSoundDistance)
 end
 
 function FDCombatMusicTickUpdate(CharacterData,Gyro)
 	if CharacterData.Host == true then
-		local AbilityDynamicMusic = FDOriginGetData("futaradragon:dynamic_music_toggle")
+		local AbilityDynamicMusic = FDOriginGetData("davwyndragon:dynamic_music_toggle")
 		if AbilityDynamicMusic ~= nil and AbilityDynamicMusic > 0 then
 			CharacterData.MusicVolume = AbilityDynamicMusic * CharacterData.MusicVolumePerStack
 			if CharacterData.MusicVolumeFollow ~= CharacterData.MusicVolume then
@@ -2498,7 +2551,7 @@ function FDCombatMusicTickUpdate(CharacterData,Gyro)
 				end
 			end
 			
-			local AbilityCombatMusic = FDOriginGetData("futaradragon:dynamic_music_resource")
+			local AbilityCombatMusic = FDOriginGetData("davwyndragon:dynamic_music_resource")
 			if AbilityCombatMusic ~= nil then
 				if AbilityCombatMusic > 0 then
 					if CharacterData.OriginAbility.RevengeStandActive == true then
@@ -2560,7 +2613,7 @@ end
 
 function FDCameraShakeTickUpdate(CharacterData,Gyro,CameraObj)
 	if CharacterData.Host == true then
-		local AbilityCameraShake = FDOriginGetData("futaradragon:shake_effect_resource")
+		local AbilityCameraShake = FDOriginGetData("davwyndragon:shake_effect_resource")
 		if AbilityCameraShake ~= nil then
 			if AbilityCameraShake > 0 then
 				if CharacterData.OriginAbility.CameraShake == false then
@@ -2588,7 +2641,7 @@ function FDCameraShakeActive(CharacterData,CameraObj)
 end
 
 function FDEmoteTickUpdate(CharacterData)
-	local AbilityEmoteActionToggle = FDOriginGetData("futaradragon:emote_mode_action")
+	local AbilityEmoteActionToggle = FDOriginGetData("davwyndragon:emote_mode_action")
 	if AbilityEmoteActionToggle ~= nil then
 		if AbilityEmoteActionToggle == 1 and FDCharacterData.CurrentActiveEmoteAnimation ~= "Emote_Sit" then
 			FDEyesSetActive(FDCharacterData,FDCharacterConstant.EyeMode.Normal)
@@ -2613,8 +2666,8 @@ function FDEmoteTickUpdate(CharacterData)
 end
 
 function FDSayAhTrackTickUpdate(CharacterData,GyroPhysic)
-	local AbilitySayAhSelf = FDOriginGetData("futaradragon:say_ah_self_resource")
-	local AbilitySayAh = FDOriginGetData("futaradragon:say_ah_resource")
+	local AbilitySayAhSelf = FDOriginGetData("davwyndragon:say_ah_self_resource")
+	local AbilitySayAh = FDOriginGetData("davwyndragon:say_ah_resource")
 	if AbilitySayAhSelf ~= nil and AbilitySayAh ~= nil then
 		if AbilitySayAh > 0 or AbilitySayAhSelf > 0 then
 			if CharacterData.OriginAbility.AhTrack == false then
@@ -2655,8 +2708,8 @@ function FDLightModelTickUpdate(CharacterData,GyroPhysic)
 end
 
 function FDLightSparkTickUpdate(CharacterData,GyroPhysic)
-	local AbilityLightSparkToggle = FDOriginGetData("futaradragon:spark_light")
-	local AbilityRevengeStandToggle = FDOriginGetData("futaradragon:state_resource")
+	local AbilityLightSparkToggle = FDOriginGetData("davwyndragon:spark_light")
+	local AbilityRevengeStandToggle = FDOriginGetData("davwyndragon:state_resource")
 	if AbilityLightSparkToggle ~= nil and AbilityRevengeStandToggle ~= nil then
 		CharacterData.OriginAbility.LightSparkActive = AbilityLightSparkToggle > 0 and true or false
 		CharacterData.OriginAbility.RevengeStandActive = AbilityRevengeStandToggle == 1 and true or false
@@ -2668,7 +2721,7 @@ function FDLightSparkTickUpdate(CharacterData,GyroPhysic)
 	if CharacterData.OriginAbility.LightSparkActive == true then
 		if CharacterData.OriginAbility.EnergySparkEffectActive == false then
 			CharacterData.OriginAbility.EnergySparkEffectActive = true
-			FDSoundLoopInit("UltimateActiveLoopSound","futaradragon:entity.futaradragon.status_ultimate_spark_loop",CharacterData.Position,1,1,FDBaseSoundDistance)
+			FDSoundLoopInit("UltimateActiveLoopSound","davwyndragon:entity.davwyndragon.status_ultimate_spark_loop",CharacterData.Position,1,1,FDBaseSoundDistance)
 			FDParticleActiveEnergySpark(CharacterData,CharacterData.OriginAbility.EnergySparkEffectPrefix .. "Spark","Dragon_Main")
 		end
 	else
@@ -2681,8 +2734,8 @@ function FDLightSparkTickUpdate(CharacterData,GyroPhysic)
 end
 
 function FDRollDashTickUpdate(CharacterData,GyroPhysic)
-	local AbilityRollDashCooldown = FDOriginGetData("futaradragon:roll_dash_cooldown")
-	local AbilityRollDaskActiveDirectrion = FDOriginGetData("futaradragon:passive_roll_dash_active_toggle")
+	local AbilityRollDashCooldown = FDOriginGetData("davwyndragon:roll_dash_cooldown")
+	local AbilityRollDaskActiveDirectrion = FDOriginGetData("davwyndragon:passive_roll_dash_active_toggle")
 	if AbilityRollDashCooldown ~= nil and AbilityRollDaskActiveDirectrion ~= nil then
 		if FDAnimationGet("Ability_Roll_Dash") ~= nil and CharacterData.OnGround == true then
 			FDAnimationDeactive("Ability_Roll_Dash")
@@ -2702,7 +2755,7 @@ function FDRollDashTickUpdate(CharacterData,GyroPhysic)
 					end
 				else
 					if AbilityRollDaskActiveDirectrion == 1 or CharacterData.StandMode == FDCharacterConstant.StandMode.Stand4Legged then
-						sounds:playSound("futaradragon:entity.futaradragon.roll_dash_boost", player:getPos(), 1.0):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.roll_dash_boost", player:getPos(), 1.0):setAttenuation(FDBaseSoundDistance)
 						local DashDirection = math.random(1,2)
 						FDAnimationActive("Ability_Roll_Dash_Air_Forward_" .. DashDirection,1,true,0.0)
 					elseif AbilityRollDaskActiveDirectrion == 2 then
@@ -2716,7 +2769,7 @@ function FDRollDashTickUpdate(CharacterData,GyroPhysic)
 					else
 					end
 				end
-				sounds:playSound("futaradragon:entity.futaradragon.movement_dash", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+				sounds:playSound("davwyndragon:entity.davwyndragon.movement_dash", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 			end
 		elseif AbilityRollDashCooldown >= 50 and CharacterData.OriginAbility.RollDashActive == true then
 			CharacterData.OriginAbility.RollDashActive = false
@@ -2725,7 +2778,7 @@ function FDRollDashTickUpdate(CharacterData,GyroPhysic)
 end
 
 function FDEnergyBarrierTickUpdate(CharacterData,GyroPhysic)
-	local AbilityEnergyBarrier = FDOriginGetData("futaradragon:energyshield_resource")
+	local AbilityEnergyBarrier = FDOriginGetData("davwyndragon:energyshield_resource")
 	local Dracomech = CharacterData.OriginAbility.DracomechArmor
 	local GrandCrossZana = CharacterData.OriginAbility.GrandCrossZanaArmor
 	if AbilityEnergyBarrier ~= nil then
@@ -2773,38 +2826,8 @@ function FDEnergyBarrierTickUpdate(CharacterData,GyroPhysic)
 	end
 end
 
-function FDPotionTickUpdate(CharacterData,GyroPhysic)
-	local AbilityPotionImpact = FDOriginGetData("futaradragon:potion_hit_effect_resource")
-	local AbilityPotionUse = FDOriginGetData("futaradragon:potion_use_effect_resource")
-	if AbilityPotionUse ~= nil then
-		if AbilityPotionUse > 0 then
-			if CharacterData.OriginAbility.PotionUse == false then
-				CharacterData.OriginAbility.PotionUse = true
-				sounds:playSound("minecraft:entity.cow.milk", CharacterData.Position, 1.0, 1.8 + (math.random() * 0.2)):setAttenuation(FDBaseSoundDistance)
-				sounds:playSound(FDBaseSoundRegister["Pant"], CharacterData.Position, 1.0, 0.9 + (math.random() * 0.2)):setAttenuation(FDBaseSoundDistance)
-			end
-		else
-			if CharacterData.OriginAbility.PotionUse == true then
-				CharacterData.OriginAbility.PotionUse = false
-			end
-		end
-	end
-	if AbilityPotionImpact ~= nil then
-		if AbilityPotionImpact > 0 then
-			if CharacterData.OriginAbility.PotionImpact == false then
-				CharacterData.OriginAbility.PotionImpact = true
-				sounds:playSound("minecraft:item.bucket.fill_lava", CharacterData.Position, 1.0, 1.8 + (math.random() * 0.2)):setAttenuation(FDBaseSoundDistance)
-			end
-		else
-			if CharacterData.OriginAbility.PotionImpact == true then
-				CharacterData.OriginAbility.PotionImpact = false
-			end
-		end
-	end
-end
-
 function FDLuckyEmeraldTickUpdate(CharacterData,GyroPhysic)
-	local AbilityLuckyEmeraldImpact = FDOriginGetData("futaradragon:lucky_emerald_hit_effect_resource")
+	local AbilityLuckyEmeraldImpact = FDOriginGetData("davwyndragon:lucky_emerald_hit_effect_resource")
 	if AbilityLuckyEmeraldImpact ~= nil then
 		if AbilityLuckyEmeraldImpact > 0 then
 			if CharacterData.OriginAbility.LuckyEmeraldImpact == false then
@@ -2821,8 +2844,8 @@ function FDLuckyEmeraldTickUpdate(CharacterData,GyroPhysic)
 end
 
 function FDEnergyShotTickUpdate(CharacterData,GyroPhysic)
-	local AbilityEnergyShotActive = FDOriginGetData("futaradragon:energyshot_charge")
-	local AbilityEnergyShotTracking = FDOriginGetData("futaradragon:energyshot_shoot_tracking")
+	local AbilityEnergyShotActive = FDOriginGetData("davwyndragon:energyshot_charge")
+	local AbilityEnergyShotTracking = FDOriginGetData("davwyndragon:energyshot_shoot_tracking")
 	local Dracomech = CharacterData.OriginAbility.DracomechArmor
 	local GrandCrossZana = CharacterData.OriginAbility.GrandCrossZanaArmor
 	if AbilityEnergyShotActive ~= nil and AbilityEnergyShotTracking ~= nil then
@@ -2846,9 +2869,9 @@ function FDEnergyShotTickUpdate(CharacterData,GyroPhysic)
 			local PositionTo = PositionFrom + (player:getLookDir() * 5)
 			PositionTo = FDRandomArea(PositionTo,CharacterData.OriginAbility.EnergyShotShootArea)
 
-			local PositonToX = FDOriginGetData("futaradragon:energyshot_target_x_resource")
-			local PositonToY = FDOriginGetData("futaradragon:energyshot_target_y_resource")
-			local PositonToZ = FDOriginGetData("futaradragon:energyshot_target_z_resource")
+			local PositonToX = FDOriginGetData("davwyndragon:energyshot_target_x_resource")
+			local PositonToY = FDOriginGetData("davwyndragon:energyshot_target_y_resource")
+			local PositonToZ = FDOriginGetData("davwyndragon:energyshot_target_z_resource")
 			if (PositonToX ~= nil and PositonToY ~= nil and PositonToZ ~= nil) then
 				PositonToX = tonumber(PositonToX) / 10
 				PositonToY = tonumber(PositonToY) / 10
@@ -2886,8 +2909,8 @@ function FDEnergyCannonCondition(CharacterData)
 end
 
 function FDFireBlastTickUpdate(CharacterData,GyroPhysic)
-	local AbilityFireBlastTracking = FDOriginGetData("futaradragon:fireblast_shoot_tracking")
-	local AbilityFireBlastLevel = FDOriginGetData("futaradragon:ability_level_fireblast")
+	local AbilityFireBlastTracking = FDOriginGetData("davwyndragon:fireblast_shoot_tracking")
+	local AbilityFireBlastLevel = FDOriginGetData("davwyndragon:ability_level_fireblast")
 	local Dracomech = CharacterData.OriginAbility.DracomechArmor
 	if AbilityFireBlastTracking ~= nil and AbilityFireBlastLevel ~= nil then
 		if AbilityFireBlastTracking > 0 and CharacterData.OriginAbility.FireBlastShoot == false then
@@ -2901,9 +2924,9 @@ function FDFireBlastTickUpdate(CharacterData,GyroPhysic)
 				PositionTo = PositionTo + (player:getLookDir() * 20)
 			end
 			
-			local PositonToX = FDOriginGetData("futaradragon:fireblast_target_x_resource")
-			local PositonToY = FDOriginGetData("futaradragon:fireblast_target_y_resource")
-			local PositonToZ = FDOriginGetData("futaradragon:fireblast_target_z_resource")
+			local PositonToX = FDOriginGetData("davwyndragon:fireblast_target_x_resource")
+			local PositonToY = FDOriginGetData("davwyndragon:fireblast_target_y_resource")
+			local PositonToZ = FDOriginGetData("davwyndragon:fireblast_target_z_resource")
 			if (PositonToX ~= nil and PositonToY ~= nil and PositonToZ ~= nil) then
 				PositonToX = tonumber(PositonToX) / 10
 				PositonToY = tonumber(PositonToY) / 10
@@ -2924,25 +2947,25 @@ function FDFireBlastTickUpdate(CharacterData,GyroPhysic)
 				PositionTo = FDRandomArea(PositionTo,CharacterData.OriginAbility.FireBlastShootArea)
 			
 				if AbilityFireBlastLevel == 3 then
-					sounds:playSound("futaradragon:entity.futaradragon.fire_blast_shot", PositionFrom, 1.0, 1.8):setAttenuation(FDBaseSoundDistance)
+					sounds:playSound("davwyndragon:entity.davwyndragon.fire_blast_shot", PositionFrom, 1.0, 1.8):setAttenuation(FDBaseSoundDistance)
 					FDParticleFireBlastToTarget(CharacterData,PositionFrom,PositionTo,1.0)
 					FDParticleFlashSmokeEffect(PositionFrom,1)
 				elseif AbilityFireBlastLevel == 4 then
-					sounds:playSound("futaradragon:entity.futaradragon.fire_blast_shot", PositionFrom, 1.0, 1.6):setAttenuation(FDBaseSoundDistance)
+					sounds:playSound("davwyndragon:entity.davwyndragon.fire_blast_shot", PositionFrom, 1.0, 1.6):setAttenuation(FDBaseSoundDistance)
 					FDParticleFireBlastToTarget(CharacterData,PositionFrom,PositionTo,2.0)
 					FDParticleFlashSmokeEffect(PositionFrom,2)
 				elseif AbilityFireBlastLevel == 5 then
-					sounds:playSound("futaradragon:entity.futaradragon.fire_blast_shot", PositionFrom, 1.0, 1.4):setAttenuation(FDBaseSoundDistance)
+					sounds:playSound("davwyndragon:entity.davwyndragon.fire_blast_shot", PositionFrom, 1.0, 1.4):setAttenuation(FDBaseSoundDistance)
 					FDParticleFireBlastToTarget(CharacterData,PositionFrom,PositionTo,3.0)
 					FDParticleFlashSmokeEffect(PositionFrom,3)
 					FDShockWaveWindDistanceFar(PositionFrom)
 				elseif AbilityFireBlastLevel == 6 then
-					sounds:playSound("futaradragon:entity.futaradragon.fire_blast_shot", PositionFrom, 1.0, 1.2):setAttenuation(FDBaseSoundDistance)
+					sounds:playSound("davwyndragon:entity.davwyndragon.fire_blast_shot", PositionFrom, 1.0, 1.2):setAttenuation(FDBaseSoundDistance)
 					FDParticleFireBlastToTarget(CharacterData,PositionFrom,PositionTo,5.0)
 					FDParticleFlashSmokeEffect(PositionFrom,4)
 					FDShockWaveWindDistanceFar(PositionFrom)
 				elseif AbilityFireBlastLevel >= 7 then
-					sounds:playSound("futaradragon:entity.futaradragon.fire_blast_shot", PositionFrom, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+					sounds:playSound("davwyndragon:entity.davwyndragon.fire_blast_shot", PositionFrom, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 					FDParticleFireBlastToTarget(CharacterData,PositionFrom,PositionTo,10.0)
 					FDParticleFlashSmokeEffect(PositionFrom,5)
 					FDShockWaveWindDistanceFar(PositionFrom)
@@ -2978,9 +3001,9 @@ function FDHealAuraUpdate(CharacterData,GyroPhysic,dt)
 end
 
 function FDHealAuraTickUpdate(CharacterData,GyroPhysic)
-	local AbilityHealAuraToggle = FDOriginGetData("futaradragon:healaura_toggle")
-	local AbilityHealAuraLevel = FDOriginGetData("futaradragon:ability_level_healaura")
-	local AbilityHealAuraImpact = FDOriginGetData("futaradragon:healaura_hit_effect_resource")
+	local AbilityHealAuraToggle = FDOriginGetData("davwyndragon:healaura_toggle")
+	local AbilityHealAuraLevel = FDOriginGetData("davwyndragon:ability_level_healaura")
+	local AbilityHealAuraImpact = FDOriginGetData("davwyndragon:healaura_hit_effect_resource")
 	if AbilityHealAuraToggle ~= nil and AbilityHealAuraLevel ~= nil and AbilityHealAuraImpact ~= nil then
 		CharacterData.OriginAbility.HealAuraLevel = AbilityHealAuraLevel
 		CharacterData.OriginAbility.HealAuraActive = AbilityHealAuraToggle == 1 and true or false
@@ -2992,9 +3015,9 @@ function FDHealAuraTickUpdate(CharacterData,GyroPhysic)
 		
 		if CharacterData.OriginAbility.HealAuraSoundActive ~= CharacterData.OriginAbility.HealAuraActive then
 			if CharacterData.OriginAbility.HealAuraActive == true then
-				sounds:playSound("futaradragon:entity.futaradragon.energy_blessing_aura_active", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+				sounds:playSound("davwyndragon:entity.davwyndragon.energy_blessing_aura_active", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 			else
-				sounds:playSound("futaradragon:entity.futaradragon.energy_blessing_aura_deactive", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+				sounds:playSound("davwyndragon:entity.davwyndragon.energy_blessing_aura_deactive", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 			end
 			CharacterData.OriginAbility.HealAuraSoundActive = CharacterData.OriginAbility.HealAuraActive
 		end
@@ -3002,7 +3025,7 @@ function FDHealAuraTickUpdate(CharacterData,GyroPhysic)
 		if AbilityHealAuraImpact > 0 then
 			if CharacterData.OriginAbility.HealAuraImpact == false then
 				CharacterData.OriginAbility.HealAuraImpact = true
-				sounds:playSound("futaradragon:entity.futaradragon.energy_blessing_aura_heal", CharacterData.Position, 1.0, 0.9 + (math.random() * 0.2)):setAttenuation(FDBaseSoundDistance)
+				sounds:playSound("davwyndragon:entity.davwyndragon.energy_blessing_aura_heal", CharacterData.Position, 1.0, 0.9 + (math.random() * 0.2)):setAttenuation(FDBaseSoundDistance)
 			end
 		else
 			if CharacterData.OriginAbility.HealAuraImpact == true then
@@ -3012,14 +3035,14 @@ function FDHealAuraTickUpdate(CharacterData,GyroPhysic)
 	else
 		CharacterData.OriginAbility.HealAuraActiveTime = 0
 	end
-	local ScaleMax = (CharacterData.OriginAbility.HealAuraLevel <= 3 and 0.5 or 1) * (CharacterData.OriginAbility.Mana / CharacterData.OriginAbility.ManaMax)
+	local ScaleMax = (CharacterData.OriginAbility.HealAuraLevel <= 3 and 0.25 or 0.5) * (CharacterData.OriginAbility.Mana / CharacterData.OriginAbility.ManaMax)
 	CharacterData.OriginAbility.HealAuraScalePre = CharacterData.OriginAbility.HealAuraScale
 	CharacterData.OriginAbility.HealAuraScale = ScaleMax * FDTimeFactorEaseInOut((CharacterData.OriginAbility.HealAuraActiveTime/CharacterData.OriginAbility.HealAuraActiveTimeDef))
 	if CharacterData.OriginAbility.HealAuraEffectActive ~= CharacterData.OriginAbility.HealAuraActive then
 		if CharacterData.OriginAbility.HealAuraEffectActive == false and CharacterData.OriginAbility.HealAuraActive == true then
 			FDParticleActiveHealAura(CharacterData,CharacterData.OriginAbility.HealAuraPrefix .. "Light","Dragon_Main")
 			CharacterData.OriginAbility.HealAuraEffectActive = true
-			FDSoundLoopInit("HealAuraLoopSound","futaradragon:entity.futaradragon.energy_blessing_aura_loop",CharacterData.Position,0,1,FDBaseSoundDistance)
+			FDSoundLoopInit("HealAuraLoopSound","davwyndragon:entity.davwyndragon.energy_blessing_aura_loop",CharacterData.Position,0,1,FDBaseSoundDistance)
 		elseif CharacterData.OriginAbility.HealAuraEffectActive == true and CharacterData.OriginAbility.HealAuraActive == false then
 			if CharacterData.OriginAbility.HealAuraActiveTime == 0 then
 				FDParticleDeactiveHealAura(CharacterData,CharacterData.OriginAbility.HealAuraPrefix .. "Light")
@@ -3036,8 +3059,8 @@ function FDHealAuraTickUpdate(CharacterData,GyroPhysic)
 end
 
 function FDEnergyOrbTickUpdate(CharacterData,GyroPhysic)
-	local AbilityEnergyOrbActive = FDOriginGetData("futaradragon:energyorb_toggle")
-	local AbilityEnergyOrbLevel = FDOriginGetData("futaradragon:ability_level_energyorb")
+	local AbilityEnergyOrbActive = FDOriginGetData("davwyndragon:energyorb_toggle")
+	local AbilityEnergyOrbLevel = FDOriginGetData("davwyndragon:ability_level_energyorb")
 	local Dracomech = CharacterData.OriginAbility.DracomechArmor
 	local GrandCrossZana = CharacterData.OriginAbility.GrandCrossZanaArmor
 	if AbilityEnergyOrbActive ~= nil and AbilityEnergyOrbLevel ~= nil then
@@ -3045,7 +3068,7 @@ function FDEnergyOrbTickUpdate(CharacterData,GyroPhysic)
 		if CharacterData.OriginAbility.EnergyOrbSoundActive ~= CharacterData.OriginAbility.EnergyOrbActive then
 			if CharacterData.OriginAbility.EnergyOrbActive == true then
 				FDParticleLightCircle(CharacterData,"Dragon_Main")
-				sounds:playSound("futaradragon:entity.futaradragon.energy_orb_active", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+				sounds:playSound("davwyndragon:entity.davwyndragon.energy_orb_active", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 			else
 			end
 			CharacterData.OriginAbility.EnergyOrbSoundActive = CharacterData.OriginAbility.EnergyOrbActive
@@ -3053,8 +3076,8 @@ function FDEnergyOrbTickUpdate(CharacterData,GyroPhysic)
 		
 		local Shoot = false
 		local PositionTo = nil
-		local AbilityEnergyOrbTracking = FDOriginGetData("futaradragon:energyorb_shoot_tracking")
-		local AbilityEnergyOrbMode = FDOriginGetData("futaradragon:energyorb_mode")
+		local AbilityEnergyOrbTracking = FDOriginGetData("davwyndragon:energyorb_shoot_tracking")
+		local AbilityEnergyOrbMode = FDOriginGetData("davwyndragon:energyorb_mode")
 		if (AbilityEnergyOrbTracking > 0 and CharacterData.OriginAbility.EnergyOrbShoot == false) or AbilityEnergyOrbTracking > CharacterData.OriginAbility.EnergyOrbShootTrack then
 			CharacterData.OriginAbility.EnergyOrbShootTrack = AbilityEnergyOrbTracking
 			CharacterData.OriginAbility.EnergyOrbShoot = true
@@ -3064,9 +3087,9 @@ function FDEnergyOrbTickUpdate(CharacterData,GyroPhysic)
 				CharacterData.OriginAbility.EnergyOrbCommand.ShotIdx = 1
 			end
 			
-			local PositonToX = FDOriginGetData("futaradragon:energyorb_target_x_resource")
-			local PositonToY = FDOriginGetData("futaradragon:energyorb_target_y_resource")
-			local PositonToZ = FDOriginGetData("futaradragon:energyorb_target_z_resource")
+			local PositonToX = FDOriginGetData("davwyndragon:energyorb_target_x_resource")
+			local PositonToY = FDOriginGetData("davwyndragon:energyorb_target_y_resource")
+			local PositonToZ = FDOriginGetData("davwyndragon:energyorb_target_z_resource")
 			if (PositonToX ~= nil and PositonToY ~= nil and PositonToZ ~= nil) then
 				PositonToX = tonumber(PositonToX) / 10
 				PositonToY = tonumber(PositonToY) / 10
@@ -3183,25 +3206,25 @@ function FDEnergyOrbTickUpdate(CharacterData,GyroPhysic)
 end
 
 function FDBeamSaberClawLightSlash(CharacterData)
-	sounds:playSound("futaradragon:entity.futaradragon.beam_saber_claw_mini_slash", CharacterData.Position, 1.0, 0.8 + (math.random() * 0.4)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.beam_saber_claw_mini_slash", CharacterData.Position, 1.0, 0.8 + (math.random() * 0.4)):setAttenuation(FDBaseSoundDistance)
 	FDShockWaveWindDistanceFar(CharacterData.Position)
 end
 
 function FDBeamSaberClawLongSlash(CharacterData)
 	FDParticleGroundSmoke(CharacterData)
-	sounds:playSound("futaradragon:entity.futaradragon.beam_saber_claw_slash", CharacterData.Position, 1.0, 0.8 + (math.random() * 0.4)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.beam_saber_claw_slash", CharacterData.Position, 1.0, 0.8 + (math.random() * 0.4)):setAttenuation(FDBaseSoundDistance)
 	FDShockWaveWindDistanceFar(CharacterData.Position)
 end
 
 function FDEnergyBeamSaberBladeLongSlash(CharacterData)
 	FDParticleGroundSmoke(CharacterData)
-	sounds:playSound("futaradragon:entity.futaradragon.static_armor_beam_saber_blade_slash", CharacterData.Position, 0.6, 0.8 + (math.random() * 0.4)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_beam_saber_blade_slash", CharacterData.Position, 0.6, 0.8 + (math.random() * 0.4)):setAttenuation(FDBaseSoundDistance)
 	FDShockWaveEnergyDistanceFar(CharacterData.Position)
 end
 
 function FDHeatBeamBladeLongSlash(CharacterData)
 	FDParticleGroundSmoke(CharacterData)
-	sounds:playSound("futaradragon:entity.futaradragon.grand_cross_zana_heaven_saber_slash", CharacterData.Position, 1.0, 0.8 + (math.random() * 0.4)):setAttenuation(FDBaseSoundDistance)
+	sounds:playSound("davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_saber_slash", CharacterData.Position, 1.0, 0.8 + (math.random() * 0.4)):setAttenuation(FDBaseSoundDistance)
 	FDShockWaveEnergyDistanceFar(CharacterData.Position)
 end
 
@@ -3277,9 +3300,9 @@ function FDBeamSaberClawUpdate(CharacterData,GyroPhysic,dt)
 end
 
 function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
-	local AbilityBeamSaberClawLevel = FDOriginGetData("futaradragon:ability_level_beamsaberclaw")
-	local AbilityBeamSaberClawLight = FDOriginGetData("futaradragon:beamsaberclaw_light")
-	local AbilityBeamSaberClawImpact = FDOriginGetData("futaradragon:beamsaberclaw_hit_effect_resource")
+	local AbilityBeamSaberClawLevel = FDOriginGetData("davwyndragon:ability_level_beamsaberclaw")
+	local AbilityBeamSaberClawLight = FDOriginGetData("davwyndragon:beamsaberclaw_light")
+	local AbilityBeamSaberClawImpact = FDOriginGetData("davwyndragon:beamsaberclaw_hit_effect_resource")
 	local Dracomech = CharacterData.OriginAbility.DracomechArmor
 	local GrandCrossZana = CharacterData.OriginAbility.GrandCrossZanaArmor
 	if AbilityBeamSaberClawLevel ~= nil and AbilityBeamSaberClawLight ~= nil then
@@ -3299,7 +3322,7 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 					FDParticleActiveBeamSaberClawSet(CharacterData,CharacterData.OriginAbility.BeamSaberClawPrefix .. "_"..PrefixSide.."_L","Dragon_Beam_Claw_"..PrefixSide.."_L",0.05,0.05)
 					FDParticleActiveBeamSaberClawSet(CharacterData,CharacterData.OriginAbility.BeamSaberClawPrefix .. "_"..PrefixSide.."_R","Dragon_Beam_Claw_"..PrefixSide.."_R",0.05,0.05)
 				end
-				FDSoundLoopInit("BeamSaberClawLoopSound","futaradragon:entity.futaradragon.beam_saber_claw_loop",CharacterData.Position,0,1,FDBaseSoundDistance)
+				FDSoundLoopInit("BeamSaberClawLoopSound","davwyndragon:entity.davwyndragon.beam_saber_claw_loop",CharacterData.Position,0,1,FDBaseSoundDistance)
 			elseif CharacterData.OriginAbility.BeamSaberClawActive == false then
 				for F = 1, 2, 1 do
 					local PrefixSide = ""
@@ -3321,9 +3344,9 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 		if CharacterData.OriginAbility.BeamSaberClawBeamActive == true then
 			FDCombatAction(CharacterData)
 			
-			local AbilityBeamSaberAction = FDOriginGetData("futaradragon:beamsaberclaw_action_resource")
-			local AbilityBeamSaberTimeline = FDOriginGetData("futaradragon:beamsaberclaw_timeline_resource")
-			local AbilityRagePower = FDOriginGetData("futaradragon:rage_resource")
+			local AbilityBeamSaberAction = FDOriginGetData("davwyndragon:beamsaberclaw_action_resource")
+			local AbilityBeamSaberTimeline = FDOriginGetData("davwyndragon:beamsaberclaw_timeline_resource")
+			local AbilityRagePower = FDOriginGetData("davwyndragon:rage_resource")
 			if AbilityBeamSaberAction ~= nil and AbilityBeamSaberTimeline ~= nil and AbilityRagePower ~= nil then
 				if CharacterData.OriginAbility.BeamSaberAction ~= AbilityBeamSaberAction then
 					CharacterData.OriginAbility.BeamSaberAction = AbilityBeamSaberAction
@@ -3449,7 +3472,7 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 				
 				if CharacterData.OriginAbility.BeamSaberAction == 11 then
 					if AbilityBeamSaberTimeline >= 1 and CharacterData.OriginAbility.BeamSaberTimeline < 1 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 1
 					elseif AbilityBeamSaberTimeline >= 5 and CharacterData.OriginAbility.BeamSaberTimeline < 5 then
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,0.5)
@@ -3457,7 +3480,7 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 					end
 				elseif CharacterData.OriginAbility.BeamSaberAction == 1 then
 					if AbilityBeamSaberTimeline >= 1 and CharacterData.OriginAbility.BeamSaberTimeline < 1 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 1
 					elseif AbilityBeamSaberTimeline >= 5 and CharacterData.OriginAbility.BeamSaberTimeline < 5 then
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,1.0)
@@ -3465,7 +3488,7 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 					end
 				elseif CharacterData.OriginAbility.BeamSaberAction == 2 then
 					if AbilityBeamSaberTimeline >= 1 and CharacterData.OriginAbility.BeamSaberTimeline < 1 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 1
 					elseif AbilityBeamSaberTimeline >= 5 and CharacterData.OriginAbility.BeamSaberTimeline < 5 then
 						local AdjustRotation = 0
@@ -3482,7 +3505,7 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 					end
 				elseif CharacterData.OriginAbility.BeamSaberAction == 3 then
 					if AbilityBeamSaberTimeline >= 1 and CharacterData.OriginAbility.BeamSaberTimeline < 1 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 1
 					elseif AbilityBeamSaberTimeline >= 5 and CharacterData.OriginAbility.BeamSaberTimeline < 5 then
 						local AdjustRotation = 0
@@ -3499,13 +3522,13 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 					end
 				elseif CharacterData.OriginAbility.BeamSaberAction == 4 then
 					if AbilityBeamSaberTimeline >= 1 and CharacterData.OriginAbility.BeamSaberTimeline < 1 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 1
 					elseif AbilityBeamSaberTimeline >= 5 and CharacterData.OriginAbility.BeamSaberTimeline < 5 then
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,1.0)
 						CharacterData.OriginAbility.BeamSaberTimeline = 5
 					elseif AbilityBeamSaberTimeline >= 15 and CharacterData.OriginAbility.BeamSaberTimeline < 15 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 15
 					elseif AbilityBeamSaberTimeline >= 20 and CharacterData.OriginAbility.BeamSaberTimeline < 20 then
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,1.0)
@@ -3513,13 +3536,13 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 					end
 				elseif CharacterData.OriginAbility.BeamSaberAction == 5 then
 					if AbilityBeamSaberTimeline >= 1 and CharacterData.OriginAbility.BeamSaberTimeline < 1 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 1
 					elseif AbilityBeamSaberTimeline >= 5 and CharacterData.OriginAbility.BeamSaberTimeline < 5 then
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,1.0)
 						CharacterData.OriginAbility.BeamSaberTimeline = 5
 					elseif AbilityBeamSaberTimeline >= 6 and CharacterData.OriginAbility.BeamSaberTimeline < 6 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 6
 					elseif AbilityBeamSaberTimeline >= 10 and CharacterData.OriginAbility.BeamSaberTimeline < 10 then
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,1.0)
@@ -3527,7 +3550,7 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 					end
 				elseif CharacterData.OriginAbility.BeamSaberAction == 6 then
 					if AbilityBeamSaberTimeline >= 1 and CharacterData.OriginAbility.BeamSaberTimeline < 1 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 1
 					elseif AbilityBeamSaberTimeline >= 5 and CharacterData.OriginAbility.BeamSaberTimeline < 5 then
 						local AdjustRotation = 0
@@ -3545,7 +3568,7 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,1.0,AdjustRotation)
 						CharacterData.OriginAbility.BeamSaberTimeline = 5
 					elseif AbilityBeamSaberTimeline >= 6 and CharacterData.OriginAbility.BeamSaberTimeline < 6 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 6
 					elseif AbilityBeamSaberTimeline >= 10 and CharacterData.OriginAbility.BeamSaberTimeline < 10 then
 						local AdjustRotation = 0
@@ -3562,7 +3585,7 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 					end
 				elseif CharacterData.OriginAbility.BeamSaberAction == 7 then
 					if AbilityBeamSaberTimeline >= 1 and CharacterData.OriginAbility.BeamSaberTimeline < 1 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 1
 					elseif AbilityBeamSaberTimeline >= 5 and CharacterData.OriginAbility.BeamSaberTimeline < 5 then
 						local AdjustRotation = 0
@@ -3577,7 +3600,7 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,1.0,AdjustRotation)
 						CharacterData.OriginAbility.BeamSaberTimeline = 5
 					elseif AbilityBeamSaberTimeline >= 6 and CharacterData.OriginAbility.BeamSaberTimeline < 6 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 6
 					elseif AbilityBeamSaberTimeline >= 10 and CharacterData.OriginAbility.BeamSaberTimeline < 10 then
 						if FDEnergyBeamBladeCondition(CharacterData, BodySlashBasePosition) == true and CharacterData.OriginAbility.RevengeStandActive == false then
@@ -3592,13 +3615,13 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 					end
 				elseif CharacterData.OriginAbility.BeamSaberAction == 8 then
 					if AbilityBeamSaberTimeline >= 1 and CharacterData.OriginAbility.BeamSaberTimeline < 1 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 1
 					elseif AbilityBeamSaberTimeline >= 10 and CharacterData.OriginAbility.BeamSaberTimeline < 10 then
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,1.0)
 						CharacterData.OriginAbility.BeamSaberTimeline = 10
 					elseif AbilityBeamSaberTimeline >= 11 and CharacterData.OriginAbility.BeamSaberTimeline < 11 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 11
 					elseif AbilityBeamSaberTimeline >= 13 and CharacterData.OriginAbility.BeamSaberTimeline < 13 then
 						local AdjustRotation = 0
@@ -3613,7 +3636,7 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,1.0,AdjustRotation)
 						CharacterData.OriginAbility.BeamSaberTimeline = 13
 					elseif AbilityBeamSaberTimeline >= 14 and CharacterData.OriginAbility.BeamSaberTimeline < 14 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 14
 					elseif AbilityBeamSaberTimeline >= 16 and CharacterData.OriginAbility.BeamSaberTimeline < 16 then
 						if FDEnergyBeamBladeCondition(CharacterData, BodySlashBasePosition) == true and CharacterData.OriginAbility.RevengeStandActive == false then
@@ -3628,7 +3651,7 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 					end
 				elseif CharacterData.OriginAbility.BeamSaberAction == 9 then
 					if AbilityBeamSaberTimeline >= 1 and CharacterData.OriginAbility.BeamSaberTimeline < 1 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 1
 					elseif AbilityBeamSaberTimeline >= 5 and CharacterData.OriginAbility.BeamSaberTimeline < 5 then
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,1.0)
@@ -3637,7 +3660,7 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,1.0)
 						CharacterData.OriginAbility.BeamSaberTimeline = 8
 					elseif AbilityBeamSaberTimeline >= 9 and CharacterData.OriginAbility.BeamSaberTimeline < 9 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 9
 					elseif AbilityBeamSaberTimeline >= 11 and CharacterData.OriginAbility.BeamSaberTimeline < 11 then
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,1.0)
@@ -3645,7 +3668,7 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 					end
 				elseif CharacterData.OriginAbility.BeamSaberAction == 10 then
 					if AbilityBeamSaberTimeline >= 1 and CharacterData.OriginAbility.BeamSaberTimeline < 1 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 1
 					elseif AbilityBeamSaberTimeline >= 5 and CharacterData.OriginAbility.BeamSaberTimeline < 5 then
 						local AdjustRotation = 0
@@ -3660,7 +3683,7 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,1.0,AdjustRotation)
 						CharacterData.OriginAbility.BeamSaberTimeline = 5
 					elseif AbilityBeamSaberTimeline >= 6 and CharacterData.OriginAbility.BeamSaberTimeline < 6 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 6
 					elseif AbilityBeamSaberTimeline >= 10 and CharacterData.OriginAbility.BeamSaberTimeline < 10 then
 						local AdjustRotation = 0
@@ -3675,7 +3698,7 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,1.0,AdjustRotation)
 						CharacterData.OriginAbility.BeamSaberTimeline = 10
 					elseif AbilityBeamSaberTimeline >= 11 and CharacterData.OriginAbility.BeamSaberTimeline < 11 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 11
 					elseif AbilityBeamSaberTimeline >= 15 and CharacterData.OriginAbility.BeamSaberTimeline < 15 then
 						local AdjustRotation1 = 0
@@ -3706,8 +3729,8 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 						FDBeamSaberSlashActive(CharacterData,BodySlashBasePosition,BodyBaseRotation,1.0,AdjustRotation)
 					end
 					if AbilityBeamSaberTimeline >= 1 and CharacterData.OriginAbility.BeamSaberTimeline < 1 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
-						sounds:playSound("futaradragon:entity.futaradragon.beam_saber_rush_active", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.beam_saber_rush_active", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 						sounds:playSound(FDBaseSoundRegister["RoarLong"], CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 						FDParticleLightCircle(CharacterData,"Dragon_Main")
 						CharacterData.OriginAbility.BeamSaberTimeline = 1
@@ -3715,61 +3738,61 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 						RushSlashEffect()
 						CharacterData.OriginAbility.BeamSaberTimeline = 10
 					elseif AbilityBeamSaberTimeline >= 11 and CharacterData.OriginAbility.BeamSaberTimeline < 11 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 11
 					elseif AbilityBeamSaberTimeline >= 12 and CharacterData.OriginAbility.BeamSaberTimeline < 12 then
 						RushSlashEffect()
 						CharacterData.OriginAbility.BeamSaberTimeline = 12
 					elseif AbilityBeamSaberTimeline >= 13 and CharacterData.OriginAbility.BeamSaberTimeline < 13 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 13
 					elseif AbilityBeamSaberTimeline >= 14 and CharacterData.OriginAbility.BeamSaberTimeline < 14 then
 						RushSlashEffect()
 						CharacterData.OriginAbility.BeamSaberTimeline = 14
 					elseif AbilityBeamSaberTimeline >= 15 and CharacterData.OriginAbility.BeamSaberTimeline < 15 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 15
 					elseif AbilityBeamSaberTimeline >= 16 and CharacterData.OriginAbility.BeamSaberTimeline < 16 then
 						RushSlashEffect()
 						CharacterData.OriginAbility.BeamSaberTimeline = 16
 					elseif AbilityBeamSaberTimeline >= 17 and CharacterData.OriginAbility.BeamSaberTimeline < 17 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 17
 					elseif AbilityBeamSaberTimeline >= 18 and CharacterData.OriginAbility.BeamSaberTimeline < 18 then
 						RushSlashEffect()
 						CharacterData.OriginAbility.BeamSaberTimeline = 18
 					elseif AbilityBeamSaberTimeline >= 19 and CharacterData.OriginAbility.BeamSaberTimeline < 19 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 19
 					elseif AbilityBeamSaberTimeline >= 20 and CharacterData.OriginAbility.BeamSaberTimeline < 20 then
 						RushSlashEffect()
 						CharacterData.OriginAbility.BeamSaberTimeline = 20
 					elseif AbilityBeamSaberTimeline >= 21 and CharacterData.OriginAbility.BeamSaberTimeline < 21 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 21
 					elseif AbilityBeamSaberTimeline >= 22 and CharacterData.OriginAbility.BeamSaberTimeline < 22 then
 						RushSlashEffect()
 						CharacterData.OriginAbility.BeamSaberTimeline = 22
 					elseif AbilityBeamSaberTimeline >= 23 and CharacterData.OriginAbility.BeamSaberTimeline < 23 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 23
 					elseif AbilityBeamSaberTimeline >= 24 and CharacterData.OriginAbility.BeamSaberTimeline < 24 then
 						RushSlashEffect()
 						CharacterData.OriginAbility.BeamSaberTimeline = 24
 					elseif AbilityBeamSaberTimeline >= 25 and CharacterData.OriginAbility.BeamSaberTimeline < 25 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 25
 					elseif AbilityBeamSaberTimeline >= 26 and CharacterData.OriginAbility.BeamSaberTimeline < 26 then
 						RushSlashEffect()
 						CharacterData.OriginAbility.BeamSaberTimeline = 26
 					elseif AbilityBeamSaberTimeline >= 27 and CharacterData.OriginAbility.BeamSaberTimeline < 27 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 27
 					elseif AbilityBeamSaberTimeline >= 28 and CharacterData.OriginAbility.BeamSaberTimeline < 28 then
 						RushSlashEffect()
 						CharacterData.OriginAbility.BeamSaberTimeline = 28
 					elseif AbilityBeamSaberTimeline >= 29 and CharacterData.OriginAbility.BeamSaberTimeline < 29 then
-						sounds:playSound("futaradragon:entity.futaradragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.melee", CharacterData.Position, 1.0, 0.5):setAttenuation(FDBaseSoundDistance)
 						CharacterData.OriginAbility.BeamSaberTimeline = 29
 					elseif AbilityBeamSaberTimeline >= 30 and CharacterData.OriginAbility.BeamSaberTimeline < 30 then
 						RushSlashEffect()
@@ -3820,12 +3843,12 @@ function FDBeamSaberClawTickUpdate(CharacterData,GyroPhysic)
 						CharacterData.OriginAbility.BeamSaberClawImpact = true
 						if FDEnergyBeamBladeCondition(CharacterData, CharacterData.Position) == true and CharacterData.OriginAbility.BeamSaberClawPowerRageActive == true then
 							if (Dracomech.WeaponSlot["WP_EBD_CN"] ~= nil and Dracomech.WeaponSlot["WP_EBD_CN"].FloatTime == 0 and (Dracomech.WeaponSlot["WP_EBD_CN"].Action == "blade_holding" or Dracomech.WeaponSlot["WP_EBD_CN"].Action == "float") and Dracomech.WeaponSlot["WP_EBD_CN"].BladeTrack == true) then
-								sounds:playSound("futaradragon:entity.futaradragon.static_armor_beam_saber_blade_slash_impact", CharacterData.Position, 0.4, 0.9 + (math.random() * 0.2)):setAttenuation(FDBaseSoundDistance)
+								sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_beam_saber_blade_slash_impact", CharacterData.Position, 0.4, 0.9 + (math.random() * 0.2)):setAttenuation(FDBaseSoundDistance)
 							elseif GrandCrossZana.ActiveRender == true then
-								sounds:playSound("futaradragon:entity.futaradragon.grand_cross_zana_heaven_bullet_hit", CharacterData.Position, 1.0, 0.9 + (math.random() * 0.2)):setAttenuation(FDBaseSoundDistance)
+								sounds:playSound("davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_bullet_hit", CharacterData.Position, 1.0, 0.9 + (math.random() * 0.2)):setAttenuation(FDBaseSoundDistance)
 							end
 						else
-							sounds:playSound("futaradragon:entity.futaradragon.beam_saber_claw_impact", CharacterData.Position, 1.0, 0.9 + (math.random() * 0.2)):setAttenuation(FDBaseSoundDistance)
+							sounds:playSound("davwyndragon:entity.davwyndragon.beam_saber_claw_impact", CharacterData.Position, 1.0, 0.9 + (math.random() * 0.2)):setAttenuation(FDBaseSoundDistance)
 						end
 					end
 				else
@@ -3878,8 +3901,8 @@ function FDHyperBeamUpdate(CharacterData,GyroPhysic,dt)
 end
 
 function FDHyperBeamTickUpdate(CharacterData,GyroPhysic)
-	local AbilityHyperBeamCharge = FDOriginGetData("futaradragon:hyperbeam_charge")
-	local AbilityHyperBeamLevel = FDOriginGetData("futaradragon:ability_level_hyperbeam")
+	local AbilityHyperBeamCharge = FDOriginGetData("davwyndragon:hyperbeam_charge")
+	local AbilityHyperBeamLevel = FDOriginGetData("davwyndragon:ability_level_hyperbeam")
 	local Dracomech = CharacterData.OriginAbility.DracomechArmor
 	local GrandCrossZana = CharacterData.OriginAbility.GrandCrossZanaArmor
 	if AbilityHyperBeamCharge ~= nil and AbilityHyperBeamLevel ~= nil then
@@ -3896,7 +3919,7 @@ function FDHyperBeamTickUpdate(CharacterData,GyroPhysic)
 			end
 			
 			FDParticleActiveHyperBeamCharge(CharacterData,CharacterData.OriginAbility.HyperBeamPrefix .. "Charge","Dragon_Mouth_Position")
-			FDSoundLoopInit("HyperBeamChargeSound","futaradragon:entity.futaradragon.hyper_beam_charge_loop",CharacterData.Position,0,1,FDBaseSoundDistance)
+			FDSoundLoopInit("HyperBeamChargeSound","davwyndragon:entity.davwyndragon.hyper_beam_charge_loop",CharacterData.Position,0,1,FDBaseSoundDistance)
 			
 			FDEyesSetActive(CharacterData,FDCharacterConstant.EyeMode.Angry)
 		elseif CharacterData.OriginAbility.HyperBeamChargeActive == true and CharacterData.OriginAbility.HyperBeamCharge == 0 then
@@ -3923,7 +3946,7 @@ function FDHyperBeamTickUpdate(CharacterData,GyroPhysic)
 				})
 			end
 			
-			CharacterData.OriginAbility.HyperBeamShootingChargePower = FDOriginGetData("futaradragon:hyperbeam_charge_power")
+			CharacterData.OriginAbility.HyperBeamShootingChargePower = FDOriginGetData("davwyndragon:hyperbeam_charge_power")
 			if CharacterData.OriginAbility.HyperBeamShootingChargePower ~= nil then
 				if CharacterData.OriginAbility.HyperBeamCharge == 100 then
 					if CharacterData.OriginAbility.HyperBeamShooting == false then
@@ -3941,12 +3964,12 @@ function FDHyperBeamTickUpdate(CharacterData,GyroPhysic)
 						CharacterData.OriginAbility.HyperBeamActionLoopTick = 0
 						
 						
-						FDSoundLoopInit("HyperBeamShootSound","futaradragon:entity.futaradragon.hyper_beam_shoot_loop",CharacterData.Position,0,1.5,FDBaseSoundDistance)
-						FDSoundLoopInit("HyperBeamImpactSound","futaradragon:entity.futaradragon.hyper_beam_impact_loop",CharacterData.Position,0,1.5,FDBaseSoundDistance)
+						FDSoundLoopInit("HyperBeamShootSound","davwyndragon:entity.davwyndragon.hyper_beam_shoot_loop",CharacterData.Position,0,1.5,FDBaseSoundDistance)
+						FDSoundLoopInit("HyperBeamImpactSound","davwyndragon:entity.davwyndragon.hyper_beam_impact_loop",CharacterData.Position,0,1.5,FDBaseSoundDistance)
 						
 						if FDEnergyCannonCondition(CharacterData) == true or GrandCrossZana.ActiveRender == true then
 						else
-							sounds:playSound("futaradragon:entity.futaradragon.hyper_beam_begin", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+							sounds:playSound("davwyndragon:entity.davwyndragon.hyper_beam_begin", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 						end
 					end
 					
@@ -3975,9 +3998,9 @@ function FDHyperBeamTickUpdate(CharacterData,GyroPhysic)
 					
 					PositionTo = FDRandomArea(PositionTo,CharacterData.OriginAbility.HyperBeamShootArea)
 
-					local PositonToX = FDOriginGetData("futaradragon:hyperbeam_target_x_resource")
-					local PositonToY = FDOriginGetData("futaradragon:hyperbeam_target_y_resource")
-					local PositonToZ = FDOriginGetData("futaradragon:hyperbeam_target_z_resource")
+					local PositonToX = FDOriginGetData("davwyndragon:hyperbeam_target_x_resource")
+					local PositonToY = FDOriginGetData("davwyndragon:hyperbeam_target_y_resource")
+					local PositonToZ = FDOriginGetData("davwyndragon:hyperbeam_target_z_resource")
 					if (PositonToX ~= nil and PositonToY ~= nil and PositonToZ ~= nil) then
 						PositonToX = tonumber(PositonToX) / 10
 						PositonToY = tonumber(PositonToY) / 10
@@ -4053,7 +4076,7 @@ function FDHyperBeamTickUpdate(CharacterData,GyroPhysic)
 							elseif GrandCrossZana.ActiveRender == true then
 								if GrandCrossZana.MegaChargeToggle == false then 
 									if CharacterData.OriginAbility.HyperBeamShootingChargePower >= 75 and CharacterData.OriginAbility.RevengeStandActive == true then
-										sounds:playSound("futaradragon:entity.futaradragon.grand_cross_zana_heaven_strike_pre_charge", GrandCrossZana.WeaponSlot["GCZ_C"].Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+										sounds:playSound("davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_strike_pre_charge", GrandCrossZana.WeaponSlot["GCZ_C"].Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 										GrandCrossZana.MegaChargeToggle = true
 									end
 								else
@@ -4108,8 +4131,8 @@ function FDHyperBeamTickUpdate(CharacterData,GyroPhysic)
 end
 
 function FDRevengeStandTickUpdate(CharacterData,GyroPhysic)
-	local AbilityRevengeStandActive = FDOriginGetData("futaradragon:state_resource")
-	local AbilityUltimateResource = FDOriginGetData("futaradragon:ultimate_resource")
+	local AbilityRevengeStandActive = FDOriginGetData("davwyndragon:state_resource")
+	local AbilityUltimateResource = FDOriginGetData("davwyndragon:ultimate_resource")
 	if AbilityRevengeStandActive ~= nil and AbilityUltimateResource ~= nil then
 		CharacterData.OriginAbility.RevengeStandActive = AbilityRevengeStandActive == 1 and true or false
 		
@@ -4117,14 +4140,14 @@ function FDRevengeStandTickUpdate(CharacterData,GyroPhysic)
 			if CharacterData.OriginAbility.RevengeStandActive == true then
 				FDParticleLightCircle(CharacterData,"Dragon_Main")
 				sounds:playSound(FDBaseSoundRegister["RoarBurst"], CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
-				sounds:playSound("futaradragon:entity.futaradragon.status_ultimate_explosion", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
-				FDSoundLoopInit("RevengeStandActiveLoopSound","futaradragon:entity.futaradragon.energy_regenerate_loop",CharacterData.Position,1,1,FDBaseSoundDistance)
+				sounds:playSound("davwyndragon:entity.davwyndragon.status_ultimate_explosion", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+				FDSoundLoopInit("RevengeStandActiveLoopSound","davwyndragon:entity.davwyndragon.energy_regenerate_loop",CharacterData.Position,1,1,FDBaseSoundDistance)
 				FDParticleActiveLineOfLight(CharacterData,CharacterData.OriginAbility.RevengeStandPrefix .. "Light","Dragon_Main",3)
 			elseif CharacterData.OriginAbility.RevengeStandActive == false then
 				FDSoundLoopUninit("RevengeStandActiveLoopSound")
 				FDParticleDeactiveLineOfLight(CharacterData,CharacterData.OriginAbility.RevengeStandPrefix .. "Light", 3)
 				FDParticleLightCircle(CharacterData,"Dragon_Main")
-				sounds:playSound("futaradragon:entity.futaradragon.ultimate_depleted", CharacterData.Position, 0.5, 1.0):setAttenuation(FDBaseSoundDistance)
+				sounds:playSound("davwyndragon:entity.davwyndragon.ultimate_depleted", CharacterData.Position, 0.5, 1.0):setAttenuation(FDBaseSoundDistance)
 				CharacterData.OriginAbility.RevengeStandShadowTime = 0
 			end
 			CharacterData.OriginAbility.RevengeStandEffectActive = CharacterData.OriginAbility.RevengeStandActive
@@ -4390,7 +4413,7 @@ function FDWeaponSlotMechanicBooster(CharacterData,WeaponSlot)
 	if WeaponSlot.BoosterActiveRender ~= WeaponSlot.BoosterActive then
 		if WeaponSlot.BoosterActive == true then
 			FDDracomechBoosterJetInit(CharacterData,WeaponSlot.BoosterSlot,0,0,true)
-			FDSoundLoopInit(WeaponSlot.Id .. "_Jet","futaradragon:entity.futaradragon.static_armor_drone_mini_booster_loop",WeaponSlot.Position,0.2,1,FDBaseSoundDistance)
+			FDSoundLoopInit(WeaponSlot.Id .. "_Jet","davwyndragon:entity.davwyndragon.static_armor_drone_mini_booster_loop",WeaponSlot.Position,0.2,1,FDBaseSoundDistance)
 		else
 		end
 		WeaponSlot.BoosterActiveRender = WeaponSlot.BoosterActive
@@ -4503,9 +4526,9 @@ function FDDracomechMechanicInit(CharacterData)
 	FDDracomechInit(true)
 	local Dracomech = CharacterData.OriginAbility.DracomechArmor
 	Dracomech.EnergyShieldPowerFollow = 0
-	FDSoundLoopInit("GeneratorSound","futaradragon:entity.futaradragon.static_armor_idle_loop",CharacterData.Position,0.05,1,FDBaseSoundDistance)
-	FDSoundLoopInit("GroundMovementSound","futaradragon:entity.futaradragon.static_armor_ground_wheel_loop",CharacterData.Position,0,1,FDBaseSoundDistance)
-	FDSoundLoopInit("BoosterSound","futaradragon:entity.futaradragon.static_armor_booster_loop",CharacterData.Position,0,1,FDBaseSoundDistance)
+	FDSoundLoopInit("GeneratorSound","davwyndragon:entity.davwyndragon.static_armor_idle_loop",CharacterData.Position,0.05,1,FDBaseSoundDistance)
+	FDSoundLoopInit("GroundMovementSound","davwyndragon:entity.davwyndragon.static_armor_ground_wheel_loop",CharacterData.Position,0,1,FDBaseSoundDistance)
+	FDSoundLoopInit("BoosterSound","davwyndragon:entity.davwyndragon.static_armor_booster_loop",CharacterData.Position,0,1,FDBaseSoundDistance)
 	FDDracomechBarrierSetup(CharacterData,"HD_B_1","DMA_HD_1_Barrier_1")
 	FDDracomechBarrierSetup(CharacterData,"HD_B_2","DMA_HD_1_Barrier_2")
 	FDDracomechBarrierSetup(CharacterData,"BD_B_1","DMA_BD_Barrier_1")
@@ -4633,7 +4656,7 @@ function FDDracomechMechanicInit(CharacterData)
 					if WeaponSlot.FloatTime == 0 then
 						WeaponSlot.Velocity = FDDirectionFromPoint(WeaponSlot.PositionT,FDPartExactPosition(FDMapperObj[WeaponSlot.WeaponPart],vec(WeaponSlot.LaunchVelocity.x,WeaponSlot.LaunchVelocity.y,WeaponSlot.LaunchVelocity.z)))
 						FDParticlePushSmoke(CharacterData,WeaponSlot.Position,WeaponSlot.Rotation)
-						sounds:playSound("futaradragon:entity.futaradragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
 						WeaponSlot.FloatTime = WeaponSlot.FloatTimeDef
 					else
 						WeaponSlot.FloatTime = WeaponSlot.FloatTimeDef / 2
@@ -4658,7 +4681,7 @@ function FDDracomechMechanicInit(CharacterData)
 					if WeaponSlot.FloatTime == 0 and WeaponSlot.AttachPart ~= nil then
 						WeaponSlot.Velocity = FDDirectionFromPoint(WeaponSlot.PositionT,WeaponSlot.PositionT + vec(0,-0.5,0))
 						FDParticlePushSmoke(CharacterData,WeaponSlot.Position,WeaponSlot.Rotation)
-						sounds:playSound("futaradragon:entity.futaradragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
 						WeaponSlot.FloatTime = WeaponSlot.FloatTimeDef
 					else
 						WeaponSlot.FloatTime = WeaponSlot.FloatTimeDef / 2
@@ -4693,7 +4716,7 @@ function FDDracomechMechanicInit(CharacterData)
 						WeaponSlot.FloatTime = WeaponSlot.FloatTimeDef
 						FDAnimationDeactive(CustomAnimation)
 						DefaultSetting(WeaponSlot)
-						sounds:playSound("futaradragon:entity.futaradragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
 					end
 				end
 			end
@@ -4835,7 +4858,7 @@ function FDDracomechMechanicInit(CharacterData)
 					Position = WeaponSlot.Position,
 					Volume = 0.0
 				})
-				sounds:playSound("futaradragon:entity.futaradragon.static_armor_gatling_active_loop_end", WeaponSlot.Position, 0.1):setAttenuation(FDBaseSoundDistance)
+				sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_gatling_active_loop_end", WeaponSlot.Position, 0.1):setAttenuation(FDBaseSoundDistance)
 			end
 		end
 		
@@ -4849,7 +4872,7 @@ function FDDracomechMechanicInit(CharacterData)
 	
 	FDWeaponSlotSetup(CharacterData,Dracomech,"WP_GAT_L",
 	function(CharacterData,WeaponSlot)
-		FDSoundLoopInit(WeaponSlot.GunSpinSoundLoopId,"futaradragon:entity.futaradragon.static_armor_gatling_active_loop",CharacterData.Position,0,1,FDBaseSoundDistance)
+		FDSoundLoopInit(WeaponSlot.GunSpinSoundLoopId,"davwyndragon:entity.davwyndragon.static_armor_gatling_active_loop",CharacterData.Position,0,1,FDBaseSoundDistance)
 		FDWeaponSlotMechanicInit(CharacterData,WeaponSlot)
 	end,
 	function(CharacterData,WeaponSlot)
@@ -4911,7 +4934,7 @@ function FDDracomechMechanicInit(CharacterData)
 	
 	FDWeaponSlotSetup(CharacterData,Dracomech,"WP_GAT_R",
 	function(CharacterData,WeaponSlot)
-		FDSoundLoopInit(WeaponSlot.GunSpinSoundLoopId,"futaradragon:entity.futaradragon.static_armor_gatling_active_loop",CharacterData.Position,0,1,FDBaseSoundDistance)
+		FDSoundLoopInit(WeaponSlot.GunSpinSoundLoopId,"davwyndragon:entity.davwyndragon.static_armor_gatling_active_loop",CharacterData.Position,0,1,FDBaseSoundDistance)
 		FDWeaponSlotMechanicInit(CharacterData,WeaponSlot)
 	end,
 	function(CharacterData,WeaponSlot)
@@ -4990,7 +5013,7 @@ function FDDracomechMechanicInit(CharacterData)
 							WeaponSlot.Velocity = FDDirectionFromPoint(WeaponSlot.PositionT,FDPartExactPosition(FDMapperObj[WeaponSlot.WeaponPart],vec(WeaponSlot.LaunchVelocity.x,WeaponSlot.LaunchVelocity.y,WeaponSlot.LaunchVelocity.z)))
 							FDParticlePushSmoke(CharacterData,WeaponSlot.Position,WeaponSlot.Rotation)
 							WeaponSlot.BoosterActive = true
-							sounds:playSound("futaradragon:entity.futaradragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
+							sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
 						end
 						WeaponSlot.FloatTime = WeaponSlot.FloatTimeDef
 						WeaponSlot.AttachPart = nil
@@ -5669,7 +5692,7 @@ function FDDracomechMechanicInit(CharacterData)
 				if WeaponSlot.FloatTime == 0 and WeaponSlot.AttachPart ~= nil then
 					WeaponSlot.Velocity = FDDirectionFromPoint(WeaponSlot.PositionT,WeaponSlot.PositionT + vec(0,-0.5,0))
 					FDParticlePushSmoke(CharacterData,WeaponSlot.Position,WeaponSlot.Rotation)
-					sounds:playSound("futaradragon:entity.futaradragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
+					sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
 					WeaponSlot.FloatTime = WeaponSlot.FloatTimeDef
 				else
 					WeaponSlot.FloatTime = WeaponSlot.FloatTimeDef / 2
@@ -5706,7 +5729,7 @@ function FDDracomechMechanicInit(CharacterData)
 					if WeaponSlot.FloatTime == 0 then
 						WeaponSlot.Velocity = FDDirectionFromPoint(WeaponSlot.PositionT,FDPartExactPosition(FDMapperObj[WeaponSlot.WeaponPart],vec(WeaponSlot.LaunchVelocity.x,WeaponSlot.LaunchVelocity.y,WeaponSlot.LaunchVelocity.z)))
 						FDParticlePushSmoke(CharacterData,WeaponSlot.Position,WeaponSlot.Rotation)
-						sounds:playSound("futaradragon:entity.futaradragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
 						WeaponSlot.FloatTime = WeaponSlot.FloatTimeDef
 					else
 						WeaponSlot.FloatTime = WeaponSlot.FloatTimeDef / 2
@@ -5735,7 +5758,7 @@ function FDDracomechMechanicInit(CharacterData)
 					if WeaponSlot.FloatTime == 0 then
 						WeaponSlot.Velocity = FDDirectionFromPoint(WeaponSlot.PositionT,FDPartExactPosition(FDMapperObj[WeaponSlot.WeaponPart],vec(WeaponSlot.LaunchVelocity.x,WeaponSlot.LaunchVelocity.y,WeaponSlot.LaunchVelocity.z)))
 						FDParticlePushSmoke(CharacterData,WeaponSlot.Position,WeaponSlot.Rotation)
-						sounds:playSound("futaradragon:entity.futaradragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
 						WeaponSlot.FloatTime = WeaponSlot.FloatTimeDef
 					else
 						WeaponSlot.FloatTime = WeaponSlot.FloatTimeDef / 2
@@ -5765,7 +5788,7 @@ function FDDracomechMechanicInit(CharacterData)
 						WeaponSlot.FirstLaunch = true
 						WeaponSlot.Velocity = FDDirectionFromPoint(WeaponSlot.PositionT,FDPartExactPosition(FDMapperObj[WeaponSlot.WeaponPart],vec(WeaponSlot.LaunchVelocity.x,WeaponSlot.LaunchVelocity.y,WeaponSlot.LaunchVelocity.z)))
 						FDParticlePushSmoke(CharacterData,WeaponSlot.Position,WeaponSlot.Rotation)
-						sounds:playSound("futaradragon:entity.futaradragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
 					else
 						WeaponSlot.FloatTime = WeaponSlot.FloatTimeDef / 2
 					end
@@ -5861,7 +5884,7 @@ function FDDracomechMechanicInit(CharacterData)
 						if WeaponSlot.AI.Area ~= 0.5 then
 							local RandomPowerEnergySound = math.random(1,10)
 							if RandomPowerEnergySound == 1 then
-								sounds:playSound("futaradragon:entity.futaradragon.static_armor_beam_saber_blade_slash_extra_velocity", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+								sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_beam_saber_blade_slash_extra_velocity", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 							end
 							WeaponSlot.AI.Area = 0.5
 							WeaponSlot.AI.Speed = 5.0
@@ -5925,8 +5948,8 @@ function FDDracomechMechanicInit(CharacterData)
 				if WeaponSlot.LaserTrack ~= CharacterData.OriginAbility.HyperBeamShooting and (CharacterData.CurrentActiveSubAnimation == "Anim_2Legged_Upper_Gun_Weapon_2Handed_L" or CharacterData.CurrentActiveSubAnimation == "Anim_2Legged_Upper_Gun_Weapon_2Handed_R" or WeaponSlot.Action == "float") then
 					if CharacterData.OriginAbility.HyperBeamShooting == true then
 						FDParticleActivePartDockBeamLine(CharacterData,WeaponSlot.Id .. "_Laser_Track_Beam",WeaponSlot.LaserTrackPart,WeaponSlot.AimPosition,0.05)
-						sounds:playSound("futaradragon:entity.futaradragon.static_armor_beam_saber_blade_aim", CharacterData.Position, 0.5, 1.0):setAttenuation(FDBaseSoundDistance)
-						FDSoundLoopInit(WeaponSlot.Id .. "_Laser_Track_Beam_Sound","futaradragon:entity.futaradragon.static_armor_beam_saber_blade_small_beam_loop",CharacterData.Position,0.15,1,FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_beam_saber_blade_aim", CharacterData.Position, 0.5, 1.0):setAttenuation(FDBaseSoundDistance)
+						FDSoundLoopInit(WeaponSlot.Id .. "_Laser_Track_Beam_Sound","davwyndragon:entity.davwyndragon.static_armor_beam_saber_blade_small_beam_loop",CharacterData.Position,0.15,1,FDBaseSoundDistance)
 					else
 						FDParticleDeactivePartDockBeamLine(CharacterData,WeaponSlot.Id .. "_Laser_Track_Beam")
 						FDSoundLoopUninit(WeaponSlot.Id .. "_Laser_Track_Beam_Sound")
@@ -5951,8 +5974,8 @@ function FDDracomechMechanicInit(CharacterData)
 				if WeaponSlot.BladeTrack == true then
 					if FDSoundLoopGet(WeaponSlot.Id .. "_Energy_Blade_Beam_Sound") == nil then
 						FDParticleActiveEnergyBeamSaberBladeSet(CharacterData,WeaponSlot.Id .. "_Energy_Blade_Beam","EnergyBeamSaberBlade_Base","EnergyBeamSaberBlade_BaseLight",WeaponSlot.BeamBladePart,0.1,0.1)
-						sounds:playSound("futaradragon:entity.futaradragon.static_armor_booster_burst", CharacterData.Position, 0.5, 1.0):setAttenuation(FDBaseSoundDistance)
-						FDSoundLoopInit(WeaponSlot.Id .. "_Energy_Blade_Beam_Sound","futaradragon:entity.futaradragon.static_armor_beam_saber_blade_small_beam_loop",CharacterData.Position,0.2,0.25,FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_booster_burst", CharacterData.Position, 0.5, 1.0):setAttenuation(FDBaseSoundDistance)
+						FDSoundLoopInit(WeaponSlot.Id .. "_Energy_Blade_Beam_Sound","davwyndragon:entity.davwyndragon.static_armor_beam_saber_blade_small_beam_loop",CharacterData.Position,0.2,0.25,FDBaseSoundDistance)
 					end
 				
 					FDSoundLoopUpdate(WeaponSlot.Id .. "_Energy_Blade_Beam_Sound",{
@@ -5962,7 +5985,7 @@ function FDDracomechMechanicInit(CharacterData)
 					WeaponSlot.Heat = math.min(WeaponSlot.HeatMax,WeaponSlot.Heat + 1)
 					if WeaponSlot.BeamBladeActionTrack ~= CharacterData.OriginAbility.BeamSaberAction then
 						if CharacterData.OriginAbility.BeamSaberAction ~= 0 then
-							sounds:playSound("futaradragon:entity.futaradragon.static_armor_booster_burst", CharacterData.Position, 0.5, 1.0):setAttenuation(FDBaseSoundDistance)
+							sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_booster_burst", CharacterData.Position, 0.5, 1.0):setAttenuation(FDBaseSoundDistance)
 						end
 						
 						WeaponSlot.BeamBladeActionTrack = CharacterData.OriginAbility.BeamSaberAction
@@ -6300,7 +6323,7 @@ function FDDracomechBoosterJetBurst(CharacterData,BoosterSlot)
 end
 
 function FDArmorSlotTickUpdate(CharacterData,SlotObject)
-	local AbilityArmorHit = FDOriginGetData("futaradragon:shield_hit_effect_resource")
+	local AbilityArmorHit = FDOriginGetData("davwyndragon:shield_hit_effect_resource")
 	
 	if CharacterData.OriginAbility.EnergyShieldCal > 0 then
 		SlotObject.ArmorBreakShield = true
@@ -6474,7 +6497,7 @@ function FDWeaponSlotCondition(CharacterData,SlotObject,TargetPosition,Condition
 end
 
 function FDDracomechTickUpdate(CharacterData,GyroPhysic)
-	local AbilityArmorSkin = FDOriginGetData("futaradragon:armor_skin_toggle")
+	local AbilityArmorSkin = FDOriginGetData("davwyndragon:armor_skin_toggle")
 	local Dracomech = CharacterData.OriginAbility.DracomechArmor
 	if AbilityArmorSkin ~= nil then
 		Dracomech.Active = (AbilityArmorSkin == 1 and CharacterData.ItemSecondary ~= nil and CharacterData.ItemSecondary.id == "minecraft:shield") and true or false
@@ -6578,7 +6601,7 @@ function FDDracomechTickUpdate(CharacterData,GyroPhysic)
 				if Dracomech.BoosterActivePlusFollow ~= Dracomech.BoosterActivePlus then
 					if Dracomech.BoosterActivePlus == true then
 						FDDracomechBoosterJetBurst(CharacterData,Dracomech.BoosterSlot)
-						sounds:playSound("futaradragon:entity.futaradragon.static_armor_booster_burst", player:getPos(), 0.7):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_booster_burst", player:getPos(), 0.7):setAttenuation(FDBaseSoundDistance)
 						Dracomech.BoosterScalePlusTimeT = Dracomech.BoosterScalePlusTimeDef
 					end
 					Dracomech.BoosterActivePlusFollow = Dracomech.BoosterActivePlus
@@ -6998,7 +7021,7 @@ function FDGrandCrossZanaMechanicInit(CharacterData,GyroPhysic)
 					WeaponSlot.FirstLaunch = true
 					WeaponSlot.Velocity = FDDirectionFromPoint(WeaponSlot.PositionT,FDPartExactPosition(FDMapperObj[WeaponSlot.WeaponPart],vec(WeaponSlot.LaunchVelocity.x,WeaponSlot.LaunchVelocity.y,WeaponSlot.LaunchVelocity.z)))
 					FDParticlePushSmoke(CharacterData,WeaponSlot.Position,WeaponSlot.Rotation)
-					sounds:playSound("futaradragon:entity.futaradragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
+					sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_part_undock", CharacterData.Position, 0.3, 1.0):setAttenuation(FDBaseSoundDistance)
 					WeaponSlot.FloatTime = WeaponSlot.FloatTimeDef
 				else
 					WeaponSlot.FloatTime = WeaponSlot.FloatTimeDef / 2
@@ -7022,7 +7045,7 @@ function FDGrandCrossZanaMechanicInit(CharacterData,GyroPhysic)
 						if WeaponSlot.AI.Area ~= 0.5 then
 							local RandomPowerEnergySound = math.random(1,10)
 							if RandomPowerEnergySound == 1 then
-								sounds:playSound("futaradragon:entity.futaradragon.static_armor_beam_saber_blade_slash_extra_velocity", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+								sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_beam_saber_blade_slash_extra_velocity", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 							end
 							WeaponSlot.AI.Area = 0.5
 							WeaponSlot.AI.Speed = 5.0
@@ -7185,9 +7208,9 @@ function FDGrandCrossZanaMechanicInit(CharacterData,GyroPhysic)
 	function(CharacterData,WeaponSlot)
 		GrandCrossZanaWeaponInitFunction(CharacterData,WeaponSlot)
 		WeaponSlot.PhysicPositionFollow = FDPartExactPosition(FDMapperObj["Player_Dragon_Base"],vec(0, 0, -1))
-		FDSoundLoopInit(WeaponSlot.GatlingShotSoundLoopId,"futaradragon:entity.futaradragon.grand_cross_zana_heaven_gatling_shot_loop",WeaponSlot.Position,0,1,FDBaseSoundDistance)
-		FDSoundLoopInit(WeaponSlot.GatlingGunSpinSoundLoopId,"futaradragon:entity.futaradragon.static_armor_gatling_active_loop",WeaponSlot.Position,0,1,FDBaseSoundDistance)
-		FDSoundLoopInit(WeaponSlot.HeatBeamBladeSoundLoopId,"futaradragon:entity.futaradragon.grand_cross_zana_heaven_saber_active_loop",WeaponSlot.Position,0,1,FDBaseSoundDistance)
+		FDSoundLoopInit(WeaponSlot.GatlingShotSoundLoopId,"davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_gatling_shot_loop",WeaponSlot.Position,0,1,FDBaseSoundDistance)
+		FDSoundLoopInit(WeaponSlot.GatlingGunSpinSoundLoopId,"davwyndragon:entity.davwyndragon.static_armor_gatling_active_loop",WeaponSlot.Position,0,1,FDBaseSoundDistance)
+		FDSoundLoopInit(WeaponSlot.HeatBeamBladeSoundLoopId,"davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_saber_active_loop",WeaponSlot.Position,0,1,FDBaseSoundDistance)
 		FDWeaponSlotMechanicInit(CharacterData,WeaponSlot)
 	end,
 	function(CharacterData,WeaponSlot)
@@ -7327,9 +7350,9 @@ function FDGrandCrossZanaMechanicInit(CharacterData,GyroPhysic)
 	function(CharacterData,WeaponSlot)
 		GrandCrossZanaWeaponInitFunction(CharacterData,WeaponSlot)
 		WeaponSlot.PhysicPositionFollow = FDPartExactPosition(FDMapperObj["Player_Dragon_Base"],vec(0, 0, -1))
-		FDSoundLoopInit(WeaponSlot.GatlingShotSoundLoopId,"futaradragon:entity.futaradragon.grand_cross_zana_heaven_gatling_shot_loop",WeaponSlot.Position,0,1,FDBaseSoundDistance)
-		FDSoundLoopInit(WeaponSlot.GatlingGunSpinSoundLoopId,"futaradragon:entity.futaradragon.static_armor_gatling_active_loop",WeaponSlot.Position,0,1,FDBaseSoundDistance)
-		FDSoundLoopInit(WeaponSlot.HeatBeamBladeSoundLoopId,"futaradragon:entity.futaradragon.grand_cross_zana_heaven_saber_active_loop",WeaponSlot.Position,0,1,FDBaseSoundDistance)
+		FDSoundLoopInit(WeaponSlot.GatlingShotSoundLoopId,"davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_gatling_shot_loop",WeaponSlot.Position,0,1,FDBaseSoundDistance)
+		FDSoundLoopInit(WeaponSlot.GatlingGunSpinSoundLoopId,"davwyndragon:entity.davwyndragon.static_armor_gatling_active_loop",WeaponSlot.Position,0,1,FDBaseSoundDistance)
+		FDSoundLoopInit(WeaponSlot.HeatBeamBladeSoundLoopId,"davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_saber_active_loop",WeaponSlot.Position,0,1,FDBaseSoundDistance)
 		FDWeaponSlotMechanicInit(CharacterData,WeaponSlot)
 	end,
 	function(CharacterData,WeaponSlot)
@@ -7543,7 +7566,7 @@ function FDGrandCrossZanaMechanicInit(CharacterData,GyroPhysic)
 			if WeaponSlot.AI.Area ~= 0.5 then
 				local RandomPowerEnergySound = math.random(1,10)
 				if RandomPowerEnergySound == 1 then
-					sounds:playSound("futaradragon:entity.futaradragon.static_armor_beam_saber_blade_slash_extra_velocity", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+					sounds:playSound("davwyndragon:entity.davwyndragon.static_armor_beam_saber_blade_slash_extra_velocity", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 				end
 				WeaponSlot.AI.Area = 0.5
 				WeaponSlot.AI.Speed = 5.0
@@ -7615,7 +7638,7 @@ function FDGrandCrossZanaMechanicInit(CharacterData,GyroPhysic)
 	function(CharacterData,WeaponSlot,PositionFrom,PositionTo)
 		if CharacterData.OriginAbility.HyperBeamShootingChargePower == 100 then
 			local FromPosition = FDPartExactPosition(FDMapperObj[WeaponSlot.WeaponPart],WeaponSlot.MainAimPositionAdjust)
-			sounds:playSound("futaradragon:entity.futaradragon.grand_cross_zana_heaven_strike_charge", FromPosition, 0.7, 0.8 + (0.4 * math.random())):setAttenuation(FDBaseSoundDistance)
+			sounds:playSound("davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_strike_charge", FromPosition, 0.7, 0.8 + (0.4 * math.random())):setAttenuation(FDBaseSoundDistance)
 			FDParticleMagicSuperPlasmaShotToTarget(CharacterData,FromPosition,PositionTo,1.5)
 		else
 			if WeaponSlot.ShotSide == 1 then
@@ -7730,7 +7753,7 @@ function FDGrandCrossZanahMechanicUninit(CharacterData)
 end
 
 function FDGrandCrossZanaTickUpdate(CharacterData,GyroPhysic)
-	local AbilityArmorSkin = FDOriginGetData("futaradragon:armor_skin_toggle")
+	local AbilityArmorSkin = FDOriginGetData("davwyndragon:armor_skin_toggle")
 	local GrandCrossZana = CharacterData.OriginAbility.GrandCrossZanaArmor
 	if AbilityArmorSkin ~= nil then
 		GrandCrossZana.Active = (AbilityArmorSkin == 2 and CharacterData.ItemSecondary ~= nil and CharacterData.ItemSecondary.id == "minecraft:shield") and true or false
@@ -7739,7 +7762,7 @@ function FDGrandCrossZanaTickUpdate(CharacterData,GyroPhysic)
 				if GrandCrossZana.Active == true then
 					GrandCrossZana.ActiveTime = GrandCrossZana.ActiveTimeDef
 				end
-				local AbilityArmorHit = FDOriginGetData("futaradragon:shield_hit_effect_resource")
+				local AbilityArmorHit = FDOriginGetData("davwyndragon:shield_hit_effect_resource")
 				if AbilityArmorHit > 0 then
 					GrandCrossZana.TakeHit = true
 				elseif AbilityArmorHit == 0 and GrandCrossZana.TakeHit == true then
@@ -7760,14 +7783,14 @@ function FDGrandCrossZanaTickUpdate(CharacterData,GyroPhysic)
 		
 				if GrandCrossZana.UltimateModeTrigger ~= CharacterData.OriginAbility.RevengeStandActive then
 					if CharacterData.OriginAbility.RevengeStandActive == true then
-						sounds:playSound("futaradragon:entity.futaradragon.grand_cross_zana_heaven_heaven_strike_ready", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
-						sounds:playSound("futaradragon:entity.futaradragon.grand_cross_zana_heaven_heaven_strike_ultimate", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_heaven_strike_ready", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_heaven_strike_ultimate", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 						FDParticleActiveHealAura(CharacterData,GrandCrossZana.CoreModelName .. "Light",GrandCrossZana.CoreModelName)
 						FDParticleUpdateData(GrandCrossZana.CoreModelName .. "Light",{
 							EnergyScale = 0.4
 						})
 					elseif CharacterData.OriginAbility.RevengeStandActive == false then
-						sounds:playSound("futaradragon:entity.futaradragon.grand_cross_zana_heaven_heaven_strike_ultimate", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
+						sounds:playSound("davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_heaven_strike_ultimate", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 						FDParticleDeactiveHealAura(CharacterData,GrandCrossZana.CoreModelName .. "Light")
 					end
 					GrandCrossZana.UltimateModeTrigger = CharacterData.OriginAbility.RevengeStandActive
@@ -7823,7 +7846,7 @@ function FDArmorBlockCondition(CharacterData,GyroPhysic)
 	local Dracomech = CharacterData.OriginAbility.DracomechArmor
 	local GrandCrossZana = CharacterData.OriginAbility.GrandCrossZanaArmor
 	if Dracomech.ActiveRender == false and GrandCrossZana.ActiveRender == false then
-		local AbilityArmorHit = FDOriginGetData("futaradragon:shield_hit_effect_resource")
+		local AbilityArmorHit = FDOriginGetData("davwyndragon:shield_hit_effect_resource")
 		if AbilityArmorHit ~= nil then
 			if Dracomech.ArmorBreak == false then
 				Dracomech.ArmorBreak = AbilityArmorHit > 0
@@ -7873,7 +7896,6 @@ function FDOriginSyncUpdate(CharacterData,GyroPhysic,Render,dt)
 		FDHealAuraTickUpdate(CharacterData,GyroPhysic)
 		FDLightSparkTickUpdate(CharacterData,GyroPhysic)
 		FDEnergyBarrierTickUpdate(CharacterData,GyroPhysic)
-		FDPotionTickUpdate(CharacterData,GyroPhysic)
 		FDLuckyEmeraldTickUpdate(CharacterData,GyroPhysic)
 		FDEnergyShotTickUpdate(CharacterData,GyroPhysic)
 		FDFireBlastTickUpdate(CharacterData,GyroPhysic)
@@ -7908,13 +7930,13 @@ function FDCharacterGeneralDataTickUpdate(CharacterData)
 	CharacterData.Sprinting = (player:isSprinting() and CharacterData.OriginAbility.MenuSwitch == -1) or (player:isSprinting() and CharacterData.OriginAbility.MenuSwitch ~= -1 and CharacterData.OriginAbility.Stamina > 0)
 	CharacterData.Gliding = player:isGliding()
 	CharacterData.InLiquid = player:isInWater() or player:isInLava()
-	CharacterData.Flying = player:isGliding() or FDOriginGetData("futaradragon:hover_mode_resource") == 1 or false
-	CharacterData.Sneaking = CharacterData.Flying == false and (player:isSneaking() or (CharacterData.InLiquid == false and CharacterData.OnGround == true and CharacterData.AnimationPose == "SWIMMING") or (FDOriginGetData("futaradragon:sleep_mode_resource") ~= nil and FDOriginGetData("futaradragon:sleep_mode_resource") >= 1) or false)
+	CharacterData.Flying = player:isGliding() or FDOriginGetData("davwyndragon:hover_mode_resource") == 1 or false
+	CharacterData.Sneaking = CharacterData.Flying == false and (player:isSneaking() or (CharacterData.InLiquid == false and CharacterData.OnGround == true and CharacterData.AnimationPose == "SWIMMING") or (FDOriginGetData("davwyndragon:sleep_mode_resource") ~= nil and FDOriginGetData("davwyndragon:sleep_mode_resource") >= 1) or false)
 	CharacterData.InRaining = player:isInRain()
 	CharacterData.Riding = player:getVehicle() ~= nil
 	CharacterData.AttackingType = player:getSwingArm()
 	CharacterData.Attacking = CharacterData.AttackingType ~= nil
-	CharacterData.Sleeping = player:getPose() == "SLEEPING" or FDOriginGetData("futaradragon:sleep_mode_resource") == 2  or false
+	CharacterData.Sleeping = player:getPose() == "SLEEPING" or FDOriginGetData("davwyndragon:sleep_mode_resource") == 2  or false
 	CharacterData.FirstPerson = renderer:isFirstPerson()
 	
 	if CharacterData.DimensionFollow ~= CharacterData.Dimension then
@@ -7924,7 +7946,7 @@ function FDCharacterGeneralDataTickUpdate(CharacterData)
 		CharacterData.DimensionFollow = CharacterData.Dimension
 	end
 	
-	if CharacterData.Sleeping == true or (FDOriginGetData("futaradragon:sleep_mode_resource") ~= nil and FDOriginGetData("futaradragon:sleep_mode_resource") >= 1) then
+	if CharacterData.Sleeping == true or (FDOriginGetData("davwyndragon:sleep_mode_resource") ~= nil and FDOriginGetData("davwyndragon:sleep_mode_resource") >= 1) then
 		if CharacterData.EyeAction ~= FDCharacterConstant.EyeMode.Sleep then
 			FDEyesSetActive(CharacterData,FDCharacterConstant.EyeMode.Sleep)
 		end
@@ -8041,7 +8063,7 @@ function FDInitCharacterData()
 	FDCharacterMouthActiveInit()
 	
 	if FDCharacterData.Host == true then
-		FDSoundLoopInit("FlightWindSound","futaradragon:entity.futaradragon.flight_wind_loop",FDCharacterData.Position,0,1,FDBaseSoundDistance)
+		FDSoundLoopInit("FlightWindSound","davwyndragon:entity.davwyndragon.flight_wind_loop",FDCharacterData.Position,0,1,FDBaseSoundDistance)
 	end
 	
 	FDMapperObj["Player_Dragon_Base"]:setPrimaryRenderType("TRANSLUCENT")
@@ -8109,7 +8131,7 @@ function FDInitCharacterData()
 	FDAnimationConfig("Anim_4Legged_Fly_Idle",FDAnimationBlendFactor,{
 		["0.25"] = function (AnimationData,TargetAnimation)
 			if AnimationData.PercentBlend > 0.5 then
-				sounds:playSound("futaradragon:entity.futaradragon.flight_wing_flap", FDCharacterData.Position, math.clamp(0.3 + FDCharacterData.VelocityPower/3,0,1), 1.3):setAttenuation(FDBaseSoundDistance)
+				sounds:playSound("davwyndragon:entity.davwyndragon.flight_wing_flap", FDCharacterData.Position, math.clamp(0.3 + FDCharacterData.VelocityPower/3,0,1), 1.3):setAttenuation(FDBaseSoundDistance)
 				FDParticleGroundSmoke(FDCharacterData)
 			end
 		end
@@ -8135,7 +8157,7 @@ function FDInitCharacterData()
 	FDAnimationConfig("Anim_2Legged_Lower_Walk_Side",FDAnimationBlendFactor,{
 		["0.1"] = function (AnimationData,TargetAnimation)
 			if AnimationData.PercentBlend > 0.5 then
-				sounds:playSound("futaradragon:entity.futaradragon.flight_wing_flap", FDCharacterData.Position, math.clamp(0.3 + FDCharacterData.VelocityPower/3,0,1), 1.3):setAttenuation(FDBaseSoundDistance)
+				sounds:playSound("davwyndragon:entity.davwyndragon.flight_wing_flap", FDCharacterData.Position, math.clamp(0.3 + FDCharacterData.VelocityPower/3,0,1), 1.3):setAttenuation(FDBaseSoundDistance)
 				FDParticleGroundSmoke(FDCharacterData)
 			end
 		end
@@ -8170,7 +8192,7 @@ function FDInitCharacterData()
 	})
 	FDAnimationConfig("Ability_Roll_Dash",FDAnimationQuickBlendFactor,{
 		["0.25"] = function (AnimationData,TargetAnimation)
-			sounds:playSound("futaradragon:entity.futaradragon.flight_wing_flap", FDCharacterData.Position, math.clamp(0.3 + FDCharacterData.VelocityPower/3,0,1), 1.3):setAttenuation(FDBaseSoundDistance)
+			sounds:playSound("davwyndragon:entity.davwyndragon.flight_wing_flap", FDCharacterData.Position, math.clamp(0.3 + FDCharacterData.VelocityPower/3,0,1), 1.3):setAttenuation(FDBaseSoundDistance)
 			FDParticleGroundSmoke(FDCharacterData)
 		end
 	})
@@ -8558,7 +8580,7 @@ function FDInitCharacterData()
 		{
 			FollowPart = nil,
 			Scale = vec(1,1,1),
-			EnergyScale = 1.0
+			EnergyScale = 1
 		},
 		function(ParticleObj)
 			ParticleObj.BasePart:setPrimaryRenderType("TRANSLUCENT")
@@ -8583,7 +8605,8 @@ function FDInitCharacterData()
 		end
 	)
 	
-	FDCharacterData.Particle["EnergyOrb"] = FDParticleSystemInit(FDMapperObj["Effect_Glow_Point_Default"],
+	-- Code moved directly into FDParticleCallEnergyOrb for color randomization -Davwyn
+	--[[ FDCharacterData.Particle["EnergyOrb"] = FDParticleSystemInit(FDMapperObj["Effect_Glow_Point_Default"],
 		{
 			FollowMode = true,
 			TargetPosition = vec(0,0,0),
@@ -8624,7 +8647,7 @@ function FDInitCharacterData()
 		function(ParticleObj)
 			
 		end
-	)
+	) ]]
 	
 	local BeamSaberClaw_Base_Builder = function(Name,PartName)
 		FDCharacterData.Particle[Name] = FDParticleSystemInit(FDMapperObj[PartName],
@@ -8715,7 +8738,7 @@ function FDInitCharacterData()
 		)
 	end
 	BeamSaberClaw_BaseLight_Builder("BeamSaberClaw_BaseLight","Effect_Glow_Point_Default","Default")
-	BeamSaberClaw_BaseLight_Builder("EnergyBeamSaberBlade_BaseLight","Effect_Glow_Point_Purple","Purple")
+	BeamSaberClaw_BaseLight_Builder("EnergyBeamSaberBlade_BaseLight","Effect_Glow_Point_Violet","Purple")
 	BeamSaberClaw_BaseLight_Builder("HeatBeamBlade_BaseLight","Effect_Glow_Point_MagicHeatRed","MagicHeatRed")
 	
 	local LightBurnBuilder = function(Name,PartName)
@@ -8755,8 +8778,8 @@ function FDInitCharacterData()
 	end
 	
 	LightBurnBuilder("Light_Burn_Default","Effect_Glow_Point_Default")
-	LightBurnBuilder("Light_Burn_Purple","Effect_Glow_Point_Purple")
-	LightBurnBuilder("Light_Burn_Blue","Effect_Glow_Point_Blue")
+	LightBurnBuilder("Light_Burn_Purple","Effect_Glow_Point_Violet")
+	LightBurnBuilder("Light_Burn_Blue","Effect_Glow_Point_Green")
 	LightBurnBuilder("Light_Burn_Red","Effect_Glow_Point_Red")
 	LightBurnBuilder("Light_Burn_Orange","Effect_Glow_Point_Orange")
 	LightBurnBuilder("Light_Burn_MagicBlue","Effect_Glow_Point_MagicBlue")
@@ -9113,7 +9136,7 @@ function FDInitCharacterData()
 		end
 	)
 	
-	FDCharacterData.Particle["Booster_BaseLight"] = FDParticleSystemInit(FDMapperObj["Effect_Glow_Point_Blue"],
+	FDCharacterData.Particle["Booster_BaseLight"] = FDParticleSystemInit(FDMapperObj["Effect_Glow_Point_Violet"],
 		{
 			FollowPart = nil,
 			FollowFactor = 1.0,
@@ -9126,13 +9149,13 @@ function FDInitCharacterData()
 			ParticleObj.BasePart:setPrimaryRenderType("TRANSLUCENT")
 			ParticleObj.BasePart:setSecondaryRenderType("EYES")
 			ParticleObj.BasePart:setLight(15, 15)
-			ParticleObj.Config.DefaultBeamRotation = ParticleObj.BasePart["Effect_Glow_Point_Blue_C"]:getRot()
+			ParticleObj.Config.DefaultBeamRotation = ParticleObj.BasePart["Effect_Glow_Point_Violet_C"]:getRot()
 			ParticleObj.Config.Rotation = FDRotateToTarget(FDPartExactPosition(FDMapperObj[ParticleObj.Config.FollowPart]),FDPartExactPosition(FDMapperObj[ParticleObj.Config.FollowPart],vec(0, 0, 1)))
 			ParticleObj.Config.Scale = ParticleObj.Config.Scale * ParticleObj.Config.EnergyScale
 		end,
 		function(ParticleObj,Render,dt)
 			if Render == true then
-				ParticleObj.BasePart["Effect_Glow_Point_Blue_C"]:setRot(vec(ParticleObj.Config.DefaultBeamRotation.x,ParticleObj.Config.DefaultBeamRotation.y,math.random() * 360))
+				ParticleObj.BasePart["Effect_Glow_Point_Violet_C"]:setRot(vec(ParticleObj.Config.DefaultBeamRotation.x,ParticleObj.Config.DefaultBeamRotation.y,math.random() * 360))
 				ParticleObj.Config.PositionT = FDPartExactPosition(FDMapperObj[ParticleObj.Config.FollowPart]) * 16
 				ParticleObj.Config.PositionF = ParticleObj.Config.PositionT
 			else
@@ -9313,8 +9336,8 @@ function FDInitCharacterData()
 			end
 		)
 	end
-	HighEnergyLightBuilder("HighEnergyLight","Effect_Glow_Point_Blue")
-	HighEnergyLightBuilder("SuperHighEnergyLight","Effect_Glow_Point_Purple")
+	HighEnergyLightBuilder("HighEnergyLight","Effect_Glow_Point_Green")
+	HighEnergyLightBuilder("SuperHighEnergyLight","Effect_Glow_Point_Violet")
 	HighEnergyLightBuilder("MagicHeatLight","Effect_Glow_Point_MagicRed")
 	HighEnergyLightBuilder("MagicPlasmaLight","Effect_Glow_Point_MagicBlue")
 	HighEnergyLightBuilder("MagicSuperPlasmaLight","Effect_Glow_Point_MagicSuperBlue")
@@ -9639,7 +9662,7 @@ function FDInitCharacterData()
 					ScaleRandom = 1.0 * ParticleObj.Config.EnergyExplodeScale
 				})
 			end
-			sounds:playSound("futaradragon:entity.futaradragon.grand_cross_zana_heaven_bullet_homing_hit", ParticleObj.Config.PositionT / 16, 1.0, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
+			sounds:playSound("davwyndragon:entity.davwyndragon.grand_cross_zana_heaven_bullet_homing_hit", ParticleObj.Config.PositionT / 16, 1.0, 0.5 + (math.random() * 1.0)):setAttenuation(FDBaseSoundDistance)
 			FDParticleFlashSmokeEffect(ParticleObj.Config.PositionT / 16,3 * ParticleObj.Config.EnergyExplodeScale)
 		end
 	)
@@ -9753,35 +9776,35 @@ function FDInitCharacterData()
 		FDCharacterData.CurrentActiveEmoteAnimation = "Emote_Sit"
 	end
 	local EmoteSitAction = EmotionPage:newAction(1):onLeftClick(pings.EmoteSitAction)
-	EmoteSitAction:title("Emote Sit"):setTexture(textures["model.model.futaradragon_icon"] or textures["model.futaradragon_icon"], 16, 16, nil, nil, 2)
+	EmoteSitAction:title("Emote Sit"):setTexture(textures["model.model.davwyndragon_icon"] or textures["model.davwyndragon_icon"], 16, 16, nil, nil, 2)
 	
 	pings.EmoteWiggleAction = function()
 		FDEyesSetActive(FDCharacterData,FDCharacterConstant.EyeMode.Happy)
 		FDCharacterData.CurrentActiveEmoteAnimation = "Emote_Wiggle"
 	end
 	local EmoteWiggleAction = EmotionPage:newAction(2):onLeftClick(pings.EmoteWiggleAction)
-	EmoteWiggleAction:title("Emote Wiggle"):setTexture(textures["model.model.futaradragon_icon"] or textures["model.futaradragon_icon"], 16, 16, nil, nil, 2)
+	EmoteWiggleAction:title("Emote Wiggle"):setTexture(textures["model.model.davwyndragon_icon"] or textures["model.davwyndragon_icon"], 16, 16, nil, nil, 2)
 	
 	pings.EmoteSillyDanceAction = function()
 		FDEyesSetActive(FDCharacterData,FDCharacterConstant.EyeMode.Normal)
 		FDCharacterData.CurrentActiveEmoteAnimation = "Emote_SillyDance"
 	end
 	local EmoteSillyDanceAction = EmotionPage:newAction(3):onLeftClick(pings.EmoteSillyDanceAction)
-	EmoteSillyDanceAction:title("Emote Silly Dance"):setTexture(textures["model.model.futaradragon_icon"] or textures["model.futaradragon_icon"], 16, 16, nil, nil, 2)
+	EmoteSillyDanceAction:title("Emote Silly Dance"):setTexture(textures["model.model.davwyndragon_icon"] or textures["model.davwyndragon_icon"], 16, 16, nil, nil, 2)
 	
 	pings.EmoteStickBugAction = function()
 		FDEyesSetActive(FDCharacterData,FDCharacterConstant.EyeMode.Normal)
 		FDCharacterData.CurrentActiveEmoteAnimation = "Emote_StickBug"
 	end
 	local EmoteStickBugAction = EmotionPage:newAction(4):onLeftClick(pings.EmoteStickBugAction)
-	EmoteStickBugAction:title("Emote Stick Bug"):setTexture(textures["model.model.futaradragon_icon"] or textures["model.futaradragon_icon"], 16, 16, nil, nil, 2)
+	EmoteStickBugAction:title("Emote Stick Bug"):setTexture(textures["model.model.davwyndragon_icon"] or textures["model.davwyndragon_icon"], 16, 16, nil, nil, 2)
 	
 	pings.EmoteHugAction = function()
 		FDEyesSetActive(FDCharacterData,FDCharacterConstant.EyeMode.Normal)
 		FDCharacterData.CurrentActiveEmoteAnimation = "Emote_Hug"
 	end
 	local EmoteHugAction = EmotionPage:newAction(5):onLeftClick(pings.EmoteHugAction)
-	EmoteHugAction:title("Emote Hug"):setTexture(textures["model.model.futaradragon_icon"] or textures["model.futaradragon_icon"], 16, 16, nil, nil, 2)
+	EmoteHugAction:title("Emote Hug"):setTexture(textures["model.model.davwyndragon_icon"] or textures["model.davwyndragon_icon"], 16, 16, nil, nil, 2)
 end
 
 function FDInitLimit(Action)
@@ -9891,7 +9914,7 @@ end
 function FD_Sound(id,pos,vol,pitch,loop,category,path)
 	if not player:isLoaded() then return end
 	if id:find("step") and category == "PLAYERS" and (pos - player:getPos()):length() < 1 then
-		if id:find("futaradragon") == nil then
+		if id:find("davwyndragon") == nil then
 			FDCharacterData.FootStepSound = id
 		end
 		if FDCharacterData.FootStepToggle == true then

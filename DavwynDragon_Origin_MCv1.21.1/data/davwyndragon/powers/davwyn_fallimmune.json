@@ -1,0 +1,19 @@
+{
+  "hidden": true,
+  "name": "Kinetic immune",
+  "description": "Being tiny and having wings means you always gently touch down or prevent bonking into a wall.",
+  "type": "origins:invulnerability",
+  "damage_condition": {
+    "type": "origins:any_of",
+    "conditions": [
+      {
+        "type": "origins:name",
+        "name": "fall"
+      },
+      {
+        "type": "origins:name",
+        "name": "flyIntoWall"
+      }
+    ]
+  }
+}

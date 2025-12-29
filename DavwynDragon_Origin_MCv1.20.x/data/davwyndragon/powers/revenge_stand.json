@@ -1,0 +1,101 @@
+{
+	"hidden": true,
+    "type": "origins:prevent_death",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+			{
+				"type": "origins:change_resource",
+				"resource": "davwyndragon:state_resource",
+				"change": 1
+			},
+            {
+                "type": "origins:clear_effect"
+            },
+			{
+				"type": "origins:heal",
+				"amount": 1
+			},
+            {
+                "type": "origins:apply_effect",
+                "effects": [
+					{
+						"effect": "minecraft:absorption",
+						"amplifier": 2,
+						"duration": 1200,
+						"show_particles":false
+					},
+					{
+						"effect": "minecraft:fire_resistance",
+						"amplifier": 255,
+						"duration": 100,
+						"show_particles":false
+					},
+					{
+						"effect": "minecraft:haste",
+						"amplifier": 255,
+						"duration": 100,
+						"show_particles":false
+					},
+					{
+						"effect": "minecraft:water_breathing",
+						"amplifier": 255,
+						"duration": 100,
+						"show_particles":false
+					},
+					{
+						"effect": "minecraft:weakness",
+						"amplifier": 255,
+						"duration": 100,
+						"show_particles":false
+					}
+                ]
+            },
+			{
+				"type": "origins:change_resource",
+				"resource": "davwyndragon:energyshield_resource",
+				"operation":"set",
+				"change": 14
+			},
+			{
+				"type": "origins:change_resource",
+				"resource": "davwyndragon:weakness_resource",
+				"operation":"set",
+				"change": 0
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "function davwyndragon:revengestand_effect",
+				"permission_level": 4
+			}
+        ]
+    },
+	"damage_condition": {
+		"type": "origins:amount",
+		"comparison": ">=",
+		"compare_to": 0
+	},
+	"condition": {
+		"type": "origins:and",
+		"conditions": [
+			{
+				"type": "origins:resource",
+				"resource": "davwyndragon:ultimate_resource",
+				"comparison": ">=",
+				"compare_to": 1000
+			},
+			{
+				"type": "origins:resource",
+				"resource": "davwyndragon:ability_level_revengerampage",
+				"comparison": ">",
+				"compare_to": 2
+			},
+			{
+				"type": "origins:resource",
+				"resource": "davwyndragon:state_resource",
+				"comparison": "==",
+				"compare_to": 0
+			}
+		]
+	}
+}

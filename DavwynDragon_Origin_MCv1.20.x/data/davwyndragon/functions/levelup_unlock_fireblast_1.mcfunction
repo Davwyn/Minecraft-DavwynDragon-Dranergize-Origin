@@ -1,0 +1,1 @@
+execute run title @s subtitle {"text":"Plasma Blast Ability Unlocked", "bold":false, "italic":false, "color":"light_purple"}

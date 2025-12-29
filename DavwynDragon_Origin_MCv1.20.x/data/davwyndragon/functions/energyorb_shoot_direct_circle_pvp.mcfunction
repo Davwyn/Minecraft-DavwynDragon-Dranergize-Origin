@@ -1,0 +1,68 @@
+execute run tag @s add dragonattacking
+execute run tag @s add dragonselfattacking
+function davwyndragon:davwyn_energyorb_update_targets
+
+execute at @s positioned ^ ^1 ^ if entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s run summon marker ~ ~1 ~ {CustomNameVisible:0b,NoGravity:1b,Invisible:1b,Tags:["DavwynDragonLight"],NoAI:1b}
+
+execute as @s positioned ^ ^1 ^ if entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s run resource set @e[tag=dragonattacking,type=player,distance=..20.0,sort=nearest,limit=1] davwyndragon:energyorb_shoot_tracking 3
+
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] run scoreboard players set @s energy_orb_target_x 0
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] run scoreboard players set @s energy_orb_target_y 0
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] run scoreboard players set @s energy_orb_target_z 0
+execute at @s positioned ^ ^1 ^ if entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] store result score @s energy_orb_target_x run data get entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] Pos[0] 10
+execute at @s positioned ^ ^1 ^ if entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] store result score @s energy_orb_target_y run data get entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] Pos[1] 10
+execute at @s positioned ^ ^1 ^ if entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] store result score @s energy_orb_target_z run data get entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] Pos[2] 10
+execute at @s positioned ^ ^1 ^ run resource operation @s davwyndragon:energyorb_target_x_resource = @s energy_orb_target_x
+execute at @s positioned ^ ^1 ^ run resource operation @s davwyndragon:energyorb_target_y_resource = @s energy_orb_target_y
+execute at @s positioned ^ ^1 ^ run resource operation @s davwyndragon:energyorb_target_z_resource = @s energy_orb_target_z
+
+execute as @s positioned ^ ^1 ^ if entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] as @e[distance=..6.0,nbt={cardinal_components:{"apoli:powers":{"Powers":[{Type:"davwyndragon:shake_effect_resource"}]}}}] if entity @s run resource set @s davwyndragon:shake_effect_resource 2
+execute as @s positioned ^ ^1 ^ if entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] as @e[distance=..6.0,nbt={ForgeCaps:{"apoli:powers":{"Powers":[{Type:"davwyndragon:shake_effect_resource"}]}}}] if entity @s run resource set @s davwyndragon:shake_effect_resource 2
+
+execute at @s positioned ^ ^1 ^ as @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s run summon marker ~ ~1 ~ {CustomNameVisible:0b,NoGravity:1b,Invisible:1b,Tags:["DavwynDragonLight"],NoAI:1b}
+
+execute at @s positioned ^ ^1 ^ as @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s as @e[distance=..6.0,nbt={cardinal_components:{"apoli:powers":{"Powers":[{Type:"davwyndragon:shake_effect_resource"}]}}}] if entity @s run resource set @s davwyndragon:shake_effect_resource 2
+execute at @s positioned ^ ^1 ^ as @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s as @e[distance=..6.0,nbt={ForgeCaps:{"apoli:powers":{"Powers":[{Type:"davwyndragon:shake_effect_resource"}]}}}] if entity @s run resource set @s davwyndragon:shake_effect_resource 2
+
+execute at @s positioned ^ ^1 ^ as @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s as @e[type=!player,tag=energyorb_targetable,distance=..1.5,sort=nearest,nbt={DeathTime:0s}] if entity @s as @e[tag=energizedragon,type=player,distance=..40.0] as @s at @s run xp add @s 1
+# Added fire effect to starwisps -Davwyn
+execute at @s positioned ^ ^1 ^ as @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s as @e[tag=energyorb_targetable,distance=..1.5,sort=nearest,nbt={DeathTime:0s}] if entity @s at @s run data modify entity @s Fire set value 5s
+# ---
+execute at @s positioned ^ ^1 ^ as @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s as @e[tag=energyorb_targetable,distance=..1.5,sort=nearest,nbt={DeathTime:0s}] if entity @s at @s run resource change @e[tag=dragonattacking,type=player,distance=..20.0,sort=nearest,limit=1] davwyndragon:rage_over_resource 2
+execute at @s positioned ^ ^1 ^ as @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s as @e[tag=energyorb_targetable,distance=..1.5,sort=nearest,nbt={DeathTime:0s}] if entity @s at @s run resource change @e[tag=dragonattacking,type=player,distance=..20.0,sort=nearest,limit=1] davwyndragon:ultimate_resource 1
+execute at @s positioned ^ ^1 ^ as @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s as @e[tag=energyorb_targetable,distance=..1.5,sort=nearest,nbt={DeathTime:0s}] if entity @s at @s run damage @s 0.5 davwyndragon:dragon_attack by @e[tag=dragonattacking,type=player,distance=..20.0,sort=nearest,limit=1]
+
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 if entity @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s run summon marker ~ ~1 ~ {CustomNameVisible:0b,NoGravity:1b,Invisible:1b,Tags:["DavwynDragonLight"],NoAI:1b}
+
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] as @s positioned ^ ^1 ^5 if entity @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s run resource set @e[tag=dragonattacking,type=player,distance=..20.0,sort=nearest,limit=1] davwyndragon:energyorb_shoot_tracking 3
+
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 unless entity @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] run scoreboard players set @s energy_orb_target_x 0
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 unless entity @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] run scoreboard players set @s energy_orb_target_y 0
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 unless entity @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] run scoreboard players set @s energy_orb_target_z 0
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 if entity @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] store result score @s energy_orb_target_x run data get entity @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] Pos[0] 10
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 if entity @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] store result score @s energy_orb_target_y run data get entity @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] Pos[1] 10
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 if entity @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] store result score @s energy_orb_target_z run data get entity @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] Pos[2] 10
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 run resource operation @s davwyndragon:energyorb_target_x_resource = @s energy_orb_target_x
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 run resource operation @s davwyndragon:energyorb_target_y_resource = @s energy_orb_target_y
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 run resource operation @s davwyndragon:energyorb_target_z_resource = @s energy_orb_target_z
+
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 as @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s run summon marker ~ ~1 ~ {CustomNameVisible:0b,NoGravity:1b,Invisible:1b,Tags:["DavwynDragonLight"],NoAI:1b}
+
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 as @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s as @e[distance=..6.0,nbt={cardinal_components:{"apoli:powers":{"Powers":[{Type:"davwyndragon:shake_effect_resource"}]}}}] if entity @s run resource set @s davwyndragon:shake_effect_resource 2
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 as @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s as @e[distance=..6.0,nbt={ForgeCaps:{"apoli:powers":{"Powers":[{Type:"davwyndragon:shake_effect_resource"}]}}}] if entity @s run resource set @s davwyndragon:shake_effect_resource 2
+
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 as @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s as @e[type=!player,tag=energyorb_targetable,distance=..1.5,sort=nearest,nbt={DeathTime:0s}] if entity @s as @e[tag=energizedragon,type=player,distance=..40.0] as @s at @s run xp add @s 1
+# Added fire effect to starwisps -Davwyn
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 as @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s as @e[tag=energyorb_targetable,distance=..1.5,sort=nearest,nbt={DeathTime:0s}] if entity @s at @s run data modify entity @s Fire set value 5s
+# ---
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 as @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s as @e[tag=energyorb_targetable,distance=..1.5,sort=nearest,nbt={DeathTime:0s}] if entity @s at @s run resource change @e[tag=dragonattacking,type=player,level=8..,distance=..20.0,sort=nearest,limit=1] davwyndragon:rage_over_resource 2
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 as @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s as @e[tag=energyorb_targetable,distance=..1.5,sort=nearest,nbt={DeathTime:0s}] if entity @s at @s run resource change @e[tag=dragonattacking,type=player,level=10..,distance=..20.0,sort=nearest,limit=1] davwyndragon:ultimate_resource 1
+execute at @s positioned ^ ^1 ^ unless entity @e[tag=energyorb_targetable,distance=..10.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s positioned ^ ^1 ^5 as @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] if entity @s at @s as @e[tag=energyorb_targetable,distance=..1.5,sort=nearest,nbt={DeathTime:0s}] if entity @s at @s run damage @s 0.5 davwyndragon:dragon_attack by @e[tag=dragonattacking,type=player,distance=..20.0,sort=nearest,limit=1]
+
+execute as @s positioned ^ ^1 ^5 unless entity @e[tag=energyorb_targetable,distance=..5.0,sort=nearest,nbt={DeathTime:0s},limit=1] at @s run resource set @e[tag=dragonattacking,type=player,distance=..20.0,sort=nearest,limit=1] davwyndragon:energyorb_mode 0
+
+execute at @e[type=minecraft:marker,tag=DavwynDragonLight,sort=nearest] run setblock ~ ~ ~ minecraft:light keep
+execute run schedule function davwyndragon:lightclear 2t
+
+execute run tag @s remove dragonselfattacking
+execute run tag @s remove dragonattacking

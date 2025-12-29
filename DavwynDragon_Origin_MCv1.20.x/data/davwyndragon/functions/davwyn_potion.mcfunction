@@ -1,0 +1,1 @@
+execute as @s run give @s minecraft:potion{StarwispDragonDust:1b,CustomPotionEffects:[{Id:16,Duration:1200,ShowParticles:0b},{Id:24,Duration:1200,ShowParticles:0b}],HideFlags:32,CustomPotionColor:16756141,display:{Name:"\"Starwisp Dragon Dust\"",Lore:["\"Glowing dust charged with plasma. Dusting yourself with it will provide light.\""]}}

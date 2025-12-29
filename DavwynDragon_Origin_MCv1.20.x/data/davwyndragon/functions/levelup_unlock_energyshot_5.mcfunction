@@ -1,0 +1,1 @@
+execute run title @s subtitle {"text":"Plasma Bolt Fast Charge x20 Ability Unlocked", "bold":false, "italic":false, "color":"light_purple"}

@@ -1,0 +1,1 @@
+execute as @s run give @s minecraft:quartz

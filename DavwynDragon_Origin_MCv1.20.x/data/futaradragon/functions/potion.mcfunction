@@ -1,1 +1,0 @@
-execute as @s run give @s minecraft:potion{DragonMilk:1b,CustomPotionEffects:[{Id:10,Duration:1200,ShowParticles:0b},{Id:24,Duration:100,ShowParticles:0b},{Id:23,Duration:-1}],HideFlags:32,CustomPotionColor:16777215,display:{Name:"\"Dragon Milk?\"",Lore:["\"It glowing why...?\""]}}

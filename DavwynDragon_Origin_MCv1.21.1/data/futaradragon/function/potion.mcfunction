@@ -1,1 +1,0 @@
-execute as @s run give @s potion[custom_name='"Dragon Milk?"',lore=['"It glowing why...?"'],potion_contents={custom_color:16777215,custom_effects:[{id:"minecraft:regeneration",amplifier:0,duration:1200,show_particles:0b,show_icon:0b,ambient:0b},{id:"minecraft:saturation",amplifier:0,duration:-1,show_particles:0b,show_icon:0b,ambient:0b}]}] 1

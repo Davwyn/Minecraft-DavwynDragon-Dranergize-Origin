@@ -1,0 +1,25 @@
+{
+	"hidden": true,
+	"type": "origins:modify_velocity",
+	"modifier": {
+		"operation": "multiply_base_multiplicative",
+		"amount": -0.9,
+		"value": -0.9
+	},
+	"axes": [
+		"x",
+		"y",
+		"z"
+	],
+	"condition": {
+		"type": "origins:all_of",
+		"conditions": [
+			{
+				"type": "origins:resource",
+				"resource": "davwyndragon:hyperbeam_charge_power",
+				"comparison": "==",
+				"compare_to": 100
+			}
+		]
+	}
+}

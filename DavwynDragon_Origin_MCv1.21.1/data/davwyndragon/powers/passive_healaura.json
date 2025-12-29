@@ -1,0 +1,1007 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"healaura_passive":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:if_else_list",
+				"actions": [
+					{
+						"condition": {
+							"type": "origins:all_of",
+							"conditions": [
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:mana_resource",
+									"comparison": ">=",
+									"compare_to": 10
+								}
+							]
+						},
+						"action": [
+							{
+								"type": "origins:if_else_list",
+								"actions": [
+									{
+										"condition": {
+											"type": "origins:all_of",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "davwyndragon:ability_level_healaura",
+													"comparison": "==",
+													"compare_to": 3
+												}
+											]
+										},
+										"action": [
+											{
+												"type": "origins:execute_command",
+												"command": "function davwyndragon:healaura_lv1",
+												"permission_level": 5
+											}
+										]
+									},
+									{
+										"condition": {
+											"type": "origins:all_of",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "davwyndragon:ability_level_healaura",
+													"comparison": "==",
+													"compare_to": 4
+												}
+											]
+										},
+										"action": [
+											{
+												"type": "origins:execute_command",
+												"command": "function davwyndragon:healaura_lv2",
+												"permission_level": 5
+											}
+										]
+									},
+									{
+										"condition": {
+											"type": "origins:all_of",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "davwyndragon:ability_level_healaura",
+													"comparison": "==",
+													"compare_to": 5
+												}
+											]
+										},
+										"action": [
+											{
+												"type": "origins:execute_command",
+												"command": "function davwyndragon:healaura_lv3",
+												"permission_level": 5
+											}
+										]
+									},
+									{
+										"condition": {
+											"type": "origins:all_of",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "davwyndragon:ability_level_healaura",
+													"comparison": "==",
+													"compare_to": 6
+												}
+											]
+										},
+										"action": [
+											{
+												"type": "origins:execute_command",
+												"command": "function davwyndragon:healaura_lv4",
+												"permission_level": 5
+											}
+										]
+									},
+									{
+										"condition": {
+											"type": "origins:all_of",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "davwyndragon:ability_level_healaura",
+													"comparison": "==",
+													"compare_to": 7
+												}
+											]
+										},
+										"action": [
+											{
+												"type": "origins:execute_command",
+												"command": "function davwyndragon:healaura",
+												"permission_level": 5
+											}
+										]
+									}
+								]
+							},
+							{
+								"type": "origins:if_else_list",
+								"actions": [
+									{
+										"condition": {
+											"type": "origins:all_of",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "davwyndragon:ability_level_healaura",
+													"comparison": ">=",
+													"compare_to": 7
+												}
+											]
+										},
+										"action": [
+											{
+												"type": "origins:if_else_list",
+												"actions": [
+													{
+														"condition": {
+															"type": "origins:all_of",
+															"conditions": [
+																{
+																	"type": "origins:resource",
+																	"resource": "davwyndragon:healaura_overshield_delay",
+																	"comparison": "<",
+																	"compare_to": 3
+																},
+																{
+																	"type": "origins:resource",
+																	"resource": "davwyndragon:sleep_mode_resource",
+																	"comparison": "!=",
+																	"compare_to": 2
+																}
+															]
+														},
+														"action": [
+															{
+																"type": "origins:change_resource",
+																"resource": "davwyndragon:healaura_overshield_delay",
+																"operation":"add",
+																"change": 1
+															}
+														]
+													},
+													{
+														"condition": {
+															"type": "origins:all_of",
+															"conditions": [
+																{
+																	"type": "origins:resource",
+																	"resource": "davwyndragon:healaura_overshield_delay",
+																	"comparison": "==",
+																	"compare_to": 3
+																},
+																{
+																	"type": "origins:resource",
+																	"resource": "davwyndragon:sleep_mode_resource",
+																	"comparison": "!=",
+																	"compare_to": 2
+																}
+															]
+														},
+														"action": [
+															{
+																"type": "origins:change_resource",
+																"resource": "davwyndragon:healaura_overshield_delay",
+																"operation":"set",
+																"change": 0
+															},
+															{
+																"type": "origins:if_else_list",
+																"actions": [
+																	{
+																		"condition": {
+																			"type": "origins:all_of",
+																			"conditions": [
+																				{
+																					"type": "origins:resource",
+																					"resource": "davwyndragon:energyshield_resource",
+																					"comparison": "<",
+																					"compare_to": 14
+																				}
+																			]
+																		},
+																		"action": [
+																			{
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:energyshield_resource",
+																				"operation":"add",
+																				"change": 1
+																			},
+																			{
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:energyshield_decay_delay",
+																				"operation":"set",
+																				"change": 0
+																			}
+																		]
+																	}
+																]
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							},
+							{
+								"type": "origins:if_else_list",
+								"actions": [
+									{
+										"condition": {
+											"type": "origins:all_of",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "davwyndragon:ability_level_healaura",
+													"comparison": ">=",
+													"compare_to": 6
+												}
+											]
+										},
+										"action": [
+											{
+												"type": "origins:if_else_list",
+												"actions": [
+													{
+														"condition": {
+															"type": "origins:all_of",
+															"conditions": [
+																{
+																	"type": "origins:equipped_item",
+																	"equipment_slot": "offhand",
+																	"item_condition": {
+																		"type": "origins:relative_durability",
+																		"comparison": "<",
+																		"compare_to": 1.0
+																	}
+																}
+															]
+														},
+														"action": [
+															{
+																"type": "origins:equipped_item_action",
+																"equipment_slot": "offhand",
+																"item_action": {
+																	"type": "origins:damage",
+																	"amount": -1,
+																	"ignore_unbreaking": true
+																}
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							},
+							{
+								"type": "origins:if_else_list",
+								"actions": [
+									{
+										"condition": {
+											"type": "origins:all_of",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "davwyndragon:ability_level_healaura",
+													"comparison": ">=",
+													"compare_to": 5
+												}
+											]
+										},
+										"action": [
+											{
+												"type": "origins:if_else_list",
+												"actions": [
+													{
+														"condition": {
+															"type": "origins:all_of",
+															"conditions": [
+																{
+																	"type": "origins:resource",
+																	"resource": "davwyndragon:healaura_stand_delay",
+																	"comparison": ">",
+																	"compare_to": 0
+																},
+																{
+																	"type": "origins:moving",
+																	"inverted": true
+																}
+															]
+														},
+														"action": [
+															{
+																"type": "origins:change_resource",
+																"resource": "davwyndragon:healaura_stand_delay",
+																"operation":"add",
+																"change": -1
+															}
+														]
+													},
+													{
+														"condition": {
+															"type": "origins:all_of",
+															"conditions": [
+																{
+																	"type": "origins:resource",
+																	"resource": "davwyndragon:healaura_stand_delay",
+																	"comparison": "<=",
+																	"compare_to": 0
+																},
+																{
+																	"type": "origins:moving",
+																	"inverted": true
+																}
+															]
+														},
+														"action": [
+															{
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 0,
+																	"z": 0
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 1,
+																	"z": 0
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 2,
+																	"z": 0
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 1,
+																	"z": 1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 0,
+																	"z": 1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 0,
+																	"z": 2
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": -1,
+																	"z": 1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": -1,
+																	"z": 0
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": -2,
+																	"z": 0
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": -1,
+																	"z": -1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 0,
+																	"z": -1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 0,
+																	"z": -2
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 1,
+																	"z": -1
+																}
+															},
+															
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 1,
+																	"z": 0,
+																	"y": 1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 1,
+																	"z": 1,
+																	"y": 1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 0,
+																	"z": 1,
+																	"y": 1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": -1,
+																	"z": 1,
+																	"y": 1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": -1,
+																	"z": 0,
+																	"y": 1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": -1,
+																	"z": -1,
+																	"y": 1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 0,
+																	"z": -1,
+																	"y": 1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 1,
+																	"z": -1,
+																	"y": 1
+																}
+															},
+															
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 1,
+																	"z": 0,
+																	"y": -1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 1,
+																	"z": 1,
+																	"y": -1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 0,
+																	"z": 1,
+																	"y": -1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": -1,
+																	"z": 1,
+																	"y": -1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": -1,
+																	"z": 0,
+																	"y": -1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": -1,
+																	"z": -1,
+																	"y": -1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 0,
+																	"z": -1,
+																	"y": -1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 1,
+																	"z": -1,
+																	"y": -1
+																}
+															},
+															
+															
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 0,
+																	"z": 0,
+																	"y": 1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 0,
+																	"z": 0,
+																	"y": 2
+																}
+															},
+															
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 0,
+																	"z": 0,
+																	"y": -1
+																}
+															},
+															{
+																
+																"type": "origins:block_action_at",
+																"block_action": {
+																	"type": "origins:offset",
+																	"action": {
+																		"type": "origins:bonemeal",
+																		"effects": true
+																	},
+																	"x": 0,
+																	"z": 0,
+																	"y": -2
+																}
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		},
+		"interval": 50,
+		"condition": {
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:healaura_toggle",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		}
+	},
+	"healaura_passive_overtime":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:ability_level_healaura",
+										"comparison": "==",
+										"compare_to": 3
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:execute_command",
+									"command": "function davwyndragon:healaura_overtime_small",
+									"permission_level": 5
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:ability_level_healaura",
+										"comparison": ">",
+										"compare_to": 3
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:execute_command",
+									"command": "function davwyndragon:healaura_overtime",
+									"permission_level": 5
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:moving"
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:healaura_stand_delay",
+									"operation":"set",
+									"change": 10
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:any_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:mana_resource",
+										"comparison": "<",
+										"compare_to": 10
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:sleep_mode_resource",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:healaura_toggle",
+									"operation":"set",
+									"change": 0
+								},
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:healaura_overshield_delay",
+									"operation":"set",
+									"change": 0
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"interval": 5,
+		"condition": {
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:healaura_toggle",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:ability_level_healaura",
+					"comparison": ">",
+					"compare_to": 2
+				}
+			]
+		}
+	},
+	"healaura_hit_sound":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:healaura_hit_effect_resource",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:healaura_hit_effect_resource",
+									"operation":"add",
+									"change": -1
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"interval": 1
+	}
+}

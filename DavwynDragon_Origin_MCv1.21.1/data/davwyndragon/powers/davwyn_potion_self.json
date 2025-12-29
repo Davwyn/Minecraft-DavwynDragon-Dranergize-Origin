@@ -1,0 +1,56 @@
+{
+	"hidden": true,
+	"type": "origins:active_self",
+	"entity_action": {
+		"type": "origins:side",
+		"side": "server",
+		"action": {
+			"type": "origins:if_else_list",
+			"actions": [
+				{
+					"condition": {
+						"type": "origins:all_of",
+						"conditions": [
+							{
+								"type": "origins:equipped_item",
+								"equipment_slot": "offhand",
+								"item_condition": {
+									"type": "origins:ingredient",
+									"ingredient": {
+										"item": "minecraft:glass_bottle"
+									}
+								}
+							}
+						]
+					},
+					"action": [
+						{
+							"type": "origins:equipped_item_action",
+							"equipment_slot": "offhand",
+							"item_action": {
+								"type": "origins:consume",
+								"amount": 1
+							}
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "function davwyndragon:davwyn_potion",
+							"permission_level": 4
+						}
+					]
+				}
+			]
+		}
+	},
+	"cooldown": 1,
+	"hud_render": {
+		"should_render": false
+	},
+	"key": {
+		"key": "key.use",
+		"continuous": false
+	},
+	"condition": {
+		"type": "origins:sneaking"
+	}
+}

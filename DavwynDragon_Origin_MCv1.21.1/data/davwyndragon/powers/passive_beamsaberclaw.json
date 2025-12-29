@@ -1,0 +1,5609 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"beamsaberclaw_active":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:change_resource",
+					"resource": "davwyndragon:beamsaberclaw_charging_toggle",
+					"operation":"set",
+					"change": 1
+				}
+			]
+		},
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.origins.primary_active",
+			"continuous": false
+		},
+		"condition": {
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:skill_cycle",
+					"comparison": "==",
+					"compare_to": 4
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:ability_level_beamsaberclaw",
+					"comparison": ">",
+					"compare_to": 2
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:beamsaberclaw_cooldown_over_delay",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:beamsaberclaw_cooldown",
+					"comparison": ">=",
+					"compare_to": 50
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:mana_resource",
+					"comparison": ">=",
+					"compare_to": 6
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:stamina_resource",
+					"comparison": ">=",
+					"compare_to": 10
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:option_toggle",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:sleep_mode_resource",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"beamsaberclaw_active_rush":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:change_resource",
+					"resource": "davwyndragon:beamsaberclaw_cooldown",
+					"operation":"add",
+					"change": 4
+				}
+			]
+		},
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.origins.primary_active",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:skill_cycle",
+					"comparison": "==",
+					"compare_to": 4
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:ability_level_beamsaberclaw",
+					"comparison": ">=",
+					"compare_to": 7
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:beamsaberclaw_cooldown_over_delay",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:beamsaberclaw_cooldown",
+					"comparison": ">=",
+					"compare_to": 50
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:mana_resource",
+					"comparison": ">=",
+					"compare_to": 6
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:stamina_resource",
+					"comparison": ">=",
+					"compare_to": 10
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:rage_resource",
+					"comparison": "==",
+					"compare_to": 100
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:option_toggle",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:sleep_mode_resource",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"passive_beamsaberclaw_system":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:beamsaberclaw_cooldown_over_delay",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:beamsaberclaw_cooldown_over_delay",
+									"operation":"add",
+									"change": -1
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:beamsaberclaw_action_resource",
+										"comparison": "==",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:beamsaberclaw_cooldown",
+										"comparison": "==",
+										"compare_to": 100
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:beamsaberclaw_charging_toggle",
+									"operation":"set",
+									"change": 0
+								},
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+									"operation":"set",
+									"change": 0
+								},
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:beamsaberclaw_cooldown",
+									"operation":"set",
+									"change": 50
+								},
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:rage_resource",
+									"operation":"add",
+									"change": -75
+								},
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:beamsaberclaw_action_resource",
+									"operation":"set",
+									"change": 12
+								},
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:energyshield_resource",
+									"operation":"add",
+									"change": 2
+								}
+							]
+						},
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:beamsaberclaw_charging_toggle",
+										"comparison": "==",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:beamsaberclaw_action_resource",
+										"comparison": "==",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:beamsaberclaw_cooldown_over_delay",
+										"comparison": "==",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:beamsaberclaw_charging_toggle",
+									"operation":"set",
+									"change": 0
+								},
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+									"operation":"set",
+									"change": 0
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:any_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:rage_resource",
+														"comparison": "<",
+														"compare_to": 25
+													},
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:ability_level_beamsaberclaw",
+														"comparison": "<=",
+														"compare_to": 3
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:change_resource",
+													"resource": "davwyndragon:beamsaberclaw_action_resource",
+													"operation":"set",
+													"change": 11
+												},
+												{
+													"type": "origins:if_else_list",
+													"actions": [
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:ability_level_beamsaberclaw",
+																		"comparison": "<=",
+																		"compare_to": 4
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:beamsaberclaw_cooldown_over_delay",
+																	"operation":"set",
+																	"change": 30
+																}
+															]
+														}
+													]
+												}
+											]
+										},
+										{
+											"condition": {
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:rage_resource",
+														"comparison": ">=",
+														"compare_to": 25
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:if_else_list",
+													"actions": [
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:ability_level_beamsaberclaw",
+																		"comparison": "<=",
+																		"compare_to": 5
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:choice",
+																	"actions": [
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:beamsaberclaw_action_resource",
+																				"operation":"set",
+																				"change": 1
+																			},
+																			"weight": 34
+																		},
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:beamsaberclaw_action_resource",
+																				"operation":"set",
+																				"change": 2
+																			},
+																			"weight": 33
+																		},
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:beamsaberclaw_action_resource",
+																				"operation":"set",
+																				"change": 3
+																			},
+																			"weight": 33
+																		}
+																	]
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:ability_level_beamsaberclaw",
+																						"comparison": "<=",
+																						"compare_to": 4
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:change_resource",
+																					"resource": "davwyndragon:beamsaberclaw_cooldown_over_delay",
+																					"operation":"set",
+																					"change": 30
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:ability_level_beamsaberclaw",
+																		"comparison": ">=",
+																		"compare_to": 6
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:choice",
+																	"actions": [
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:beamsaberclaw_action_resource",
+																				"operation":"set",
+																				"change": 1
+																			},
+																			"weight": 10
+																		},
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:beamsaberclaw_action_resource",
+																				"operation":"set",
+																				"change": 2
+																			},
+																			"weight": 10
+																		},
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:beamsaberclaw_action_resource",
+																				"operation":"set",
+																				"change": 3
+																			},
+																			"weight": 10
+																		},
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:beamsaberclaw_action_resource",
+																				"operation":"set",
+																				"change": 4
+																			},
+																			"weight": 10
+																		},
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:beamsaberclaw_action_resource",
+																				"operation":"set",
+																				"change": 5
+																			},
+																			"weight": 10
+																		},
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:beamsaberclaw_action_resource",
+																				"operation":"set",
+																				"change": 6
+																			},
+																			"weight": 10
+																		},
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:beamsaberclaw_action_resource",
+																				"operation":"set",
+																				"change": 7
+																			},
+																			"weight": 10
+																		},
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:beamsaberclaw_action_resource",
+																				"operation":"set",
+																				"change": 8
+																			},
+																			"weight": 10
+																		},
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:beamsaberclaw_action_resource",
+																				"operation":"set",
+																				"change": 9
+																			},
+																			"weight": 10
+																		},
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:beamsaberclaw_action_resource",
+																				"operation":"set",
+																				"change": 10
+																			},
+																			"weight": 10
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:beamsaberclaw_action_resource",
+										"comparison": "!=",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+									"operation":"add",
+									"change": 1
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:beamsaberclaw_action_resource",
+														"comparison": "==",
+														"compare_to": 11
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:if_else_list",
+													"actions": [
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 1
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -10
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 5
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_short",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_short_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": ">=",
+																		"compare_to": 10
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:beamsaberclaw_action_resource",
+																	"operation":"set",
+																	"change": 0
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:beamsaberclaw_action_resource",
+														"comparison": "==",
+														"compare_to": 1
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:if_else_list",
+													"actions": [
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 1
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -10
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 5
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": ">=",
+																		"compare_to": 10
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:beamsaberclaw_action_resource",
+																	"operation":"set",
+																	"change": 0
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:beamsaberclaw_action_resource",
+														"comparison": "==",
+														"compare_to": 2
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:if_else_list",
+													"actions": [
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 1
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -10
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 5
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_upup_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_upup_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": ">=",
+																		"compare_to": 10
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:beamsaberclaw_action_resource",
+																	"operation":"set",
+																	"change": 0
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:beamsaberclaw_action_resource",
+														"comparison": "==",
+														"compare_to": 3
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:if_else_list",
+													"actions": [
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 1
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -10
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 5
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_downdown_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_downdown_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": ">=",
+																		"compare_to": 10
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:beamsaberclaw_action_resource",
+																	"operation":"set",
+																	"change": 0
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:beamsaberclaw_action_resource",
+														"comparison": "==",
+														"compare_to": 4
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:if_else_list",
+													"actions": [
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 1
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -10
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 5
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 6
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 15
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 20
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_up_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_up_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": ">=",
+																		"compare_to": 30
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:beamsaberclaw_action_resource",
+																	"operation":"set",
+																	"change": 0
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:beamsaberclaw_action_resource",
+														"comparison": "==",
+														"compare_to": 5
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:if_else_list",
+													"actions": [
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 1
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -10
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 5
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 6
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 10
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": ">=",
+																		"compare_to": 15
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:beamsaberclaw_action_resource",
+																	"operation":"set",
+																	"change": 0
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:beamsaberclaw_action_resource",
+														"comparison": "==",
+														"compare_to": 6
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:if_else_list",
+													"actions": [
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 1
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -10
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 5
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_downdown_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_downdown_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 6
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 10
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_downdown_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_downdown_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": ">=",
+																		"compare_to": 15
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:beamsaberclaw_action_resource",
+																	"operation":"set",
+																	"change": 0
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:beamsaberclaw_action_resource",
+														"comparison": "==",
+														"compare_to": 7
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:if_else_list",
+													"actions": [
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 1
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -10
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 5
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_upup_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_upup_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 6
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action":  [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 10
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_down_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_down_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": ">=",
+																		"compare_to": 20
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:beamsaberclaw_action_resource",
+																	"operation":"set",
+																	"change": 0
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:beamsaberclaw_action_resource",
+														"comparison": "==",
+														"compare_to": 8
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:if_else_list",
+													"actions": [
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 1
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -10
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 10
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 11
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 13
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 14
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 16
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_up_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_up_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": ">=",
+																		"compare_to": 20
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:beamsaberclaw_action_resource",
+																	"operation":"set",
+																	"change": 0
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:beamsaberclaw_action_resource",
+														"comparison": "==",
+														"compare_to": 9
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:if_else_list",
+													"actions": [
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 1
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -10
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 5
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 8
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 9
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 11
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": ">=",
+																		"compare_to": 15
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:beamsaberclaw_action_resource",
+																	"operation":"set",
+																	"change": 0
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:beamsaberclaw_action_resource",
+														"comparison": "==",
+														"compare_to": 10
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:if_else_list",
+													"actions": [
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 1
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -10
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 5
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_upup_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_upup_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 6
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 10
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_downdown_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_downdown_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 11
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 15
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_up_forward",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_up_forward_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:mana_resource",
+																	"change": -2
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": ">=",
+																		"compare_to": 20
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:beamsaberclaw_action_resource",
+																	"operation":"set",
+																	"change": 0
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:beamsaberclaw_action_resource",
+														"comparison": "==",
+														"compare_to": 12
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:if_else_list",
+													"actions": [
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 1
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -10
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 10
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 11
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 12
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 13
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 14
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 15
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 16
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 17
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 18
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 19
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 20
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 21
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 22
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 23
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 24
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 25
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 26
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 27
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 28
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 29
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource",
+																	"change": -3
+																},
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:stamina_resource_delay",
+																	"operation":"set",
+																	"change": 10
+																},
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.5,
+																					"space": "local"
+																				}
+																			]
+																		},
+																		{
+																			"condition": {
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:hover_mode_resource",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:add_velocity",
+																					"z": 0.1,
+																					"space": "local"
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": "==",
+																		"compare_to": 30
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:if_else_list",
+																	"actions": [
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 0
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush",
+																					"permission_level": 4
+																				}
+																			]
+																		},
+																		{
+																			"condition":{
+																				"type": "origins:all_of",
+																				"conditions": [
+																					{
+																						"type": "origins:resource",
+																						"resource": "davwyndragon:pvp_toggle",
+																						"comparison": "==",
+																						"compare_to": 1
+																					}
+																				]
+																			},
+																			"action": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function davwyndragon:beamsaberslash_forward_rush_pvp",
+																					"permission_level": 4
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"condition": {
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "davwyndragon:beamsaberclaw_timeline_resource",
+																		"comparison": ">=",
+																		"compare_to": 35
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "davwyndragon:beamsaberclaw_action_resource",
+																	"operation":"set",
+																	"change": 0
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:skill_cycle",
+										"comparison": "==",
+										"compare_to": 4
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:ability_level_beamsaberclaw",
+										"comparison": ">",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:sleep_mode_resource",
+										"comparison": "==",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:beamsaberclaw_light",
+									"operation":"set",
+									"change": 100
+								}
+							]
+						},
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:beamsaberclaw_light",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:beamsaberclaw_light",
+									"operation":"add",
+									"change": -1
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:beamsaberclaw_cooldown",
+										"comparison": "<",
+										"compare_to": 50
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:ability_level_beamsaberclaw",
+										"comparison": ">",
+										"compare_to": 2
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:beamsaberclaw_cooldown",
+									"operation":"set",
+									"change": 50
+								}
+							]
+						},
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:beamsaberclaw_cooldown",
+										"comparison": "!=",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:ability_level_beamsaberclaw",
+										"comparison": "<=",
+										"compare_to": 2
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:beamsaberclaw_cooldown",
+									"operation":"set",
+									"change": 0
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:beamsaberclaw_cooldown",
+										"comparison": ">",
+										"compare_to": 50
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:beamsaberclaw_cooldown",
+									"operation":"add",
+									"change": -1
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:beamsaberclaw_hit_effect_resource",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:beamsaberclaw_hit_effect_resource",
+									"operation":"add",
+									"change": -1
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"interval": 1
+	}
+}

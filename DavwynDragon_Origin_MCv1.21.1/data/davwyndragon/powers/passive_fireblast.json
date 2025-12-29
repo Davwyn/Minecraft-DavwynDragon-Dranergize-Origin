@@ -1,0 +1,99 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"passive_fireblast_system":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:fireblast_shoot_tracking",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:fireblast_shoot_tracking",
+									"operation": "add",
+									"change": -1
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:fireblast_cooldown",
+										"comparison": "<",
+										"compare_to": 100
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:ability_level_fireblast",
+										"comparison": ">",
+										"compare_to": 2
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:fireblast_cooldown",
+									"operation":"add",
+									"change": 2
+								}
+							]
+						},
+						{
+							"condition":{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:fireblast_cooldown",
+										"comparison": ">",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:ability_level_fireblast",
+										"comparison": "<=",
+										"compare_to": 2
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:fireblast_cooldown",
+									"operation":"set",
+									"change": 0
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"interval": 1
+	}
+}

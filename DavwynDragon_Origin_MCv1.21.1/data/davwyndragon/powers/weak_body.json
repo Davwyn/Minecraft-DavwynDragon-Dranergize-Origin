@@ -1,0 +1,18 @@
+{
+	"hidden": true,
+    "type": "origins:modify_attribute",
+	"attribute": "minecraft:generic.max_health",
+    "modifier": {
+        "name": "Weak Body",
+        "operation": "add_total_early",
+        "amount": -12.0,
+        "value": -12.0
+    },
+	"update_health": true,
+	"condition": {
+		"type": "origins:resource",
+		"resource": "davwyndragon:weakness_resource",
+		"comparison": ">=",
+		"compare_to": 100
+	}
+}

@@ -1,0 +1,68 @@
+{
+  "hidden": true,
+  "name": "Digging claws",
+  "description": "Tiny but tough, you can dig through dirt, stone, and soft ores.",
+  "type": "origins:modify_harvest",
+  "allow": true,
+  "block_condition": {
+    "type": "origins:or",
+    "conditions": [
+      {
+        "type": "origins:in_tag",
+		"tag": "davwyndragon:davwyn_digable_stone"
+      },
+	  {
+        "type": "origins:in_tag",
+		"tag": "davwyndragon:davwyn_digable_dirt"
+      },
+	  {
+        "type": "origins:in_tag",
+		"tag": "davwyndragon:davwyn_digable_wood"
+      },
+      {
+        "type": "origins:in_tag",
+        "tag": "minecraft:base_stone_overworld"
+      },
+	  {
+        "type": "origins:in_tag",
+        "tag": "minecraft:base_stone_nether"
+      },
+	  {
+        "type": "origins:in_tag",
+        "tag": "minecraft:coal_ores"
+      },
+	  {
+        "type": "origins:in_tag",
+        "tag": "minecraft:emerald_ores"
+      },
+	  {
+        "type": "origins:in_tag",
+        "tag": "minecraft:gold_ores"
+      },
+	  {
+        "type": "origins:in_tag",
+        "tag": "minecraft:needs_stone_tool"
+      },
+	  {
+        "type": "origins:in_tag",
+        "tag": "minecraft:redstone_ores"
+      },
+	  {
+        "type": "origins:in_tag",
+        "tag": "minecraft:stone_bricks"
+      },
+	  {
+        "type": "origins:in_tag",
+        "tag": "minecraft:mineable/axe"
+      },
+	  {
+        "type": "origins:in_tag",
+        "tag": "minecraft:logs"
+      },
+	  {
+        "type": "origins:in_tag",
+        "tag": "minecraft:planks"
+      }
+    ]	
+  }
+}

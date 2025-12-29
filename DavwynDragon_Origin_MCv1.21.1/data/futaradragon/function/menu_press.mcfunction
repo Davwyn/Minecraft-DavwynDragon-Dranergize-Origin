@@ -1,1 +1,0 @@
-execute as @s run playsound futaradragon:entity.futaradragon.ui_press player @s ~ ~ ~ 1.0 1.0

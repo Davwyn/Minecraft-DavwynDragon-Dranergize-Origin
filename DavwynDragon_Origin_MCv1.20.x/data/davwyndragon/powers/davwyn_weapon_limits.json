@@ -1,0 +1,24 @@
+{
+    "hidden": true,
+    "name": "Limited manipulators",
+    "description": "With paws and a maw, you can't handle ranged or complex weapons.",
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:or",
+        "conditions": [
+            {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "davwyndragon:davwyn_blacklisted_weapons"
+                }
+            },
+            {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "origins:ranged_weapons"
+                }
+            }
+        ]
+        
+    }
+}

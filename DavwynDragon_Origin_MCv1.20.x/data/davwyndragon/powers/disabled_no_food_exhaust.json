@@ -1,0 +1,20 @@
+{
+	"hidden": true,
+	"type": "origins:modify_exhaustion",
+    "modifier": {
+        "name": "No Exhaustion",
+        "operation": "set_total",
+        "value": 0.0
+    },
+	"condition": {
+		"type": "origins:and",
+		"conditions": [
+			{
+				"type": "origins:resource",
+				"resource": "davwyndragon:stamina_resource_drain",
+				"comparison": "!=",
+				"compare_to": 100
+			}
+		]
+	}
+}

@@ -1,0 +1,1 @@
+execute as @e[distance=..5,type=!minecraft:armor_stand,type=!minecraft:marker,tag=!DavwynDragonLight,tag=!DavwynDragonLightEven,tag=!DavwynDragonLightEvenOdd,nbt={DeathTime:0s}] if entity @s at @s run power grant @s davwyndragon:entity_heal_aura_effect_lv4

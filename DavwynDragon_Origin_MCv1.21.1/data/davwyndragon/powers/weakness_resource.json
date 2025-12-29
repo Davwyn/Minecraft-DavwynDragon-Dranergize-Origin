@@ -1,0 +1,22 @@
+{
+	"hidden": true,
+	"type": "origins:resource",
+    "min": 0,
+    "max": 100,
+    "hud_render": {
+        "should_render": true,
+		"sprite_location": "davwyndragon:textures/resource_bar_4.png",
+		"bar_index": 1,
+		"condition":{
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:weakness_resource",
+					"comparison": "<",
+					"compare_to": 100
+				}
+			]
+		}
+	}
+}

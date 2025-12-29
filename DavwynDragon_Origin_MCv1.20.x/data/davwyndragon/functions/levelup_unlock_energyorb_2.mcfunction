@@ -1,0 +1,1 @@
+execute run title @s subtitle {"text":"Starwisp Count +2 More Fire Rate x2 Focus Fire Ability Unlocked", "bold":false, "italic":false, "color":"light_purple"}

@@ -1,0 +1,387 @@
+{
+	"hidden": true,
+    "type": "origins:action_over_time",
+    "entity_action": {
+		"type": "origins:side",
+		"side": "server",
+		"action": {
+			"type": "origins:if_else_list",
+			"actions": [
+				{
+					"condition": {
+						"type": "origins:all_of",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "davwyndragon:energyshield_resource",
+								"comparison": ">=",
+								"compare_to": 2
+							},
+							{
+								"type": "origins:resource",
+								"resource": "davwyndragon:ability_level_energy_shield",
+								"comparison": ">=",
+								"compare_to": 4
+							},
+							{
+								"type": "origins:moving"
+							}
+						]
+					},
+					"action": [
+						{
+							"type": "origins:change_resource",
+							"resource": "davwyndragon:regen_delay",
+							"operation":"set",
+							"change": 0
+						}
+					]
+				},
+				{
+					"condition": {
+						"type": "origins:all_of",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "davwyndragon:energyshield_resource",
+								"comparison": ">=",
+								"compare_to": 1
+							},
+							{
+								"type": "origins:resource",
+								"resource": "davwyndragon:ability_level_energy_shield",
+								"comparison": "==",
+								"compare_to": 3
+							},
+							{
+								"type": "origins:moving"
+							}
+						]
+					},
+					"action": [
+						{
+							"type": "origins:change_resource",
+							"resource": "davwyndragon:regen_delay",
+							"operation":"set",
+							"change": 0
+						}
+					]
+				},
+				{
+					"condition": {
+						"type": "origins:all_of",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "davwyndragon:energyshield_resource",
+								"comparison": ">=",
+								"compare_to": 0
+							},
+							{
+								"type": "origins:resource",
+								"resource": "davwyndragon:ability_level_energy_shield",
+								"comparison": "<=",
+								"compare_to": 2
+							},
+							{
+								"type": "origins:moving"
+							}
+						]
+					},
+					"action": [
+						{
+							"type": "origins:change_resource",
+							"resource": "davwyndragon:regen_delay",
+							"operation":"set",
+							"change": 0
+						}
+					]
+				},
+				{
+					"condition": {
+						"type": "origins:all_of",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "davwyndragon:regen_delay",
+								"comparison": "<",
+								"compare_to": 48
+							},
+							{
+								"type": "origins:any_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:energyshield_resource",
+										"comparison": "<",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:relative_health",
+										"comparison": "<",
+										"compare_to": 1.0
+									}
+								]
+							},
+							{
+								"type": "origins:resource",
+								"resource": "davwyndragon:ability_level_energy_shield",
+								"comparison": ">=",
+								"compare_to": 5
+							}
+						]
+					},
+					"action": [
+						{
+							"type": "origins:change_resource",
+							"resource": "davwyndragon:regen_delay",
+							"operation":"add",
+							"change": 2
+						}
+					]
+				},
+				{
+					"condition": {
+						"type": "origins:all_of",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "davwyndragon:regen_delay",
+								"comparison": "<",
+								"compare_to": 48
+							},
+							{
+								"type": "origins:any_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:energyshield_resource",
+										"comparison": "<",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:relative_health",
+										"comparison": "<",
+										"compare_to": 1.0
+									}
+								]
+							},
+							{
+								"type": "origins:resource",
+								"resource": "davwyndragon:ability_level_energy_shield",
+								"comparison": "<",
+								"compare_to": 5
+							}
+						]
+					},
+					"action": [
+						{
+							"type": "origins:change_resource",
+							"resource": "davwyndragon:regen_delay",
+							"operation":"add",
+							"change": 1
+						}
+					]
+				},
+				{
+					"condition": {
+						"type": "origins:all_of",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "davwyndragon:regen_delay",
+								"comparison": "==",
+								"compare_to": 48
+							}
+						]
+					},
+					"action": {
+						"type": "origins:if_else_list",
+						"actions": [
+							{
+								"condition": {
+									"type": "origins:all_of",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "davwyndragon:energyshield_resource",
+											"comparison": "<",
+											"compare_to": 2
+										},
+										{
+											"type": "origins:resource",
+											"resource": "davwyndragon:sleep_mode_resource",
+											"comparison": "!=",
+											"compare_to": 2
+										},
+										{
+											"type": "origins:resource",
+											"resource": "davwyndragon:ability_level_energy_shield",
+											"comparison": ">=",
+											"compare_to": 4
+										}
+									]
+								},
+								"action": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:energyshield_resource",
+										"operation":"add",
+										"change": 1
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:regen_delay",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							},
+							{
+								"condition": {
+									"type": "origins:all_of",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "davwyndragon:energyshield_resource",
+											"comparison": "<",
+											"compare_to": 1
+										},
+										{
+											"type": "origins:resource",
+											"resource": "davwyndragon:sleep_mode_resource",
+											"comparison": "!=",
+											"compare_to": 2
+										},
+										{
+											"type": "origins:resource",
+											"resource": "davwyndragon:ability_level_energy_shield",
+											"comparison": ">=",
+											"compare_to": 3
+										}
+									]
+								},
+								"action": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:energyshield_resource",
+										"operation":"add",
+										"change": 1
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:regen_delay",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							},
+							{
+								"condition": {
+									"type": "origins:all_of",
+									"conditions": [
+										{
+											"type": "origins:relative_health",
+											"comparison": "<",
+											"compare_to": 1.0
+										}
+									]
+								},
+								"action": [
+									{
+										"type": "origins:if_else_list",
+										"actions": [
+											{
+												"condition": {
+													"type": "origins:all_of",
+													"conditions": [
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:sleep_mode_resource",
+															"comparison": ">",
+															"compare_to": 0
+														}
+													]
+												},
+												"action": [
+													{
+														"type": "origins:execute_command",
+														"command": "function davwyndragon:selfheal_meditation",
+														"permission_level": 4
+													},
+													{
+														"type": "origins:exhaust",
+														"amount": 12.0
+													}
+												]
+											},
+											{
+												"condition": {
+													"type": "origins:all_of",
+													"conditions": [
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:sleep_mode_resource",
+															"comparison": "==",
+															"compare_to": 0
+														}
+													]
+												},
+												"action": [
+													{
+														"type": "origins:execute_command",
+														"command": "function davwyndragon:selfheal",
+														"permission_level": 4
+													},
+													{
+														"type": "origins:exhaust",
+														"amount": 6.0
+													}
+												]
+											}
+										]
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:regen_delay",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						]
+					}
+				}
+			]
+		}
+    },
+    "interval": 5,
+	"condition": {
+		"type": "origins:any_of",
+		"conditions": [
+			{
+				"type": "origins:resource",
+				"resource": "davwyndragon:state_resource",
+				"comparison": "==",
+				"compare_to": 1
+			},
+			{
+				"type": "origins:all_of",
+				"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "davwyndragon:weakness_resource",
+						"comparison": "==",
+						"compare_to": 100
+					},
+					{
+						"type": "origins:resource",
+						"resource": "davwyndragon:state_resource",
+						"comparison": "==",
+						"compare_to": 0
+					}
+				]	
+			}
+		]
+	}
+}

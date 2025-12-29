@@ -1,0 +1,3 @@
+execute at @s as @e[type=!minecraft:text_display,distance=..30.0] at @s unless entity @e[type=minecraft:text_display,tag=DragonSayRawr,distance=..5.0] run say Rawr
+execute at @s as @e[type=!minecraft:text_display,distance=..30.0] at @s unless entity @e[type=minecraft:text_display,tag=DragonSayRawr,distance=..5.0] run summon minecraft:text_display ~ ~2.5 ~ {billboard:"center",Tags:["DragonSayRawr"],text:'{"text":"Rawr","color":"white"}}',see_through:1}
+execute run schedule function davwyndragon:dragon_say_rawr_clear 80t replace

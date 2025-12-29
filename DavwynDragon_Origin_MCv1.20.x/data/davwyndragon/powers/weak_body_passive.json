@@ -1,0 +1,39 @@
+{
+	"hidden": true,
+    "type": "origins:action_over_time",
+    "entity_action": {
+		"type": "origins:if_else_list",
+		"actions": [
+			{
+				"condition": {
+					"type": "origins:and",
+					"conditions": [
+						{
+							"type": "origins:resource",
+							"resource": "davwyndragon:ultimate_resource",
+							"comparison": ">=",
+							"compare_to": 100
+						},
+						{
+							"type": "origins:resource",
+							"resource": "davwyndragon:state_resource",
+							"comparison": "==",
+							"compare_to": 0
+						}
+					]
+				},
+				"action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:execute_command",
+							"command": "function davwyndragon:setnormalhp",
+							"permission_level": 4
+						}
+					]
+				}
+			}
+		]
+	},
+    "interval": 80
+}

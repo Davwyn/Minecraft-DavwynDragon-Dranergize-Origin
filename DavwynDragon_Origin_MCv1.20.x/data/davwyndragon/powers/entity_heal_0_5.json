@@ -1,0 +1,23 @@
+{
+	"hidden": true,
+	"type": "origins:action_over_time",
+    "entity_action": {
+		"type": "origins:side",
+		"side": "server",
+		"action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:heal",
+					"amount": 0.5
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute run power revoke @s davwyndragon:entity_heal_0_5",
+					"permission_level": 4
+				}
+			]
+		}
+    },
+    "interval": 1
+}

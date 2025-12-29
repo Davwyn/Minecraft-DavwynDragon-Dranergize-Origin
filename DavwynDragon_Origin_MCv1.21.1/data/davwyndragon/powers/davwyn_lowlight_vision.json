@@ -1,0 +1,32 @@
+{
+  "hidden": true,
+  "name": "Lowlight-Vision",
+  "description": "You can see in low-light conditions once your eyes adjust.",
+  "type": "origins:stacking_status_effect",
+  "min_stacks": -15,
+  "max_stacks": 2,
+  "tick_rate": 20,
+  "duration_per_stack": 140,
+  "effect": {
+    "id": "minecraft:night_vision",
+    "effect": "minecraft:night_vision",
+    "show_particles": false,
+    "show_icon": false,
+    "ambient": false
+  },
+  "condition": {
+    "type": "origins:all_of",
+    "conditions": [
+      {
+        "type": "origins:brightness",
+        "comparison": "<",
+        "compare_to": 0.14
+      },
+      {
+        "type": "origins:submerged_in",
+        "fluid": "minecraft:water",
+        "inverted": true
+      }
+    ]
+  }
+}

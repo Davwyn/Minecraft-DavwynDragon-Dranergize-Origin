@@ -1,0 +1,117 @@
+{
+	"hidden": false,
+	"name": "Soft Glow",
+	"description":"You have a soft glow effect from St. Elmos fire effect on your scales.",
+	"type": "origins:multiple",
+	"glow_init":{
+		"type": "origins:action_on_callback",
+		"entity_action_chosen": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:change_resource",
+					"resource": "davwyndragon:davwyn_glow_active_resource",
+					"operation":"set",
+					"change": 0
+				}
+			]
+		},
+		"entity_action_respawned": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:change_resource",
+					"resource": "davwyndragon:davwyn_glow_active_resource",
+					"operation":"set",
+					"change": 0
+				}
+			]
+		}
+	},
+	"passive_glow":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:if_else_list",
+				"actions": [
+					{
+						"condition": {
+							"type": "origins:all_of",
+							"conditions": [
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:healaura_toggle",
+									"comparison": "==",
+									"compare_to": 1,
+				  					"inverted": true
+								},
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:state_resource",
+									"comparison": "==",
+									"compare_to": 1,
+				  					"inverted": true
+								},
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:beamsaberclaw_light",
+									"comparison": ">",
+									"compare_to": 0,
+				  					"inverted": true
+								},
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:spark_light",
+									"comparison": ">",
+									"compare_to": 0,
+				  					"inverted": true
+								},
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:hyperbeam_charge",
+									"comparison": ">",
+									"compare_to": 50,
+				  					"inverted": true
+								}
+							]
+						},
+						"action": [
+							{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:davwyn_glow_active_resource",
+									"operation":"set",
+									"change": 1
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "function davwyndragon:davwyn_glow_overtime",
+								"permission_level": 4
+							}
+						]
+					},
+					{
+						"condition": {
+							"type": "origins:resource",
+							"resource": "davwyndragon:davwyn_glow_active_resource",
+							"comparison": ">",
+							"compare_to": 0
+						},
+						"action": [
+							{
+								"type": "origins:change_resource",
+								"resource": "davwyndragon:davwyn_glow_active_resource",
+								"operation":"set",
+								"change": 0
+							}
+						]
+					}
+				]
+			}
+		},
+		"interval": 5
+	}
+}

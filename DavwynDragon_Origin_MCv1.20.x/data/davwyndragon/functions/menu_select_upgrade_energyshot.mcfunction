@@ -1,0 +1,1 @@
+execute run title @s actionbar {"text":"Upgrade Select Plasma Bolt Ability", "color":"aqua"}

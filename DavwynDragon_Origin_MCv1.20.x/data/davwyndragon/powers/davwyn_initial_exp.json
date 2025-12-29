@@ -1,0 +1,11 @@
+{
+    "hidden": true,
+    "name": "Initial Experience",
+    "description": "You start with 10 levels of experience to unlock your first power.",
+    "type": "origins:action_on_callback",
+    "entity_action_chosen": {
+        "type": "origins:execute_command",
+        "command": "experience add @s 160"
+    },
+    "execute_chosen_when_orb": false
+}

@@ -1,6 +1,9 @@
 {
-    "name" : "FutaraDragon (Dranergize Dragon Specie)",
+    "name" : "Davwyn Murrper (Dranergize Variant)",
     "authors": [
+		"§f§nDavwyn Murrper Variant Modder§r",
+		"DavwynDragon",
+		"§f§nOriginal Mod Creator§r",
 		"FutaraDragon",
 		"§f§nOriginal Character Owner§r",
 		"FutaraDragon",
@@ -19,8 +22,9 @@
 		"Auria",
 		"bitslayn",
 		"§f§nVersion§r",
-		"2.2.00"
+		"Futara 2.2.00",
+		"Davwyn 1.0.00"
 	],
-	"color": "c672ff",
-	"version": "2.2.00"
+	"color": "ff0086",
+	"version": "1.0.0"
 }

@@ -1,1 +1,0 @@
-execute run title @s subtitle {"text":"Hyper Beam Long Range Ability Unlocked", "bold":false, "italic":false, "color":"light_purple"}

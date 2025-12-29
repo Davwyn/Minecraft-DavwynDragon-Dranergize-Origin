@@ -1,0 +1,24 @@
+{
+    "hidden": true,
+    "name": "Carnivore Raw Meat",
+    "description": "Eating raw meat is almost as good as cooked to you.",
+    "type": "origins:modify_food",
+    "item_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "tag": "davwyndragon:raw_meat"
+        }
+    },
+    "food_modifier": {
+        "operation": "add_base_late",
+        "amount": 2,
+        "value": 2,
+        "name": "Increased food points"
+    },
+    "saturation_modifier": {
+        "operation": "add_base_late",
+        "amount": 2,
+        "value": 2,
+        "name": "Increased saturation points"
+    }
+}

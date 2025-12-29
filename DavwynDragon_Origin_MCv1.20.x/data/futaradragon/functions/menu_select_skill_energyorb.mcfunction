@@ -1,1 +1,0 @@
-execute run title @s actionbar {"text":"Select Energy Orb Ability", "color":"aqua"}

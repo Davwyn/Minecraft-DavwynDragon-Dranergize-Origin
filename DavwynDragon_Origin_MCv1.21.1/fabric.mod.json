@@ -10,10 +10,11 @@
     "name": "Dranergize Dragon Origin",
     "id": "dranergize-race",
     "version": "1.3",
-    "description": "Adds a new custom race Dranergize Dragon, FutaraDragon.",
+    "description": "Adds the Davwyn Murrper variant to FutaraDragon's Dranergize Dragon.",
     "icon": "pack.png",
     "authors": [
-      "FutaraDragon"
+      "FutaraDragon",
+      "DavwynDragon"
     ],
     "contact": {
         "website": "https://futaradragon.info",

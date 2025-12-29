@@ -1,0 +1,40 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"lucky_emerald_hit_sound":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:lucky_emerald_hit_effect_resource",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:lucky_emerald_hit_effect_resource",
+									"operation":"add",
+									"change": -1
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"interval": 1
+	}
+}

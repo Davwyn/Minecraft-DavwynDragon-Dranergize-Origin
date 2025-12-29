@@ -1,0 +1,777 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"toggle_hover_mode":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:if_else_list",
+				"actions": [
+					{
+						"condition":{
+							"type": "origins:all_of",
+							"conditions": [
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:hover_mode_key_track",
+									"comparison": "==",
+									"compare_to": 0
+								}
+							]
+						},
+						"action": [
+							{
+								"type": "origins:change_resource",
+								"resource": "davwyndragon:hover_mode_key_track",
+								"operation":"set",
+								"change": 1
+							}
+						]
+					}
+				]
+			}
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.jump",
+			"continuous": false
+		},
+		"condition": {
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:on_block",
+					"inverted": true
+				},
+				{
+					"type": "origins:climbing",
+					"inverted": true
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:ability_level_movement_trick",
+					"comparison": ">=",
+					"compare_to": 5
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:stamina_resource",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"toggle_hover_mode_hold":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:change_resource",
+					"resource": "davwyndragon:hover_mode_release_resource",
+					"operation":"add",
+					"change": 5
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_release_resource",
+										"comparison": "==",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:hover_mode_press_resource",
+									"operation":"set",
+									"change": 1
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.jump",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:hover_mode_key_track",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:stamina_resource",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"passive_hover_mode":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_release_resource",
+										"comparison": "==",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_press_resource",
+										"comparison": "==",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_key_track",
+										"comparison": "==",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:riding",
+										"inverted": true
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition":{
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:hover_mode_resource",
+														"comparison": "==",
+														"compare_to": 0
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:change_resource",
+													"resource": "davwyndragon:hover_mode_resource",
+													"operation":"set",
+													"change": 1
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "function davwyndragon:flight_command_active",
+													"permission_level": 4
+												},
+												{
+													"type": "origins:apply_effect",
+													"effect": {
+														"id": "minecraft:slow_falling",
+														"effect": "minecraft:slow_falling",
+														"duration": 100,
+														"amplifier": 255,
+														"show_particles":false,
+														"show_icon": false
+													}
+												}
+											]
+										},
+										{
+											"condition":{
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:hover_mode_resource",
+														"comparison": "==",
+														"compare_to": 1
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:change_resource",
+													"resource": "davwyndragon:hover_mode_resource",
+													"operation":"set",
+													"change": 0
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "function davwyndragon:flight_command_deactive",
+													"permission_level": 4
+												},
+												{
+													"type": "origins:apply_effect",
+													"effect": {
+														"id": "minecraft:slow_falling",
+														"effect": "minecraft:slow_falling",
+														"duration": 100,
+														"amplifier": 255,
+														"show_particles":false,
+														"show_icon": false
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:hover_mode_key_track",
+									"operation":"set",
+									"change": 0
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_release_resource",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:hover_mode_release_resource",
+									"operation":"add",
+									"change": -1
+								}
+							]
+						},
+						{
+							"condition":{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_release_resource",
+										"comparison": "==",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition":{
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:hover_mode_press_resource",
+														"comparison": "==",
+														"compare_to": 1
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:change_resource",
+													"resource": "davwyndragon:hover_mode_press_resource",
+													"operation":"set",
+													"change": 0
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition":{
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "davwyndragon:hover_mode_key_track",
+														"comparison": "==",
+														"compare_to": 1
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:change_resource",
+													"resource": "davwyndragon:hover_mode_key_track",
+													"operation":"set",
+													"change": 0
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_resource",
+										"comparison": "==",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_custom_movement_key_track",
+										"comparison": "==",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition":{
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:any_of",
+														"conditions": [
+															{
+																"type": "origins:block_collision",
+																"offset_x": 0,
+																"offset_y": -3.0,
+																"offset_z": 0
+															},
+															{
+																"type": "origins:fluid_height",
+																"fluid": "minecraft:water",
+																"comparison": ">",
+																"compare_to": 0.0
+															},
+															{
+																"type": "origins:fluid_height",
+																"fluid": "minecraft:lava",
+																"comparison": ">",
+																"compare_to": 0.0
+															}
+														]
+													},
+													{
+														"type": "origins:all_of",
+														"conditions": [
+															{
+																"type": "origins:block_collision",
+																"offset_x": 0,
+																"offset_y": 1.0,
+																"offset_z": 0,
+																"inverted": true
+															}
+														]
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:execute_command",
+													"command": "function davwyndragon:flight_command_active_up",
+													"permission_level": 4
+												}
+											]
+										},
+										{
+											"condition":{
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:block_collision",
+														"offset_x": 0,
+														"offset_y": -3.0,
+														"offset_z": 0,
+														"inverted": true
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:execute_command",
+													"command": "function davwyndragon:flight_command_active",
+													"permission_level": 4
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"condition":{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_custom_movement_key_track",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:hover_mode_custom_movement_key_track",
+									"operation":"add",
+									"change": -1
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_resource",
+										"comparison": "==",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:any_of",
+										"conditions": [
+											{
+												"type": "origins:submerged_in",
+												"fluid": "minecraft:water"
+											},
+											{
+												"type": "origins:submerged_in",
+												"fluid": "minecraft:lava"
+											}
+										]
+									}
+									
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "davwyndragon:hover_mode_resource",
+									"operation":"set",
+									"change": 0
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "function davwyndragon:flight_command_deactive",
+									"permission_level": 4
+								},
+								{
+									"type": "origins:apply_effect",
+									"effect": {
+										"id": "minecraft:slow_falling",
+										"effect": "minecraft:slow_falling",
+										"duration": 100,
+										"amplifier": 255,
+										"show_particles":false,
+										"show_icon": false
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"interval": 1
+	},
+	"passive_hover_mode_stamina_overtime":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:if_else_list",
+				"actions": [
+					{
+						"condition":{
+							"type": "origins:all_of",
+							"conditions": [
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:hover_mode_resource",
+									"comparison": "==",
+									"compare_to": 1
+								}
+							]
+						},
+						"action": [
+							{
+								"type": "origins:if_else_list",
+								"actions": [
+									{
+										"condition":{
+											"type": "origins:all_of",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "davwyndragon:stamina_resource",
+													"comparison": ">",
+													"compare_to": 0
+												}
+											]
+										},
+										"action": [
+											{
+												"type": "origins:change_resource",
+												"resource": "davwyndragon:stamina_resource",
+												"change": -1
+											},
+											{
+												"type": "origins:change_resource",
+												"resource": "davwyndragon:stamina_resource_delay",
+												"operation":"set",
+												"change": 10
+											}
+										]
+									},
+									{
+										"condition":{
+											"type": "origins:all_of",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "davwyndragon:stamina_resource",
+													"comparison": "==",
+													"compare_to": 0
+												}
+											]
+										},
+										"action": [
+											{
+												"type": "origins:change_resource",
+												"resource": "davwyndragon:hover_mode_resource",
+												"operation":"set",
+												"change": 0
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "function davwyndragon:flight_command_deactive",
+												"permission_level": 4
+											},
+											{
+												"type": "origins:apply_effect",
+												"effect": {
+													"id": "minecraft:slow_falling",
+													"effect": "minecraft:slow_falling",
+													"duration": 100,
+													"amplifier": 255,
+													"show_particles":false,
+													"show_icon": false
+												}
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		},
+		"interval": 10
+	},
+	"toggle_hover_mode_hold_up":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:change_resource",
+					"resource": "davwyndragon:hover_mode_custom_movement_key_track",
+					"operation":"set",
+					"change": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "function davwyndragon:flight_command_fly_up",
+					"permission_level": 4
+				}
+			]
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.jump",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "davwyndragon:hover_mode_resource",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	"toggle_hover_mode_hold_down":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:change_resource",
+					"resource": "davwyndragon:hover_mode_custom_movement_key_track",
+					"operation":"set",
+					"change": 2
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "function davwyndragon:flight_command_fly_down",
+					"permission_level": 4
+				}
+			]
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.sneak",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "davwyndragon:hover_mode_resource",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	"optimize_hover_speed":{
+		"type": "origins:modify_velocity",
+		"modifier": {
+			"operation": "multiply_total_multiplicative",
+			"amount": 1.0,
+			"value": 1.0
+		},
+		"axes": [
+			"x",
+			"y",
+			"z"
+		],
+		"condition": {
+			"type": "origins:resource",
+			"resource": "davwyndragon:hover_mode_resource",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	"hover_over_water":{
+		"type": "origins:walk_on_fluid",
+		"fluid": "minecraft:water",
+		"condition": {
+			"type": "origins:any_of",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:hover_mode_resource",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		}
+	},
+	"hover_over_lava":{
+		"type": "origins:walk_on_fluid",
+		"fluid": "minecraft:lava",
+		"condition": {
+			"type": "origins:any_of",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:hover_mode_resource",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		}
+	},
+	"taking_damage_while_hovering":{
+		"type": "origins:self_action_when_hit",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:change_resource",
+					"resource": "davwyndragon:stamina_resource",
+					"change": -25
+				}
+			]
+		},
+		"damage_condition": {
+			"type": "origins:amount",
+			"comparison": ">=",
+			"compare_to": 2.0
+		},
+		"cooldown": 1,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "davwyndragon:hover_mode_resource",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	}
+}
