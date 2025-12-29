@@ -1,0 +1,1 @@
+execute run title @s subtitle {"text":"Beam Saber Claw Ability Unlocked", "bold":false, "italic":false, "color":"light_purple"}

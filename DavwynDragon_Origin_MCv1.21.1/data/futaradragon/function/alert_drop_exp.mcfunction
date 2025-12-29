@@ -1,0 +1,1 @@
+execute run title @s actionbar {"text":"Drop Exp", "color":"aqua"}

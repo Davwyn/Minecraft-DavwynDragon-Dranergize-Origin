@@ -1,0 +1,1 @@
+execute at @s run stopsound @s music

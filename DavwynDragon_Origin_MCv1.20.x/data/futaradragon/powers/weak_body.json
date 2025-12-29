@@ -1,0 +1,22 @@
+{
+	"hidden": true,
+    "type": "origins:modify_attribute",
+	"attribute": "minecraft:generic.max_health",
+    "modifier": {
+        "name": "Weak Body",
+        "operation": "set_base",
+        "value": 8
+    },
+	"update_health": true,
+	"condition": {
+		"type": "origins:and",
+		"conditions": [
+			{
+				"type": "origins:resource",
+				"resource": "futaradragon:weakness_resource",
+				"comparison": ">=",
+				"compare_to": 100
+			}
+		]
+	}
+}

@@ -1,0 +1,1 @@
+execute run title @s actionbar {"text":"Require Max Ultimate Gauge", "color":"red"}

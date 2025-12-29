@@ -1,0 +1,1 @@
+execute run title @s actionbar {"text":"Ability Cycle Mode", "color":"green"}

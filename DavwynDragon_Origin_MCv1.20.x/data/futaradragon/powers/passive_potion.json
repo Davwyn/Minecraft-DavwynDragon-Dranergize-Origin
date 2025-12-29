@@ -1,0 +1,75 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"potion_hit_sound":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:if_else_list",
+						"actions": [
+							{
+								"condition": {
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "futaradragon:potion_hit_effect_resource",
+											"comparison": ">",
+											"compare_to": 0
+										}
+									]
+								},
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:change_resource",
+											"resource": "futaradragon:potion_hit_effect_resource",
+											"operation":"add",
+											"change": -1
+										}
+									]
+								}
+							}
+						]
+					},
+					{
+						"type": "origins:if_else_list",
+						"actions": [
+							{
+								"condition": {
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "futaradragon:potion_use_effect_resource",
+											"comparison": ">",
+											"compare_to": 0
+										}
+									]
+								},
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:change_resource",
+											"resource": "futaradragon:potion_use_effect_resource",
+											"operation":"add",
+											"change": -1
+										}
+									]
+								}
+							}
+						]
+					}
+				]
+			}
+		},
+		"interval": 1
+	}
+}

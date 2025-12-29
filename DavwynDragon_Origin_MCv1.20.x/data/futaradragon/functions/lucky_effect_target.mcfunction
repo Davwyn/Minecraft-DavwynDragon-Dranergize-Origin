@@ -1,0 +1,1 @@
+execute at @s run particle minecraft:glow ^ ^1 ^ 0.1 0.1 0.1 0.01 20 force

@@ -1,0 +1,1 @@
+execute run title @s actionbar {"text":"Dynamic Music OFF", "color":"red"}

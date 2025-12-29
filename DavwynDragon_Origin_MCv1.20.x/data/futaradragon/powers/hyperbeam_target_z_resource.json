@@ -1,0 +1,9 @@
+{
+	"hidden": true,
+	"type": "origins:resource",
+    "min": -99999999999,
+    "max": 99999999999,
+    "hud_render": {
+        "should_render": false
+	}
+}

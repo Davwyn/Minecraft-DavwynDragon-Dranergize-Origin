@@ -1,0 +1,1 @@
+execute as @s run attribute @s minecraft:generic.gravity base set -0.005

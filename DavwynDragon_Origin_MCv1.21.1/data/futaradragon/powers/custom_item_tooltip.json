@@ -1,0 +1,64 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"back_crafting_table":{
+		"type": "origins:tooltip",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:crafting_table"
+			}
+		},
+		"text": "Lets someone craft while it's on my back"
+	},
+	"back_chest":{
+		"type": "origins:tooltip",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:chest"
+			}
+		},
+		"text": "Mobile storage as a service"
+	},
+	"back_trapped_chest":{
+		"type": "origins:tooltip",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:trapped_chest"
+			}
+		},
+		"text": "Mobile storage as a service"
+	},
+	"back_ender_chest":{
+		"type": "origins:tooltip",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:ender_chest"
+			}
+		},
+		"text": "Mobile storage as a service"
+	},
+	"back_saddle":{
+		"type": "origins:tooltip",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:saddle"
+			}
+		},
+		"text": "Someone wanna ride me ?"
+	},
+	"back_shield":{
+		"type": "origins:tooltip",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:shield"
+			}
+		},
+		"text": "I do not know how to use it, just put it on my back then"
+	}
+}

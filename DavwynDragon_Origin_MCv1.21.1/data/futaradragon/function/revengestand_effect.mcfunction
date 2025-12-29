@@ -1,0 +1,1 @@
+execute at @s run particle minecraft:explosion ~ ~ ~ 1 1 1 1 10

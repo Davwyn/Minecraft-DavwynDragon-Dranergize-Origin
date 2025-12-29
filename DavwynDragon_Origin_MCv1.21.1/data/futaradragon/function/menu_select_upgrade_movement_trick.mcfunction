@@ -1,0 +1,1 @@
+execute run title @s actionbar {"text":"Upgrade Select Movement Trick Ability", "color":"aqua"}

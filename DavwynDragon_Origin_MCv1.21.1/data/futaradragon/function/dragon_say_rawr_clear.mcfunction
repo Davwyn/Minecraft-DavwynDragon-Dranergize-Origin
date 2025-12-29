@@ -1,0 +1,1 @@
+execute run kill @e[tag=DragonSayRawr]

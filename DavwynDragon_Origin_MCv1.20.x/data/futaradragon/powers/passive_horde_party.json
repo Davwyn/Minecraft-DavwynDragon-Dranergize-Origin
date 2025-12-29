@@ -1,0 +1,38 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"passive_horde_party":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:choice",
+						"actions": [
+							{
+								"element": {
+									"type": "origins:execute_command",
+									"command": "function futaradragon:horde_party_empty",
+									"permission_level": 4
+								},
+								"weight": 97
+							},
+							{
+								"element": {
+									"type": "origins:execute_command",
+									"command": "function futaradragon:horde_party",
+									"permission_level": 4
+								},
+								"weight": 3
+							}
+						]
+					}
+				]
+			}
+		},
+		"interval": 300
+	}
+}

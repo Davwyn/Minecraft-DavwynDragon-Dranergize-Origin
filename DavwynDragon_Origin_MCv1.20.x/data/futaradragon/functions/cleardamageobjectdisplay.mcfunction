@@ -1,0 +1,1 @@
+execute as @e[tag=fd_damage_obj] run kill @s

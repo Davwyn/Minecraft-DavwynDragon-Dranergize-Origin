@@ -1,0 +1,1 @@
+execute run title @s actionbar {"text":"Upgrade Select Hyper Beam Ability", "color":"aqua"}

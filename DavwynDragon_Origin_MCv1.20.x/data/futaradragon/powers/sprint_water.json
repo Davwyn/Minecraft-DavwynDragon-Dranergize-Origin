@@ -1,0 +1,42 @@
+{
+	"hidden": true,
+	"type": "origins:ignore_water",
+	"condition": {
+		"type": "origins:and",
+		"conditions": [
+			{
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:sprinting"
+					},
+					{
+						"type": "origins:on_block"
+					}
+				]
+			},
+			{
+				"type": "origins:fluid_height",
+				"fluid": "minecraft:water",
+				"comparison": "<=",
+				"compare_to": 1.0
+			},
+			{
+				"type": "origins:fluid_height",
+				"fluid": "minecraft:lava",
+				"comparison": "<=",
+				"compare_to": 1.0
+			},
+			{
+				"type": "origins:submerged_in",
+				"fluid": "minecraft:water",
+				"inverted": true
+			},
+			{
+				"type": "origins:submerged_in",
+				"fluid": "minecraft:lava",
+				"inverted": true
+			}
+		]
+	}
+}

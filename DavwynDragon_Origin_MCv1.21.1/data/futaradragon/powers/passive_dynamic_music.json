@@ -1,0 +1,225 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"passive_dynamic_music_system":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "futaradragon:dynamic_music_resource",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "futaradragon:dynamic_music_resource",
+									"operation":"add",
+									"change": -1
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "function futaradragon:dynamic_music",
+									"permission_level": 4
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:any_of",
+										"conditions": [
+											{
+												"type": "origins:resource",
+												"resource": "futaradragon:rage_resource",
+												"comparison": ">",
+												"compare_to": 0
+											},
+											{
+												"type": "origins:resource",
+												"resource": "futaradragon:state_resource",
+												"comparison": "==",
+												"compare_to": 1
+											}
+										]
+									},
+									{
+										"type": "origins:resource",
+										"resource": "futaradragon:dynamic_music_toggle",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "futaradragon:dynamic_music_resource",
+									"operation":"set",
+									"change": 40
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "function futaradragon:dynamic_music",
+									"permission_level": 4
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"interval": 5,
+		"condition": {
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "futaradragon:dynamic_music_begin_resource",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"passive_dynamic_music_trigger":{
+		"type": "origins:action_on_hit",
+		"bientity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:actor_action",
+				"action": {
+					"type": "origins:change_resource",
+					"resource": "futaradragon:dynamic_music_resource",
+					"operation":"set",
+					"change": 40
+				}
+			}
+		},
+		"condition": {
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "futaradragon:dynamic_music_toggle",
+					"comparison": ">",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "futaradragon:dynamic_music_begin_resource",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"passive_dynamic_music_begin_system":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "futaradragon:dynamic_music_begin_resource",
+										"comparison": "==",
+										"compare_to": 600
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "futaradragon:dynamic_music_begin_resource",
+									"operation":"add",
+									"change": -1
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "function futaradragon:dynamic_music_begin",
+									"permission_level": 4
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "function futaradragon:dynamic_music",
+									"permission_level": 4
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "futaradragon:dynamic_music_begin_resource",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:change_resource",
+									"resource": "futaradragon:dynamic_music_begin_resource",
+									"operation":"add",
+									"change": -1
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "function futaradragon:dynamic_music",
+									"permission_level": 4
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"interval": 20,
+		"condition": {
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "futaradragon:dynamic_music_begin_resource",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		}
+	}
+}

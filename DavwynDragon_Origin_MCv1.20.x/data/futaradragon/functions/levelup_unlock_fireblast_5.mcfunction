@@ -1,0 +1,1 @@
+execute run title @s subtitle {"text":"Fire Blast More Damage x4 More Area x5 Mega Push Ability Unlocked", "bold":false, "italic":false, "color":"light_purple"}

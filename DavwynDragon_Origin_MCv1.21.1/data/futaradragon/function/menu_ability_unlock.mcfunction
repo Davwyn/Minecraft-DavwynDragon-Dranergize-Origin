@@ -1,0 +1,1 @@
+execute as @s run playsound futaradragon:entity.futaradragon.ui_skill_unlock player @s ~ ~ ~ 1.0 1.0

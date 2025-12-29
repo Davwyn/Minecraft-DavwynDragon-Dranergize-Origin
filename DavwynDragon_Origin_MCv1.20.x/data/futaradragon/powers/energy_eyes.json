@@ -1,0 +1,13 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"energy_eyes_lava":{
+		"type": "origins:lava_vision",
+		"s": 0,
+		"v": 15
+	},
+	"energy_eyes_night":{
+		"type": "origins:night_vision",
+		"strength": 0.1
+	}
+}

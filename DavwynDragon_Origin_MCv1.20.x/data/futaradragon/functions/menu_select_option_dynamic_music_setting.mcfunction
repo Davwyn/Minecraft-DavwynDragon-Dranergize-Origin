@@ -1,0 +1,1 @@
+execute run title @s actionbar {"text":"Option Select Dynamic Music Setting", "color":"aqua"}

@@ -1,0 +1,23 @@
+{
+	"hidden": true,
+	"type": "origins:resource",
+    "min": 0,
+    "max": 7,
+	"start_value": 0,
+    "hud_render": {
+        "should_render": true,
+		"sprite_location": "futaradragon:textures/resource_bar_6.png",
+		"bar_index": 0,
+		"condition":{
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "futaradragon:pvp_toggle",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		}
+	}
+}

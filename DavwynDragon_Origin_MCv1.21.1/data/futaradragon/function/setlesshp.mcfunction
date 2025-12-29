@@ -1,0 +1,2 @@
+execute unless entity @s[nbt={Attributes:[{Base: 5d, Name: 'minecraft:generic.max_health'}]}] at @s run playsound minecraft:block.beacon.deactivate player @a[distance=..10] ~ ~ ~
+execute unless entity @s[nbt={Attributes:[{Base: 5d, Name: 'minecraft:generic.max_health'}]}] run attribute @s minecraft:generic.max_health base set 5

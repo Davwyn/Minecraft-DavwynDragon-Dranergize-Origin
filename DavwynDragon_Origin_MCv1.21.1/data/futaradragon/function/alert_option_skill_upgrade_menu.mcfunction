@@ -1,0 +1,1 @@
+execute run title @s actionbar {"text":"Ability Upgrade Mode", "color":"green"}

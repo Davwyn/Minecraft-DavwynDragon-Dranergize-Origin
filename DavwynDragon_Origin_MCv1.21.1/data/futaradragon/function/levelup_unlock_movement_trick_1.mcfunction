@@ -1,0 +1,1 @@
+execute run title @s subtitle {"text":"Movement Trick Sprint Ability Unlocked", "bold":false, "italic":false, "color":"light_purple"}

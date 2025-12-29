@@ -1,0 +1,25 @@
+{
+	"credit": "FutaraDragon Sprite",
+	"ambientocclusion": false,
+	"textures": {
+		"0": "item/futaradragon_icon",
+		"particle": "item/futaradragon_icon"
+	},
+	"elements": [
+		{
+			"from": [0, -0.5, 7],
+			"to": [16, 15.5, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 7.5, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 16, 1], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [16, 16, 0, 0], "rotation": 180, "texture": "#0"},
+				"west": {"uv": [0, 0, 16, 1], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 1], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 1], "rotation": 180, "texture": "#0"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {}
+}

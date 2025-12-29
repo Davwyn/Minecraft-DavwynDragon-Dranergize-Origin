@@ -1,0 +1,630 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"energyorb_shoot":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:if_else_list",
+						"actions": [
+							{
+								"condition": {
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "futaradragon:energyorb_shoot_level_delay",
+											"comparison": "<",
+											"compare_to": 16
+										}
+									]
+								},
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{	
+											"type": "origins:if_else_list",
+											"actions": [
+												{
+													"condition": {
+														"type": "origins:and",
+														"conditions": [
+															{
+																"type": "origins:resource",
+																"resource": "futaradragon:ability_level_energyorb",
+																"comparison": "<=",
+																"compare_to": 3
+															}
+														]
+													},
+													"action": {
+														"type": "origins:and",
+														"actions": [
+															{
+																"type": "origins:change_resource",
+																"resource": "futaradragon:energyorb_shoot_level_delay",
+																"operation":"add",
+																"change": 1
+															}
+														]
+													}
+												},
+												{
+													"condition": {
+														"type": "origins:and",
+														"conditions": [
+															{
+																"type": "origins:resource",
+																"resource": "futaradragon:ability_level_energyorb",
+																"comparison": "==",
+																"compare_to": 4
+															}
+														]
+													},
+													"action": {
+														"type": "origins:and",
+														"actions": [
+															{
+																"type": "origins:change_resource",
+																"resource": "futaradragon:energyorb_shoot_level_delay",
+																"operation":"add",
+																"change": 2
+															}
+														]
+													}
+												},
+												{
+													"condition": {
+														"type": "origins:and",
+														"conditions": [
+															{
+																"type": "origins:resource",
+																"resource": "futaradragon:ability_level_energyorb",
+																"comparison": "==",
+																"compare_to": 5
+															}
+														]
+													},
+													"action": {
+														"type": "origins:and",
+														"actions": [
+															{
+																"type": "origins:change_resource",
+																"resource": "futaradragon:energyorb_shoot_level_delay",
+																"operation":"add",
+																"change": 4
+															}
+														]
+													}
+												},
+												{
+													"condition": {
+														"type": "origins:and",
+														"conditions": [
+															{
+																"type": "origins:resource",
+																"resource": "futaradragon:ability_level_energyorb",
+																"comparison": "==",
+																"compare_to": 6
+															}
+														]
+													},
+													"action": {
+														"type": "origins:and",
+														"actions": [
+															{
+																"type": "origins:change_resource",
+																"resource": "futaradragon:energyorb_shoot_level_delay",
+																"operation":"add",
+																"change": 8
+															}
+														]
+													}
+												},
+												{
+													"condition": {
+														"type": "origins:and",
+														"conditions": [
+															{
+																"type": "origins:resource",
+																"resource": "futaradragon:ability_level_energyorb",
+																"comparison": ">=",
+																"compare_to": 7
+															}
+														]
+													},
+													"action": {
+														"type": "origins:and",
+														"actions": [
+															{
+																"type": "origins:change_resource",
+																"resource": "futaradragon:energyorb_shoot_level_delay",
+																"operation":"add",
+																"change": 16
+															}
+														]
+													}
+												}
+											]
+										}
+									]
+								}
+							}
+						]
+					},
+					{
+						"type": "origins:if_else_list",
+						"actions": [
+							{
+								"condition": {
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "futaradragon:energyorb_shoot_level_delay",
+											"comparison": "==",
+											"compare_to": 16
+										}
+									]
+								},
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:change_resource",
+											"resource": "futaradragon:energyorb_shoot_level_delay",
+											"operation":"set",
+											"change": 0
+										},
+										{
+											"type": "origins:if_else_list",
+											"actions": [
+												{
+													"condition": {
+														"type": "origins:and",
+														"conditions": [
+															{
+																"type": "origins:resource",
+																"resource": "futaradragon:mana_resource",
+																"comparison": ">=",
+																"compare_to": 2
+															},
+															{
+																"type": "origins:resource",
+																"resource": "futaradragon:energyorb_shoot_delay",
+																"comparison": "==",
+																"compare_to": 0
+															},
+															{
+																"type": "origins:or",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "futaradragon:energyorb_mode",
+																		"comparison": "==",
+																		"compare_to": 0
+																	},
+																	{
+																		"type": "origins:resource",
+																		"resource": "futaradragon:skill_cycle",
+																		"comparison": "!=",
+																		"compare_to": 3
+																	}
+																]
+															}
+														]
+													},
+													"action": {
+														"type": "origins:and",
+														"actions": [
+															{
+																"type": "origins:if_else_list",
+																"actions": [
+																	{
+																		"condition":{
+																			"type": "origins:and",
+																			"conditions": [
+																				{
+																					"type": "origins:resource",
+																					"resource": "futaradragon:pvp_toggle",
+																					"comparison": "==",
+																					"compare_to": 0
+																				}
+																			]
+																		},
+																		"action": {
+																			"type": "origins:and",
+																			"actions": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function futaradragon:energyorb_shoot",
+																					"permission_level": 4
+																				},
+																				{
+																					"type": "origins:change_resource",
+																					"resource": "futaradragon:energyorb_shoot_delay",
+																					"operation":"add",
+																					"change": 1
+																				}
+																			]
+																		}
+																	},
+																	{
+																		"condition":{
+																			"type": "origins:and",
+																			"conditions": [
+																				{
+																					"type": "origins:resource",
+																					"resource": "futaradragon:pvp_toggle",
+																					"comparison": "==",
+																					"compare_to": 1
+																				}
+																			]
+																		},
+																		"action": {
+																			"type": "origins:and",
+																			"actions": [
+																				{
+																					"type": "origins:execute_command",
+																					"command": "function futaradragon:energyorb_shoot_pvp",
+																					"permission_level": 4
+																				},
+																				{
+																					"type": "origins:change_resource",
+																					"resource": "futaradragon:energyorb_shoot_delay",
+																					"operation":"add",
+																					"change": 1
+																				}
+																			]
+																		}
+																	}
+																]
+															}
+														]
+													}
+												},
+												{
+													"condition": {
+														"type": "origins:and",
+														"conditions": [
+															{
+																"type": "origins:resource",
+																"resource": "futaradragon:mana_resource",
+																"comparison": ">=",
+																"compare_to": 2
+															},
+															{
+																"type": "origins:resource",
+																"resource": "futaradragon:energyorb_shoot_delay",
+																"comparison": "==",
+																"compare_to": 0
+															}
+														]
+													},
+													"action": {
+														"type": "origins:and",
+														"actions": [
+															{
+																"type": "origins:if_else_list",
+																"actions": [
+																	{
+																		"condition":{
+																			"type": "origins:and",
+																			"conditions": [
+																				{
+																					"type": "origins:resource",
+																					"resource": "futaradragon:energyorb_shoot_switch",
+																					"comparison": "==",
+																					"compare_to": 0
+																				}
+																			]
+																		},
+																		"action": {
+																			"type": "origins:and",
+																			"actions": [
+																				{
+																					"type": "origins:change_resource",
+																					"resource": "futaradragon:energyorb_shoot_switch",
+																					"operation":"set",
+																					"change": 1
+																				}
+																			]
+																		}
+																	},
+																	{
+																		"condition":{
+																			"type": "origins:and",
+																			"conditions": [
+																				{
+																					"type": "origins:resource",
+																					"resource": "futaradragon:energyorb_shoot_switch",
+																					"comparison": "==",
+																					"compare_to": 1
+																				}
+																			]
+																		},
+																		"action": {
+																			"type": "origins:and",
+																			"actions": [
+																				{
+																					"type": "origins:change_resource",
+																					"resource": "futaradragon:energyorb_shoot_switch",
+																					"operation":"set",
+																					"change": 0
+																				}
+																			]
+																		}
+																	}
+																]
+															},
+															{
+																"type": "origins:if_else_list",
+																"actions": [
+																	{
+																		"condition":{
+																			"type": "origins:or",
+																			"conditions": [
+																				{
+																					"type": "origins:resource",
+																					"resource": "futaradragon:pvp_toggle",
+																					"comparison": "==",
+																					"compare_to": 0
+																				},
+																				{
+																					"type": "origins:resource",
+																					"resource": "futaradragon:ability_level_energyorb",
+																					"comparison": "<=",
+																					"compare_to": 3
+																				}
+																			]
+																		},
+																		"action": {
+																			"type": "origins:and",
+																			"actions": [
+																				{
+																					"type": "origins:if_else_list",
+																					"actions": [
+																						{
+																							"condition":{
+																								"type": "origins:and",
+																								"conditions": [
+																									{
+																										"type": "origins:resource",
+																										"resource": "futaradragon:energyorb_shoot_switch",
+																										"comparison": "==",
+																										"compare_to": 0
+																									}
+																								]
+																							},
+																							"action": {
+																								"type": "origins:and",
+																								"actions": [
+																									{
+																										"type": "origins:execute_command",
+																										"command": "function futaradragon:energyorb_shoot_direct",
+																										"permission_level": 4
+																									}
+																								]
+																							}
+																						},
+																						{
+																							"condition":{
+																								"type": "origins:and",
+																								"conditions": [
+																									{
+																										"type": "origins:resource",
+																										"resource": "futaradragon:energyorb_shoot_switch",
+																										"comparison": "==",
+																										"compare_to": 1
+																									}
+																								]
+																							},
+																							"action": {
+																								"type": "origins:and",
+																								"actions": [
+																									{
+																										"type": "origins:execute_command",
+																										"command": "function futaradragon:energyorb_shoot_direct_circle",
+																										"permission_level": 4
+																									}
+																								]
+																							}
+																						}
+																					]
+																				}
+																			]
+																		}
+																	},
+																	{
+																		"condition":{
+																			"type": "origins:and",
+																			"conditions": [
+																				{
+																					"type": "origins:resource",
+																					"resource": "futaradragon:pvp_toggle",
+																					"comparison": "==",
+																					"compare_to": 1
+																				}
+																			]
+																		},
+																		"action": {
+																			"type": "origins:and",
+																			"actions": [
+																				{
+																					"type": "origins:if_else_list",
+																					"actions": [
+																						{
+																							"condition":{
+																								"type": "origins:and",
+																								"conditions": [
+																									{
+																										"type": "origins:resource",
+																										"resource": "futaradragon:energyorb_shoot_switch",
+																										"comparison": "==",
+																										"compare_to": 0
+																									}
+																								]
+																							},
+																							"action": {
+																								"type": "origins:and",
+																								"actions": [
+																									{
+																										"type": "origins:execute_command",
+																										"command": "function futaradragon:energyorb_shoot_direct_pvp",
+																										"permission_level": 4
+																									}
+																								]
+																							}
+																						},
+																						{
+																							"condition":{
+																								"type": "origins:and",
+																								"conditions": [
+																									{
+																										"type": "origins:resource",
+																										"resource": "futaradragon:energyorb_shoot_switch",
+																										"comparison": "==",
+																										"compare_to": 1
+																									}
+																								]
+																							},
+																							"action": {
+																								"type": "origins:and",
+																								"actions": [
+																									{
+																										"type": "origins:execute_command",
+																										"command": "function futaradragon:energyorb_shoot_direct_circle_pvp",
+																										"permission_level": 4
+																									}
+																								]
+																							}
+																						}
+																					]
+																				}
+																			]
+																		}
+																	}
+																]
+															}
+														]
+													}
+												},
+												{
+													"condition": {
+														"type": "origins:and",
+														"conditions": [
+															{
+																"type": "origins:resource",
+																"resource": "futaradragon:energyorb_shoot_delay",
+																"comparison": ">",
+																"compare_to": 0
+															}
+														]
+													},
+													"action": {
+														"type": "origins:and",
+														"actions": [
+															{
+																"type": "origins:change_resource",
+																"resource": "futaradragon:energyorb_shoot_delay",
+																"operation":"add",
+																"change": -1
+															}
+														]
+													}
+												}
+											]
+										}
+									]
+								}
+							}
+						]
+					}
+				]
+			}
+		},
+		"interval": 3,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "futaradragon:energyorb_toggle",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		}
+	},
+	"energyorb_shoot_tracking":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:change_resource",
+						"resource": "futaradragon:energyorb_shoot_tracking",
+						"operation":"add",
+						"change": -1
+					}
+				]
+			}
+		},
+		"interval": 1,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "futaradragon:energyorb_shoot_tracking",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"energyorb_cancel_ability":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:change_resource",
+						"resource": "futaradragon:energyorb_toggle",
+						"operation":"set",
+						"change": 0
+					}
+				]
+			}
+		},
+		"interval": 1,
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "futaradragon:mana_resource",
+					"comparison": "<=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "futaradragon:sleep_mode_resource",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		}
+	}
+}

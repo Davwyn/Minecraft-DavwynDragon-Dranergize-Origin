@@ -1,0 +1,78 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"ride_mount":{
+		"type": "origins:action_on_being_used",
+		"bientity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:mount"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:passenger",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:saddle"
+						}
+					}
+				}
+			]
+		}
+	},
+	"ride_auto_dismount":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:passenger_action",
+					"action": {
+						"type": "origins:dismount"
+					}
+				}
+			]
+		},
+		"interval": 10,
+		"condition": {
+			"type": "origins:any_of",
+			"conditions": [
+				{
+					"type": "origins:all_of",
+					"conditions": [
+						{
+							"type": "origins:equipped_item",
+							"equipment_slot": "offhand",
+							"item_condition": {
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:saddle"
+								}
+							},
+							"inverted": true
+						},
+						{
+							"type": "origins:passenger",
+							"comparison": ">",
+							"compare_to": 0
+						}
+					]
+				}
+			]
+		}
+	}
+}

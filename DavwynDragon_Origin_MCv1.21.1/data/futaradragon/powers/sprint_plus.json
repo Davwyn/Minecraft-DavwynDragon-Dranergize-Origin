@@ -1,0 +1,28 @@
+{
+	"hidden": true,
+	"type": "origins:modify_velocity",
+	"modifier": {
+		"operation": "multiply_total_multiplicative",
+		"amount": 1.0,
+		"value": 1.0
+	},
+	"axes": [
+		"x",
+		"y",
+		"z"
+	],
+	"condition": {
+		"type": "origins:all_of",
+		"conditions": [
+			{
+				"type": "origins:sprinting"
+			},
+			{
+				"type": "origins:resource",
+				"resource": "futaradragon:stamina_resource",
+				"comparison": ">",
+				"compare_to": 0
+			}
+		]
+	}
+}

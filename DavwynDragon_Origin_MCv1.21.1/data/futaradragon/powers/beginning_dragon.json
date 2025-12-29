@@ -1,0 +1,11 @@
+{
+	"hidden": true,
+    "type": "origins:starting_equipment",
+    "stacks": [
+        {
+			"id": "minecraft:shield",
+            "item": "minecraft:shield",
+            "amount": 1
+        }
+    ]
+}

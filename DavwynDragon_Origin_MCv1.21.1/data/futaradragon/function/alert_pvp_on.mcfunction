@@ -1,0 +1,1 @@
+execute run title @s actionbar {"text":"PVP ON", "color":"red"}

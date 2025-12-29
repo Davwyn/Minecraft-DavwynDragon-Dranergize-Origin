@@ -1,0 +1,42 @@
+{
+	"hidden": true,
+	"type": "origins:modify_jump",
+    "modifier": {
+        "operation": "addition",
+        "value": 0.1
+    },
+	"entity_action": {
+		"type": "origins:side",
+		"side": "server",
+		"action": {
+			"type": "origins:if_else_list",
+			"actions": [
+				{
+					"condition":{
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:sprinting"
+							}
+						]
+					},
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:apply_effect",
+								"effect": {
+									"effect": "minecraft:slow_falling",
+									"duration": 30,
+									"amplifier": 255,
+									"show_particles":false,
+									"show_icon": false
+								}
+							}
+						]
+					}
+				}
+			]
+		}
+    }
+}

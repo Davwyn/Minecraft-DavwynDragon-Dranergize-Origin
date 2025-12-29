@@ -1,0 +1,200 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"toggle_sleep_mode_hold":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:change_resource",
+					"resource": "futaradragon:sleep_mode_delay",
+					"operation":"add",
+					"change": 1
+				}
+			]
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.sneak",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:on_block"
+				},
+				{
+					"type": "origins:moving",
+					"inverted": true
+				}
+			]
+		}
+	},
+	"passive_sleep_mode":{
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:any_of",
+								"conditions": [
+									{
+										"type": "origins:on_block",
+										"inverted": true
+									},
+									{
+										"type": "origins:moving"
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition":{
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "futaradragon:sleep_mode_delay",
+														"comparison": ">",
+														"compare_to": 0
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:change_resource",
+													"resource": "futaradragon:sleep_mode_delay",
+													"operation":"set",
+													"change": 0
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "futaradragon:sleep_mode_resource",
+													"operation":"set",
+													"change": 0
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:all_of",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "futaradragon:sleep_mode_delay",
+										"comparison": "==",
+										"compare_to": 80
+									}
+								]
+							},
+							"action": [
+								{
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition":{
+												"type": "origins:all_of",
+												"conditions": [
+													{
+														"type": "origins:resource",
+														"resource": "futaradragon:sleep_mode_resource",
+														"comparison": "<",
+														"compare_to": 2
+													}
+												]
+											},
+											"action": [
+												{
+													"type": "origins:change_resource",
+													"resource": "futaradragon:sleep_mode_resource",
+													"operation":"add",
+													"change": 1
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "futaradragon:sleep_mode_delay",
+													"operation":"set",
+													"change": 0
+												},
+												{
+													"type": "origins:if_else_list",
+													"actions": [
+														{
+															"condition":{
+																"type": "origins:all_of",
+																"conditions": [
+																	{
+																		"type": "origins:resource",
+																		"resource": "futaradragon:sleep_mode_resource",
+																		"comparison": "==",
+																		"compare_to": 2
+																	}
+																]
+															},
+															"action": [
+																{
+																	"type": "origins:change_resource",
+																	"resource": "futaradragon:energyshield_resource",
+																	"operation":"set",
+																	"change": 0
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"interval": 1
+	},
+	"sleep_take_damage":{
+		"type": "origins:action_when_damage_taken",
+		"entity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:change_resource",
+				"resource": "futaradragon:sleep_mode_resource",
+				"operation":"set",
+				"change": 0
+			}
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "futaradragon:sleep_mode_resource",
+			"comparison": ">",
+			"compare_to": 0
+		},
+		"cooldown": 1
+	}
+}

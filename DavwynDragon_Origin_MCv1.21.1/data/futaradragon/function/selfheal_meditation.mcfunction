@@ -1,0 +1,1 @@
+execute at @s run power grant @s futaradragon:entity_heal_2

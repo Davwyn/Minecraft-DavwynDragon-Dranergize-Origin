@@ -1,0 +1,1 @@
+execute run title @s subtitle {"text":"Heal Aura +2 Recover Stand Grow Nature Ability Unlocked", "bold":false, "italic":false, "color":"light_purple"}

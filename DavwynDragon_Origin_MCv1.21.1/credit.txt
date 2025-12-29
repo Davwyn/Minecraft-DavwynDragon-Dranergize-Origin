@@ -1,0 +1,10 @@
+==Developer==
+FutaraDragon
+Website : https://futaradragon.info
+Youtube : https://www.youtube.com/c/FutaraDragon
+Discord : https://discord.gg/3YqyE3B
+
+==Mod Helper==
+RetraraDragon : translate origin description
+KawatOwO : point the minecraft nbt update for custom data
+eggohito : point the version update of origin nbt icon

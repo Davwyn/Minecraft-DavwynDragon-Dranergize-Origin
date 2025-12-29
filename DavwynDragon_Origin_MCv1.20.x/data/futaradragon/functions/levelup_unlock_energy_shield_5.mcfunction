@@ -1,0 +1,1 @@
+execute run title @s subtitle {"text":"Energy Shield Over Charge No Decay Ability Unlocked", "bold":false, "italic":false, "color":"light_purple"}

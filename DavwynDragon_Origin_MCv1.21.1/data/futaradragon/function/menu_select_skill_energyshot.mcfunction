@@ -1,0 +1,1 @@
+execute run title @s actionbar {"text":"Select Energy Shot Ability", "color":"aqua"}

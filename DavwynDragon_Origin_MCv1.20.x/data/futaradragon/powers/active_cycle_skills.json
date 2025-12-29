@@ -1,0 +1,852 @@
+{
+	"hidden": true,
+	"type": "origins:active_self",
+	"entity_action": {
+		"type": "origins:side",
+		"side": "server",
+		"action": {
+			"type": "origins:if_else_list",
+			"actions": [
+				{
+					"condition":{
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "futaradragon:option_toggle",
+								"comparison": "==",
+								"compare_to": 0
+							}
+						]
+					},
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:if_else_list",
+								"actions": [
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_cycle",
+													"comparison": "<=",
+													"compare_to": 0
+												},
+												{
+													"type": "origins:sneaking"
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:change_resource",
+													"resource": "futaradragon:skill_cycle",
+													"operation":"set",
+													"change": 6
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_cycle",
+													"comparison": ">",
+													"compare_to": 0
+												},
+												{
+													"type": "origins:sneaking"
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:change_resource",
+													"resource": "futaradragon:skill_cycle",
+													"change": -1
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_cycle",
+													"comparison": ">=",
+													"compare_to": 6
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:change_resource",
+													"resource": "futaradragon:skill_cycle",
+													"operation":"set",
+													"change": 0
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_cycle",
+													"comparison": "<",
+													"compare_to": 6
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:change_resource",
+													"resource": "futaradragon:skill_cycle",
+													"change": 1
+												}
+											]
+										}
+									}
+								]
+							},
+							{
+								"type": "origins:if_else_list",
+								"actions": [
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_cycle",
+													"comparison": "==",
+													"compare_to": 0
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_skill_energyshot",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_cycle",
+													"comparison": "==",
+													"compare_to": 1
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_skill_fireblast",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_cycle",
+													"comparison": "==",
+													"compare_to": 2
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_skill_healaura",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_cycle",
+													"comparison": "==",
+													"compare_to": 3
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_skill_energyorb",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_cycle",
+													"comparison": "==",
+													"compare_to": 4
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_skill_beamsaberclaw",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_cycle",
+													"comparison": "==",
+													"compare_to": 5
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_skill_hyperbeam",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_cycle",
+													"comparison": "==",
+													"compare_to": 6
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_skill_revengerampage",
+													"permission_level": 4
+												}
+											]
+										}
+									}
+								]
+							}
+						]
+					}
+				},
+				{
+					"condition":{
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "futaradragon:option_toggle",
+								"comparison": "==",
+								"compare_to": 1
+							}
+						]
+					},
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:if_else_list",
+								"actions": [
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:sneaking"
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:alert_option_skill_cycle",
+													"permission_level": 4
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "futaradragon:option_toggle",
+													"operation":"set",
+													"change": 0
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "futaradragon:skill_upgrade_toggle_menu",
+													"operation":"set",
+													"change": 1
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_switch",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_upgrade_toggle_menu",
+													"comparison": "<",
+													"compare_to": 9
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:change_resource",
+													"resource": "futaradragon:skill_upgrade_toggle_menu",
+													"operation":"add",
+													"change": 1
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_upgrade_toggle_menu",
+													"comparison": "==",
+													"compare_to": 9
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:change_resource",
+													"resource": "futaradragon:skill_upgrade_toggle_menu",
+													"operation":"set",
+													"change": 1
+												}
+											]
+										}
+									}
+								]
+							},
+							{
+								"type": "origins:if_else_list",
+								"actions": [
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_upgrade_toggle_menu",
+													"comparison": "==",
+													"compare_to": 1
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_upgrade_movement_trick",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_upgrade_toggle_menu",
+													"comparison": "==",
+													"compare_to": 2
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_upgrade_energy_shield",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_upgrade_toggle_menu",
+													"comparison": "==",
+													"compare_to": 3
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_upgrade_energyshot",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_upgrade_toggle_menu",
+													"comparison": "==",
+													"compare_to": 4
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_upgrade_fireblast",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_upgrade_toggle_menu",
+													"comparison": "==",
+													"compare_to": 5
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_upgrade_healaura",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_upgrade_toggle_menu",
+													"comparison": "==",
+													"compare_to": 6
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_upgrade_energyorb",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_upgrade_toggle_menu",
+													"comparison": "==",
+													"compare_to": 7
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_upgrade_beamsaberclaw",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_upgrade_toggle_menu",
+													"comparison": "==",
+													"compare_to": 8
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_upgrade_hyperbeam",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:skill_upgrade_toggle_menu",
+													"comparison": "==",
+													"compare_to": 9
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_upgrade_revengerrampage",
+													"permission_level": 4
+												}
+											]
+										}
+									}
+								]
+							}
+						]
+					}
+				},
+				{
+					"condition":{
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "futaradragon:option_toggle",
+								"comparison": "==",
+								"compare_to": 2
+							}
+						]
+					},
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:if_else_list",
+								"actions": [
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:sneaking"
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:alert_option_skill_cycle",
+													"permission_level": 4
+												},
+												{
+													"type": "origins:change_resource",
+													"resource": "futaradragon:option_toggle",
+													"operation":"set",
+													"change": 0
+												},
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_switch",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:option_toggle_menu",
+													"comparison": "<",
+													"compare_to": 5
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:change_resource",
+													"resource": "futaradragon:option_toggle_menu",
+													"operation":"add",
+													"change": 1
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:option_toggle_menu",
+													"comparison": "==",
+													"compare_to": 5
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:change_resource",
+													"resource": "futaradragon:option_toggle_menu",
+													"operation":"set",
+													"change": 1
+												}
+											]
+										}
+									}
+								]
+							},
+							{
+								"type": "origins:if_else_list",
+								"actions": [
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:option_toggle_menu",
+													"comparison": "==",
+													"compare_to": 1
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_option_pvp",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:option_toggle_menu",
+													"comparison": "==",
+													"compare_to": 2
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_option_give_exp",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:option_toggle_menu",
+													"comparison": "==",
+													"compare_to": 3
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_option_back_shield_skin",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:option_toggle_menu",
+													"comparison": "==",
+													"compare_to": 4
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_option_attention_sound",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "futaradragon:option_toggle_menu",
+													"comparison": "==",
+													"compare_to": 5
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function futaradragon:menu_select_option_dynamic_music_setting",
+													"permission_level": 4
+												}
+											]
+										}
+									}
+								]
+							}
+						]
+					}
+				}
+			]
+		}
+	},
+	"cooldown": 0,
+	"hud_render": {
+		"should_render": false
+	},
+	"key": {
+		"key": "key.origins.secondary_active",
+		"continuous": false
+	}
+}

@@ -1,0 +1,1 @@
+execute run title @s actionbar {"text":"Extra Option Mode", "color":"green"}

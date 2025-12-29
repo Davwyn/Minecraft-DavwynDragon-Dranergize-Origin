@@ -1,0 +1,32 @@
+{
+	"hidden": true,
+    "type": "origins:action_on_being_used",
+	"bientity_condition":{
+		"type": "origins:target_condition",
+		"condition": {
+			"type": "origins:equipped_item",
+			"equipment_slot": "offhand",
+			"item_condition": {
+				"type": "origins:ingredient",
+				"ingredient": {
+					"item": "minecraft:crafting_table"
+				}
+			}
+		}
+	},
+	"hands": ["main_hand"],
+	"bientity_action": {
+		"type": "origins:side",
+		"side": "server",
+		"action": [
+			{
+				"type": "origins:actor_action",
+				"action": [
+					{
+						"type": "origins:crafting_table"
+					}
+				]
+			}
+		]
+	}
+}

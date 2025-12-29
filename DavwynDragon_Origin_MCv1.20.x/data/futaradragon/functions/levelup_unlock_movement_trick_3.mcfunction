@@ -1,0 +1,1 @@
+execute run title @s subtitle {"text":"Movement Trick Hover Fly Ability Unlocked", "bold":false, "italic":false, "color":"light_purple"}

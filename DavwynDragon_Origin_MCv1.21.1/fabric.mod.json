@@ -1,0 +1,23 @@
+{
+    "schemaVersion": 1,
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.12.12",
+      "minecraft": "1.21.x",
+      "java": ">=16",
+      "fabric-api": "*"
+    },
+    "name": "Dranergize Dragon Origin",
+    "id": "dranergize-race",
+    "version": "1.3",
+    "description": "Adds a new custom race Dranergize Dragon, FutaraDragon.",
+    "icon": "pack.png",
+    "authors": [
+      "FutaraDragon"
+    ],
+    "contact": {
+        "website": "https://futaradragon.info",
+        "discord": "https://discord.gg/3YqyE3B",
+        "youtube": "https://www.youtube.com/c/FutaraDragon"
+    }
+}

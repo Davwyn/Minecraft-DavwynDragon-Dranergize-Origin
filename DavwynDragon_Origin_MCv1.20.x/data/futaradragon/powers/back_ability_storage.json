@@ -1,0 +1,63 @@
+{
+	"hidden": true,
+    "type": "origins:action_on_being_used",
+	"bientity_condition":{
+		"type": "origins:target_condition",
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:chest"
+						}
+					}
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:trapped_chest"
+						}
+					}
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:ender_chest"
+						}
+					}
+				}
+			]
+		}
+	},
+	"hands": ["main_hand"],
+	"bientity_action": {
+		"type": "origins:side",
+		"side": "server",
+		"action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:actor_action",
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:ender_chest"
+							}
+						]
+					}
+				}
+			]
+		}
+	}
+}
