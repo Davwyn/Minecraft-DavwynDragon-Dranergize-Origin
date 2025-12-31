@@ -1,137 +1,241 @@
 {
 	"hidden": true,
 	"type": "origins:multiple",
-	"key_press_forward_timer":{
-		"type": "origins:action_over_time",
-		"entity_action": {
-			"type": "origins:side",
-			"side": "server",
-			"action": {
-				"type": "origins:and",
-				"actions": [
-					{
-						"type": "origins:change_resource",
-						"resource": "davwyndragon:passive_key_resource_forward_timer",
-						"change": -1
-					}
-				]
-			}
-		},
-		"interval": 1,
-		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "davwyndragon:passive_key_resource_forward_timer",
-					"comparison": ">",
-					"compare_to": 0
-				}
-			]
-		}
-	},
-	"key_press_backward_timer":{
-		"type": "origins:action_over_time",
-		"entity_action": {
-			"type": "origins:side",
-			"side": "server",
-			"action": {
-				"type": "origins:and",
-				"actions": [
-					{
-						"type": "origins:change_resource",
-						"resource": "davwyndragon:passive_key_resource_backward_timer",
-						"change": -1
-					}
-				]
-			}
-		},
-		"interval": 1,
-		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "davwyndragon:passive_key_resource_backward_timer",
-					"comparison": ">",
-					"compare_to": 0
-				}
-			]
-		}
-	},
-	"key_press_left_timer":{
-		"type": "origins:action_over_time",
-		"entity_action": {
-			"type": "origins:side",
-			"side": "server",
-			"action": {
-				"type": "origins:and",
-				"actions": [
-					{
-						"type": "origins:change_resource",
-						"resource": "davwyndragon:passive_key_resource_left_timer",
-						"change": -1
-					}
-				]
-			}
-		},
-		"interval": 1,
-		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "davwyndragon:passive_key_resource_left_timer",
-					"comparison": ">",
-					"compare_to": 0
-				}
-			]
-		}
-	},
-	"key_press_right_timer":{
-		"type": "origins:action_over_time",
-		"entity_action": {
-			"type": "origins:side",
-			"side": "server",
-			"action": {
-				"type": "origins:and",
-				"actions": [
-					{
-						"type": "origins:change_resource",
-						"resource": "davwyndragon:passive_key_resource_right_timer",
-						"change": -1
-					}
-				]
-			}
-		},
-		"interval": 1,
-		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "davwyndragon:passive_key_resource_right_timer",
-					"comparison": ">",
-					"compare_to": 0
-				}
-			]
-		}
-	},
 	"key_press_forward_detect":{
 		"type": "origins:active_self",
 		"entity_action": {
-			"type": "origins:side",
-			"side": "server",
-			"action": {
-				"type": "origins:and",
-				"actions": [
-					{
-						"type": "origins:change_resource",
-						"resource": "davwyndragon:passive_key_resource_forward_timer",
-						"change": 5
-					}
-				]
-			}
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:roll_dash_cooldown",
+										"comparison": "==",
+										"compare_to": 100
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:stamina_resource",
+										"comparison": ">=",
+										"compare_to": 10
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_roll_dash_enable_toggle",
+										"comparison": "==",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_key_resource_forward_timer",
+										"operation":"set",
+										"change": 10
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_roll_dash_forward_toggle",
+										"operation":"add",
+										"change": 1
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_roll_dash_enable_toggle",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_roll_dash_forward_toggle",
+										"comparison": "==",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:ability_level_movement_trick",
+										"comparison": ">=",
+										"compare_to": 6
+									},
+									{
+										"type": "origins:riding",
+										"inverted": true
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:if_else_list",
+										"actions": [
+											{
+												"condition": {
+													"type": "origins:and",
+													"conditions": [
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:hover_mode_resource",
+															"comparison": "==",
+															"compare_to": 0
+														}
+													]
+												},
+												"action": {
+													"type": "origins:and",
+													"actions": [
+														{
+															"type": "origins:side",
+															"side": "client",
+															"action": {
+																"type": "origins:and",
+																"actions": [
+																	{
+																		"type": "origins:add_velocity",
+																		"z": 1.00,
+																		"space": "local",
+																		"set": false
+																	}
+																]
+															}
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_forward_toggle",
+															"operation":"set",
+															"change": 0
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:roll_dash_cooldown",
+															"change": -100
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource",
+															"change": -10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource_delay",
+															"operation":"set",
+															"change": 10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_active_toggle",
+															"operation":"set",
+															"change": 1
+														},
+														{
+															"type": "origins:execute_command",
+															"command": "function davwyndragon:roll_dash",
+															"permission_level": 4
+														}
+													]
+												}
+											},
+											{
+												"condition": {
+													"type": "origins:and",
+													"conditions": [
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:hover_mode_resource",
+															"comparison": "==",
+															"compare_to": 1
+														},
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:ability_level_movement_trick",
+															"comparison": ">=",
+															"compare_to": 7
+														}
+													]
+												},
+												"action": {
+													"type": "origins:and",
+													"actions": [
+														{
+															"type": "origins:side",
+															"side": "client",
+															"action": {
+																"type": "origins:and",
+																"actions": [
+																	{
+																		"type": "origins:add_velocity",
+																		"z": 1.00,
+																		"space": "local",
+																		"set": false
+																	}
+																]
+															}
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_forward_toggle",
+															"operation":"set",
+															"change": 0
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:roll_dash_cooldown",
+															"change": -100
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource",
+															"change": -10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource_delay",
+															"operation":"set",
+															"change": 10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_active_toggle",
+															"operation":"set",
+															"change": 1
+														},
+														{
+															"type": "origins:execute_command",
+															"command": "function davwyndragon:roll_dash",
+															"permission_level": 4
+														}
+													]
+												}
+											}
+										]
+									}
+								]
+							}
+						}
+					]
+				}
+			]
 		},
 		"cooldown": 0,
 		"hud_render": {
@@ -142,21 +246,331 @@
 			"continuous": false
 		}
 	},
+	"key_hold_forward_detect":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_press_control_backward_resource",
+										"comparison": "==",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:hover_mode_press_control_backward_resource",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						},
+						{
+							"condition":{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_resource",
+										"comparison": "==",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:block_collision",
+										"offset_x": 0,
+										"offset_y": -2.0,
+										"offset_z": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:side",
+										"side": "client",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:add_velocity",
+													"y": 0.09,
+													"space": "world",
+													"set": false
+												}
+											]
+										}
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:hover_mode_press_control_forward_resource",
+										"operation":"set",
+										"change": 1
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		"cooldown": 0,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.forward",
+			"continuous": true
+		}
+	},
 	"key_press_backward_detect":{
 		"type": "origins:active_self",
 		"entity_action": {
-			"type": "origins:side",
-			"side": "server",
-			"action": {
-				"type": "origins:and",
-				"actions": [
-					{
-						"type": "origins:change_resource",
-						"resource": "davwyndragon:passive_key_resource_backward_timer",
-						"change": 5
-					}
-				]
-			}
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:roll_dash_cooldown",
+										"comparison": "==",
+										"compare_to": 100
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:stamina_resource",
+										"comparison": ">=",
+										"compare_to": 10
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_roll_dash_enable_toggle",
+										"comparison": "==",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_key_resource_backward_timer",
+										"operation":"set",
+										"change": 10
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_roll_dash_backward_toggle",
+										"operation":"add",
+										"change": 1
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_roll_dash_enable_toggle",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_roll_dash_backward_toggle",
+										"comparison": "==",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:ability_level_movement_trick",
+										"comparison": ">=",
+										"compare_to": 6
+									},
+									{
+										"type": "origins:riding",
+										"inverted": true
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:if_else_list",
+										"actions": [
+											{
+												"condition": {
+													"type": "origins:and",
+													"conditions": [
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:hover_mode_resource",
+															"comparison": "==",
+															"compare_to": 0
+														}
+													]
+												},
+												"action": {
+													"type": "origins:and",
+													"actions": [
+														{
+															"type": "origins:side",
+															"side": "client",
+															"action": {
+																"type": "origins:and",
+																"actions": [
+																	{
+																		"type": "origins:add_velocity",
+																		"z": -1.00,
+																		"space": "local",
+																		"set": false
+																	}
+																]
+															}
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_backward_toggle",
+															"operation":"set",
+															"change": 0
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:roll_dash_cooldown",
+															"change": -100
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource",
+															"change": -10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource_delay",
+															"operation":"set",
+															"change": 10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_active_toggle",
+															"operation":"set",
+															"change": 2
+														},
+														{
+															"type": "origins:execute_command",
+															"command": "function davwyndragon:roll_dash",
+															"permission_level": 4
+														}
+													]
+												}
+											},
+											{
+												"condition": {
+													"type": "origins:and",
+													"conditions": [
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:hover_mode_resource",
+															"comparison": "==",
+															"compare_to": 1
+														},
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:ability_level_movement_trick",
+															"comparison": ">=",
+															"compare_to": 7
+														}
+													]
+												},
+												"action": {
+													"type": "origins:and",
+													"actions": [
+														{
+															"type": "origins:side",
+															"side": "client",
+															"action": {
+																"type": "origins:and",
+																"actions": [
+																	{
+																		"type": "origins:add_velocity",
+																		"z": -0.50,
+																		"space": "local",
+																		"set": false
+																	}
+																]
+															}
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_backward_toggle",
+															"operation":"set",
+															"change": 0
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:roll_dash_cooldown",
+															"change": -100
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource",
+															"change": -10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource_delay",
+															"operation":"set",
+															"change": 10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_active_toggle",
+															"operation":"set",
+															"change": 2
+														},
+														{
+															"type": "origins:execute_command",
+															"command": "function davwyndragon:roll_dash",
+															"permission_level": 4
+														}
+													]
+												}
+											}
+										]
+									}
+								]
+							}
+						}
+					]
+				}
+			]
 		},
 		"cooldown": 0,
 		"hud_render": {
@@ -167,21 +581,383 @@
 			"continuous": false
 		}
 	},
+	"key_hold_backward_detect":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_press_control_forward_resource",
+										"comparison": "==",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:hover_mode_press_control_forward_resource",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						},
+						{
+							"condition":{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_resource",
+										"comparison": "==",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:block_collision",
+										"offset_x": 0,
+										"offset_y": -2.0,
+										"offset_z": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:side",
+										"side": "client",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:add_velocity",
+													"y": 0.09,
+													"space": "world",
+													"set": false
+												}
+											]
+										}
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:hover_mode_press_control_backward_resource",
+										"operation":"set",
+										"change": 1
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		"cooldown": 0,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.back",
+			"continuous": true
+		}
+	},
 	"key_press_left_detect":{
 		"type": "origins:active_self",
 		"entity_action": {
-			"type": "origins:side",
-			"side": "server",
-			"action": {
-				"type": "origins:and",
-				"actions": [
-					{
-						"type": "origins:change_resource",
-						"resource": "davwyndragon:passive_key_resource_left_timer",
-						"change": 5
-					}
-				]
-			}
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:roll_dash_cooldown",
+										"comparison": "==",
+										"compare_to": 100
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:stamina_resource",
+										"comparison": ">=",
+										"compare_to": 10
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_roll_dash_enable_toggle",
+										"comparison": "==",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_key_resource_left_timer",
+										"operation":"set",
+										"change": 10
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_roll_dash_left_toggle",
+										"operation":"add",
+										"change": 1
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_roll_dash_enable_toggle",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_roll_dash_left_toggle",
+										"comparison": "==",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:ability_level_movement_trick",
+										"comparison": ">=",
+										"compare_to": 6
+									},
+									{
+										"type": "origins:riding",
+										"inverted": true
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:if_else_list",
+										"actions": [
+											{
+												"condition": {
+													"type": "origins:and",
+													"conditions": [
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:hover_mode_resource",
+															"comparison": "==",
+															"compare_to": 0
+														}
+													]
+												},
+												"action": {
+													"type": "origins:and",
+													"actions": [
+														{
+															"type": "origins:if_else_list",
+															"actions": [
+																{
+																	"condition": {
+																		"type": "origins:and",
+																		"conditions": [
+																			{
+																				"type": "origins:on_block"
+																			}
+																		]
+																	},
+																	"action": {
+																		"type": "origins:and",
+																		"actions": [
+																			{
+																				"type": "origins:side",
+																				"side": "client",
+																				"action": {
+																					"type": "origins:and",
+																					"actions": [
+																						{
+																							"type": "origins:add_velocity",
+																							"x": 1.00,
+																							"y": 0.50,
+																							"space": "local_horizontal",
+																							"set": false
+																						}
+																					]
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"condition": {
+																		"type": "origins:and",
+																		"conditions": [
+																			{
+																				"type": "origins:on_block",
+																				"inverted": true
+																			}
+																		]
+																	},
+																	"action": {
+																		"type": "origins:and",
+																		"actions": [
+																			{
+																				"type": "origins:side",
+																				"side": "client",
+																				"action": {
+																					"type": "origins:and",
+																					"actions": [
+																						{
+																							"type": "origins:add_velocity",
+																							"x": 1.00,
+																							"space": "local_horizontal",
+																							"set": false
+																						}
+																					]
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_left_toggle",
+															"operation":"set",
+															"change": 0
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:roll_dash_cooldown",
+															"change": -100
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource",
+															"change": -10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource_delay",
+															"operation":"set",
+															"change": 10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_active_toggle",
+															"operation":"set",
+															"change": 3
+														},
+														{
+															"type": "origins:execute_command",
+															"command": "function davwyndragon:roll_dash",
+															"permission_level": 4
+														}
+													]
+												}
+											},
+											{
+												"condition": {
+													"type": "origins:and",
+													"conditions": [
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:hover_mode_resource",
+															"comparison": "==",
+															"compare_to": 1
+														},
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:ability_level_movement_trick",
+															"comparison": ">=",
+															"compare_to": 7
+														}
+													]
+												},
+												"action": {
+													"type": "origins:and",
+													"actions": [
+														{
+															"type": "origins:side",
+															"side": "client",
+															"action": {
+																"type": "origins:and",
+																"actions": [
+																	{
+																		"type": "origins:add_velocity",
+																		"x": 0.50,
+																		"space": "local_horizontal",
+																		"set": false
+																	}
+																]
+															}
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_left_toggle",
+															"operation":"set",
+															"change": 0
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:roll_dash_cooldown",
+															"change": -100
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource",
+															"change": -10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource_delay",
+															"operation":"set",
+															"change": 10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_active_toggle",
+															"operation":"set",
+															"change": 3
+														},
+														{
+															"type": "origins:execute_command",
+															"command": "function davwyndragon:roll_dash",
+															"permission_level": 4
+														}
+													]
+												}
+											}
+										]
+									}
+								]
+							}
+						}
+					]
+				}
+			]
 		},
 		"cooldown": 0,
 		"hud_render": {
@@ -192,21 +968,431 @@
 			"continuous": false
 		}
 	},
+	"key_hold_left_detect":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_press_control_forward_resource",
+										"comparison": "==",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:hover_mode_press_control_forward_resource",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						},
+						{
+							"condition":{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_press_control_backward_resource",
+										"comparison": "==",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:hover_mode_press_control_backward_resource",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						},
+						{
+							"condition":{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_press_control_right_resource",
+										"comparison": "==",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:hover_mode_press_control_right_resource",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						},
+						{
+							"condition":{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_resource",
+										"comparison": "==",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:block_collision",
+										"offset_x": 0,
+										"offset_y": -2.0,
+										"offset_z": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:side",
+										"side": "client",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:add_velocity",
+													"y": 0.09,
+													"space": "world",
+													"set": false
+												}
+											]
+										}
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:hover_mode_press_control_left_resource",
+										"operation":"set",
+										"change": 1
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		"cooldown": 0,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.left",
+			"continuous": true
+		}
+	},
 	"key_press_right_detect":{
 		"type": "origins:active_self",
 		"entity_action": {
-			"type": "origins:side",
-			"side": "server",
-			"action": {
-				"type": "origins:and",
-				"actions": [
-					{
-						"type": "origins:change_resource",
-						"resource": "davwyndragon:passive_key_resource_right_timer",
-						"change": 5
-					}
-				]
-			}
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:roll_dash_cooldown",
+										"comparison": "==",
+										"compare_to": 100
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:stamina_resource",
+										"comparison": ">=",
+										"compare_to": 10
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_roll_dash_enable_toggle",
+										"comparison": "==",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_key_resource_right_timer",
+										"operation":"set",
+										"change": 10
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_roll_dash_right_toggle",
+										"operation":"add",
+										"change": 1
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_roll_dash_enable_toggle",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_roll_dash_right_toggle",
+										"comparison": "==",
+										"compare_to": 2
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:ability_level_movement_trick",
+										"comparison": ">=",
+										"compare_to": 6
+									},
+									{
+										"type": "origins:riding",
+										"inverted": true
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:if_else_list",
+										"actions": [
+											{
+												"condition": {
+													"type": "origins:and",
+													"conditions": [
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:hover_mode_resource",
+															"comparison": "==",
+															"compare_to": 0
+														}
+													]
+												},
+												"action": {
+													"type": "origins:and",
+													"actions": [
+														{
+															"type": "origins:if_else_list",
+															"actions": [
+																{
+																	"condition": {
+																		"type": "origins:and",
+																		"conditions": [
+																			{
+																				"type": "origins:on_block"
+																			}
+																		]
+																	},
+																	"action": {
+																		"type": "origins:and",
+																		"actions": [
+																			{
+																				"type": "origins:side",
+																				"side": "client",
+																				"action": {
+																					"type": "origins:and",
+																					"actions": [
+																						{
+																							"type": "origins:add_velocity",
+																							"x": -1.00,
+																							"y": 0.50,
+																							"space": "local_horizontal",
+																							"set": false
+																						}
+																					]
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"condition": {
+																		"type": "origins:and",
+																		"conditions": [
+																			{
+																				"type": "origins:on_block",
+																				"inverted": true
+																			}
+																		]
+																	},
+																	"action": {
+																		"type": "origins:and",
+																		"actions": [
+																			{
+																				"type": "origins:side",
+																				"side": "client",
+																				"action": {
+																					"type": "origins:and",
+																					"actions": [
+																						{
+																							"type": "origins:add_velocity",
+																							"x": -1.00,
+																							"space": "local_horizontal",
+																							"set": false
+																						}
+																					]
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_right_toggle",
+															"operation":"set",
+															"change": 0
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:roll_dash_cooldown",
+															"change": -100
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource",
+															"change": -10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource_delay",
+															"operation":"set",
+															"change": 10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_active_toggle",
+															"operation":"set",
+															"change": 4
+														},
+														{
+															"type": "origins:execute_command",
+															"command": "function davwyndragon:roll_dash",
+															"permission_level": 4
+														}
+													]
+												}
+											},
+											{
+												"condition": {
+													"type": "origins:and",
+													"conditions": [
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:hover_mode_resource",
+															"comparison": "==",
+															"compare_to": 1
+														},
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:ability_level_movement_trick",
+															"comparison": ">=",
+															"compare_to": 7
+														}
+													]
+												},
+												"action": {
+													"type": "origins:and",
+													"actions": [
+														{
+															"type": "origins:side",
+															"side": "client",
+															"action": {
+																"type": "origins:and",
+																"actions": [
+																	{
+																		"type": "origins:add_velocity",
+																		"x": -0.50,
+																		"space": "local_horizontal",
+																		"set": false
+																	}
+																]
+															}
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_right_toggle",
+															"operation":"set",
+															"change": 0
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:roll_dash_cooldown",
+															"change": -100
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource",
+															"change": -10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:stamina_resource_delay",
+															"operation":"set",
+															"change": 10
+														},
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:passive_roll_dash_active_toggle",
+															"operation":"set",
+															"change": 4
+														},
+														{
+															"type": "origins:execute_command",
+															"command": "function davwyndragon:roll_dash",
+															"permission_level": 4
+														}
+													]
+												}
+											}
+										]
+									}
+								]
+							}
+						}
+					]
+				}
+			]
 		},
 		"cooldown": 0,
 		"hud_render": {
@@ -215,6 +1401,830 @@
 		"key": {
 			"key": "key.right",
 			"continuous": false
+		}
+	},
+	"key_hold_right_detect":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_press_control_forward_resource",
+										"comparison": "==",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:hover_mode_press_control_forward_resource",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						},
+						{
+							"condition":{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_press_control_backward_resource",
+										"comparison": "==",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:hover_mode_press_control_backward_resource",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						},
+						{
+							"condition":{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_press_control_left_resource",
+										"comparison": "==",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:hover_mode_press_control_left_resource",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						},
+						{
+							"condition":{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_resource",
+										"comparison": "==",
+										"compare_to": 1
+									},
+									{
+										"type": "origins:block_collision",
+										"offset_x": 0,
+										"offset_y": -2.0,
+										"offset_z": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:side",
+										"side": "client",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:add_velocity",
+													"y": 0.09,
+													"space": "world",
+													"set": false
+												}
+											]
+										}
+									},
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:hover_mode_press_control_right_resource",
+										"operation":"set",
+										"change": 1
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		"cooldown": 0,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.right",
+			"continuous": true
+		}
+	},
+	"key_press_jump_detect":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:sneaking"
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:stamina_resource",
+										"comparison": ">",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:ability_level_movement_trick",
+										"comparison": ">=",
+										"compare_to": 5
+									},
+									{
+										"type": "origins:riding",
+										"inverted": true
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:if_else_list",
+										"actions": [
+											{
+												"condition":{
+													"type": "origins:and",
+													"conditions": [
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:hover_mode_resource",
+															"comparison": "==",
+															"compare_to": 0
+														}
+													]
+												},
+												"action": {
+													"type": "origins:and",
+													"actions": [
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:hover_mode_resource",
+															"operation":"set",
+															"change": 1
+														}
+													]
+												}
+											},
+											{
+												"condition":{
+													"type": "origins:and",
+													"conditions": [
+														{
+															"type": "origins:resource",
+															"resource": "davwyndragon:hover_mode_resource",
+															"comparison": "==",
+															"compare_to": 1
+														}
+													]
+												},
+												"action": {
+													"type": "origins:and",
+													"actions": [
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:hover_mode_resource",
+															"operation":"set",
+															"change": 0
+														}
+													]
+												}
+											}
+										]
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		"cooldown": 0,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.jump",
+			"continuous": false
+		}
+	},
+	"key_hold_jump_detect":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_resource",
+										"comparison": "==",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:side",
+										"side": "client",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:add_velocity",
+													"y": 0.09,
+													"space": "world",
+													"set": false
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "davwyndragon:climb_track_resource",
+					"operation":"set",
+					"change": 1
+				}
+			]
+		},
+		"cooldown": 0,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.jump",
+			"continuous": true
+		}
+	},
+	"key_hold_sneak_detect":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition":{
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:hover_mode_resource",
+										"comparison": "==",
+										"compare_to": 1
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:side",
+										"side": "client",
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:add_velocity",
+													"y": -0.01,
+													"space": "world",
+													"set": false
+												}
+											]
+										}
+									},
+									{
+										"type": "origins:if_else_list",
+										"actions": [
+											{
+												"condition":{
+													"type": "origins:and",
+													"conditions": [
+														{
+															"type": "origins:submerged_in",
+															"fluid": "minecraft:water"
+														},
+														{
+															"type": "origins:submerged_in",
+															"fluid": "minecraft:lava"
+														},
+														{
+															"type": "origins:on_block"
+														}
+													]
+												},
+												"action": {
+													"type": "origins:and",
+													"actions": [
+														{
+															"type": "origins:change_resource",
+															"resource": "davwyndragon:hover_mode_resource",
+															"operation":"set",
+															"change": 0
+														}
+													]
+												}
+											}
+										]
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		"cooldown": 0,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.sneak",
+			"continuous": true
+		}
+	},
+	"key_hold_sprint_detect":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "davwyndragon:passive_roll_dash_enable_toggle",
+					"operation":"set",
+					"change": 1
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_key_resource_forward_timer",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_key_resource_forward_timer",
+										"operation":"add",
+										"change": -1
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_key_resource_backward_timer",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_key_resource_backward_timer",
+										"operation":"add",
+										"change": -1
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_key_resource_left_timer",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_key_resource_left_timer",
+										"operation":"add",
+										"change": -1
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_key_resource_right_timer",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_key_resource_right_timer",
+										"operation":"add",
+										"change": -1
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_key_resource_forward_timer",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_key_resource_forward_timer",
+										"operation":"add",
+										"change": -1
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_key_resource_forward_timer",
+										"comparison": "==",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_roll_dash_forward_toggle",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_roll_dash_forward_toggle",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_key_resource_backward_timer",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_key_resource_backward_timer",
+										"operation":"add",
+										"change": -1
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_key_resource_backward_timer",
+										"comparison": "==",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_roll_dash_backward_toggle",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_roll_dash_backward_toggle",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_key_resource_left_timer",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_key_resource_left_timer",
+										"operation":"add",
+										"change": -1
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_key_resource_left_timer",
+										"comparison": "==",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_roll_dash_left_toggle",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_roll_dash_left_toggle",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_key_resource_right_timer",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_key_resource_right_timer",
+										"operation":"add",
+										"change": -1
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_key_resource_right_timer",
+										"comparison": "==",
+										"compare_to": 0
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_roll_dash_right_toggle",
+										"comparison": ">",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_roll_dash_right_toggle",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:if_else_list",
+					"actions": [
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:roll_dash_cooldown",
+										"comparison": "<",
+										"compare_to": 100
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:roll_dash_cooldown",
+										"operation":"add",
+										"change": 8
+									}
+								]
+							}
+						},
+						{
+							"condition": {
+								"type": "origins:and",
+								"conditions": [
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:roll_dash_cooldown",
+										"comparison": "==",
+										"compare_to": 100
+									},
+									{
+										"type": "origins:resource",
+										"resource": "davwyndragon:passive_roll_dash_active_toggle",
+										"comparison": "!=",
+										"compare_to": 0
+									}
+								]
+							},
+							"action": {
+								"type": "origins:and",
+								"actions": [
+									{
+										"type": "origins:change_resource",
+										"resource": "davwyndragon:passive_roll_dash_active_toggle",
+										"operation":"set",
+										"change": 0
+									}
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		"cooldown": 0,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.sprint",
+			"continuous": true
 		}
 	}
 }

@@ -6,7 +6,7 @@
 		"side": "server",
 		"action": {
 			"type": "origins:change_resource",
-			"resource": "davwyndragon:shake_effect_resource",
+			"resource": "futaradragon:shake_effect_resource",
 			"operation":"add",
 			"change": -1
 		}
@@ -14,7 +14,7 @@
     "interval": 1,
 	"condition": {
 		"type": "origins:resource",
-		"resource": "davwyndragon:shake_effect_resource",
+		"resource": "futaradragon:shake_effect_resource",
 		"comparison": ">",
 		"compare_to": 0
 	}

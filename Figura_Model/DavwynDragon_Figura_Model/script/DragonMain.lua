@@ -4,7 +4,7 @@ Create By FutaraDragon
 All of this code can be copy and use on your project but with credit refrence for do not confuse when someone ask question about it function
 ]]
 
--- FutaraDragon Race Script V2.2.00
+-- FutaraDragon Race Script V2.3.00
 -- Special Thank 'Fran' and 'Skylar' For This Figura Mod and Everything!!
 -- Special Thank 'Manuel_' For Support Code Detail And Some Coding Example Check Crouching
 -- Special Thank 'JimmyHelp' For Code Explain Support
@@ -82,7 +82,7 @@ local FDCharacterData = {
 	RideBlendF = 0,
 	RideBlendT = 0,
 	CombatTime = 0,
-	CombatTimeDef = 10,
+	CombatTimeDef = 1,
 	WiggleTailPowerUp = 0,
 	WiggleTailPowerSide = 0,
 	WiggleTailPowerUpForce = 0,
@@ -173,6 +173,8 @@ local FDCharacterData = {
 		StaminaMax = 100,
 		Rage = 0,
 		RageMax = 100,
+		DashCooldownBase = 0,
+		DashCooldownBaseFollow = 0,
 		DashCooldown = 0,
 		DashCooldownMax = 100,
 		Ultimate = 0,
@@ -520,7 +522,7 @@ function FDCharacterCameraInit(CharacterData)
 			Position = CharacterData.Position,
 			RelativePosition = vec(0,0,0),
 			Rotation = FDPlayerRotDefault(),
-			ShakePower = 0.03
+			ShakePower = 0.1
 		},FDBaseCharacterPart)
 		return CameraObj
 	end
@@ -775,7 +777,7 @@ function FDCharacterWingAdjustment(CharacterData,GyroPhysic,Render,dt,SmoothFact
 				FDAnimationDeactive("Anim_Wing_Idle_Up")
 				CharacterData.SpreadWing = false
 			else
-				if ((FDStatusEffect[28] ~= nil or FDStatusEffect[25] ~= nil or FDStatusEffect["minecraft:levitation"] ~= nil or FDStatusEffect["minecraft:slow_falling"]) and CharacterData.OnGround == false and CharacterData.InLiquid == false) or FDCharacterData.Flying == true or (CharacterData.OnGround == true and CharacterData.StandMode == FDCharacterConstant.StandMode.Stand2Legged and (math.abs(GyroPhysic.PhyBase.x) > 20.0 or math.abs(GyroPhysic.PhyBase.z) > 60.0)) then
+				if (CharacterData.Gliding == true and CharacterData.OnGround == false and CharacterData.InLiquid == false) or FDCharacterData.Flying == true or (CharacterData.OnGround == true and CharacterData.StandMode == FDCharacterConstant.StandMode.Stand2Legged and (math.abs(GyroPhysic.PhyBase.x) > 20.0 or math.abs(GyroPhysic.PhyBase.z) > 60.0)) then
 					FDAnimationDeactive("Anim_Tail_Idle")
 					FDAnimationDeactive("Anim_Wing_Idle")
 					FDAnimationDeactive("Anim_Wing_Idle_Up")
@@ -1237,7 +1239,7 @@ function FDTailBlendUpdate(CharacterData,GyroPhysic)
 end
 
 function FDNeckRotationUpdate(CharacterData)
-	if CharacterData.StandMode == FDCharacterConstant.StandMode.Stand4Legged and (FDStatusEffect[28] == nil and FDStatusEffect[25] == nil and FDStatusEffect["minecraft:levitation"] == nil and FDStatusEffect["minecraft:slow_falling"] == nil and CharacterData.Sprinting == false and FDCharacterData.CurrentActiveEmoteAnimation == nil and (CharacterData.Sneaking == false or CharacterData.Moving == false) and CharacterData.Climbing == false and CharacterData.Sleeping == false and CharacterData.Riding == false and CharacterData.Flying == false) or (CharacterData.StandMode == FDCharacterConstant.StandMode.Stand4Legged and CharacterData.InLiquid == true and CharacterData.Sprinting == false) then
+	if CharacterData.StandMode == FDCharacterConstant.StandMode.Stand4Legged and (CharacterData.Gliding == false and CharacterData.Sprinting == false and FDCharacterData.CurrentActiveEmoteAnimation == nil and (CharacterData.Sneaking == false or CharacterData.Moving == false) and CharacterData.Climbing == false and CharacterData.Sleeping == false and CharacterData.Riding == false and CharacterData.Flying == false) or (CharacterData.StandMode == FDCharacterConstant.StandMode.Stand4Legged and CharacterData.InLiquid == true and CharacterData.Sprinting == false) then
 		if CharacterData.IdleTime < CharacterData.IdleTimeDef then
 			CharacterData.IdleTime = math.min(CharacterData.IdleTimeDef,CharacterData.IdleTime + FDSecondTickTime(1))
 			if CharacterData.IdleTime == CharacterData.IdleTimeDef then
@@ -2473,7 +2475,13 @@ function FDStatTickUpdate(CharacterData)
 		CharacterData.OriginAbility.Mana = AbilityStatMana
 		CharacterData.OriginAbility.Stamina = AbilityStatStamina
 		CharacterData.OriginAbility.Rage = AbilityStatRage
-		CharacterData.OriginAbility.DashCooldown = AbilityStatDashCooldown
+		CharacterData.OriginAbility.DashCooldownBase = AbilityStatDashCooldown
+		if CharacterData.OriginAbility.DashCooldownBase < CharacterData.OriginAbility.DashCooldownBaseFollow then
+			CharacterData.OriginAbility.DashCooldown = 0
+		elseif CharacterData.OriginAbility.DashCooldown < CharacterData.OriginAbility.DashCooldownMax then
+			CharacterData.OriginAbility.DashCooldown = math.min(CharacterData.OriginAbility.DashCooldownMax, CharacterData.OriginAbility.DashCooldown + 8)
+		end
+		CharacterData.OriginAbility.DashCooldownBaseFollow = CharacterData.OriginAbility.DashCooldownBase
 		CharacterData.OriginAbility.Ultimate = AbilityStatUltimate
 	end
 end
@@ -2613,7 +2621,7 @@ end
 
 function FDCameraShakeTickUpdate(CharacterData,Gyro,CameraObj)
 	if CharacterData.Host == true then
-		local AbilityCameraShake = FDOriginGetData("davwyndragon:shake_effect_resource")
+		local AbilityCameraShake = FDOriginGetData("futaradragon:shake_effect_resource")
 		if AbilityCameraShake ~= nil then
 			if AbilityCameraShake > 0 then
 				if CharacterData.OriginAbility.CameraShake == false then
@@ -2666,8 +2674,8 @@ function FDEmoteTickUpdate(CharacterData)
 end
 
 function FDSayAhTrackTickUpdate(CharacterData,GyroPhysic)
-	local AbilitySayAhSelf = FDOriginGetData("davwyndragon:say_ah_self_resource")
-	local AbilitySayAh = FDOriginGetData("davwyndragon:say_ah_resource")
+	local AbilitySayAhSelf = FDOriginGetData("futaradragon:say_ah_self_resource")
+	local AbilitySayAh = FDOriginGetData("futaradragon:say_ah_resource")
 	if AbilitySayAhSelf ~= nil and AbilitySayAh ~= nil then
 		if AbilitySayAh > 0 or AbilitySayAhSelf > 0 then
 			if CharacterData.OriginAbility.AhTrack == false then
@@ -2734,13 +2742,12 @@ function FDLightSparkTickUpdate(CharacterData,GyroPhysic)
 end
 
 function FDRollDashTickUpdate(CharacterData,GyroPhysic)
-	local AbilityRollDashCooldown = FDOriginGetData("davwyndragon:roll_dash_cooldown")
 	local AbilityRollDaskActiveDirectrion = FDOriginGetData("davwyndragon:passive_roll_dash_active_toggle")
-	if AbilityRollDashCooldown ~= nil and AbilityRollDaskActiveDirectrion ~= nil then
+	if CharacterData.OriginAbility.DashCooldown ~= nil and AbilityRollDaskActiveDirectrion ~= nil then
 		if FDAnimationGet("Ability_Roll_Dash") ~= nil and CharacterData.OnGround == true then
 			FDAnimationDeactive("Ability_Roll_Dash")
 		end
-		if AbilityRollDashCooldown < 50 and CharacterData.OriginAbility.RollDashActive == false then
+		if CharacterData.OriginAbility.DashCooldown < 50 and CharacterData.OriginAbility.RollDashActive == false then
 			CharacterData.OriginAbility.RollDashActive = true
 			CharacterData.OriginAbility.RollDashDirection = AbilityRollDaskActiveDirectrion
 			FDParticleGroundSmoke(CharacterData)
@@ -2771,7 +2778,7 @@ function FDRollDashTickUpdate(CharacterData,GyroPhysic)
 				end
 				sounds:playSound("davwyndragon:entity.davwyndragon.movement_dash", CharacterData.Position, 1.0, 1.0):setAttenuation(FDBaseSoundDistance)
 			end
-		elseif AbilityRollDashCooldown >= 50 and CharacterData.OriginAbility.RollDashActive == true then
+		elseif CharacterData.OriginAbility.DashCooldown >= 50 and CharacterData.OriginAbility.RollDashActive == true then
 			CharacterData.OriginAbility.RollDashActive = false
 		end
 	end
@@ -7928,7 +7935,7 @@ function FDCharacterGeneralDataTickUpdate(CharacterData)
 	CharacterData.VelocityPower = FDDistanceFromPoint(CharacterData.Velocity)
 	CharacterData.Moving = CharacterData.Velocity.x ~= 0 or CharacterData.Velocity.y ~= 0 or CharacterData.Velocity.z ~= 0
 	CharacterData.Sprinting = (player:isSprinting() and CharacterData.OriginAbility.MenuSwitch == -1) or (player:isSprinting() and CharacterData.OriginAbility.MenuSwitch ~= -1 and CharacterData.OriginAbility.Stamina > 0)
-	CharacterData.Gliding = player:isGliding()
+	CharacterData.Gliding = player:isGliding() or FDOriginGetData("davwyndragon:hover_mode_resource") == 1 or player:isSprinting() or false
 	CharacterData.InLiquid = player:isInWater() or player:isInLava()
 	CharacterData.Flying = player:isGliding() or FDOriginGetData("davwyndragon:hover_mode_resource") == 1 or false
 	CharacterData.Sneaking = CharacterData.Flying == false and (player:isSneaking() or (CharacterData.InLiquid == false and CharacterData.OnGround == true and CharacterData.AnimationPose == "SWIMMING") or (FDOriginGetData("davwyndragon:sleep_mode_resource") ~= nil and FDOriginGetData("davwyndragon:sleep_mode_resource") >= 1) or false)

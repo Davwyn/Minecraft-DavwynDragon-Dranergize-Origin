@@ -2009,13 +2009,13 @@
 				"actions": [
 					{
 						"type": "origins:change_resource",
-						"resource": "davwyndragon:say_ah_self_resource",
+						"resource": "futaradragon:say_ah_self_resource",
 						"operation":"add",
 						"change": -1
 					},
 					{
 						"type": "origins:change_resource",
-						"resource": "davwyndragon:say_ah_resource",
+						"resource": "futaradragon:say_ah_resource",
 						"operation":"add",
 						"change": -1
 					}
@@ -2028,13 +2028,13 @@
 			"conditions": [
 				{
 					"type": "origins:resource",
-					"resource": "davwyndragon:say_ah_self_resource",
+					"resource": "futaradragon:say_ah_self_resource",
 					"comparison": ">",
 					"compare_to": 0
 				},
 				{
 					"type": "origins:resource",
-					"resource": "davwyndragon:say_ah_resource",
+					"resource": "futaradragon:say_ah_resource",
 					"comparison": ">",
 					"compare_to": 0
 				}
@@ -2051,7 +2051,7 @@
 				"actions": [
 					{
 						"type": "origins:change_resource",
-						"resource": "davwyndragon:shake_effect_resource",
+						"resource": "futaradragon:shake_effect_resource",
 						"operation":"add",
 						"change": -1
 					}
@@ -2064,8 +2064,40 @@
 			"conditions": [
 				{
 					"type": "origins:resource",
-					"resource": "davwyndragon:shake_effect_resource",
+					"resource": "futaradragon:shake_effect_resource",
 					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"optimize_falling_speed":{
+		"type": "origins:modify_falling",
+		"velocity": 0.003,
+		"take_fall_damage": false,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:hover_mode_resource",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		}
+	},
+	"optimize_falling_glide_speed":{
+		"type": "origins:modify_falling",
+		"velocity": 0.01,
+		"take_fall_damage": false,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:hover_mode_resource",
+					"comparison": "==",
 					"compare_to": 0
 				}
 			]

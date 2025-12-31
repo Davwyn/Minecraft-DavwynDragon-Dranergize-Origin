@@ -3518,7 +3518,7 @@
 									"action": [
 										{
 											"type": "origins:change_resource",
-											"resource": "davwyndragon:say_ah_self_resource",
+											"resource": "futaradragon:say_ah_self_resource",
 											"operation":"set",
 											"change": 2
 										},

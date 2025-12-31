@@ -1,82 +1,123 @@
 {
 	"hidden": true,
-    "type": "origins:climbing",
-	"allow_holding": true,
-	"condition": {
-		"type": "origins:all_of",
-		"conditions": [
+	"type": "origins:multiple",
+	"passive_climbing":{
+		"type": "origins:climbing",
+		"allow_holding": true,
+		"condition": {
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:on_block",
+					"inverted": true
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:hover_mode_resource",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:ability_level_movement_trick",
+					"comparison": ">=",
+					"compare_to": 4
+				},
+				{
+					"type": "origins:resource",
+					"resource": "davwyndragon:climb_track_resource",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:any_of",
+					"conditions": [
+						{
+							"type": "origins:block_collision",
+							"offset_x": 0.1,
+							"offset_y": 0,
+							"offset_z": 0
+						},
+						{
+							"type": "origins:block_collision",
+							"offset_x": 0.1,
+							"offset_y": 0,
+							"offset_z": 0.1
+						},
+						{
+							"type": "origins:block_collision",
+							"offset_x": 0,
+							"offset_y": 0,
+							"offset_z": 0.1
+						},
+						{
+							"type": "origins:block_collision",
+							"offset_x": -0.1,
+							"offset_y": 0,
+							"offset_z": 0.1
+						},
+						{
+							"type": "origins:block_collision",
+							"offset_x": -0.1,
+							"offset_y": 0,
+							"offset_z": 0.0
+						},
+						{
+							"type": "origins:block_collision",
+							"offset_x": -0.1,
+							"offset_y": 0,
+							"offset_z": -0.1
+						},
+						{
+							"type": "origins:block_collision",
+							"offset_x": 0.0,
+							"offset_y": 0,
+							"offset_z": -0.1
+						},
+						{
+							"type": "origins:block_collision",
+							"offset_x": 0.1,
+							"offset_y": 0,
+							"offset_z": -0.1
+						}
+					]
+				}
+			]
+		}
+	},
+	"passive_climbing_track":{
+		"type": "origins:action_over_time",
+		"entity_action": [
 			{
-				"type": "origins:sneaking"
-			},
-			{
-				"type": "origins:on_block",
-				"inverted": true
-			},
-			{
-				"type": "origins:resource",
-				"resource": "davwyndragon:hover_mode_resource",
-				"comparison": "==",
-				"compare_to": 0
-			},
-			{
-				"type": "origins:resource",
-				"resource": "davwyndragon:ability_level_movement_trick",
-				"comparison": ">=",
-				"compare_to": 4
-			},
-			{
-				"type": "origins:any_of",
-				"conditions": [
+				"type": "origins:if_else_list",
+				"actions": [
 					{
-						"type": "origins:block_collision",
-						"offset_x": 0.1,
-						"offset_y": 0,
-						"offset_z": 0
-					},
-					{
-						"type": "origins:block_collision",
-						"offset_x": 0.1,
-						"offset_y": 0,
-						"offset_z": 0.1
-					},
-					{
-						"type": "origins:block_collision",
-						"offset_x": 0,
-						"offset_y": 0,
-						"offset_z": 0.1
-					},
-					{
-						"type": "origins:block_collision",
-						"offset_x": -0.1,
-						"offset_y": 0,
-						"offset_z": 0.1
-					},
-					{
-						"type": "origins:block_collision",
-						"offset_x": -0.1,
-						"offset_y": 0,
-						"offset_z": 0.0
-					},
-					{
-						"type": "origins:block_collision",
-						"offset_x": -0.1,
-						"offset_y": 0,
-						"offset_z": -0.1
-					},
-					{
-						"type": "origins:block_collision",
-						"offset_x": 0.0,
-						"offset_y": 0,
-						"offset_z": -0.1
-					},
-					{
-						"type": "origins:block_collision",
-						"offset_x": 0.1,
-						"offset_y": 0,
-						"offset_z": -0.1
+						"condition":{
+							"type": "origins:all_of",
+							"conditions": [
+								{
+									"type": "origins:resource",
+									"resource": "davwyndragon:climb_track_resource",
+									"comparison": "==",
+									"compare_to": 1
+								},
+								{
+									"type": "origins:on_block"
+								}
+							]
+						},
+						"action": [
+							{
+								"type": "origins:change_resource",
+								"resource": "davwyndragon:climb_track_resource",
+								"operation":"set",
+								"change": 0
+							}
+						]
 					}
 				]
 			}
-		]
+		],
+		"interval": 1
 	}
 }

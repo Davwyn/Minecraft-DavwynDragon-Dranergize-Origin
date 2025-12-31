@@ -1,4 +1,5 @@
 {
+    "replace": false,
     "parent": "item/template_skull",
     "display": {
         "gui": {

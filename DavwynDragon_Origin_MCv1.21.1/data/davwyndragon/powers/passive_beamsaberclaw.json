@@ -5464,7 +5464,7 @@
 									"type": "origins:change_resource",
 									"resource": "davwyndragon:beamsaberclaw_light",
 									"operation":"set",
-									"change": 100
+									"change": 5
 								}
 							]
 						},
