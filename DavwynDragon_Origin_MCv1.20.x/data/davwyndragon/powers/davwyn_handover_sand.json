@@ -1,0 +1,63 @@
+{
+	"hidden": true,
+	"type": "origins:action_on_being_used",
+	"item_condition": {
+		"type": "origins:ingredient",
+		"ingredient": {
+			"tag": "minecraft:sand"
+		}
+	},
+	"hands": ["main_hand"],
+	"held_item_action": {
+		"type": "origins:side",
+		"side": "server",
+		"action": {
+			"type": "origins:consume",
+			"amount": 1
+		}
+	},
+	"bientity_condition": {
+		"type": "origins:target_condition",
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:inventory",
+					"process_mode": "items",
+					"comparison": "<",
+					"compare_to": 64,
+					"slot": "weapon.offhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"tag": "minecraft:sand"
+						}
+					}
+				},
+				{
+					"type": "origins:inventory",
+					"process_mode": "items",
+					"slot": "weapon.offhand",
+					"item_condition": {
+						"type": "origins:empty"
+					}
+				}
+			]
+		}
+	},
+	"bientity_action": {
+		"type": "origins:side",
+		"side": "server",
+		"action": {
+			"type": "origins:target_action",
+			"action": {
+				"type": "origins:give",
+				"stack": {
+					"item": "minecraft:sand",
+					"amount": 1
+				},
+				"preferred_slot": "offhand"
+			}
+		}
+	}
+}

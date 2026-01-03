@@ -1,0 +1,350 @@
+{
+	"hidden": true,
+	"name": "Attach-Detach Back Items",
+	"type": "origins:multiple",
+	"attach_chest": {
+		"type": "origins:action_on_being_used",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:chest"
+			}
+		},
+		"hands": ["main_hand"],
+		"held_item_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:consume",
+				"amount": 1
+			}
+		},
+		"bientity_condition": {
+			"type": "origins:target_condition",
+			"condition": {
+				"type": "origins:inventory",
+				"process_mode": "items",
+				"slot": "weapon.offhand",
+				"item_condition": {
+					"type": "origins:empty"
+				}
+			}
+		},
+		"bientity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:target_action",
+				"action": {
+					"type": "origins:give",
+					"stack": {
+						"item": "minecraft:chest",
+						"amount": 1
+					},
+					"preferred_slot": "offhand"
+				}
+			}
+		}
+	},
+	"deattach_chest": {
+		"type": "origins:action_on_being_used",
+		"hands": ["main_hand"],
+		"bientity_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:actor_condition",
+					"condition": {
+						"type": "origins:sneaking"
+					}
+				},
+				{
+					"type": "origins:actor_condition",
+					"condition": {
+						"type": "origins:inventory",
+						"process_mode": "items",
+						"slot": "weapon.mainhand",
+						"item_condition": {
+							"type": "origins:empty"
+						}
+					}
+				},
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:inventory",
+						"process_mode": "items",
+						"slot": "weapon.offhand",
+						"item_condition": {
+							"type": "origins:ingredient",
+							"ingredient": {
+								"tag": "minecraft:chest"
+							}
+						}
+					}
+				}
+			]
+		},
+		"bientity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:actor_action",
+						"action": {
+							"type": "origins:give",
+							"stack": {
+								"item": "minecraft:chest",
+								"amount": 1
+							},
+							"preferred_slot": "mainhand"
+						}
+					},
+					{
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:modify_inventory",
+							"inventory_type": "inventory",
+							"slot": "weapon.offhand",
+							"item_action": {
+								"type": "origins:consume"
+							}
+						}
+					}
+				]
+			}
+		}
+	},
+	"attach_saddle": {
+		"type": "origins:action_on_being_used",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:saddle"
+			}
+		},
+		"hands": ["main_hand"],
+		"held_item_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:consume",
+				"amount": 1
+			}
+		},
+		"bientity_condition": {
+			"type": "origins:target_condition",
+			"condition": {
+				"type": "origins:inventory",
+				"process_mode": "items",
+				"slot": "weapon.offhand",
+				"item_condition": {
+					"type": "origins:empty"
+				}
+			}
+		},
+		"bientity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:target_action",
+				"action": {
+					"type": "origins:give",
+					"stack": {
+						"item": "minecraft:saddle",
+						"amount": 1
+					},
+					"preferred_slot": "offhand"
+				}
+			}
+		}
+	},
+	"deattach_saddle": {
+		"type": "origins:action_on_being_used",
+		"hands": ["main_hand"],
+		"bientity_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:actor_condition",
+					"condition": {
+						"type": "origins:sneaking"
+					}
+				},
+				{
+					"type": "origins:actor_condition",
+					"condition": {
+						"type": "origins:inventory",
+						"process_mode": "items",
+						"slot": "weapon.mainhand",
+						"item_condition": {
+							"type": "origins:empty"
+						}
+					}
+				},
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:inventory",
+						"process_mode": "items",
+						"slot": "weapon.offhand",
+						"item_condition": {
+							"type": "origins:ingredient",
+							"ingredient": {
+								"tag": "minecraft:saddle"
+							}
+						}
+					}
+				}
+			]
+		},
+		"bientity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:actor_action",
+						"action": {
+							"type": "origins:give",
+							"stack": {
+								"item": "minecraft:saddle",
+								"amount": 1
+							},
+							"preferred_slot": "mainhand"
+						}
+					},
+					{
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:modify_inventory",
+							"inventory_type": "inventory",
+							"slot": "weapon.offhand",
+							"item_action": {
+								"type": "origins:consume"
+							}
+						}
+					}
+				]
+			}
+		}
+	},
+	"attach_craftingtable": {
+		"type": "origins:action_on_being_used",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:crafting_table"
+			}
+		},
+		"hands": ["main_hand"],
+		"held_item_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:consume",
+				"amount": 1
+			}
+		},
+		"bientity_condition": {
+			"type": "origins:target_condition",
+			"condition": {
+				"type": "origins:inventory",
+				"process_mode": "items",
+				"slot": "weapon.offhand",
+				"item_condition": {
+					"type": "origins:empty"
+				}
+			}
+		},
+		"bientity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:target_action",
+				"action": {
+					"type": "origins:give",
+					"stack": {
+						"item": "minecraft:crafting_table",
+						"amount": 1
+					},
+					"preferred_slot": "offhand"
+				}
+			}
+		}
+	},
+	"deattach_craftingtable": {
+		"type": "origins:action_on_being_used",
+		"hands": ["main_hand"],
+		"bientity_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:actor_condition",
+					"condition": {
+						"type": "origins:sneaking"
+					}
+				},
+				{
+					"type": "origins:actor_condition",
+					"condition": {
+						"type": "origins:inventory",
+						"process_mode": "items",
+						"slot": "weapon.mainhand",
+						"item_condition": {
+							"type": "origins:empty"
+						}
+					}
+				},
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:inventory",
+						"process_mode": "items",
+						"slot": "weapon.offhand",
+						"item_condition": {
+							"type": "origins:ingredient",
+							"ingredient": {
+								"tag": "minecraft:crafting_table"
+							}
+						}
+					}
+				}
+			]
+		},
+		"bientity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:actor_action",
+						"action": {
+							"type": "origins:give",
+							"stack": {
+								"item": "minecraft:crafting_table",
+								"amount": 1
+							},
+							"preferred_slot": "mainhand"
+						}
+					},
+					{
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:modify_inventory",
+							"inventory_type": "inventory",
+							"slot": "weapon.offhand",
+							"item_action": {
+								"type": "origins:consume"
+							}
+						}
+					}
+				]
+			}
+		}
+	}
+}

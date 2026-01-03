@@ -1,0 +1,2 @@
+execute as @s at @s run item replace entity @p[distance=0.01..20,tag=energizedragon,limit=1,sort=nearest] weapon.offhand from entity @s weapon.mainhand
+execute as @s at @s run item replace entity @s weapon.mainhand with minecraft:air

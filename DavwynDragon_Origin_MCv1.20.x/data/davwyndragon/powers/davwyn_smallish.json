@@ -20,6 +20,11 @@
         "type": "origins:execute_command",
         "command": "scale set pehkui:eye_height 0.9 @s",
         "permission_level": 4
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "scale set pehkui:step_height 2 @s",
+        "permission_level": 4
       }
     ]
   },
@@ -39,6 +44,11 @@
       {
         "type": "origins:execute_command",
         "command": "scale set pehkui:eye_height 0.9 @s",
+        "permission_level": 4
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "scale set pehkui:step_height 2 @s",
         "permission_level": 4
       }
     ]
@@ -64,6 +74,11 @@
       {
         "type": "origins:execute_command",
         "command": "scale set pehkui:eye_height 0.9 @s",
+        "permission_level": 4
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "scale set pehkui:step_height 2 @s",
         "permission_level": 4
       }
     ]

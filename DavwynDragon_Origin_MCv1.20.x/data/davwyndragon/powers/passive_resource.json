@@ -91,7 +91,7 @@
 						"type": "origins:change_resource",
 						"resource": "davwyndragon:dynamic_music_toggle",
 						"operation":"set",
-						"change": 4
+						"change": 3
 					},
 					{
 						"type": "origins:change_resource",

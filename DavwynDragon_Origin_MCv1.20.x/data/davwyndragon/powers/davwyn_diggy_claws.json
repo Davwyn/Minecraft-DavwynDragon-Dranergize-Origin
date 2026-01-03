@@ -9,15 +9,15 @@
     "conditions": [
       {
         "type": "origins:in_tag",
-		"tag": "davwyndragon:davwyn_digable_stone"
+		"tag": "davwyndragon:davwyn_digable_pickaxe_soft"
       },
 	  {
         "type": "origins:in_tag",
-		"tag": "davwyndragon:davwyn_digable_dirt"
+		"tag": "davwyndragon:davwyn_digable_shovel"
       },
 	  {
         "type": "origins:in_tag",
-		"tag": "davwyndragon:davwyn_digable_wood"
+		"tag": "davwyndragon:davwyn_digable_axe"
       },
       {
         "type": "origins:in_tag",

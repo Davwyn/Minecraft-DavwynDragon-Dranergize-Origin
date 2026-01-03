@@ -5,7 +5,7 @@
     "conditions": [
       {
         "type": "origins:in_tag",
-        "tag": "davwyndragon:davwyn_digable_wood"
+        "tag": "davwyndragon:davwyn_digable_axe"
       },
       {
         "type": "origins:in_tag",

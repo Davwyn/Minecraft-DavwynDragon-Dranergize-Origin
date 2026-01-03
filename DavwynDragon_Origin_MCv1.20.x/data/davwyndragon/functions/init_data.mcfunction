@@ -22,3 +22,4 @@ execute as @s run scoreboard objectives add hyperbeam_target_z dummy
 # Davwyn smart energyorbs addition
 execute as @s run scoreboard objectives add energyorb_hostile dummy
 execute as @s run scoreboard objectives add energyorb_friendly dummy
+

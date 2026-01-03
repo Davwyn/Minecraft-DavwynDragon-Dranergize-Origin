@@ -14,137 +14,41 @@
     "minecraft:bow",
     "minecraft:crossbow",
     "minecraft:trident",
-    {
-      "required": false,
-      "id": "quark:flamerang"
-    },
-    {
-      "required": false,
-      "id": "quark:pickarang"
-    },
-    {
-      "required": false,
-      "id": "alloyed:steel_axe"
-    },
-    {
-      "required": false,
-      "id": "hexerei:warhammer"
-    },
-    {
-      "required": false,
-      "id": "naturesaura:sky_axe"
-    },
-    {
-      "required": false,
-      "id": "naturesaura:infused_iron_axe"
-    },
-    {
-      "required": false,
-      "id": "undergarden:forgotten_axe"
-    },
-    {
-      "required": false,
-      "id": "undergarden:forgotten_battleaxe"
-    },
-    {
-      "required": false,
-      "id": "undergarden:utherium_axe"
-    },
-    {
-      "required": false,
-      "id": "undergarden:froststeel_axe"
-    },
-    {
-      "required": false,
-      "id": "undergarden:cloggrum_axe"
-    },
-    {
-      "required": false,
-      "id": "undergarden:cloggrum_battleaxe"
-    },
-    {
-      "required": false,
-      "id": "create:potato_cannon"
-    },
-    {
-      "required": false,
-      "id": "ars_nouveau:spell_bow"
-    },
-    {
-      "required": false,
-      "id": "alexsmobs:blood_sprayer"
-    },
-    {
-      "required": false,
-      "id": "hemolymph_blaster"
-    },
-    {
-      "required": false,
-      "id": "undergarden:forgotten_sword"
-    },
-    {
-      "required": false,
-      "id": "undergarden:utherium_sword"
-    },
-    {
-      "required": false,
-      "id": "undergarden:utherium_sword"
-    },
-    {
-      "required": false,
-      "id": "undergarden:froststeel_sword"
-    },
-    {
-      "required": false,
-      "id": "undergarden:cloggrum_sword"
-    },
-    {
-      "required": false,
-      "id": "naturesaura:sky_sword"
-    },
-    {
-      "required": false,
-      "id": "naturesaura:infused_iron_sword"
-    },
-    {
-      "required": false,
-      "id": "minecolonies:iron_scimitar"
-    },
-    {
-      "required": false,
-      "id": "minecolonies:cheifsword"
-    },
-    {
-      "required": false,
-      "id": "farmersdelight:flint_knife"
-    },
-    {
-      "required": false,
-      "id": "farmersdelight:iron_knife"
-    },
-    {
-      "required": false,
-      "id": "farmersdelight:diamond_knife"
-    },
-    {
-      "required": false,
-      "id": "farmersdelight:netherite_knife"
-    },
-    {
-      "required": false,
-      "id": "farmersdelight:golden_knife"
-    },
-    {
-      "required": false,
-      "id": "alloyed:steel_sword"
-    },
-    {
-      "required": false,
-      "id": "alloyed:steel_knife"
-    },
-    {
-      "required": false,
-      "id": "ars_nouveau:enchanters_sword"
-    }
+    {"id": "#minecraft:swords", "required": false},
+    {"id": "#minecraft:axes", "required": false},
+    {"id": "#minecraft:swords", "required": false},
+    {"id": "quark:flamerang", "required": false},
+    {"id": "quark:pickarang", "required": false},
+    {"id": "alloyed:steel_axe", "required": false},
+    {"id": "hexerei:warhammer", "required": false},
+    {"id": "naturesaura:sky_axe", "required": false},
+    {"id": "naturesaura:infused_iron_axe", "required": false},
+    {"id": "undergarden:forgotten_axe", "required": false},
+    {"id": "undergarden:forgotten_battleaxe", "required": false},
+    {"id": "undergarden:utherium_axe", "required": false},
+    {"id": "undergarden:froststeel_axe", "required": false},
+    {"id": "undergarden:cloggrum_axe", "required": false},
+    {"id": "undergarden:cloggrum_battleaxe", "required": false},
+    {"id": "create:potato_cannon", "required": false},
+    {"id": "ars_nouveau:spell_bow", "required": false},
+    {"id": "alexsmobs:blood_sprayer", "required": false},
+    {"id": "hemolymph_blaster", "required": false},
+    {"id": "undergarden:forgotten_sword", "required": false},
+    {"id": "undergarden:utherium_sword", "required": false},
+    {"id": "undergarden:utherium_sword", "required": false},
+    {"id": "undergarden:froststeel_sword", "required": false},
+    {"id": "undergarden:cloggrum_sword", "required": false},
+    {"id": "naturesaura:sky_sword", "required": false},
+    {"id": "naturesaura:infused_iron_sword", "required": false},
+    {"id": "minecolonies:iron_scimitar", "required": false},
+    {"id": "minecolonies:cheifsword", "required": false},
+    {"id": "farmersdelight:flint_knife", "required": false},
+    {"id": "farmersdelight:iron_knife", "required": false},
+    {"id": "farmersdelight:diamond_knife", "required": false},
+    {"id": "farmersdelight:netherite_knife", "required": false},
+    {"id": "farmersdelight:golden_knife", "required": false},
+    {"id": "alloyed:steel_sword", "required": false},
+    {"id": "alloyed:steel_knife", "required": false},
+    {"id": "ars_nouveau:enchanters_sword", "required": false}
   ]
 }

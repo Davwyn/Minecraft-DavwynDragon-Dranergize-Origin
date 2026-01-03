@@ -4,7 +4,7 @@ Create By FutaraDragon
 All of this code can be copy and use on your project but with credit refrence for do not confuse when someone ask question about it function
 ]]
 
--- FutaraDragon Race Script V2.3.00
+-- FutaraDragon Race Script V2.4.00
 -- Special Thank 'Fran' and 'Skylar' For This Figura Mod and Everything!!
 -- Special Thank 'Manuel_' For Support Code Detail And Some Coding Example Check Crouching
 -- Special Thank 'JimmyHelp' For Code Explain Support
@@ -160,6 +160,7 @@ local FDCharacterData = {
 	AttackingType = nil,
 	Attacking = false,
 	Sleeping = false,
+	SleepMode = nil,
 	FirstPerson = true,
 	FirstPersonCameraAdjust = nil,
 	Light = false,
@@ -1399,12 +1400,24 @@ function FDAnimationSyncUpdate(CharacterData,GyroPhysic)
 			FDAnimationDeactive("Anim_2Legged_Lower_Walk_Side")
 			FDAnimationDeactive("Anim_2Legged_Tail_Adjust")
 			if FDAnimationGet("Anim_4Legged_Sleep_1") == nil and FDAnimationGet("Anim_4Legged_Sleep_2") == nil and FDAnimationGet("Anim_4Legged_Sleep_Rare") == nil then
-				local RandomRareSleep = math.random(1,100)
-				if RandomRareSleep >= 90 then
+				local SleepMode = CharacterData.SleepMode
+				
+				if SleepMode == nil then
+					local RandomRareSleep = math.random(1,100)
+					
+					if RandomRareSleep >= 90 then
+						SleepMode = 2
+					else
+						SleepMode = math.random(0,1)
+					end
+				end
+				
+				if SleepMode == 2 then
 					FDCharacterAnimationActive(CharacterData,"Anim_4Legged_Sleep_Rare",nil,1,nil,false,false,math.random() * 1,0.0)
-				else
-					local RandomAnimation = math.random(1,2)
-					FDCharacterAnimationActive(CharacterData,"Anim_4Legged_Sleep_" .. RandomAnimation,nil,1,nil,false,false,math.random() * 2,0.0)
+				elseif SleepMode == 1 then
+					FDCharacterAnimationActive(CharacterData,"Anim_4Legged_Sleep_2",nil,1,nil,false,false,math.random() * 2,0.0)
+				elseif SleepMode == 0 then
+					FDCharacterAnimationActive(CharacterData,"Anim_4Legged_Sleep_1",nil,1,nil,false,false,math.random() * 2,0.0)
 				end
 			end
 		elseif CharacterData.Riding == true then
@@ -7944,6 +7957,7 @@ function FDCharacterGeneralDataTickUpdate(CharacterData)
 	CharacterData.AttackingType = player:getSwingArm()
 	CharacterData.Attacking = CharacterData.AttackingType ~= nil
 	CharacterData.Sleeping = player:getPose() == "SLEEPING" or FDOriginGetData("davwyndragon:sleep_mode_resource") == 2  or false
+	CharacterData.SleepMode = FDOriginGetData("futaradragon:sleep_mode_deep_sleep_resource") or nil
 	CharacterData.FirstPerson = renderer:isFirstPerson()
 	
 	if CharacterData.DimensionFollow ~= CharacterData.Dimension then

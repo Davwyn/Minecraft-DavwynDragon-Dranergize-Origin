@@ -160,6 +160,38 @@
 																	"resource": "davwyndragon:energyshield_resource",
 																	"operation":"set",
 																	"change": 0
+																},
+																{
+																	"type": "origins:choice",
+																	"actions": [
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:sleep_mode_deep_sleep_resource",
+																				"operation":"set",
+																				"change": 0
+																			},
+																			"weight": 45
+																		},
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:sleep_mode_deep_sleep_resource",
+																				"operation":"set",
+																				"change": 1
+																			},
+																			"weight": 45
+																		},
+																		{
+																			"element": {
+																				"type": "origins:change_resource",
+																				"resource": "davwyndragon:sleep_mode_deep_sleep_resource",
+																				"operation":"set",
+																				"change": 2
+																			},
+																			"weight": 10
+																		}
+																	]
 																}
 															]
 														}

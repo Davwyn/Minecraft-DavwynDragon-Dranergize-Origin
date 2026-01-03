@@ -2,17 +2,29 @@
 	"hidden": true,
     "type": "origins:action_on_being_used",
 	"bientity_condition":{
-		"type": "origins:target_condition",
-		"condition": {
-			"type": "origins:equipped_item",
-			"equipment_slot": "offhand",
-			"item_condition": {
-				"type": "origins:ingredient",
-				"ingredient": {
-					"item": "minecraft:crafting_table"
+		"type": "origins:and",
+		"conditions": [
+			{
+				"type": "origins:target_condition",
+				"condition": {
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:crafting_table"
+						}
+					}
+				}
+			},
+			{
+				"type": "origins:actor_condition",
+				"condition": {
+					"type": "origins:sneaking",
+					"inverted": true
 				}
 			}
-		}
+		]
 	},
 	"hands": ["main_hand"],
 	"bientity_action": {

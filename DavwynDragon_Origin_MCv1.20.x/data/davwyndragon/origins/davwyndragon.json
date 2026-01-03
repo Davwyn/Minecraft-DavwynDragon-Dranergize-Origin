@@ -163,6 +163,7 @@
 		"davwyndragon:hover_mode_press_control_left_resource",
 		"davwyndragon:hover_mode_press_control_right_resource",
 		"davwyndragon:sleep_mode_resource",
+		"davwyndragon:sleep_mode_deep_sleep_resource",
 		"davwyndragon:sleep_mode_delay",
 		"davwyndragon:higher_jump",
 		"davwyndragon:emote_mode_action",
@@ -181,11 +182,12 @@
 		"davwyndragon:davwyn_glow_active_resource",
 		"davwyndragon:davwyn_smallish",
 		"davwyndragon:davwyn_diggy_claws",
-		"davwyndragon:davwyn_diggy_claws_breakspeed_stone",
-		"davwyndragon:davwyn_diggy_claws_breakspeed_dirt",
-		"davwyndragon:davwyn_diggy_claws_breakspeed_wood",
-		"davwyndragon:davwyn_harvest_crystal",
-		"davwyndragon:davwyn_harvest_crystal_self",
+		"davwyndragon:davwyn_diggy_claws_breakspeed_pickaxe",
+		"davwyndragon:davwyn_diggy_claws_breakspeed_shovel",
+		"davwyndragon:davwyn_diggy_claws_breakspeed_axe",
+		"davwyndragon:davwyn_attach_detach_back_items",
+		"davwyndragon:davwyn_handover_sand",
+		"davwyndragon:davwyn_convertcrystal",
 		"davwyndragon:davwyn_potion",
 		"davwyndragon:davwyn_potion_self",
 		"davwyndragon:davwyn_custom_item_tooltip"
@@ -197,5 +199,5 @@
 	"order": 99,
 	"impact": 3,
 	"name": "§c§lDavwyn Dragon§r",
-	"description": "Davwyn the Murrper Dragon version of the Dranergize Futara Dragon race.\n§3§lVersion 3.4.0§r\n§fBased on:§r\n§d§lFutara Dranergize Version 1.4"
+	"description": "Davwyn the Murrper Dragon version of the Dranergize Futara Dragon race.\n§3§lVersion 3.4.1§r\n§fBased on:§r\n§d§lFutara Dranergize Version 1.5"
 }

@@ -12,6 +12,13 @@
 				}
 			]
 		},
+		"bientity_condition":{
+			"type": "origins:actor_condition",
+			"condition": {
+				"type": "origins:sneaking",
+				"inverted": true
+			}
+		},
 		"condition": {
 			"type": "origins:all_of",
 			"conditions": [
