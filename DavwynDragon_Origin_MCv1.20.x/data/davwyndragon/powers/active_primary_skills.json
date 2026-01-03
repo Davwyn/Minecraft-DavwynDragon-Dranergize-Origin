@@ -3792,7 +3792,7 @@
 											"actions": [
 												{
 													"type": "origins:change_resource",
-													"resource": "futaradragon:say_ah_self_resource",
+													"resource": "davwyndragon:say_ah_self_resource",
 													"operation":"set",
 													"change": 2
 												},
@@ -3893,6 +3893,97 @@
 															{
 																"type": "origins:execute_command",
 																"command": "function davwyndragon:alert_dynamic_music_off",
+																"permission_level": 4
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								]
+							},
+							{
+								"type": "origins:if_else_list",
+								"actions": [
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "davwyndragon:option_toggle_menu",
+													"comparison": "==",
+													"compare_to": 6
+												}
+											]
+										},
+										"action": {
+											"type": "origins:if_else_list",
+											"actions": [
+												{
+													"condition":{
+														"type": "origins:and",
+														"conditions": [
+															{
+																"type": "origins:resource",
+																"resource": "davwyndragon:tacking_toggle",
+																"comparison": "==",
+																"compare_to": 0
+															}
+														]
+													},
+													"action": {
+														"type": "origins:and",
+														"actions": [
+															{
+																"type": "origins:change_resource",
+																"resource": "davwyndragon:tacking_toggle",
+																"operation":"set",
+																"change": 1
+															},
+															{
+																"type": "origins:execute_command",
+																"command": "function davwyndragon:menu_press",
+																"permission_level": 4
+															},
+															{
+																"type": "origins:execute_command",
+																"command": "function davwyndragon:alert_tacking_item_on",
+																"permission_level": 4
+															}
+														]
+													}
+												},
+												{
+													"condition":{
+														"type": "origins:and",
+														"conditions": [
+															{
+																"type": "origins:resource",
+																"resource": "davwyndragon:tacking_toggle",
+																"comparison": "==",
+																"compare_to": 1
+															}
+														]
+													},
+													"action": {
+														"type": "origins:and",
+														"actions": [
+															{
+																"type": "origins:change_resource",
+																"resource": "davwyndragon:tacking_toggle",
+																"operation":"set",
+																"change": 0
+															},
+															{
+																"type": "origins:execute_command",
+																"command": "function davwyndragon:menu_press",
+																"permission_level": 4
+															},
+															{
+																"type": "origins:execute_command",
+																"command": "function davwyndragon:alert_tacking_item_off",
 																"permission_level": 4
 															}
 														]

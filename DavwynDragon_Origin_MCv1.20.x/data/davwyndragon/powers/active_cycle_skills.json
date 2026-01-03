@@ -673,7 +673,7 @@
 													"type": "origins:resource",
 													"resource": "davwyndragon:option_toggle_menu",
 													"comparison": "<",
-													"compare_to": 5
+													"compare_to": 6
 												}
 											]
 										},
@@ -697,7 +697,7 @@
 													"type": "origins:resource",
 													"resource": "davwyndragon:option_toggle_menu",
 													"comparison": "==",
-													"compare_to": 5
+													"compare_to": 6
 												}
 											]
 										},
@@ -828,6 +828,29 @@
 												{
 													"type": "origins:execute_command",
 													"command": "function davwyndragon:menu_select_option_dynamic_music_setting",
+													"permission_level": 4
+												}
+											]
+										}
+									},
+									{
+										"condition":{
+											"type": "origins:and",
+											"conditions": [
+												{
+													"type": "origins:resource",
+													"resource": "davwyndragon:option_toggle_menu",
+													"comparison": "==",
+													"compare_to": 6
+												}
+											]
+										},
+										"action": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "function davwyndragon:menu_select_option_tacking_setting",
 													"permission_level": 4
 												}
 											]

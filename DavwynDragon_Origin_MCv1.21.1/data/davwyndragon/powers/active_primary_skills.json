@@ -13,7 +13,7 @@
 						"conditions": [
 							{
 								"type": "origins:resource",
-								"resource": "davwyndragon:option_toggle",
+								"resource": "futaradragon:option_toggle",
 								"comparison": "==",
 								"compare_to": 0
 							}
@@ -29,19 +29,19 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_cycle",
+												"resource": "futaradragon:skill_cycle",
 												"comparison": "==",
 												"compare_to": 0
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:ability_level_energyshot",
+												"resource": "futaradragon:ability_level_energyshot",
 												"comparison": ">",
 												"compare_to": 2
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:sleep_mode_resource",
+												"resource": "futaradragon:sleep_mode_resource",
 												"comparison": "==",
 												"compare_to": 0
 											}
@@ -55,37 +55,37 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_cycle",
+												"resource": "futaradragon:skill_cycle",
 												"comparison": "==",
 												"compare_to": 1
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:ability_level_fireblast",
+												"resource": "futaradragon:ability_level_fireblast",
 												"comparison": ">",
 												"compare_to": 2
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:fireblast_cooldown",
+												"resource": "futaradragon:fireblast_cooldown",
 												"comparison": ">=",
 												"compare_to": 100
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:ability_delay",
+												"resource": "futaradragon:ability_delay",
 												"comparison": "==",
 												"compare_to": 0
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:mana_resource",
+												"resource": "futaradragon:mana_resource",
 												"comparison": ">=",
 												"compare_to": 10
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:sleep_mode_resource",
+												"resource": "futaradragon:sleep_mode_resource",
 												"comparison": "==",
 												"compare_to": 0
 											}
@@ -94,12 +94,12 @@
 									"action": [
 										{
 											"type": "origins:change_resource",
-											"resource": "davwyndragon:fireblast_cooldown",
+											"resource": "futaradragon:fireblast_cooldown",
 											"change": -100
 										},
 										{
 											"type": "origins:change_resource",
-											"resource": "davwyndragon:ability_delay",
+											"resource": "futaradragon:ability_delay",
 											"change": 12
 										},
 										{
@@ -111,7 +111,7 @@
 														"conditions": [
 															{
 																"type": "origins:resource",
-																"resource": "davwyndragon:pvp_toggle",
+																"resource": "futaradragon:pvp_toggle",
 																"comparison": "==",
 																"compare_to": 0
 															}
@@ -127,7 +127,7 @@
 																		"conditions": [
 																			{
 																				"type": "origins:resource",
-																				"resource": "davwyndragon:ability_level_fireblast",
+																				"resource": "futaradragon:ability_level_fireblast",
 																				"comparison": "<=",
 																				"compare_to": 3
 																			}
@@ -136,7 +136,7 @@
 																	"action": [
 																		{
 																			"type": "origins:execute_command",
-																			"command": "function davwyndragon:fireblast_lv1",
+																			"command": "function futaradragon:fireblast_lv1",
 																			"permission_level": 4
 																		}
 																	]
@@ -147,7 +147,7 @@
 																		"conditions": [
 																			{
 																				"type": "origins:resource",
-																				"resource": "davwyndragon:ability_level_fireblast",
+																				"resource": "futaradragon:ability_level_fireblast",
 																				"comparison": "==",
 																				"compare_to": 4
 																			}
@@ -156,7 +156,7 @@
 																	"action": [
 																		{
 																			"type": "origins:execute_command",
-																			"command": "function davwyndragon:fireblast_lv2",
+																			"command": "function futaradragon:fireblast_lv2",
 																			"permission_level": 4
 																		}
 																	]
@@ -167,7 +167,7 @@
 																		"conditions": [
 																			{
 																				"type": "origins:resource",
-																				"resource": "davwyndragon:ability_level_fireblast",
+																				"resource": "futaradragon:ability_level_fireblast",
 																				"comparison": "==",
 																				"compare_to": 5
 																			}
@@ -176,7 +176,7 @@
 																	"action": [
 																		{
 																			"type": "origins:execute_command",
-																			"command": "function davwyndragon:fireblast_lv3",
+																			"command": "function futaradragon:fireblast_lv3",
 																			"permission_level": 4
 																		},
 																		{
@@ -192,7 +192,7 @@
 																		"conditions": [
 																			{
 																				"type": "origins:resource",
-																				"resource": "davwyndragon:ability_level_fireblast",
+																				"resource": "futaradragon:ability_level_fireblast",
 																				"comparison": "==",
 																				"compare_to": 6
 																			}
@@ -201,7 +201,7 @@
 																	"action": [
 																		{
 																			"type": "origins:execute_command",
-																			"command": "function davwyndragon:fireblast_lv4",
+																			"command": "function futaradragon:fireblast_lv4",
 																			"permission_level": 4
 																		},
 																		{
@@ -217,7 +217,7 @@
 																		"conditions": [
 																			{
 																				"type": "origins:resource",
-																				"resource": "davwyndragon:ability_level_fireblast",
+																				"resource": "futaradragon:ability_level_fireblast",
 																				"comparison": ">=",
 																				"compare_to": 7
 																			}
@@ -226,7 +226,7 @@
 																	"action": [
 																		{
 																			"type": "origins:execute_command",
-																			"command": "function davwyndragon:fireblast",
+																			"command": "function futaradragon:fireblast",
 																			"permission_level": 4
 																		},
 																		{
@@ -246,7 +246,7 @@
 														"conditions": [
 															{
 																"type": "origins:resource",
-																"resource": "davwyndragon:pvp_toggle",
+																"resource": "futaradragon:pvp_toggle",
 																"comparison": "==",
 																"compare_to": 1
 															}
@@ -262,7 +262,7 @@
 																		"conditions": [
 																			{
 																				"type": "origins:resource",
-																				"resource": "davwyndragon:ability_level_fireblast",
+																				"resource": "futaradragon:ability_level_fireblast",
 																				"comparison": "<=",
 																				"compare_to": 3
 																			}
@@ -271,7 +271,7 @@
 																	"action": [
 																		{
 																			"type": "origins:execute_command",
-																			"command": "function davwyndragon:fireblast_lv1_pvp",
+																			"command": "function futaradragon:fireblast_lv1_pvp",
 																			"permission_level": 4
 																		}
 																	]
@@ -282,7 +282,7 @@
 																		"conditions": [
 																			{
 																				"type": "origins:resource",
-																				"resource": "davwyndragon:ability_level_fireblast",
+																				"resource": "futaradragon:ability_level_fireblast",
 																				"comparison": "==",
 																				"compare_to": 4
 																			}
@@ -291,7 +291,7 @@
 																	"action": [
 																		{
 																			"type": "origins:execute_command",
-																			"command": "function davwyndragon:fireblast_lv2_pvp",
+																			"command": "function futaradragon:fireblast_lv2_pvp",
 																			"permission_level": 4
 																		}
 																	]
@@ -302,7 +302,7 @@
 																		"conditions": [
 																			{
 																				"type": "origins:resource",
-																				"resource": "davwyndragon:ability_level_fireblast",
+																				"resource": "futaradragon:ability_level_fireblast",
 																				"comparison": "==",
 																				"compare_to": 5
 																			}
@@ -311,7 +311,7 @@
 																	"action": [
 																		{
 																			"type": "origins:execute_command",
-																			"command": "function davwyndragon:fireblast_lv3_pvp",
+																			"command": "function futaradragon:fireblast_lv3_pvp",
 																			"permission_level": 4
 																		},
 																		{
@@ -327,7 +327,7 @@
 																		"conditions": [
 																			{
 																				"type": "origins:resource",
-																				"resource": "davwyndragon:ability_level_fireblast",
+																				"resource": "futaradragon:ability_level_fireblast",
 																				"comparison": "==",
 																				"compare_to": 6
 																			}
@@ -336,7 +336,7 @@
 																	"action": [
 																		{
 																			"type": "origins:execute_command",
-																			"command": "function davwyndragon:fireblast_lv4_pvp",
+																			"command": "function futaradragon:fireblast_lv4_pvp",
 																			"permission_level": 4
 																		},
 																		{
@@ -352,7 +352,7 @@
 																		"conditions": [
 																			{
 																				"type": "origins:resource",
-																				"resource": "davwyndragon:ability_level_fireblast",
+																				"resource": "futaradragon:ability_level_fireblast",
 																				"comparison": ">=",
 																				"compare_to": 7
 																			}
@@ -361,7 +361,7 @@
 																	"action": [
 																		{
 																			"type": "origins:execute_command",
-																			"command": "function davwyndragon:fireblast_pvp",
+																			"command": "function futaradragon:fireblast_pvp",
 																			"permission_level": 4
 																		},
 																		{
@@ -379,7 +379,7 @@
 										},
 										{
 											"type": "origins:change_resource",
-											"resource": "davwyndragon:mana_resource",
+											"resource": "futaradragon:mana_resource",
 											"change": -10
 										}
 									]
@@ -390,25 +390,25 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_cycle",
+												"resource": "futaradragon:skill_cycle",
 												"comparison": "==",
 												"compare_to": 2
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:ability_level_healaura",
+												"resource": "futaradragon:ability_level_healaura",
 												"comparison": ">",
 												"compare_to": 2
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:healaura_toggle",
+												"resource": "futaradragon:healaura_toggle",
 												"comparison": "==",
 												"compare_to": 1
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:sleep_mode_resource",
+												"resource": "futaradragon:sleep_mode_resource",
 												"comparison": "==",
 												"compare_to": 0
 											}
@@ -417,12 +417,12 @@
 									"action": [
 										{
 											"type": "origins:change_resource",
-											"resource": "davwyndragon:healaura_toggle",
+											"resource": "futaradragon:healaura_toggle",
 											"change": -1
 										},
 										{
 											"type": "origins:change_resource",
-											"resource": "davwyndragon:healaura_overshield_delay",
+											"resource": "futaradragon:healaura_overshield_delay",
 											"operation":"set",
 											"change": 0
 										}
@@ -434,31 +434,31 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_cycle",
+												"resource": "futaradragon:skill_cycle",
 												"comparison": "==",
 												"compare_to": 2
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:ability_level_healaura",
+												"resource": "futaradragon:ability_level_healaura",
 												"comparison": ">",
 												"compare_to": 2
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:healaura_toggle",
+												"resource": "futaradragon:healaura_toggle",
 												"comparison": "==",
 												"compare_to": 0
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:mana_resource",
+												"resource": "futaradragon:mana_resource",
 												"comparison": ">=",
 												"compare_to": 6
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:sleep_mode_resource",
+												"resource": "futaradragon:sleep_mode_resource",
 												"comparison": "==",
 												"compare_to": 0
 											}
@@ -467,12 +467,12 @@
 									"action": [
 										{
 											"type": "origins:change_resource",
-											"resource": "davwyndragon:healaura_toggle",
+											"resource": "futaradragon:healaura_toggle",
 											"change": 1
 										},
 										{
 											"type": "origins:change_resource",
-											"resource": "davwyndragon:healaura_stand_delay",
+											"resource": "futaradragon:healaura_stand_delay",
 											"operation":"set",
 											"change": 10
 										}
@@ -484,31 +484,31 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_cycle",
+												"resource": "futaradragon:skill_cycle",
 												"comparison": "==",
 												"compare_to": 3
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:ability_level_energyorb",
+												"resource": "futaradragon:ability_level_energyorb",
 												"comparison": ">",
 												"compare_to": 2
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:energyorb_toggle",
+												"resource": "futaradragon:energyorb_toggle",
 												"comparison": "==",
 												"compare_to": 1
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:mana_resource",
+												"resource": "futaradragon:mana_resource",
 												"comparison": ">",
 												"compare_to": 0
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:sleep_mode_resource",
+												"resource": "futaradragon:sleep_mode_resource",
 												"comparison": "==",
 												"compare_to": 0
 											}
@@ -517,7 +517,7 @@
 									"action": [
 										{
 											"type": "origins:change_resource",
-											"resource": "davwyndragon:energyorb_toggle",
+											"resource": "futaradragon:energyorb_toggle",
 											"change": -1
 										}
 									]
@@ -528,31 +528,31 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_cycle",
+												"resource": "futaradragon:skill_cycle",
 												"comparison": "==",
 												"compare_to": 3
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:ability_level_energyorb",
+												"resource": "futaradragon:ability_level_energyorb",
 												"comparison": ">",
 												"compare_to": 2
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:energyorb_toggle",
+												"resource": "futaradragon:energyorb_toggle",
 												"comparison": "==",
 												"compare_to": 0
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:mana_resource",
+												"resource": "futaradragon:mana_resource",
 												"comparison": ">",
 												"compare_to": 0
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:sleep_mode_resource",
+												"resource": "futaradragon:sleep_mode_resource",
 												"comparison": "==",
 												"compare_to": 0
 											}
@@ -561,24 +561,24 @@
 									"action": [
 										{
 											"type": "origins:change_resource",
-											"resource": "davwyndragon:energyorb_toggle",
+											"resource": "futaradragon:energyorb_toggle",
 											"change": 1
 										},
 										{
 											"type": "origins:change_resource",
-											"resource": "davwyndragon:energyorb_target_x_resource",
+											"resource": "futaradragon:energyorb_target_x_resource",
 											"operation":"set",
 											"change": 0
 										},
 										{
 											"type": "origins:change_resource",
-											"resource": "davwyndragon:energyorb_target_y_resource",
+											"resource": "futaradragon:energyorb_target_y_resource",
 											"operation":"set",
 											"change": 0
 										},
 										{
 											"type": "origins:change_resource",
-											"resource": "davwyndragon:energyorb_target_z_resource",
+											"resource": "futaradragon:energyorb_target_z_resource",
 											"operation":"set",
 											"change": 0
 										}
@@ -590,19 +590,19 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_cycle",
+												"resource": "futaradragon:skill_cycle",
 												"comparison": "==",
 												"compare_to": 4
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:ability_level_beamsaberclaw",
+												"resource": "futaradragon:ability_level_beamsaberclaw",
 												"comparison": ">",
 												"compare_to": 2
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:sleep_mode_resource",
+												"resource": "futaradragon:sleep_mode_resource",
 												"comparison": "==",
 												"compare_to": 0
 											}
@@ -616,19 +616,19 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_cycle",
+												"resource": "futaradragon:skill_cycle",
 												"comparison": "==",
 												"compare_to": 5
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:ability_level_hyperbeam",
+												"resource": "futaradragon:ability_level_hyperbeam",
 												"comparison": ">",
 												"compare_to": 2
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:sleep_mode_resource",
+												"resource": "futaradragon:sleep_mode_resource",
 												"comparison": "==",
 												"compare_to": 0
 											}
@@ -642,25 +642,25 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_cycle",
+												"resource": "futaradragon:skill_cycle",
 												"comparison": "==",
 												"compare_to": 6
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:ability_level_revengerampage",
+												"resource": "futaradragon:ability_level_revengerampage",
 												"comparison": ">",
 												"compare_to": 2
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:ultimate_resource",
+												"resource": "futaradragon:ultimate_resource",
 												"comparison": "<",
 												"compare_to": 1000
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:sleep_mode_resource",
+												"resource": "futaradragon:sleep_mode_resource",
 												"comparison": "==",
 												"compare_to": 0
 											}
@@ -669,12 +669,12 @@
 									"action": [
 										{
 											"type": "origins:execute_command",
-											"command": "function davwyndragon:menu_deny",
+											"command": "function futaradragon:menu_deny",
 											"permission_level": 4
 										},
 										{
 											"type": "origins:execute_command",
-											"command": "function davwyndragon:alert_require_max_ultimate",
+											"command": "function futaradragon:alert_require_max_ultimate",
 											"permission_level": 4
 										}
 									]
@@ -685,25 +685,25 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_cycle",
+												"resource": "futaradragon:skill_cycle",
 												"comparison": "==",
 												"compare_to": 6
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:ability_level_revengerampage",
+												"resource": "futaradragon:ability_level_revengerampage",
 												"comparison": ">",
 												"compare_to": 2
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:ultimate_resource",
+												"resource": "futaradragon:ultimate_resource",
 												"comparison": "==",
 												"compare_to": 1000
 											},
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:sleep_mode_resource",
+												"resource": "futaradragon:sleep_mode_resource",
 												"comparison": "==",
 												"compare_to": 0
 											}
@@ -712,7 +712,7 @@
 									"action": [
 										{
 											"type": "origins:change_resource",
-											"resource": "davwyndragon:ultimate_resource",
+											"resource": "futaradragon:ultimate_resource",
 											"operation":"set",
 											"change": 1000
 										}
@@ -721,14 +721,14 @@
 								{
 									"condition":{
 										"type": "origins:resource",
-										"resource": "davwyndragon:mana_resource",
+										"resource": "futaradragon:mana_resource",
 										"comparison": ">=",
 										"compare_to": 0
 									},
 									"action": [
 										{
 											"type": "origins:execute_command",
-											"command": "function davwyndragon:menu_deny",
+											"command": "function futaradragon:menu_deny",
 											"permission_level": 4
 										}
 									]
@@ -743,7 +743,7 @@
 						"conditions": [
 							{
 								"type": "origins:resource",
-								"resource": "davwyndragon:option_toggle",
+								"resource": "futaradragon:option_toggle",
 								"comparison": "==",
 								"compare_to": 1
 							}
@@ -759,7 +759,7 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_upgrade_toggle_menu",
+												"resource": "futaradragon:skill_upgrade_toggle_menu",
 												"comparison": "==",
 												"compare_to": 1
 											}
@@ -774,7 +774,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_movement_trick",
+															"resource": "futaradragon:ability_level_movement_trick",
 															"comparison": "==",
 															"compare_to": 2
 														},
@@ -788,7 +788,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_movement_trick",
+														"resource": "futaradragon:ability_level_movement_trick",
 														"operation":"set",
 														"change": 3
 													},
@@ -798,23 +798,23 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_ability_unlock",
+														"command": "function futaradragon:menu_ability_unlock",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_movement_trick_1",
+														"command": "function futaradragon:levelup_unlock_movement_trick_1",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -825,7 +825,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_movement_trick",
+															"resource": "futaradragon:ability_level_movement_trick",
 															"comparison": "==",
 															"compare_to": 3
 														},
@@ -839,7 +839,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_movement_trick",
+														"resource": "futaradragon:ability_level_movement_trick",
 														"operation":"set",
 														"change": 4
 													},
@@ -849,18 +849,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_movement_trick_2",
+														"command": "function futaradragon:levelup_unlock_movement_trick_2",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -871,7 +871,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_movement_trick",
+															"resource": "futaradragon:ability_level_movement_trick",
 															"comparison": "==",
 															"compare_to": 4
 														},
@@ -885,7 +885,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_movement_trick",
+														"resource": "futaradragon:ability_level_movement_trick",
 														"operation":"set",
 														"change": 5
 													},
@@ -895,18 +895,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_movement_trick_3",
+														"command": "function futaradragon:levelup_unlock_movement_trick_3",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -917,7 +917,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_movement_trick",
+															"resource": "futaradragon:ability_level_movement_trick",
 															"comparison": "==",
 															"compare_to": 5
 														},
@@ -931,7 +931,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_movement_trick",
+														"resource": "futaradragon:ability_level_movement_trick",
 														"operation":"set",
 														"change": 6
 													},
@@ -941,18 +941,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_movement_trick_4",
+														"command": "function futaradragon:levelup_unlock_movement_trick_4",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -963,7 +963,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_movement_trick",
+															"resource": "futaradragon:ability_level_movement_trick",
 															"comparison": "==",
 															"compare_to": 6
 														},
@@ -977,7 +977,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_movement_trick",
+														"resource": "futaradragon:ability_level_movement_trick",
 														"operation":"set",
 														"change": 7
 													},
@@ -987,18 +987,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_movement_trick_5",
+														"command": "function futaradragon:levelup_unlock_movement_trick_5",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1009,7 +1009,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_movement_trick",
+															"resource": "futaradragon:ability_level_movement_trick",
 															"comparison": ">=",
 															"compare_to": 7
 														}
@@ -1018,12 +1018,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_max_upgrade",
+														"command": "function futaradragon:alert_max_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -1037,12 +1037,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_no_enough_level_upgrade",
+														"command": "function futaradragon:alert_no_enough_level_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -1056,7 +1056,7 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_upgrade_toggle_menu",
+												"resource": "futaradragon:skill_upgrade_toggle_menu",
 												"comparison": "==",
 												"compare_to": 2
 											}
@@ -1071,7 +1071,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energy_shield",
+															"resource": "futaradragon:ability_level_energy_shield",
 															"comparison": "==",
 															"compare_to": 2
 														},
@@ -1085,7 +1085,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_energy_shield",
+														"resource": "futaradragon:ability_level_energy_shield",
 														"operation":"set",
 														"change": 3
 													},
@@ -1095,23 +1095,23 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_ability_unlock",
+														"command": "function futaradragon:menu_ability_unlock",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_energy_shield_1",
+														"command": "function futaradragon:levelup_unlock_energy_shield_1",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1122,7 +1122,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energy_shield",
+															"resource": "futaradragon:ability_level_energy_shield",
 															"comparison": "==",
 															"compare_to": 3
 														},
@@ -1136,7 +1136,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_energy_shield",
+														"resource": "futaradragon:ability_level_energy_shield",
 														"operation":"set",
 														"change": 4
 													},
@@ -1146,18 +1146,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_energy_shield_2",
+														"command": "function futaradragon:levelup_unlock_energy_shield_2",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1168,7 +1168,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energy_shield",
+															"resource": "futaradragon:ability_level_energy_shield",
 															"comparison": "==",
 															"compare_to": 4
 														},
@@ -1182,7 +1182,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_energy_shield",
+														"resource": "futaradragon:ability_level_energy_shield",
 														"operation":"set",
 														"change": 5
 													},
@@ -1192,18 +1192,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_energy_shield_3",
+														"command": "function futaradragon:levelup_unlock_energy_shield_3",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1214,7 +1214,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energy_shield",
+															"resource": "futaradragon:ability_level_energy_shield",
 															"comparison": "==",
 															"compare_to": 5
 														},
@@ -1228,7 +1228,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_energy_shield",
+														"resource": "futaradragon:ability_level_energy_shield",
 														"operation":"set",
 														"change": 6
 													},
@@ -1238,18 +1238,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_energy_shield_4",
+														"command": "function futaradragon:levelup_unlock_energy_shield_4",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1260,7 +1260,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energy_shield",
+															"resource": "futaradragon:ability_level_energy_shield",
 															"comparison": "==",
 															"compare_to": 6
 														},
@@ -1274,7 +1274,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_energy_shield",
+														"resource": "futaradragon:ability_level_energy_shield",
 														"operation":"set",
 														"change": 7
 													},
@@ -1284,18 +1284,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_energy_shield_5",
+														"command": "function futaradragon:levelup_unlock_energy_shield_5",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1306,7 +1306,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energy_shield",
+															"resource": "futaradragon:ability_level_energy_shield",
 															"comparison": ">=",
 															"compare_to": 7
 														}
@@ -1315,12 +1315,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_max_upgrade",
+														"command": "function futaradragon:alert_max_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -1334,12 +1334,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_no_enough_level_upgrade",
+														"command": "function futaradragon:alert_no_enough_level_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -1353,7 +1353,7 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_upgrade_toggle_menu",
+												"resource": "futaradragon:skill_upgrade_toggle_menu",
 												"comparison": "==",
 												"compare_to": 3
 											}
@@ -1368,7 +1368,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energyshot",
+															"resource": "futaradragon:ability_level_energyshot",
 															"comparison": "==",
 															"compare_to": 2
 														},
@@ -1382,7 +1382,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_energyshot",
+														"resource": "futaradragon:ability_level_energyshot",
 														"operation":"set",
 														"change": 3
 													},
@@ -1392,23 +1392,23 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_ability_unlock",
+														"command": "function futaradragon:menu_ability_unlock",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_energyshot_1",
+														"command": "function futaradragon:levelup_unlock_energyshot_1",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1419,7 +1419,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energyshot",
+															"resource": "futaradragon:ability_level_energyshot",
 															"comparison": "==",
 															"compare_to": 3
 														},
@@ -1433,7 +1433,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_energyshot",
+														"resource": "futaradragon:ability_level_energyshot",
 														"operation":"set",
 														"change": 4
 													},
@@ -1443,18 +1443,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_energyshot_2",
+														"command": "function futaradragon:levelup_unlock_energyshot_2",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1465,7 +1465,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energyshot",
+															"resource": "futaradragon:ability_level_energyshot",
 															"comparison": "==",
 															"compare_to": 4
 														},
@@ -1479,7 +1479,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_energyshot",
+														"resource": "futaradragon:ability_level_energyshot",
 														"operation":"set",
 														"change": 5
 													},
@@ -1489,18 +1489,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_energyshot_3",
+														"command": "function futaradragon:levelup_unlock_energyshot_3",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1511,7 +1511,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energyshot",
+															"resource": "futaradragon:ability_level_energyshot",
 															"comparison": "==",
 															"compare_to": 5
 														},
@@ -1525,7 +1525,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_energyshot",
+														"resource": "futaradragon:ability_level_energyshot",
 														"operation":"set",
 														"change": 6
 													},
@@ -1535,18 +1535,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_energyshot_4",
+														"command": "function futaradragon:levelup_unlock_energyshot_4",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1557,7 +1557,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energyshot",
+															"resource": "futaradragon:ability_level_energyshot",
 															"comparison": "==",
 															"compare_to": 6
 														},
@@ -1571,7 +1571,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_energyshot",
+														"resource": "futaradragon:ability_level_energyshot",
 														"operation":"set",
 														"change": 7
 													},
@@ -1581,18 +1581,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_energyshot_5",
+														"command": "function futaradragon:levelup_unlock_energyshot_5",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1603,7 +1603,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energyshot",
+															"resource": "futaradragon:ability_level_energyshot",
 															"comparison": ">=",
 															"compare_to": 7
 														}
@@ -1612,12 +1612,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_max_upgrade",
+														"command": "function futaradragon:alert_max_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -1631,12 +1631,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_no_enough_level_upgrade",
+														"command": "function futaradragon:alert_no_enough_level_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -1650,7 +1650,7 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_upgrade_toggle_menu",
+												"resource": "futaradragon:skill_upgrade_toggle_menu",
 												"comparison": "==",
 												"compare_to": 4
 											}
@@ -1665,7 +1665,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_fireblast",
+															"resource": "futaradragon:ability_level_fireblast",
 															"comparison": "==",
 															"compare_to": 2
 														},
@@ -1679,7 +1679,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_fireblast",
+														"resource": "futaradragon:ability_level_fireblast",
 														"operation":"set",
 														"change": 3
 													},
@@ -1689,23 +1689,23 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_ability_unlock",
+														"command": "function futaradragon:menu_ability_unlock",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_fireblast_1",
+														"command": "function futaradragon:levelup_unlock_fireblast_1",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1716,7 +1716,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_fireblast",
+															"resource": "futaradragon:ability_level_fireblast",
 															"comparison": "==",
 															"compare_to": 3
 														},
@@ -1730,7 +1730,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_fireblast",
+														"resource": "futaradragon:ability_level_fireblast",
 														"operation":"set",
 														"change": 4
 													},
@@ -1740,18 +1740,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_fireblast_2",
+														"command": "function futaradragon:levelup_unlock_fireblast_2",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1762,7 +1762,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_fireblast",
+															"resource": "futaradragon:ability_level_fireblast",
 															"comparison": "==",
 															"compare_to": 4
 														},
@@ -1776,7 +1776,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_fireblast",
+														"resource": "futaradragon:ability_level_fireblast",
 														"operation":"set",
 														"change": 5
 													},
@@ -1786,18 +1786,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_fireblast_3",
+														"command": "function futaradragon:levelup_unlock_fireblast_3",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1808,7 +1808,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_fireblast",
+															"resource": "futaradragon:ability_level_fireblast",
 															"comparison": "==",
 															"compare_to": 5
 														},
@@ -1822,7 +1822,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_fireblast",
+														"resource": "futaradragon:ability_level_fireblast",
 														"operation":"set",
 														"change": 6
 													},
@@ -1832,18 +1832,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_fireblast_4",
+														"command": "function futaradragon:levelup_unlock_fireblast_4",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1854,7 +1854,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_fireblast",
+															"resource": "futaradragon:ability_level_fireblast",
 															"comparison": "==",
 															"compare_to": 6
 														},
@@ -1868,7 +1868,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_fireblast",
+														"resource": "futaradragon:ability_level_fireblast",
 														"operation":"set",
 														"change": 7
 													},
@@ -1878,18 +1878,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_fireblast_5",
+														"command": "function futaradragon:levelup_unlock_fireblast_5",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -1900,7 +1900,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_fireblast",
+															"resource": "futaradragon:ability_level_fireblast",
 															"comparison": ">=",
 															"compare_to": 7
 														}
@@ -1909,12 +1909,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_max_upgrade",
+														"command": "function futaradragon:alert_max_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -1928,12 +1928,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_no_enough_level_upgrade",
+														"command": "function futaradragon:alert_no_enough_level_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -1947,7 +1947,7 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_upgrade_toggle_menu",
+												"resource": "futaradragon:skill_upgrade_toggle_menu",
 												"comparison": "==",
 												"compare_to": 5
 											}
@@ -1962,7 +1962,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_healaura",
+															"resource": "futaradragon:ability_level_healaura",
 															"comparison": "==",
 															"compare_to": 2
 														},
@@ -1976,7 +1976,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_healaura",
+														"resource": "futaradragon:ability_level_healaura",
 														"operation":"set",
 														"change": 3
 													},
@@ -1986,23 +1986,23 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_ability_unlock",
+														"command": "function futaradragon:menu_ability_unlock",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_healaura_1",
+														"command": "function futaradragon:levelup_unlock_healaura_1",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2013,7 +2013,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_healaura",
+															"resource": "futaradragon:ability_level_healaura",
 															"comparison": "==",
 															"compare_to": 3
 														},
@@ -2027,7 +2027,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_healaura",
+														"resource": "futaradragon:ability_level_healaura",
 														"operation":"set",
 														"change": 4
 													},
@@ -2037,18 +2037,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_healaura_2",
+														"command": "function futaradragon:levelup_unlock_healaura_2",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2059,7 +2059,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_healaura",
+															"resource": "futaradragon:ability_level_healaura",
 															"comparison": "==",
 															"compare_to": 4
 														},
@@ -2073,7 +2073,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_healaura",
+														"resource": "futaradragon:ability_level_healaura",
 														"operation":"set",
 														"change": 5
 													},
@@ -2083,18 +2083,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_healaura_3",
+														"command": "function futaradragon:levelup_unlock_healaura_3",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2105,7 +2105,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_healaura",
+															"resource": "futaradragon:ability_level_healaura",
 															"comparison": "==",
 															"compare_to": 5
 														},
@@ -2119,7 +2119,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_healaura",
+														"resource": "futaradragon:ability_level_healaura",
 														"operation":"set",
 														"change": 6
 													},
@@ -2129,18 +2129,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_healaura_4",
+														"command": "function futaradragon:levelup_unlock_healaura_4",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2151,7 +2151,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_healaura",
+															"resource": "futaradragon:ability_level_healaura",
 															"comparison": "==",
 															"compare_to": 6
 														},
@@ -2165,7 +2165,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_healaura",
+														"resource": "futaradragon:ability_level_healaura",
 														"operation":"set",
 														"change": 7
 													},
@@ -2175,18 +2175,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_healaura_5",
+														"command": "function futaradragon:levelup_unlock_healaura_5",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2197,7 +2197,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_healaura",
+															"resource": "futaradragon:ability_level_healaura",
 															"comparison": ">=",
 															"compare_to": 7
 														}
@@ -2206,12 +2206,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_max_upgrade",
+														"command": "function futaradragon:alert_max_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -2225,12 +2225,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_no_enough_level_upgrade",
+														"command": "function futaradragon:alert_no_enough_level_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -2244,7 +2244,7 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_upgrade_toggle_menu",
+												"resource": "futaradragon:skill_upgrade_toggle_menu",
 												"comparison": "==",
 												"compare_to": 6
 											}
@@ -2259,7 +2259,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energyorb",
+															"resource": "futaradragon:ability_level_energyorb",
 															"comparison": "==",
 															"compare_to": 2
 														},
@@ -2273,7 +2273,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_energyorb",
+														"resource": "futaradragon:ability_level_energyorb",
 														"operation":"set",
 														"change": 3
 													},
@@ -2283,23 +2283,23 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_ability_unlock",
+														"command": "function futaradragon:menu_ability_unlock",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_energyorb_1",
+														"command": "function futaradragon:levelup_unlock_energyorb_1",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2310,7 +2310,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energyorb",
+															"resource": "futaradragon:ability_level_energyorb",
 															"comparison": "==",
 															"compare_to": 3
 														},
@@ -2324,7 +2324,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_energyorb",
+														"resource": "futaradragon:ability_level_energyorb",
 														"operation":"set",
 														"change": 4
 													},
@@ -2334,18 +2334,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_energyorb_2",
+														"command": "function futaradragon:levelup_unlock_energyorb_2",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2356,7 +2356,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energyorb",
+															"resource": "futaradragon:ability_level_energyorb",
 															"comparison": "==",
 															"compare_to": 4
 														},
@@ -2370,7 +2370,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_energyorb",
+														"resource": "futaradragon:ability_level_energyorb",
 														"operation":"set",
 														"change": 5
 													},
@@ -2380,18 +2380,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_energyorb_3",
+														"command": "function futaradragon:levelup_unlock_energyorb_3",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2402,7 +2402,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energyorb",
+															"resource": "futaradragon:ability_level_energyorb",
 															"comparison": "==",
 															"compare_to": 5
 														},
@@ -2416,7 +2416,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_energyorb",
+														"resource": "futaradragon:ability_level_energyorb",
 														"operation":"set",
 														"change": 6
 													},
@@ -2426,18 +2426,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_energyorb_4",
+														"command": "function futaradragon:levelup_unlock_energyorb_4",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2448,7 +2448,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energyorb",
+															"resource": "futaradragon:ability_level_energyorb",
 															"comparison": "==",
 															"compare_to": 6
 														},
@@ -2462,7 +2462,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_energyorb",
+														"resource": "futaradragon:ability_level_energyorb",
 														"operation":"set",
 														"change": 7
 													},
@@ -2472,18 +2472,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_energyorb_5",
+														"command": "function futaradragon:levelup_unlock_energyorb_5",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2494,7 +2494,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_energyorb",
+															"resource": "futaradragon:ability_level_energyorb",
 															"comparison": ">=",
 															"compare_to": 7
 														}
@@ -2503,12 +2503,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_max_upgrade",
+														"command": "function futaradragon:alert_max_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -2522,12 +2522,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_no_enough_level_upgrade",
+														"command": "function futaradragon:alert_no_enough_level_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -2541,7 +2541,7 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_upgrade_toggle_menu",
+												"resource": "futaradragon:skill_upgrade_toggle_menu",
 												"comparison": "==",
 												"compare_to": 7
 											}
@@ -2556,7 +2556,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_beamsaberclaw",
+															"resource": "futaradragon:ability_level_beamsaberclaw",
 															"comparison": "==",
 															"compare_to": 2
 														},
@@ -2570,7 +2570,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_beamsaberclaw",
+														"resource": "futaradragon:ability_level_beamsaberclaw",
 														"operation":"set",
 														"change": 3
 													},
@@ -2580,23 +2580,23 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_ability_unlock",
+														"command": "function futaradragon:menu_ability_unlock",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_beamsaberclaw_1",
+														"command": "function futaradragon:levelup_unlock_beamsaberclaw_1",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2607,7 +2607,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_beamsaberclaw",
+															"resource": "futaradragon:ability_level_beamsaberclaw",
 															"comparison": "==",
 															"compare_to": 3
 														},
@@ -2621,7 +2621,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_beamsaberclaw",
+														"resource": "futaradragon:ability_level_beamsaberclaw",
 														"operation":"set",
 														"change": 4
 													},
@@ -2631,18 +2631,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_beamsaberclaw_2",
+														"command": "function futaradragon:levelup_unlock_beamsaberclaw_2",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2653,7 +2653,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_beamsaberclaw",
+															"resource": "futaradragon:ability_level_beamsaberclaw",
 															"comparison": "==",
 															"compare_to": 4
 														},
@@ -2667,7 +2667,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_beamsaberclaw",
+														"resource": "futaradragon:ability_level_beamsaberclaw",
 														"operation":"set",
 														"change": 5
 													},
@@ -2677,18 +2677,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_beamsaberclaw_3",
+														"command": "function futaradragon:levelup_unlock_beamsaberclaw_3",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2699,7 +2699,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_beamsaberclaw",
+															"resource": "futaradragon:ability_level_beamsaberclaw",
 															"comparison": "==",
 															"compare_to": 5
 														},
@@ -2713,7 +2713,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_beamsaberclaw",
+														"resource": "futaradragon:ability_level_beamsaberclaw",
 														"operation":"set",
 														"change": 6
 													},
@@ -2723,18 +2723,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_beamsaberclaw_4",
+														"command": "function futaradragon:levelup_unlock_beamsaberclaw_4",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2745,7 +2745,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_beamsaberclaw",
+															"resource": "futaradragon:ability_level_beamsaberclaw",
 															"comparison": "==",
 															"compare_to": 6
 														},
@@ -2759,7 +2759,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_beamsaberclaw",
+														"resource": "futaradragon:ability_level_beamsaberclaw",
 														"operation":"set",
 														"change": 7
 													},
@@ -2769,18 +2769,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_beamsaberclaw_5",
+														"command": "function futaradragon:levelup_unlock_beamsaberclaw_5",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2791,7 +2791,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_beamsaberclaw",
+															"resource": "futaradragon:ability_level_beamsaberclaw",
 															"comparison": ">=",
 															"compare_to": 7
 														}
@@ -2800,12 +2800,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_max_upgrade",
+														"command": "function futaradragon:alert_max_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -2819,12 +2819,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_no_enough_level_upgrade",
+														"command": "function futaradragon:alert_no_enough_level_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -2838,7 +2838,7 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_upgrade_toggle_menu",
+												"resource": "futaradragon:skill_upgrade_toggle_menu",
 												"comparison": "==",
 												"compare_to": 8
 											}
@@ -2853,7 +2853,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_hyperbeam",
+															"resource": "futaradragon:ability_level_hyperbeam",
 															"comparison": "==",
 															"compare_to": 2
 														},
@@ -2867,7 +2867,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_hyperbeam",
+														"resource": "futaradragon:ability_level_hyperbeam",
 														"operation":"set",
 														"change": 3
 													},
@@ -2877,23 +2877,23 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_ability_unlock",
+														"command": "function futaradragon:menu_ability_unlock",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_hyperbeam_1",
+														"command": "function futaradragon:levelup_unlock_hyperbeam_1",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2904,7 +2904,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_hyperbeam",
+															"resource": "futaradragon:ability_level_hyperbeam",
 															"comparison": "==",
 															"compare_to": 3
 														},
@@ -2918,7 +2918,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_hyperbeam",
+														"resource": "futaradragon:ability_level_hyperbeam",
 														"operation":"set",
 														"change": 4
 													},
@@ -2928,18 +2928,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_hyperbeam_2",
+														"command": "function futaradragon:levelup_unlock_hyperbeam_2",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2950,7 +2950,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_hyperbeam",
+															"resource": "futaradragon:ability_level_hyperbeam",
 															"comparison": "==",
 															"compare_to": 4
 														},
@@ -2964,7 +2964,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_hyperbeam",
+														"resource": "futaradragon:ability_level_hyperbeam",
 														"operation":"set",
 														"change": 5
 													},
@@ -2974,18 +2974,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_hyperbeam_3",
+														"command": "function futaradragon:levelup_unlock_hyperbeam_3",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -2996,7 +2996,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_hyperbeam",
+															"resource": "futaradragon:ability_level_hyperbeam",
 															"comparison": "==",
 															"compare_to": 5
 														},
@@ -3010,7 +3010,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_hyperbeam",
+														"resource": "futaradragon:ability_level_hyperbeam",
 														"operation":"set",
 														"change": 6
 													},
@@ -3020,18 +3020,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_hyperbeam_4",
+														"command": "function futaradragon:levelup_unlock_hyperbeam_4",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -3042,7 +3042,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_hyperbeam",
+															"resource": "futaradragon:ability_level_hyperbeam",
 															"comparison": "==",
 															"compare_to": 6
 														},
@@ -3056,7 +3056,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_hyperbeam",
+														"resource": "futaradragon:ability_level_hyperbeam",
 														"operation":"set",
 														"change": 7
 													},
@@ -3066,18 +3066,18 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_hyperbeam_5",
+														"command": "function futaradragon:levelup_unlock_hyperbeam_5",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -3088,7 +3088,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_hyperbeam",
+															"resource": "futaradragon:ability_level_hyperbeam",
 															"comparison": ">=",
 															"compare_to": 7
 														}
@@ -3097,12 +3097,12 @@
 												"action":  [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_max_upgrade",
+														"command": "function futaradragon:alert_max_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -3116,12 +3116,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_no_enough_level_upgrade",
+														"command": "function futaradragon:alert_no_enough_level_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -3135,7 +3135,7 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:skill_upgrade_toggle_menu",
+												"resource": "futaradragon:skill_upgrade_toggle_menu",
 												"comparison": "==",
 												"compare_to": 9
 											}
@@ -3150,7 +3150,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_revengerampage",
+															"resource": "futaradragon:ability_level_revengerampage",
 															"comparison": "==",
 															"compare_to": 2
 														},
@@ -3164,7 +3164,7 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:ability_level_revengerampage",
+														"resource": "futaradragon:ability_level_revengerampage",
 														"operation":"set",
 														"change": 7
 													},
@@ -3174,23 +3174,23 @@
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:level_up_resource",
+														"resource": "futaradragon:level_up_resource",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_ability_unlock",
+														"command": "function futaradragon:menu_ability_unlock",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock_revengerampage_1",
+														"command": "function futaradragon:levelup_unlock_revengerampage_1",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:levelup_unlock",
+														"command": "function futaradragon:levelup_unlock",
 														"permission_level": 4
 													}
 												]
@@ -3201,7 +3201,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:ability_level_hyperbeam",
+															"resource": "futaradragon:ability_level_hyperbeam",
 															"comparison": ">=",
 															"compare_to": 7
 														}
@@ -3210,12 +3210,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_max_upgrade",
+														"command": "function futaradragon:alert_max_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -3229,12 +3229,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_no_enough_level_upgrade",
+														"command": "function futaradragon:alert_no_enough_level_upgrade",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													}
 												]
@@ -3252,7 +3252,7 @@
 						"conditions": [
 							{
 								"type": "origins:resource",
-								"resource": "davwyndragon:option_toggle",
+								"resource": "futaradragon:option_toggle",
 								"comparison": "==",
 								"compare_to": 2
 							}
@@ -3268,7 +3268,7 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:option_toggle_menu",
+												"resource": "futaradragon:option_toggle_menu",
 												"comparison": "==",
 												"compare_to": 1
 											}
@@ -3283,7 +3283,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:pvp_toggle",
+															"resource": "futaradragon:pvp_toggle",
 															"comparison": "==",
 															"compare_to": 0
 														}
@@ -3292,18 +3292,18 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:pvp_toggle",
+														"resource": "futaradragon:pvp_toggle",
 														"operation":"set",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_press",
+														"command": "function futaradragon:menu_press",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_pvp_on",
+														"command": "function futaradragon:alert_pvp_on",
 														"permission_level": 4
 													}
 												]
@@ -3314,7 +3314,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:pvp_toggle",
+															"resource": "futaradragon:pvp_toggle",
 															"comparison": "==",
 															"compare_to": 1
 														}
@@ -3323,18 +3323,18 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:pvp_toggle",
+														"resource": "futaradragon:pvp_toggle",
 														"operation":"set",
 														"change": 0
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_press",
+														"command": "function futaradragon:menu_press",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_pvp_off",
+														"command": "function futaradragon:alert_pvp_off",
 														"permission_level": 4
 													}
 												]
@@ -3353,7 +3353,7 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:option_toggle_menu",
+												"resource": "futaradragon:option_toggle_menu",
 												"comparison": "==",
 												"compare_to": 2
 											}
@@ -3376,12 +3376,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:drop_exp",
+														"command": "function futaradragon:drop_exp",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_drop_exp",
+														"command": "function futaradragon:alert_drop_exp",
 														"permission_level": 4
 													}
 												]
@@ -3400,12 +3400,12 @@
 												"action": [
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_deny",
+														"command": "function futaradragon:menu_deny",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_drop_exp_limit",
+														"command": "function futaradragon:alert_drop_exp_limit",
 														"permission_level": 4
 													}
 												]
@@ -3424,7 +3424,7 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:option_toggle_menu",
+												"resource": "futaradragon:option_toggle_menu",
 												"comparison": "==",
 												"compare_to": 3
 											}
@@ -3439,7 +3439,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:armor_skin_toggle",
+															"resource": "futaradragon:armor_skin_toggle",
 															"comparison": "<",
 															"compare_to": 2
 														}
@@ -3448,18 +3448,18 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:armor_skin_toggle",
+														"resource": "futaradragon:armor_skin_toggle",
 														"operation":"add",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_press",
+														"command": "function futaradragon:menu_press",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_armor_skin_on",
+														"command": "function futaradragon:alert_armor_skin_on",
 														"permission_level": 4
 													}
 												]
@@ -3470,7 +3470,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:armor_skin_toggle",
+															"resource": "futaradragon:armor_skin_toggle",
 															"comparison": "==",
 															"compare_to": 2
 														}
@@ -3479,18 +3479,18 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:armor_skin_toggle",
+														"resource": "futaradragon:armor_skin_toggle",
 														"operation":"set",
 														"change": 0
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_press",
+														"command": "function futaradragon:menu_press",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_armor_skin_off",
+														"command": "function futaradragon:alert_armor_skin_off",
 														"permission_level": 4
 													}
 												]
@@ -3509,7 +3509,7 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:option_toggle_menu",
+												"resource": "futaradragon:option_toggle_menu",
 												"comparison": "==",
 												"compare_to": 4
 											}
@@ -3524,7 +3524,7 @@
 										},
 										{
 											"type": "origins:execute_command",
-											"command": "function davwyndragon:dragon_say_ah",
+											"command": "function futaradragon:dragon_say_ah",
 											"permission_level": 4
 										}
 									]
@@ -3540,7 +3540,7 @@
 										"conditions": [
 											{
 												"type": "origins:resource",
-												"resource": "davwyndragon:option_toggle_menu",
+												"resource": "futaradragon:option_toggle_menu",
 												"comparison": "==",
 												"compare_to": 5
 											}
@@ -3555,7 +3555,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:dynamic_music_toggle",
+															"resource": "futaradragon:dynamic_music_toggle",
 															"comparison": "<",
 															"compare_to": 7
 														}
@@ -3564,18 +3564,18 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:dynamic_music_toggle",
+														"resource": "futaradragon:dynamic_music_toggle",
 														"operation":"add",
 														"change": 1
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_press",
+														"command": "function futaradragon:menu_press",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_dynamic_music_on",
+														"command": "function futaradragon:alert_dynamic_music_on",
 														"permission_level": 4
 													}
 												]
@@ -3586,7 +3586,7 @@
 													"conditions": [
 														{
 															"type": "origins:resource",
-															"resource": "davwyndragon:dynamic_music_toggle",
+															"resource": "futaradragon:dynamic_music_toggle",
 															"comparison": "==",
 															"compare_to": 7
 														}
@@ -3595,24 +3595,109 @@
 												"action": [
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:dynamic_music_toggle",
+														"resource": "futaradragon:dynamic_music_toggle",
 														"operation":"set",
 														"change": 0
 													},
 													{
 														"type": "origins:change_resource",
-														"resource": "davwyndragon:dynamic_music_resource",
+														"resource": "futaradragon:dynamic_music_resource",
 														"operation":"set",
 														"change": 0
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:menu_press",
+														"command": "function futaradragon:menu_press",
 														"permission_level": 4
 													},
 													{
 														"type": "origins:execute_command",
-														"command": "function davwyndragon:alert_dynamic_music_off",
+														"command": "function futaradragon:alert_dynamic_music_off",
+														"permission_level": 4
+													}
+												]
+											}
+										]
+									}
+								}
+							]
+						},
+						{
+							"type": "origins:if_else_list",
+							"actions": [
+								{
+									"condition":{
+										"type": "origins:all_of",
+										"conditions": [
+											{
+												"type": "origins:resource",
+												"resource": "futaradragon:option_toggle_menu",
+												"comparison": "==",
+												"compare_to": 6
+											}
+										]
+									},
+									"action": {
+										"type": "origins:if_else_list",
+										"actions": [
+											{
+												"condition":{
+													"type": "origins:all_of",
+													"conditions": [
+														{
+															"type": "origins:resource",
+															"resource": "futaradragon:tacking_toggle",
+															"comparison": "==",
+															"compare_to": 0
+														}
+													]
+												},
+												"action": [
+													{
+														"type": "origins:change_resource",
+														"resource": "futaradragon:tacking_toggle",
+														"operation":"set",
+														"change": 1
+													},
+													{
+														"type": "origins:execute_command",
+														"command": "function futaradragon:menu_press",
+														"permission_level": 4
+													},
+													{
+														"type": "origins:execute_command",
+														"command": "function futaradragon:alert_tacking_item_on",
+														"permission_level": 4
+													}
+												]
+											},
+											{
+												"condition":{
+													"type": "origins:all_of",
+													"conditions": [
+														{
+															"type": "origins:resource",
+															"resource": "futaradragon:tacking_toggle",
+															"comparison": "==",
+															"compare_to": 1
+														}
+													]
+												},
+												"action": [
+													{
+														"type": "origins:change_resource",
+														"resource": "futaradragon:tacking_toggle",
+														"operation":"set",
+														"change": 0
+													},
+													{
+														"type": "origins:execute_command",
+														"command": "function futaradragon:menu_press",
+														"permission_level": 4
+													},
+													{
+														"type": "origins:execute_command",
+														"command": "function futaradragon:alert_tacking_item_off",
 														"permission_level": 4
 													}
 												]

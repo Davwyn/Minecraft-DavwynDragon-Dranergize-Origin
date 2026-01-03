@@ -7957,7 +7957,7 @@ function FDCharacterGeneralDataTickUpdate(CharacterData)
 	CharacterData.AttackingType = player:getSwingArm()
 	CharacterData.Attacking = CharacterData.AttackingType ~= nil
 	CharacterData.Sleeping = player:getPose() == "SLEEPING" or FDOriginGetData("davwyndragon:sleep_mode_resource") == 2  or false
-	CharacterData.SleepMode = FDOriginGetData("futaradragon:sleep_mode_deep_sleep_resource") or nil
+	CharacterData.SleepMode = FDOriginGetData("davwyndragon:sleep_mode_deep_sleep_resource") or nil
 	CharacterData.FirstPerson = renderer:isFirstPerson()
 	
 	if CharacterData.DimensionFollow ~= CharacterData.Dimension then

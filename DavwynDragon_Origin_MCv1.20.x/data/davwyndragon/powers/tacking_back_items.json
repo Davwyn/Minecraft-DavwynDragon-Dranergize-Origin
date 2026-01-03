@@ -1,0 +1,129 @@
+{
+	"hidden": true,
+	"name": "Tacking Back Items",
+	"type": "origins:multiple",
+	"attach_tacking": {
+		"type": "origins:action_on_being_used",
+		"hands": ["main_hand"],
+		"bientity_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:equipped_item",
+								"equipment_slot": "offhand",
+								"item_condition": {
+									"type": "origins:empty"
+								}
+							},
+							{
+								"type": "origins:resource",
+								"resource": "davwyndragon:tacking_toggle",
+								"comparison": "==",
+								"compare_to": 1
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:actor_condition",
+					"condition": {
+						"type": "origins:sneaking",
+						"inverted": true
+					}
+				}
+			]
+		},
+		"bientity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:actor_action",
+						"action": {
+							"type": "origins:execute_command",
+							"command": "function davwyndragon:tacking_actor_tracking_equip",
+							"permission_level": 4
+						}
+					},
+					{
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:execute_command",
+							"command": "function davwyndragon:tacking_target_tracking_equip",
+							"permission_level": 4
+						}
+					}
+				]
+			}
+		}
+	},
+	"detach_tacking": {
+		"type": "origins:action_on_being_used",
+		"hands": ["main_hand"],
+		"bientity_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:actor_condition",
+					"condition": {
+						"type": "origins:and",
+						"conditions": [
+							{
+								"type": "origins:sneaking"
+							},
+							{
+								"type": "origins:equipped_item",
+								"equipment_slot": "mainhand",
+								"item_condition": {
+									"type": "origins:empty"
+								}
+							}
+						]
+						
+					}
+				},
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "davwyndragon:tacking_toggle",
+						"comparison": "==",
+						"compare_to": 1
+					}
+				}
+			]
+		},
+		"bientity_action": {
+			"type": "origins:side",
+			"side": "server",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:actor_action",
+						"action": {
+							"type": "origins:execute_command",
+							"command": "function davwyndragon:tacking_actor_tracking_unequip",
+							"permission_level": 4
+						}
+					},
+					{
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:execute_command",
+							"command": "function davwyndragon:tacking_target_tracking_unequip",
+							"permission_level": 4
+						}
+					}
+				]
+			}
+		}
+	}
+}

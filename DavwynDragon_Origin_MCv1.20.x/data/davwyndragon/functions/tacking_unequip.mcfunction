@@ -1,0 +1,9 @@
+execute as @p[tag=energizedragon_tacking_actor_unequip,limit=1] at @s unless data entity @s SelectedItem if entity @p[tag=energizedragon_tacking_target_unequip,distance=0.01..20.0,sort=nearest,limit=1] run tag @s add energizedragon_tacking_unequip_lock
+execute as @p[tag=energizedragon_tacking_actor_unequip,limit=1] at @s unless data entity @s SelectedItem if entity @p[tag=energizedragon_tacking_target_unequip,distance=0.01..20.0,sort=nearest,limit=1] as @p[tag=energizedragon_tacking_target_unequip,distance=0.01..20.0,sort=nearest,limit=1] run tag @s add energizedragon_tacking_unequip_lock
+
+execute as @p[tag=energizedragon_tacking_unequip_lock,tag=energizedragon_tacking_actor_unequip,limit=1] at @s unless data entity @s SelectedItem if entity @p[tag=energizedragon_tacking_unequip_lock,tag=energizedragon_tacking_target_unequip,distance=0.01..20.0,sort=nearest,limit=1] run item replace entity @s weapon.mainhand from entity @p[tag=energizedragon_tacking_unequip_lock,tag=energizedragon_tacking_target_unequip,distance=0.01..20.0,sort=nearest,limit=1] weapon.offhand
+execute as @p[tag=energizedragon_tacking_unequip_lock,tag=energizedragon_tacking_actor_unequip,limit=1] at @s if data entity @s SelectedItem if entity @p[tag=energizedragon_tacking_unequip_lock,tag=energizedragon_tacking_target_unequip,distance=0.01..20.0,sort=nearest,limit=1] run item replace entity @p[tag=energizedragon_tacking_unequip_lock,tag=energizedragon_tacking_target_unequip,distance=0.01..20.0,sort=nearest,limit=1] weapon.offhand with minecraft:air
+
+execute run tag @a remove energizedragon_tacking_actor_unequip
+execute run tag @a remove energizedragon_tacking_target_unequip
+execute run tag @a remove energizedragon_tacking_unequip_lock
