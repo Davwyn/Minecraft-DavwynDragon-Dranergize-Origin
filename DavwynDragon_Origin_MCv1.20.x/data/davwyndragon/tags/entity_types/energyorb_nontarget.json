@@ -121,6 +121,9 @@
     {"id": "betterend:silk_moth", "required": false},
     {"id": "betternether:firefly", "required": false},
     {"id": "betternether:flying_pig", "required": false},
-    {"id": "betternether:hydrogen_jellyfish", "required": false}
+    {"id": "betternether:hydrogen_jellyfish", "required": false},
+    {"id": "doggytalents:dog", "required": false},
+    {"id": "doggytalents:unknown_owner", "required": false},
+    {"id": "doggytalents:untamed", "required": false}
   ]
 }

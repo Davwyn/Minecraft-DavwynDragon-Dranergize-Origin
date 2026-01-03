@@ -3792,13 +3792,13 @@
 											"actions": [
 												{
 													"type": "origins:change_resource",
-													"resource": "davwyndragon:say_ah_self_resource",
+													"resource": "futaradragon:say_ah_self_resource",
 													"operation":"set",
 													"change": 2
 												},
 												{
 													"type": "origins:execute_command",
-													"command": "function davwyndragon:dragon_say_ah",
+													"command": "function futaradragon:dragon_say_ah",
 													"permission_level": 4
 												}
 											]
