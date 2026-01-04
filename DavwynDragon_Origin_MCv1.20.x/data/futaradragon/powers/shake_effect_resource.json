@@ -1,9 +1,10 @@
 {
-	"hidden": true,
-	"type": "origins:resource",
+    "hidden": true,
+    "loading_priority": -1,
+    "type": "origins:resource",
     "min": 0,
     "max": 2,
     "hud_render": {
         "should_render": false
-	}
+    }
 }
