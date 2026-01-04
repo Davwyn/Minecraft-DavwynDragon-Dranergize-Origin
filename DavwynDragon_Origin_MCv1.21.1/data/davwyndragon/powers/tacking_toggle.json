@@ -6,14 +6,14 @@
 	"start_value": 0,
     "hud_render": {
         "should_render": true,
-		"sprite_location": "futaradragon:textures/resource_bar_6.png",
+		"sprite_location": "davwyndragon:textures/resource_bar_6.png",
 		"bar_index": 5,
 		"condition":{
 			"type": "origins:all_of",
 			"conditions": [
 				{
 					"type": "origins:resource",
-					"resource": "futaradragon:tacking_toggle",
+					"resource": "davwyndragon:tacking_toggle",
 					"comparison": "==",
 					"compare_to": 1
 				}

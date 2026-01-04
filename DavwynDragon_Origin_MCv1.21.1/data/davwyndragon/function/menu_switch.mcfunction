@@ -1,1 +1,1 @@
-execute as @s run playsound davwyndragon:entity.davwyndragon.ui_menu ambient @a ~ ~ ~ 0.5 1.0
+execute as @s run playsound davwyndragon:entity.davwyndragon.ui_menu player @s ~ ~ ~ 0.5 1.0

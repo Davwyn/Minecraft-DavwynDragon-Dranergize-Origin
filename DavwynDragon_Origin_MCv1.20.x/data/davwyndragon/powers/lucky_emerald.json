@@ -23,6 +23,12 @@
 								"type": "origins:execute_command",
 								"command": "function davwyndragon:lucky_effect",
 								"permission_level": 4
+							},
+							{
+								"type": "origins:change_resource",
+								"resource": "davwyndragon:lucky_emerald_hit_effect_resource",
+								"operation":"set",
+								"change": 2
 							}
 						]
 					}
@@ -36,12 +42,6 @@
 								"type": "origins:execute_command",
 								"command": "function davwyndragon:lucky_effect_target",
 								"permission_level": 4
-							},
-							{
-								"type": "origins:change_resource",
-								"resource": "davwyndragon:lucky_emerald_hit_effect_resource",
-								"operation":"set",
-								"change": 2
 							},
 							{
 								"type": "origins:apply_effect",

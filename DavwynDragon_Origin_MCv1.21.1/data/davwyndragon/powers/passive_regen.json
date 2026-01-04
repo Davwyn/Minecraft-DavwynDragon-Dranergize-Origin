@@ -308,10 +308,6 @@
 														"type": "origins:execute_command",
 														"command": "function davwyndragon:selfheal_meditation",
 														"permission_level": 4
-													},
-													{
-														"type": "origins:exhaust",
-														"amount": 12.0
 													}
 												]
 											},
@@ -332,10 +328,6 @@
 														"type": "origins:execute_command",
 														"command": "function davwyndragon:selfheal",
 														"permission_level": 4
-													},
-													{
-														"type": "origins:exhaust",
-														"amount": 6.0
 													}
 												]
 											}

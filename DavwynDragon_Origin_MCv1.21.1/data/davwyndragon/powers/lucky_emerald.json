@@ -20,6 +20,12 @@
 						"type": "origins:execute_command",
 						"command": "function davwyndragon:lucky_effect",
 						"permission_level": 4
+					},
+					{
+						"type": "origins:change_resource",
+						"resource": "davwyndragon:lucky_emerald_hit_effect_resource",
+						"operation":"set",
+						"change": 2
 					}
 				]
 			},
@@ -32,12 +38,6 @@
 						"permission_level": 4
 					},
 					{
-						"type": "origins:change_resource",
-						"resource": "davwyndragon:lucky_emerald_hit_effect_resource",
-						"operation":"set",
-						"change": 2
-					},
-					{
 						"type": "origins:apply_effect",
 						"effects": [
 							{
@@ -45,7 +45,7 @@
 								"effect": "minecraft:hero_of_the_village",
 								"duration": 200,
 								"amplifier": 255,
-								"ambient": false,
+								"is_ambient": false,
 								"show_particles": false,
 								"show_icon": true
 							},
@@ -54,7 +54,7 @@
 								"effect": "minecraft:luck",
 								"duration": 12000,
 								"amplifier": 255,
-								"ambient": false,
+								"is_ambient": false,
 								"show_particles": false,
 								"show_icon": true
 							}

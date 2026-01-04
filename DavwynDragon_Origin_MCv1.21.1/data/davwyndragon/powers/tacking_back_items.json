@@ -4,7 +4,8 @@
 	"type": "origins:multiple",
 	"attach_tacking": {
 		"type": "origins:action_on_being_used",
-		"item_condition": {
+		"hands": ["main_hand"],
+		"bientity_condition": {
 			"type": "origins:all_of",
 			"conditions": [
 				{
@@ -26,29 +27,6 @@
 								"compare_to": 1
 							}
 						]
-					}
-				},
-				{
-					"type": "origins:actor_condition",
-					"condition": {
-						"type": "origins:sneaking",
-						"inverted": true
-					}
-				}
-			]
-		},
-		"hands": ["main_hand"],
-		"bientity_condition": {
-			"type": "origins:all_of",
-			"conditions": [
-				{
-					"type": "origins:target_condition",
-					"condition": {
-						"type": "origins:equipped_item",
-						"equipment_slot": "offhand",
-						"item_condition": {
-							"type": "origins:empty"
-						}
 					}
 				},
 				{
@@ -98,13 +76,10 @@
 								"type": "origins:sneaking"
 							},
 							{
-								"type": "origins:actor_condition",
-								"condition": {
-									"type": "origins:equipped_item",
-									"equipment_slot": "mainhand",
-									"item_condition": {
-										"type": "origins:empty"
-									}
+								"type": "origins:equipped_item",
+								"equipment_slot": "mainhand",
+								"item_condition": {
+									"type": "origins:empty"
 								}
 							}
 						]
