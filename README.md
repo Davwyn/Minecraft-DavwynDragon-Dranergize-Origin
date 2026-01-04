@@ -112,6 +112,22 @@ Davwyn's powers are plasma-based. Futara's Energy Shot is renamed to Plasma Bolt
 
 Your dragon species doesn't rawr, you 'Murrp'.
 
+# Change Log
+
+## Version 3.4.1
+
+- Merged in Futara Dragon Origin updates for 1.4 and 1.5
+
+- Worked with Futara Dragon to impliment the 'Dragon Tacking' feature, allowing players to add or remove items from you if you allow it in the extra options menu.
+
+- Reworked 'Harvest Crystal' power to be more lore-accurate and fun to use. Now either yourself or others can place sand on your back (off-hand) and every few seconds glass, tinted glass, amethyst, or quarts will pop off of your back as the sand is converted by starwisp powers. Other players can place any kind of 'sand' taged item on you for this effect.
+
+- Added compatibility with FutaraDragon race so that both FutaraDragon 'Ah' and DavwynDragon 'Murrp' attention sounds can cause the other dragon race to reply back.
+
+- Added FutaraDragon's improvement to the Deep Sleep state in the Figura model so when sleeping your pose is much more consistent across player perspectives.
+
+- Added several more mobs to the Friendly Starwisp whitelist (energyorb_nontarget.json) from multiple mods and vanilla.
+
 # License
 
 License as per the same license by FutaraDragon's Mod:

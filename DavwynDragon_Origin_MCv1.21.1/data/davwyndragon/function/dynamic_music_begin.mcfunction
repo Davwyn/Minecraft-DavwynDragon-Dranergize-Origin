@@ -1,1 +1,1 @@
-execute at @s run playsound minecraft:music.credits player @s ~ ~ ~ 0.5 1.0
+execute at @s run playsound minecraft:music.credits ambient @a ~ ~ ~ 0.5 1.0

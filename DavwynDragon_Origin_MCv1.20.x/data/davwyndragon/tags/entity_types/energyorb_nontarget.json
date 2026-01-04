@@ -124,6 +124,7 @@
     {"id": "betternether:hydrogen_jellyfish", "required": false},
     {"id": "doggytalents:dog", "required": false},
     {"id": "doggytalents:unknown_owner", "required": false},
-    {"id": "doggytalents:untamed", "required": false}
+    {"id": "doggytalents:untamed", "required": false},
+    {"id": "dtnpaletteofpaws:wolf", "required": false}
   ]
 }
