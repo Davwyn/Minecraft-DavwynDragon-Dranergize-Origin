@@ -3,6 +3,8 @@ A Davwyn the Murrper Dragon variant of FutaraDragon's Dranergize Minecraft Origi
 
 ## About
 
+![GitHub Release](https://img.shields.io/github/v/release/Davwyn/Minecraft-DavwynDragon-Dranergize-Origin?display_name=release&style=for-the-badge)
+
 Adds a unique dragon origin that works coupled with Figura mod to become a small dragon companion with powerful plasma-based abilities.
 
 Use your plasma breath, summon Starwisps, heal allies, and more with this custom race mod based on [FutaraDragon's Dranergize Dragon Species Origin Origin](https://modrinth.com/mod/dranergize-dragon-origin).
