@@ -109,9 +109,11 @@ Your dragon species doesn't rawr, you 'Murrp'.
 
 # Change Log
 
-## WIP 3.4.x
+## v3.4.2
 
 - Added Loading Priority to attempt to avoid alerts when using Davwyn Origin alongside Futara Origin so Futara Origin wins on when both import the same resource.
+
+- Updated Figura model to Futara's v2.5 base and reapplied Murrper variant changes.
 
 ## v3.4.1
 
