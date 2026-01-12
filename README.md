@@ -115,6 +115,8 @@ Your dragon species doesn't rawr, you 'Murrp'.
 
 - Updated Figura model to Futara's v2.5 base and reapplied Murrper variant changes.
 
+- Made Red, Green, and Blue Figura model variants available as separate files for each model.
+
 ## v3.4.1
 
 - Merged in Futara Dragon Origin updates for 1.4 and 1.5
