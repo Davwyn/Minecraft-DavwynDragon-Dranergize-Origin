@@ -8639,48 +8639,6 @@ function FDInitCharacterData()
 		end
 	)
 	
-	-- Code moved directly into FDParticleCallEnergyOrb for color randomization -Davwyn
-	--[[ FDCharacterData.Particle["EnergyOrb"] = FDParticleSystemInit(FDMapperObj["Effect_Glow_Point_Default"],
-		{
-			FollowMode = true,
-			TargetPosition = vec(0,0,0),
-			Scale = vec(1,1,1),
-			EnergyScale = 0.3,
-			SpeedMin = 0.01,
-			SpeedMax = 0.09
-		},
-		function(ParticleObj)
-			FDPartFullBright(ParticleObj.BasePart)
-			ParticleObj.Config.Rotation = FDRandomRotation()
-			ParticleObj.Config.Scale = ParticleObj.Config.Scale * ParticleObj.Config.EnergyScale
-			local InitPosition = FDPartExactPosition(FDMapperObj["Dragon_Main"])
-			ParticleObj.Config.Position = InitPosition * 16
-			FDAIInit(ParticleObj.Config,{
-				Speed = ParticleObj.Config.SpeedMin + (math.random() * ParticleObj.Config.SpeedMax),
-				Rethink = true,
-				TargetPosition = InitPosition,
-				PositionT = InitPosition
-			})
-		end,
-		function(ParticleObj,Render,dt)
-			if Render == true then
-				ParticleObj.Config.RotationT = FDRandomRotation()
-				ParticleObj.Config.RotationF = ParticleObj.Config.RotationT
-			else
-				if ParticleObj.Config.FollowMode == true then
-					ParticleObj.Config.AI.TargetPosition = FDPartExactPosition(FDMapperObj["Dragon_Main"])
-				else
-					ParticleObj.Config.AI.TargetPosition = ParticleObj.Config.TargetPosition
-				end
-				FDAITickUpdate(ParticleObj.Config.AI)
-				ParticleObj.Config.PositionT = ParticleObj.Config.AI.PositionT * 16
-			end
-		end,
-		function(ParticleObj)
-			
-		end
-	) ]]
-	
 	local BeamSaberClaw_Base_Builder = function(Name,PartName)
 		FDCharacterData.Particle[Name] = FDParticleSystemInit(FDMapperObj[PartName],
 			{
