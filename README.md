@@ -27,11 +27,11 @@ The custom Figura dragon model is required to be installed with this Origin, oth
 You can download the Figura model from either the 'other files' section here or from the GitHub Releases page here:
 [Minecraft-DavwynDragon-Dranergize-Origin Releases](https://github.com/Davwyn/Minecraft-DavwynDragon-Dranergize-Origin/releases)
 
-Look for and download the DavwynDragon_Figura_Model.zip from the releases.
+Look for and download the MurrperDragon_Figura_Model_(Red Blue or Green).zip from the releases.
 
 Once in game, from the pause screen press the Figura button (Blue triangle) to open the in-game Figura Menu.
 
-From the menu, click the folder icon, this will open a folder on your screen. Copy the entire DavwynDragon_Figura_Model.zip file into the folder (do not unzip!) then go back to the game.
+From the menu, click the folder icon, this will open a folder on your screen. Copy the entire MurrperDragon_Figura_Model_(Red Blue or Green).zip file into the folder (do not unzip!) then go back to the game.
 
 Click on the model from the list and wait a minute for it to load. Once it loads make sure to click the upload button so other players can see your model. Upload is at the bottom of the screen.
 
