@@ -115,7 +115,7 @@ Your dragon species doesn't rawr, you 'Murrp'.
 
 ## v3.4.3
 
-- Attempted fix to eating raw food giving far more food and saturation than intended.
+- Fixed eating raw meat to give double the food and saturation it normally would. This makes a better approximation to almost as good as cooked meat.
 
 - Fixed powers description showing a buggy power at the bottom.
 
