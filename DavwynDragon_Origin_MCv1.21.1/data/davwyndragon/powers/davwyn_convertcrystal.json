@@ -1,4 +1,5 @@
 {
+	"hidden": true,
 	"name": "Convert sand to crystal",
 	"type": "origins:action_over_time",
 	"entity_action": {

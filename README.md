@@ -48,7 +48,7 @@ Davwyn's Starwisps are less agressive than Futara's Energy Orbs. They do not att
 
 **Carnivore**
 
-You can only eat meat be it cooked or raw. Raw meat is almost as good as cooked in most cases.
+You can only eat meat be it cooked or raw. Raw meat is worth twice it's huger and saturdation to be almost as good as cooked food.
 
 **Digging Claws**
 
@@ -103,11 +103,21 @@ Davwyn's powers are plasma-based. Futara's Fire Blast is renamed to Plasma Blast
 
 Davwyn's powers are plasma-based. Futara's Energy Shot is renamed to Plasma Bolt.
 
+**Base Health Increaseable**
+
+Your base health is 4 just like Futara Dragon race, but your Health can be increased using mod items.
+
 **Murrper**
 
 Your dragon species doesn't rawr, you 'Murrp'.
 
 # Change Log
+
+## v3.4.3
+
+- Attempted fix to eating raw food giving far more food and saturation than intended.
+
+- Fixed powers description showing a buggy power at the bottom.
 
 ## v3.4.2
 

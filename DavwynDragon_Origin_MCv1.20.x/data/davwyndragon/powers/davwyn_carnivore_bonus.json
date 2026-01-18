@@ -10,13 +10,13 @@
         }
     },
     "food_modifier": {
-        "operation": "addition",
-        "value": 4,
+        "operation": "multiply_total_multiplicative",
+        "value": 1,
         "name": "Increased food points"
     },
     "saturation_modifier": {
-        "operation": "addition",
-        "value": 2,
+        "operation": "multiply_total_multiplicative",
+        "value": 1,
         "name": "Increased saturation points"
     }
 }
