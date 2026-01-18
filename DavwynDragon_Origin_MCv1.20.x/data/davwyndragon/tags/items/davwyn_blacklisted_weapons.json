@@ -16,7 +16,6 @@
     "minecraft:trident",
     {"id": "#minecraft:swords", "required": false},
     {"id": "#minecraft:axes", "required": false},
-    {"id": "#minecraft:swords", "required": false},
     {"id": "quark:flamerang", "required": false},
     {"id": "quark:pickarang", "required": false},
     {"id": "alloyed:steel_axe", "required": false},
